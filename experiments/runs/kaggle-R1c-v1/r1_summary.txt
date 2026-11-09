@@ -1,0 +1,39 @@
+case            A4 clr/act/tok/end            A5 clr/act/tok/end            
+ar25_p3_L7_F    n/6/53789/wall_budget         Y/34/22855/cleared            
+bp35_p1_L2_F    n/46/59451/wall_budget        n/54/54070/wall_budget        
+bp35_p3_L2_F    n/44/54552/wall_budget        n/36/56278/wall_budget        
+cn04_p0_L6_F    n/8/52745/wall_budget         n/11/54905/wall_budget        
+g50t_p1_L1_F    Y/49/31225/cleared            Y/43/56797/cleared            
+g50t_p2_L4_F    n/50/54566/wall_budget        n/80/42526/action_budget      
+ka59_p0_L6_F    n/80/28408/action_budget      n/80/28221/action_budget      
+ka59_p1_L6_F    n/50/52522/wall_budget        n/80/22831/action_budget      
+ka59_p3_L6_F    n/48/56138/wall_budget        n/80/23999/action_budget      
+lf52_p1_L2_F    Y/62/31059/cleared            n/64/52811/wall_budget        
+lf52_p2_L4_F    n/74/50084/wall_budget        n/80/29251/action_budget      
+ls20_p1_L6_F    n/80/36080/action_budget      n/80/19509/action_budget      
+m0r0_p2_L6_F    n/17/48071/wall_budget        n/32/50947/wall_budget        
+m0r0_p3_L6_F    n/53/47761/wall_budget        n/13/49794/wall_budget        
+r11l_p2_L6_F    n/1/57938/wall_budget         n/26/55764/wall_budget        
+re86_p0_L7_F    n/35/51179/wall_budget        n/80/32752/action_budget      
+re86_p1_L6_F    n/61/51471/wall_budget        n/80/42455/action_budget      
+re86_p2_L7_F    n/56/54875/wall_budget        n/55/53695/wall_budget        
+re86_p3_L6_F    Y/53/46405/cleared            Y/54/39621/cleared            
+s5i5_p0_L8_F    n/15/59267/wall_budget        n/31/57121/wall_budget        
+s5i5_p2_L7_F    n/9/56331/wall_budget         n/27/58640/wall_budget        
+sc25_p0_L6_F    n/80/31485/action_budget      n/80/46738/action_budget      
+sk48_p0_L3_F    n/80/30126/action_budget      n/15/57873/wall_budget        
+sk48_p2_L1_F    n/72/57983/wall_budget        n/80/56844/action_budget      
+sp80_p1_L6_F    n/14/53960/wall_budget        n/27/55215/wall_budget        
+su15_p1_L7_F    Y/23/23926/cleared            n/50/53539/wall_budget        
+su15_p2_L7_F    n/38/57010/wall_budget        n/18/57568/wall_budget        
+tn36_p0_L6_F    Y/39/24705/cleared            Y/44/28457/cleared            
+tr87_p0_L6_F    n/68/52491/wall_budget        n/74/48994/wall_budget        
+tr87_p1_L6_F    Y/78/18553/cleared            n/80/22535/action_budget      
+tu93_p0_L9_F    n/5/56396/wall_budget         n/46/52366/wall_budget        
+tu93_p2_L8_F    Y/41/40690/cleared            Y/28/48893/cleared            
+tu93_p3_L9_F    n/37/54420/wall_budget        Y/65/45155/cleared            
+wa30_p0_L5_F    n/77/46829/wall_budget        n/80/35628/action_budget      
+wa30_p3_L5_F    n/80/61604/action_budget      n/80/68964/action_budget      
+
+A4: cleared 7/35; median actions to clear 49; timeouts 16; probes 115; errors 0
+A5: cleared 6/35; median actions to clear 44; timeouts 23; probes 119; errors 0

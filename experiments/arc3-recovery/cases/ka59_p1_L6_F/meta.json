@@ -1,0 +1,30 @@
+{
+ "case_id": "ka59_p1_L6_F",
+ "game_id": "ka59-38d34dbb",
+ "pass": 1,
+ "target_level": 6,
+ "a_start": 201,
+ "n_spent": 134,
+ "cut_nominal": 268,
+ "cut": 262,
+ "prefix_len": 262,
+ "actions_on_level_in_prefix": 61,
+ "restore_analysis_step": 52,
+ "restore_history_messages": 70,
+ "restore_images_omitted": 34,
+ "restore_bytes": 249545,
+ "prelude_names": [
+  "crop",
+  "bar",
+  "passable",
+  "ok",
+  "okf",
+  "runs_of",
+  "pos",
+  "runs"
+ ],
+ "prelude_bytes": 1613,
+ "level_at_cut": 6,
+ "board_hash_at_cut": "2ac7cb5bebe860c6",
+ "pass_total_actions": 335
+}

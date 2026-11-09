@@ -1,0 +1,136 @@
+{
+ "schema": "arc2_c2_check.v1",
+ "utc": "2026-10-29T08:52:27Z",
+ "archive": "experiments/runs/kaggle-A2-q27-c2a-v1",
+ "kernel": "c2a",
+ "rule": "experiments/arc2-bank/C2_RULE.md section 4 (frozen 24ef327)",
+ "task_set": {
+  "n_tasks": 50,
+  "n_at_start_2": 0,
+  "n_sealed": 19,
+  "source": "kaggle/arc2/bank/c2a/PROVENANCE.json"
+ },
+ "bank_config": "experiments/runs/kaggle-A2-q27-bank-v1/q27d/_config.json",
+ "items": [
+  {
+   "item": 2,
+   "name": "complete",
+   "pass": false,
+   "reason": "1 problem(s): _run.json invalid: ['13e47133', '195c6913']",
+   "problems": [
+    "_run.json invalid: ['13e47133', '195c6913']"
+   ],
+   "details": {
+    "n_tasks": 50,
+    "n_records": 50,
+    "n_transcripts": 100,
+    "invalid": {
+     "13e47133": [
+      "output 0: attempt_2 is not a valid grid",
+      "sample 1: grids invalid"
+     ],
+     "195c6913": [
+      "output 0: attempt_2 is not a valid grid",
+      "sample 1: grids invalid"
+     ]
+    },
+    "report_only": [
+     "13e47133",
+     "195c6913"
+    ]
+   }
+  },
+  {
+   "item": 3,
+   "name": "schema",
+   "pass": true,
+   "reason": "load_q27 holds 83 samples; indices {start, start+1} on 50 tasks (0 at 2, 50 at 0); no sealed id in q27d/; disjoint from the other kernel's 51 tasks",
+   "problems": [],
+   "details": {
+    "n_loaded_samples": 83,
+    "n_at_start_2": 0,
+    "n_at_start_0": 50,
+    "bank_ids_known": true,
+    "other_kernel_checked": true
+   }
+  },
+  {
+   "item": 4,
+   "name": "caps",
+   "pass": true,
+   "reason": "192 requests (92 rescues) at the bank's caps and seeds; no deadline-ended or killed sample; deadline_reached False, hard_stop False",
+   "problems": [],
+   "details": {
+    "n_requests": 192,
+    "n_rescues": 92,
+    "deadline_tasks": [],
+    "killed_tasks": []
+   }
+  },
+  {
+   "item": 5,
+   "name": "settings",
+   "pass": true,
+   "reason": "_config.json equals the bank's on thinking_token_budget, max_tokens, rescue_tokens, template_kwargs, temperature, top_p, top_k, max_model_len, server_ladder, concurrency, max_num_seqs, model_glob, overlay, wheelhouse_dir; run settings and wheelhouse pins checked",
+   "problems": [],
+   "details": {
+    "config_keys": [
+     "thinking_token_budget",
+     "max_tokens",
+     "rescue_tokens",
+     "template_kwargs",
+     "temperature",
+     "top_p",
+     "top_k",
+     "max_model_len",
+     "server_ladder",
+     "concurrency",
+     "max_num_seqs",
+     "model_glob",
+     "overlay",
+     "wheelhouse_dir"
+    ],
+    "environment_compared": true
+   }
+  },
+  {
+   "item": 7,
+   "name": "sealed",
+   "pass": true,
+   "reason": "19 sealed records under q27d_sealed/ match _sealed.json; complete, indices 0 and 1, transcripts present; no solutions copy; the loader refuses the block",
+   "problems": [],
+   "details": {
+    "expected": [
+     "21897d95",
+     "2d0172a1",
+     "3a25b0d8",
+     "3e6067c3",
+     "4c7dc4dd",
+     "64efde09",
+     "7b80bb43",
+     "7c66cb00",
+     "88bcf3b4",
+     "8b7bacbf",
+     "9aaea919",
+     "a251c730",
+     "a25697e4",
+     "a47bf94d",
+     "b10624e5",
+     "b99e7126",
+     "c4d067a0",
+     "da515329",
+     "edb79dae"
+    ],
+    "present": true,
+    "n_manifest_files": 59,
+    "n_files": 19
+   }
+  }
+ ],
+ "pass": false,
+ "report_only_tasks": [
+  "13e47133",
+  "195c6913"
+ ],
+ "floor_scope": "2026-10-29 14:18 IST, C2 section 4 -- only the tasks a failed item names are report only (section 4's \"affected tasks\"), not the failed kernel's whole list (section 7); the gate reads on the rest"
+}

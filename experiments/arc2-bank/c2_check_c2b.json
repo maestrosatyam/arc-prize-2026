@@ -1,0 +1,109 @@
+{
+ "schema": "arc2_c2_check.v1",
+ "utc": "2026-10-29T08:52:28Z",
+ "archive": "experiments/runs/kaggle-A2-q27-c2b-v1",
+ "kernel": "c2b",
+ "rule": "experiments/arc2-bank/C2_RULE.md section 4 (frozen 24ef327)",
+ "task_set": {
+  "n_tasks": 51,
+  "n_at_start_2": 30,
+  "n_sealed": 0,
+  "source": "kaggle/arc2/bank/c2b/PROVENANCE.json"
+ },
+ "bank_config": "experiments/runs/kaggle-A2-q27-bank-v1/q27d/_config.json",
+ "items": [
+  {
+   "item": 2,
+   "name": "complete",
+   "pass": false,
+   "reason": "1 problem(s): _run.json invalid: ['65b59efc']",
+   "problems": [
+    "_run.json invalid: ['65b59efc']"
+   ],
+   "details": {
+    "n_tasks": 51,
+    "n_records": 51,
+    "n_transcripts": 102,
+    "invalid": {
+     "65b59efc": [
+      "output 0: attempt_2 is not a valid grid",
+      "output 1: attempt_2 is not a valid grid",
+      "sample 1: grids invalid"
+     ]
+    },
+    "report_only": [
+     "65b59efc"
+    ]
+   }
+  },
+  {
+   "item": 3,
+   "name": "schema",
+   "pass": true,
+   "reason": "load_q27 holds 90 samples; indices {start, start+1} on 51 tasks (30 at 2, 21 at 0); no sealed id in q27d/; disjoint from the other kernel's 50 tasks",
+   "problems": [],
+   "details": {
+    "n_loaded_samples": 90,
+    "n_at_start_2": 30,
+    "n_at_start_0": 21,
+    "bank_ids_known": true,
+    "other_kernel_checked": true
+   }
+  },
+  {
+   "item": 4,
+   "name": "caps",
+   "pass": true,
+   "reason": "186 requests (84 rescues) at the bank's caps and seeds; no deadline-ended or killed sample; deadline_reached False, hard_stop False",
+   "problems": [],
+   "details": {
+    "n_requests": 186,
+    "n_rescues": 84,
+    "deadline_tasks": [],
+    "killed_tasks": []
+   }
+  },
+  {
+   "item": 5,
+   "name": "settings",
+   "pass": true,
+   "reason": "_config.json equals the bank's on thinking_token_budget, max_tokens, rescue_tokens, template_kwargs, temperature, top_p, top_k, max_model_len, server_ladder, concurrency, max_num_seqs, model_glob, overlay, wheelhouse_dir; run settings and wheelhouse pins checked",
+   "problems": [],
+   "details": {
+    "config_keys": [
+     "thinking_token_budget",
+     "max_tokens",
+     "rescue_tokens",
+     "template_kwargs",
+     "temperature",
+     "top_p",
+     "top_k",
+     "max_model_len",
+     "server_ladder",
+     "concurrency",
+     "max_num_seqs",
+     "model_glob",
+     "overlay",
+     "wheelhouse_dir"
+    ],
+    "environment_compared": true
+   }
+  },
+  {
+   "item": 7,
+   "name": "sealed",
+   "pass": true,
+   "reason": "no sealed block expected and none present",
+   "problems": [],
+   "details": {
+    "expected": [],
+    "present": false
+   }
+  }
+ ],
+ "pass": false,
+ "report_only_tasks": [
+  "65b59efc"
+ ],
+ "floor_scope": "2026-10-29 14:18 IST, C2 section 4 -- only the tasks a failed item names are report only (section 4's \"affected tasks\"), not the failed kernel's whole list (section 7); the gate reads on the rest"
+}

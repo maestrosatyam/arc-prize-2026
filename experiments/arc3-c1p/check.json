@@ -1,0 +1,485 @@
+{
+ "levels": 146,
+ "excluded": 11,
+ "c1_levels": 157,
+ "texts_jsonl_sha256": "f64041e751db038e0b0a183f02c0a74081fed305075f6f583234ee53d0a3a6b0",
+ "texts_sha256": "bdceef19c7d1c121e67be34875ddba617123b02ba3b5c647be7fc2033b68eeb2",
+ "fallback_fewest_shared_words": 27,
+ "clean": 119,
+ "fallback_levels": {
+  "ft09_L4": [
+   "cycle"
+  ],
+  "g50t_L5": [
+   "ghost"
+  ],
+  "lp85_L2": [
+   "budget"
+  ],
+  "lp85_L3": [
+   "budget"
+  ],
+  "lp85_L4": [
+   "budget",
+   "button"
+  ],
+  "lp85_L5": [
+   "budget"
+  ],
+  "lp85_L6": [
+   "budget",
+   "button"
+  ],
+  "lp85_L7": [
+   "budget",
+   "button"
+  ],
+  "lp85_L8": [
+   "budget",
+   "button"
+  ],
+  "s5i5_L2": [
+   "arms"
+  ],
+  "s5i5_L3": [
+   "arms"
+  ],
+  "s5i5_L4": [
+   "arms"
+  ],
+  "s5i5_L5": [
+   "arms"
+  ],
+  "s5i5_L8": [
+   "arms",
+   "slider",
+   "whose"
+  ],
+  "su15_L3": [
+   "pulled"
+  ],
+  "su15_L8": [
+   "pulled"
+  ],
+  "tr87_L1": [
+   "rotation",
+   "symbol"
+  ],
+  "tr87_L6": [
+   "symbol",
+   "symbols"
+  ],
+  "tu93_L5": [
+   "sentry"
+  ],
+  "vc33_L2": [
+   "budget"
+  ],
+  "vc33_L3": [
+   "ball",
+   "budget",
+   "column",
+   "walls"
+  ],
+  "vc33_L4": [
+   "budget"
+  ],
+  "vc33_L5": [
+   "budget"
+  ],
+  "vc33_L6": [
+   "budget"
+  ],
+  "vc33_L7": [
+   "ball",
+   "budget",
+   "ceiling",
+   "column",
+   "height",
+   "walls"
+  ],
+  "wa30_L1": [
+   "block"
+  ],
+  "wa30_L3": [
+   "block"
+  ]
+ },
+ "excluded_levels": {
+  "dc22_L2": 48,
+  "ft09_L3": 45,
+  "ft09_L6": 43,
+  "lp85_L1": 40,
+  "tn36_L1": 54,
+  "tr87_L2": 75,
+  "tr87_L3": 86,
+  "tr87_L4": 76,
+  "tu93_L1": 50,
+  "wa30_L7": 64,
+  "wa30_L8": 61
+ },
+ "length_ratio": {
+  "min": 0.805,
+  "max": 1.196
+ },
+ "inputs": {
+  "c1 levels.jsonl": "1c8a0dff01f4a5ec07068f2ca5640ee60e34fa672734095911b498c51a21d6ab",
+  "rules.json": "0bce2aaf6408285b337fcd35b5ffe2fbe1b887e36379d103d77b23dcaff89784",
+  "r1f r1_cases.tar.gz": "e50cdc86c06807f137bcf5b52013532cd0c8872180fc7baae5fa8da24383b303",
+  "r1 builder (select_control source)": {
+   "path": "kaggle/arc3/r1/build_r1_notebook.py",
+   "present": true,
+   "sha256": "f837829a7bb3ede3db5552c8e2b882dcd162e7a2e578c32ae7be80cadfcb876f"
+  },
+  "c1_oracle.py": "ba01140e03aff3ca04572bb8fb094307ede280762dab2037babc23cb45dc5959",
+  "c1p_control.py": "973f07c5f7157a5323ef3105ef511aea302c174ea99a7d15e3cd3408d5f0ebf8"
+ },
+ "r1f_reproduction": {
+  "cases": 35,
+  "message_bytes_equal": 35,
+  "entry_equal": 35,
+  "cases_detail": [
+   {
+    "case_id": "ar25_p3_L7_F",
+    "level": "ar25_L7",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "bp35_p1_L2_F",
+    "level": "bp35_L2",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "bp35_p3_L2_F",
+    "level": "bp35_L2",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "cn04_p0_L6_F",
+    "level": "cn04_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "g50t_p1_L1_F",
+    "level": "g50t_L1",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "g50t_p2_L4_F",
+    "level": "g50t_L4",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "ka59_p0_L6_F",
+    "level": "ka59_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "ka59_p1_L6_F",
+    "level": "ka59_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "ka59_p3_L6_F",
+    "level": "ka59_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "lf52_p1_L2_F",
+    "level": "lf52_L2",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "lf52_p2_L4_F",
+    "level": "lf52_L4",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "ls20_p1_L6_F",
+    "level": "ls20_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "m0r0_p2_L6_F",
+    "level": "m0r0_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "m0r0_p3_L6_F",
+    "level": "m0r0_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "r11l_p2_L6_F",
+    "level": "r11l_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "re86_p0_L7_F",
+    "level": "re86_L7",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "re86_p1_L6_F",
+    "level": "re86_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "re86_p2_L7_F",
+    "level": "re86_L7",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "re86_p3_L6_F",
+    "level": "re86_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "s5i5_p0_L8_F",
+    "level": "s5i5_L8",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": true
+   },
+   {
+    "case_id": "s5i5_p2_L7_F",
+    "level": "s5i5_L7",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "sc25_p0_L6_F",
+    "level": "sc25_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "sk48_p0_L3_F",
+    "level": "sk48_L3",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "sk48_p2_L1_F",
+    "level": "sk48_L1",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "sp80_p1_L6_F",
+    "level": "sp80_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "su15_p1_L7_F",
+    "level": "su15_L7",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "su15_p2_L7_F",
+    "level": "su15_L7",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "tn36_p0_L6_F",
+    "level": "tn36_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "tr87_p0_L6_F",
+    "level": "tr87_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": true
+   },
+   {
+    "case_id": "tr87_p1_L6_F",
+    "level": "tr87_L6",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": true
+   },
+   {
+    "case_id": "tu93_p0_L9_F",
+    "level": "tu93_L9",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "tu93_p2_L8_F",
+    "level": "tu93_L8",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "tu93_p3_L9_F",
+    "level": "tu93_L9",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "wa30_p0_L5_F",
+    "level": "wa30_L5",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   },
+   {
+    "case_id": "wa30_p3_L5_F",
+    "level": "wa30_L5",
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "fallback": false
+   }
+  ]
+ },
+ "r1_levels_in_run": [
+  "ar25_L7",
+  "bp35_L2",
+  "cn04_L6",
+  "g50t_L1",
+  "g50t_L4",
+  "ka59_L6",
+  "lf52_L2",
+  "lf52_L4",
+  "ls20_L6",
+  "m0r0_L6",
+  "r11l_L6",
+  "re86_L6",
+  "re86_L7",
+  "s5i5_L7",
+  "s5i5_L8",
+  "sc25_L6",
+  "sk48_L1",
+  "sk48_L3",
+  "sp80_L6",
+  "su15_L7",
+  "tn36_L6",
+  "tr87_L6",
+  "tu93_L8",
+  "tu93_L9",
+  "wa30_L5"
+ ],
+ "kernels": {
+  "k1": {
+   "levels": 49,
+   "games": [
+    "cd82",
+    "dc22",
+    "lf52",
+    "m0r0",
+    "re86",
+    "sp80",
+    "su15",
+    "wa30"
+   ]
+  },
+  "k2": {
+   "levels": 48,
+   "games": [
+    "ft09",
+    "g50t",
+    "ka59",
+    "r11l",
+    "s5i5",
+    "sk48",
+    "tn36",
+    "tu93"
+   ]
+  },
+  "k3": {
+   "levels": 49,
+   "games": [
+    "ar25",
+    "bp35",
+    "cn04",
+    "lp85",
+    "ls20",
+    "sb26",
+    "sc25",
+    "tr87",
+    "vc33"
+   ]
+  }
+ },
+ "by_game": {
+  "ar25": 8,
+  "bp35": 2,
+  "cd82": 6,
+  "cn04": 2,
+  "dc22": 5,
+  "ft09": 4,
+  "g50t": 7,
+  "ka59": 7,
+  "lf52": 3,
+  "lp85": 7,
+  "ls20": 6,
+  "m0r0": 6,
+  "r11l": 6,
+  "re86": 8,
+  "s5i5": 8,
+  "sb26": 8,
+  "sc25": 6,
+  "sk48": 3,
+  "sp80": 6,
+  "su15": 9,
+  "tn36": 5,
+  "tr87": 3,
+  "tu93": 8,
+  "vc33": 7,
+  "wa30": 6
+ }
+}

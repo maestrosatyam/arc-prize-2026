@@ -1,0 +1,185 @@
+{
+ "schema": "arc3_c1s_probe_cost.v1",
+ "rule": "reports/research/ARC3_C1S_SELF_INSIGHT_RULE_2026-10-29.md (99ea2c9)",
+ "levels": 157,
+ "kernels": {
+  "k1": 52,
+  "k2": 52,
+  "k3": 53
+ },
+ "probe_cost": {
+  "median": 14,
+  "min": 6,
+  "max": 26,
+  "sum": 2294,
+  "zero": 0,
+  "over_80": 0
+ },
+ "probes": {
+  "median": 8,
+  "max": 14
+ },
+ "changed_share": 0.66,
+ "by_game": {
+  "ar25": {
+   "levels": 8,
+   "median": 19.0,
+   "min": 17,
+   "max": 20
+  },
+  "bp35": {
+   "levels": 2,
+   "median": 22.0,
+   "min": 22,
+   "max": 22
+  },
+  "cd82": {
+   "levels": 6,
+   "median": 26.0,
+   "min": 26,
+   "max": 26
+  },
+  "cn04": {
+   "levels": 2,
+   "median": 24.0,
+   "min": 23,
+   "max": 25
+  },
+  "dc22": {
+   "levels": 6,
+   "median": 24.0,
+   "min": 24,
+   "max": 24
+  },
+  "ft09": {
+   "levels": 6,
+   "median": 15.0,
+   "min": 8,
+   "max": 15
+  },
+  "g50t": {
+   "levels": 7,
+   "median": 7,
+   "min": 6,
+   "max": 8
+  },
+  "ka59": {
+   "levels": 7,
+   "median": 24,
+   "min": 16,
+   "max": 24
+  },
+  "lf52": {
+   "levels": 3,
+   "median": 26,
+   "min": 26,
+   "max": 26
+  },
+  "lp85": {
+   "levels": 8,
+   "median": 12.5,
+   "min": 10,
+   "max": 14
+  },
+  "ls20": {
+   "levels": 6,
+   "median": 8.0,
+   "min": 8,
+   "max": 8
+  },
+  "m0r0": {
+   "levels": 6,
+   "median": 17.0,
+   "min": 13,
+   "max": 19
+  },
+  "r11l": {
+   "levels": 6,
+   "median": 16.0,
+   "min": 16,
+   "max": 16
+  },
+  "re86": {
+   "levels": 8,
+   "median": 10.0,
+   "min": 10,
+   "max": 10
+  },
+  "s5i5": {
+   "levels": 8,
+   "median": 8.0,
+   "min": 8,
+   "max": 16
+  },
+  "sb26": {
+   "levels": 8,
+   "median": 11.0,
+   "min": 11,
+   "max": 11
+  },
+  "sc25": {
+   "levels": 6,
+   "median": 19.5,
+   "min": 12,
+   "max": 21
+  },
+  "sk48": {
+   "levels": 3,
+   "median": 16,
+   "min": 16,
+   "max": 16
+  },
+  "sp80": {
+   "levels": 6,
+   "median": 26.0,
+   "min": 24,
+   "max": 26
+  },
+  "su15": {
+   "levels": 9,
+   "median": 12,
+   "min": 10,
+   "max": 14
+  },
+  "tn36": {
+   "levels": 6,
+   "median": 16.0,
+   "min": 9,
+   "max": 16
+  },
+  "tr87": {
+   "levels": 6,
+   "median": 8.0,
+   "min": 8,
+   "max": 8
+  },
+  "tu93": {
+   "levels": 9,
+   "median": 8,
+   "min": 8,
+   "max": 8
+  },
+  "vc33": {
+   "levels": 7,
+   "median": 16,
+   "min": 8,
+   "max": 16
+  },
+  "wa30": {
+   "levels": 8,
+   "median": 10.0,
+   "min": 9,
+   "max": 10
+  }
+ },
+ "li1_record_equal": 156,
+ "li1_record_none": [
+  "tn36_L6"
+ ],
+ "inputs": {
+  "experiments/arc3-c1/levels.jsonl": "1c8a0dff01f4a5ec07068f2ca5640ee60e34fa672734095911b498c51a21d6ab",
+  "scripts/arc3_li1_records.py": "abaf0d689b63e391fc6dc45a873b3263c2a37f53185be90321bf0501037a706f"
+ },
+ "list_sha256": "ec2a588e830fb7cb2d0fdfc3fd155a752f53a82067dd80dedcb35b6d31022939",
+ "probe_cost_jsonl_sha256": "eaa924ab47e21966cb642cfc9e3dc5b8d63cb7d57832cf7fe3d3988d3879b85d"
+}

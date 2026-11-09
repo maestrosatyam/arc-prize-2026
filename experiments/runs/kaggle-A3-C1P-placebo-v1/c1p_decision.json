@@ -1,0 +1,594 @@
+{
+ "rule": "C1P, frozen (2026-10-29 12:56 IST; ARC3_C1P_PLACEBO_RULE_2026-10-29.md at f4c1658, revision 1 at 1b8666f): validity (twin passed; >= 95% of level starts replay to their hash, failures excluded here and from C1's arms; >= 95% of case-arms end by clear / action budget / wall budget; placebo texts equal the committed hash and the 35 R1 cases match R1f's A7c; cells byte-identical to C1's except the arm, its messages and the level list); C = A7F - P over N levels (C1's A7F), exact McNemar: C >= 10 and p <= 0.01 content supported; C <= 3 content not supported; otherwise report",
+ "archive": "experiments/runs/kaggle-A3-C1P-placebo-v1",
+ "levels_listed": 146,
+ "kernels_present": [
+  "k1",
+  "k2",
+  "k3"
+ ],
+ "twins": {
+  "k1": true,
+  "k2": true,
+  "k3": true
+ },
+ "duplicate_rows": {},
+ "other_arm_rows": [],
+ "extra_rows": [],
+ "static": {
+  "texts": {
+   "ok": true,
+   "texts_sha256": "bdceef19c7d1c121e67be34875ddba617123b02ba3b5c647be7fc2033b68eeb2",
+   "r1f_message_bytes_equal": 35,
+   "r1f_cases": 35
+  },
+  "cells": {
+   "ok": true,
+   "kernels": {
+    "k1": true,
+    "k2": true,
+    "k3": true
+   }
+  }
+ },
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "replay_95": true,
+   "ended_95": true,
+   "texts_equal_committed": true,
+   "cells_identical_to_c1": true
+  },
+  "replay_failures": [],
+  "missing": [],
+  "ended": 146,
+  "ended_needed": 139,
+  "replay_needed": 139,
+  "text_mismatch": {},
+  "kernel_mismatch": [],
+  "not_in_c1_level_map": []
+ },
+ "reading": {
+  "N": 146,
+  "P": 91,
+  "A7F": 107,
+  "A0F": 81,
+  "C": 16,
+  "A7F_only": 26,
+  "A7cF_only": 10,
+  "p": 0.011330984183587134,
+  "band": "report"
+ },
+ "decision": "report",
+ "message_effect": {
+  "P_minus_A0F": 10,
+  "A7cF_only": 22,
+  "A0F_only": 12,
+  "p": 0.12144948495551944,
+  "share_of_c1_gain": 0.385
+ },
+ "c1_on_these_levels": {
+  "N": 146,
+  "A7F": 107,
+  "A0F": 81,
+  "diff": 26,
+  "A7F_only": 34,
+  "A0F_only": 8,
+  "p": 6.877111491121468e-05
+ },
+ "speed": {
+  "A0F": {
+   "wall_budget_endings": 65,
+   "tokens_per_action": 2078,
+   "actions_per_case_minute": 1.99,
+   "within_80_900": 51
+  },
+  "A7cF": {
+   "wall_budget_endings": 52,
+   "tokens_per_action": 1996,
+   "actions_per_case_minute": 2.06,
+   "within_80_900": 52
+  },
+  "A7F": {
+   "wall_budget_endings": 38,
+   "tokens_per_action": 1615,
+   "actions_per_case_minute": 2.84,
+   "within_80_900": 74
+  }
+ },
+ "by_band": {
+  "1-10": {
+   "levels": 22,
+   "A0F": 19,
+   "A7cF": 19,
+   "A7F": 20
+  },
+  "11-20": {
+   "levels": 49,
+   "A0F": 34,
+   "A7cF": 38,
+   "A7F": 41
+  },
+  "21-40": {
+   "levels": 35,
+   "A0F": 18,
+   "A7cF": 23,
+   "A7F": 28
+  },
+  "41-80": {
+   "levels": 34,
+   "A0F": 10,
+   "A7cF": 11,
+   "A7F": 18
+  },
+  "81+": {
+   "levels": 6,
+   "A0F": 0,
+   "A7cF": 0,
+   "A7F": 0
+  }
+ },
+ "by_game": {
+  "ar25": {
+   "levels": 8,
+   "A0F": 5,
+   "A7cF": 7,
+   "A7F": 7
+  },
+  "bp35": {
+   "levels": 2,
+   "A0F": 1,
+   "A7cF": 1,
+   "A7F": 1
+  },
+  "cd82": {
+   "levels": 6,
+   "A0F": 3,
+   "A7cF": 4,
+   "A7F": 4
+  },
+  "cn04": {
+   "levels": 2,
+   "A0F": 1,
+   "A7cF": 1,
+   "A7F": 2
+  },
+  "dc22": {
+   "levels": 5,
+   "A0F": 2,
+   "A7cF": 2,
+   "A7F": 2
+  },
+  "ft09": {
+   "levels": 4,
+   "A0F": 4,
+   "A7cF": 4,
+   "A7F": 3
+  },
+  "g50t": {
+   "levels": 7,
+   "A0F": 1,
+   "A7cF": 2,
+   "A7F": 3
+  },
+  "ka59": {
+   "levels": 7,
+   "A0F": 6,
+   "A7cF": 4,
+   "A7F": 5
+  },
+  "lf52": {
+   "levels": 3,
+   "A0F": 1,
+   "A7cF": 2,
+   "A7F": 2
+  },
+  "lp85": {
+   "levels": 7,
+   "A0F": 7,
+   "A7cF": 7,
+   "A7F": 7
+  },
+  "ls20": {
+   "levels": 6,
+   "A0F": 1,
+   "A7cF": 1,
+   "A7F": 2
+  },
+  "m0r0": {
+   "levels": 6,
+   "A0F": 4,
+   "A7cF": 2,
+   "A7F": 4
+  },
+  "r11l": {
+   "levels": 6,
+   "A0F": 2,
+   "A7cF": 3,
+   "A7F": 4
+  },
+  "re86": {
+   "levels": 8,
+   "A0F": 4,
+   "A7cF": 5,
+   "A7F": 6
+  },
+  "s5i5": {
+   "levels": 8,
+   "A0F": 5,
+   "A7cF": 5,
+   "A7F": 7
+  },
+  "sb26": {
+   "levels": 8,
+   "A0F": 7,
+   "A7cF": 7,
+   "A7F": 8
+  },
+  "sc25": {
+   "levels": 6,
+   "A0F": 4,
+   "A7cF": 5,
+   "A7F": 6
+  },
+  "sk48": {
+   "levels": 3,
+   "A0F": 2,
+   "A7cF": 1,
+   "A7F": 0
+  },
+  "sp80": {
+   "levels": 6,
+   "A0F": 2,
+   "A7cF": 4,
+   "A7F": 5
+  },
+  "su15": {
+   "levels": 9,
+   "A0F": 5,
+   "A7cF": 5,
+   "A7F": 6
+  },
+  "tn36": {
+   "levels": 5,
+   "A0F": 1,
+   "A7cF": 1,
+   "A7F": 3
+  },
+  "tr87": {
+   "levels": 3,
+   "A0F": 2,
+   "A7cF": 3,
+   "A7F": 3
+  },
+  "tu93": {
+   "levels": 8,
+   "A0F": 4,
+   "A7cF": 7,
+   "A7F": 7
+  },
+  "vc33": {
+   "levels": 7,
+   "A0F": 5,
+   "A7cF": 5,
+   "A7F": 7
+  },
+  "wa30": {
+   "levels": 6,
+   "A0F": 2,
+   "A7cF": 3,
+   "A7F": 3
+  }
+ },
+ "measured_value": {
+  "per_game": {
+   "ar25": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "A0F_points": 47.92,
+    "A7cF_points": 92.64,
+    "A7F_points": 84.35
+   },
+   "bp35": {
+    "levels_in_run": 2,
+    "n_levels": 9,
+    "A0F_points": 2.56,
+    "A7cF_points": 2.56,
+    "A7F_points": 1.57
+   },
+   "cd82": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "A0F_points": 40.71,
+    "A7cF_points": 46.43,
+    "A7F_points": 42.07
+   },
+   "cn04": {
+    "levels_in_run": 2,
+    "n_levels": 6,
+    "A0F_points": 5.48,
+    "A7cF_points": 5.48,
+    "A7F_points": 38.33
+   },
+   "dc22": {
+    "levels_in_run": 5,
+    "n_levels": 6,
+    "A0F_points": 25.74,
+    "A7cF_points": 27.38,
+    "A7F_points": 18.33
+   },
+   "ft09": {
+    "levels_in_run": 4,
+    "n_levels": 6,
+    "A0F_points": 57.14,
+    "A7cF_points": 64.29,
+    "A7F_points": 29.57
+   },
+   "g50t": {
+    "levels_in_run": 7,
+    "n_levels": 7,
+    "A0F_points": 3.57,
+    "A7cF_points": 11.37,
+    "A7F_points": 24.64
+   },
+   "ka59": {
+    "levels_in_run": 7,
+    "n_levels": 7,
+    "A0F_points": 56.19,
+    "A7cF_points": 34.24,
+    "A7F_points": 66.01
+   },
+   "lf52": {
+    "levels_in_run": 3,
+    "n_levels": 10,
+    "A0F_points": 2.09,
+    "A7cF_points": 6.27,
+    "A7F_points": 6.27
+   },
+   "lp85": {
+    "levels_in_run": 7,
+    "n_levels": 8,
+    "A0F_points": 111.81,
+    "A7cF_points": 105.48,
+    "A7F_points": 106.91
+   },
+   "ls20": {
+    "levels_in_run": 6,
+    "n_levels": 7,
+    "A0F_points": 0.89,
+    "A7cF_points": 4.11,
+    "A7F_points": 6.79
+   },
+   "m0r0": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "A0F_points": 60.24,
+    "A7cF_points": 16.43,
+    "A7F_points": 54.95
+   },
+   "r11l": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "A0F_points": 21.9,
+    "A7cF_points": 38.33,
+    "A7F_points": 60.24
+   },
+   "re86": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "A0F_points": 31.94,
+    "A7cF_points": 47.92,
+    "A7F_points": 63.33
+   },
+   "s5i5": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "A0F_points": 63.47,
+    "A7cF_points": 45.47,
+    "A7F_points": 91.37
+   },
+   "sb26": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "A0F_points": 46.04,
+    "A7cF_points": 59.33,
+    "A7F_points": 114.36
+   },
+   "sc25": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "A0F_points": 32.87,
+    "A7cF_points": 71.32,
+    "A7F_points": 115.0
+   },
+   "sk48": {
+    "levels_in_run": 3,
+    "n_levels": 8,
+    "A0F_points": 9.17,
+    "A7cF_points": 0.97,
+    "A7F_points": 0.0
+   },
+   "sp80": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "A0F_points": 21.9,
+    "A7cF_points": 54.76,
+    "A7F_points": 98.57
+   },
+   "su15": {
+    "levels_in_run": 9,
+    "n_levels": 9,
+    "A0F_points": 23.19,
+    "A7cF_points": 53.67,
+    "A7F_points": 67.99
+   },
+   "tn36": {
+    "levels_in_run": 5,
+    "n_levels": 7,
+    "A0F_points": 8.21,
+    "A7cF_points": 8.21,
+    "A7F_points": 41.51
+   },
+   "tr87": {
+    "levels_in_run": 3,
+    "n_levels": 6,
+    "A0F_points": 16.57,
+    "A7cF_points": 50.1,
+    "A7F_points": 57.57
+   },
+   "tu93": {
+    "levels_in_run": 8,
+    "n_levels": 9,
+    "A0F_points": 25.11,
+    "A7cF_points": 67.71,
+    "A7F_points": 75.74
+   },
+   "vc33": {
+    "levels_in_run": 7,
+    "n_levels": 7,
+    "A0F_points": 68.82,
+    "A7cF_points": 58.8,
+    "A7F_points": 111.43
+   },
+   "wa30": {
+    "levels_in_run": 6,
+    "n_levels": 9,
+    "A0F_points": 6.46,
+    "A7cF_points": 21.68,
+    "A7F_points": 15.33
+   }
+  },
+  "games": 25,
+  "mean_points_over_games": {
+   "A0F": 31.6,
+   "A7cF": 39.8,
+   "A7F": 55.69
+  }
+ },
+ "t1_overlap": {
+  "levels": 25,
+  "cases": 35,
+  "A7cL_cleared": 18,
+  "A7cF_cleared": 6,
+  "agree": 21,
+  "A7cF_only": 1,
+  "A7cL_only": 13
+ },
+ "fallback": {
+  "levels": 27,
+  "in_run": 27,
+  "shared_words": {
+   "ft09_L4": [
+    "cycle"
+   ],
+   "g50t_L5": [
+    "ghost"
+   ],
+   "lp85_L2": [
+    "budget"
+   ],
+   "lp85_L3": [
+    "budget"
+   ],
+   "lp85_L4": [
+    "budget",
+    "button"
+   ],
+   "lp85_L5": [
+    "budget"
+   ],
+   "lp85_L6": [
+    "budget",
+    "button"
+   ],
+   "lp85_L7": [
+    "budget",
+    "button"
+   ],
+   "lp85_L8": [
+    "budget",
+    "button"
+   ],
+   "s5i5_L2": [
+    "arms"
+   ],
+   "s5i5_L3": [
+    "arms"
+   ],
+   "s5i5_L4": [
+    "arms"
+   ],
+   "s5i5_L5": [
+    "arms"
+   ],
+   "s5i5_L8": [
+    "arms",
+    "slider",
+    "whose"
+   ],
+   "su15_L3": [
+    "pulled"
+   ],
+   "su15_L8": [
+    "pulled"
+   ],
+   "tr87_L1": [
+    "rotation",
+    "symbol"
+   ],
+   "tr87_L6": [
+    "symbol",
+    "symbols"
+   ],
+   "tu93_L5": [
+    "sentry"
+   ],
+   "vc33_L2": [
+    "budget"
+   ],
+   "vc33_L3": [
+    "ball",
+    "budget",
+    "column",
+    "walls"
+   ],
+   "vc33_L4": [
+    "budget"
+   ],
+   "vc33_L5": [
+    "budget"
+   ],
+   "vc33_L6": [
+    "budget"
+   ],
+   "vc33_L7": [
+    "ball",
+    "budget",
+    "ceiling",
+    "column",
+    "height",
+    "walls"
+   ],
+   "wa30_L1": [
+    "block"
+   ],
+   "wa30_L3": [
+    "block"
+   ]
+  },
+  "P_on_fallback": 20,
+  "A7F_on_fallback": 26,
+  "A0F_on_fallback": 18
+ },
+ "clean": {
+  "N": 119,
+  "P": 71,
+  "A7F": 81,
+  "A0F": 63,
+  "C": 10,
+  "A7F_only": 20,
+  "A7cF_only": 10,
+  "p": 0.09873714670538902
+ }
+}

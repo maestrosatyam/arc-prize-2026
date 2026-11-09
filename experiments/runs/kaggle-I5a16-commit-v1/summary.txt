@@ -1,0 +1,32 @@
+benchmark: duck-harness-kaggle
+solver:    duck-harness
+games:     16
+passes:    3
+runs:      48 (won: 9)
+started:   2026-10-18 18:43:48
+ended:     2026-10-18 22:39:57
+duration:  3h 56m 9s
+mean score:    40.48
+median score:  31.95
+total actions: 9372
+total tokens:  7520729
+generated tokens/sec: 530.78 (job wallclock)
+total wallclock: 626122.2s
+
+per-game (mean across passes):
+  cd82-fb555c5d: score=42.65, levels=3.3/6, actions=127, tokens=148811
+  cn04-2fe56bfb: score=19.05, levels=2.0/6, actions=84, tokens=126066
+  dc22-fdcac232: score=9.52, levels=1.0/6, actions=134, tokens=92117
+  ft09-0d8bbf25: score=80.46, levels=5.3/6, actions=106, tokens=99775
+  ka59-38d34dbb: score=33.05, levels=3.7/7, actions=291, tokens=201469
+  ls20-9607627b: score=18.61, levels=2.7/7, actions=304, tokens=162712
+  m0r0-492f87ba: score=37.69, levels=2.7/6, actions=167, tokens=136889
+  re86-8af5384d: score=49.07, levels=5.3/8, actions=470, tokens=187169
+  s5i5-18d95033: score=24.99, levels=3.3/8, actions=147, tokens=206500
+  sc25-635fd71a: score=41.53, levels=4.0/6, actions=228, tokens=141563
+  sp80-589a99af: score=4.76, levels=1.0/6, actions=32, tokens=110179
+  su15-1944f8ab: score=32.45, levels=4.7/9, actions=167, tokens=182646
+  tn36-ef4dde99: score=54.71, levels=4.7/7, actions=232, tokens=175461
+  tr87-cd924810: score=98.21, levels=6.0/6, actions=276, tokens=113949
+  tu93-0768757b: score=79.66, levels=8.0/9, actions=248, tokens=288108
+  vc33-5430563c: score=21.26, levels=3.0/7, actions=104, tokens=133491

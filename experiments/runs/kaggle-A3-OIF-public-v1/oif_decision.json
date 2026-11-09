@@ -1,0 +1,378 @@
+{
+ "rule": "OIF, frozen (reports/research/ARC3_OIF_ORACLE_FULLGAME_RULE_2026-10-29.md at acba2fb; 22:22 IST Oct 29): validity (twin passed; server loads with no error; >= 96 of 100 game-passes scored; every level entered logs shown and text hash; >= 95% of listed levels entered shown exactly once); D = OIF mean game score - P0's 48.96, game-paired permutation, two-sided, 20,000 draws: D >= +5 and p <= 0.05 insight raises full-game score; D <= +1 no measurable gain; otherwise report",
+ "archive": "experiments/runs/kaggle-A3-OIF-public-v1",
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "server_loaded_no_error": true,
+   "scorecards_96": true,
+   "levels_logged": true,
+   "shown_once_95": true
+  },
+  "passes": 4,
+  "game_passes": 100,
+  "scored": 100,
+  "scored_needed": 96,
+  "server": {
+   "ok": true,
+   "ready_line": 217,
+   "errors_before_ready": []
+  },
+  "levels_without_record": [],
+  "levels_without_record_count": 0,
+  "listed_entered": 554,
+  "shown_once": 554,
+  "shown_once_share": 1.0,
+  "shown_twice": [],
+  "shown_never": [],
+  "wrong_hash": [],
+  "log_errors": []
+ },
+ "reading": {
+  "OIF_mean": 66.06,
+  "P0_mean": 48.96,
+  "P0_rule_mean": 48.96,
+  "D": 17.11,
+  "p": 0.0,
+  "band": "insight raises full-game score",
+  "game_passes": 100,
+  "P0_game_passes": 100
+ },
+ "decision": "insight raises full-game score",
+ "oif": {
+  "game_passes": 100,
+  "mean_score": 66.06,
+  "levels_per_pass": {
+   "0": 5.24,
+   "1": 5.08,
+   "2": 5.48,
+   "3": 5.4
+  },
+  "levels_mean": 5.3,
+  "won": 46,
+  "moves_per_clear": {
+   "levels": 530,
+   "median": 26.0,
+   "mean": 34.4
+  },
+  "tokens_per_action": 775.0,
+  "tokens_per_game_pass": {
+   "mean": 176612,
+   "median": 174474
+  },
+  "wall_budget_endings": 54,
+  "first_model_action_s": {
+   "min": 1,
+   "median": 4347
+  }
+ },
+ "p0": {
+  "game_passes": 100,
+  "mean_score": 48.96,
+  "levels_per_pass": {
+   "0": 4.6,
+   "1": 4.44,
+   "2": 4.04,
+   "3": 4.2
+  },
+  "levels_mean": 4.32,
+  "won": 29,
+  "moves_per_clear": {
+   "levels": 432,
+   "median": 29.0,
+   "mean": 36.6
+  },
+  "tokens_per_action": 836.4,
+  "tokens_per_game_pass": {
+   "mean": 175458,
+   "median": 171437
+  },
+  "wall_budget_endings": 71,
+  "first_model_action_s": {
+   "min": 1,
+   "median": 4324
+  }
+ },
+ "per_game": {
+  "ar25": {
+   "OIF": 100.0,
+   "P0": 89.58,
+   "delta": 10.42,
+   "listed_levels": 8
+  },
+  "bp35": {
+   "OIF": 3.66,
+   "P0": 1.7,
+   "delta": 1.96,
+   "listed_levels": 2
+  },
+  "cd82": {
+   "OIF": 100.0,
+   "P0": 73.41,
+   "delta": 26.59,
+   "listed_levels": 6
+  },
+  "cn04": {
+   "OIF": 60.71,
+   "P0": 45.16,
+   "delta": 15.55,
+   "listed_levels": 2
+  },
+  "dc22": {
+   "OIF": 45.01,
+   "P0": 17.86,
+   "delta": 27.15,
+   "listed_levels": 6
+  },
+  "ft09": {
+   "OIF": 100.0,
+   "P0": 86.9,
+   "delta": 13.1,
+   "listed_levels": 6
+  },
+  "g50t": {
+   "OIF": 66.22,
+   "P0": 8.04,
+   "delta": 58.18,
+   "listed_levels": 7
+  },
+  "ka59": {
+   "OIF": 43.24,
+   "P0": 41.12,
+   "delta": 2.12,
+   "listed_levels": 7
+  },
+  "lf52": {
+   "OIF": 6.82,
+   "P0": 4.98,
+   "delta": 1.84,
+   "listed_levels": 3
+  },
+  "lp85": {
+   "OIF": 100.0,
+   "P0": 100.0,
+   "delta": 0.0,
+   "listed_levels": 8
+  },
+  "ls20": {
+   "OIF": 49.11,
+   "P0": 13.3,
+   "delta": 35.8,
+   "listed_levels": 6
+  },
+  "m0r0": {
+   "OIF": 86.56,
+   "P0": 38.72,
+   "delta": 47.85,
+   "listed_levels": 6
+  },
+  "r11l": {
+   "OIF": 100.0,
+   "P0": 92.86,
+   "delta": 7.14,
+   "listed_levels": 6
+  },
+  "re86": {
+   "OIF": 68.06,
+   "P0": 50.0,
+   "delta": 18.06,
+   "listed_levels": 8
+  },
+  "s5i5": {
+   "OIF": 78.47,
+   "P0": 41.26,
+   "delta": 37.21,
+   "listed_levels": 8
+  },
+  "sb26": {
+   "OIF": 100.0,
+   "P0": 98.72,
+   "delta": 1.28,
+   "listed_levels": 8
+  },
+  "sc25": {
+   "OIF": 100.0,
+   "P0": 54.13,
+   "delta": 45.87,
+   "listed_levels": 6
+  },
+  "sk48": {
+   "OIF": 7.13,
+   "P0": 2.73,
+   "delta": 4.41,
+   "listed_levels": 3
+  },
+  "sp80": {
+   "OIF": 60.71,
+   "P0": 32.14,
+   "delta": 28.57,
+   "listed_levels": 6
+  },
+  "su15": {
+   "OIF": 22.22,
+   "P0": 29.83,
+   "delta": -7.61,
+   "listed_levels": 9
+  },
+  "tn36": {
+   "OIF": 51.79,
+   "P0": 52.05,
+   "delta": -0.26,
+   "listed_levels": 6
+  },
+  "tr87": {
+   "OIF": 91.5,
+   "P0": 84.14,
+   "delta": 7.36,
+   "listed_levels": 6
+  },
+  "tu93": {
+   "OIF": 93.94,
+   "P0": 71.74,
+   "delta": 22.2,
+   "listed_levels": 9
+  },
+  "vc33": {
+   "OIF": 100.0,
+   "P0": 80.29,
+   "delta": 19.71,
+   "listed_levels": 7
+  },
+  "wa30": {
+   "OIF": 16.47,
+   "P0": 13.27,
+   "delta": 3.2,
+   "listed_levels": 8
+  }
+ },
+ "text_share": {
+  "levels_entered": 584,
+  "with_text": 554,
+  "share": 0.949
+ },
+ "level_scores": {
+  "OIF": {
+   "with_text": {
+    "levels": 553,
+    "mean": 1.018
+   },
+   "without": {
+    "levels": 30,
+    "mean": 0.735
+   }
+  },
+  "P0": {
+   "with_text": {
+    "levels": 479,
+    "mean": 0.91
+   },
+   "without": {
+    "levels": 23,
+    "mean": 0.743
+   }
+  }
+ },
+ "unlisted_with_message": [],
+ "message_in_prompt_last_call": {
+  "listed_levels": 554,
+  "in_prompt": 462,
+  "dropped": [
+   "ar25_p0_L7",
+   "bp35_p0_L2",
+   "bp35_p1_L2",
+   "bp35_p2_L1",
+   "bp35_p2_L2",
+   "bp35_p3_L2",
+   "cn04_p2_L6",
+   "dc22_p0_L5",
+   "dc22_p1_L5",
+   "dc22_p2_L3",
+   "dc22_p2_L5",
+   "dc22_p3_L2",
+   "dc22_p3_L3",
+   "dc22_p3_L4",
+   "dc22_p3_L5",
+   "g50t_p0_L2",
+   "g50t_p0_L6",
+   "g50t_p0_L7",
+   "g50t_p1_L7",
+   "g50t_p2_L3",
+   "g50t_p2_L4",
+   "g50t_p2_L7",
+   "g50t_p3_L6",
+   "ka59_p0_L2",
+   "ka59_p0_L4",
+   "ka59_p0_L7",
+   "ka59_p1_L7",
+   "ka59_p2_L2",
+   "ka59_p2_L4",
+   "ka59_p3_L2",
+   "lf52_p3_L4",
+   "ls20_p0_L6",
+   "ls20_p1_L5",
+   "ls20_p2_L6",
+   "ls20_p3_L6",
+   "m0r0_p0_L3",
+   "m0r0_p1_L3",
+   "m0r0_p1_L6",
+   "m0r0_p2_L3",
+   "m0r0_p2_L6",
+   "m0r0_p3_L3",
+   "m0r0_p3_L4",
+   "m0r0_p3_L5",
+   "r11l_p2_L3",
+   "re86_p0_L7",
+   "re86_p1_L8",
+   "re86_p2_L7",
+   "re86_p2_L8",
+   "re86_p3_L6",
+   "re86_p3_L7",
+   "s5i5_p0_L7",
+   "s5i5_p0_L8",
+   "s5i5_p1_L7",
+   "s5i5_p2_L7",
+   "s5i5_p3_L3",
+   "s5i5_p3_L4",
+   "s5i5_p3_L7",
+   "sk48_p0_L1",
+   "sk48_p1_L1",
+   "sk48_p2_L1",
+   "sk48_p2_L2",
+   "sk48_p3_L1",
+   "sp80_p0_L3",
+   "sp80_p0_L4",
+   "sp80_p0_L5",
+   "sp80_p1_L4",
+   "sp80_p1_L5",
+   "sp80_p2_L5",
+   "sp80_p3_L4",
+   "sp80_p3_L5",
+   "sp80_p3_L6",
+   "su15_p0_L4",
+   "su15_p1_L4",
+   "su15_p2_L4",
+   "su15_p2_L5",
+   "su15_p3_L5",
+   "tn36_p0_L2",
+   "tn36_p1_L2",
+   "tn36_p2_L2",
+   "tr87_p1_L6",
+   "tu93_p0_L4",
+   "tu93_p0_L5",
+   "tu93_p1_L6",
+   "tu93_p1_L9",
+   "vc33_p1_L4",
+   "vc33_p2_L4",
+   "wa30_p0_L2",
+   "wa30_p0_L4",
+   "wa30_p0_L5",
+   "wa30_p1_L4",
+   "wa30_p2_L4",
+   "wa30_p3_L5"
+  ],
+  "first_call_with_message": {
+   "1": 554
+  }
+ }
+}

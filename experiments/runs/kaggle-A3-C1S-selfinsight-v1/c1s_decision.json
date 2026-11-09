@@ -1,0 +1,823 @@
+{
+ "rule": "C1S, frozen (2026-10-29 14:25 IST; ARC3_C1S_SELF_INSIGHT_RULE_2026-10-29.md at 99ea2c9): validity (twin passed; >= 95% of level starts replay to their hash, failures excluded here and from C1's arms; >= 95% of levels get a non-empty generated text; >= 95% of case-arms end by clear / action budget / wall budget; cells byte-identical to C1's except the arm, the introduction, the bundle and the generation step); probe-priced: a clear counts only if clear actions + probe cost <= 160; M = S - A0F (C1's A0F), exact McNemar: M >= 10 and p <= 0.01 self-insight helps; M <= 3 no help; otherwise report; entry draft: helps and A7SF's probe-priced measured value above A0F's",
+ "archive": "experiments/runs/kaggle-A3-C1S-selfinsight-v1",
+ "levels_listed": 157,
+ "kernels_present": [
+  "k1",
+  "k2",
+  "k3"
+ ],
+ "twins": {
+  "k1": true,
+  "k2": true,
+  "k3": true
+ },
+ "duplicate_rows": {},
+ "other_arm_rows": [],
+ "extra_rows": [],
+ "generation": {
+  "k1": {
+   "run": "a3-c1s-selfinsight",
+   "arm": "A7SF",
+   "server_ready": true,
+   "levels": 52,
+   "texts": 52,
+   "no_text": [],
+   "errors": [],
+   "input_not_as_committed": [],
+   "fallback": 0,
+   "reasoning_nonempty": [],
+   "finish_length": 10,
+   "gen_s_total": 66.5,
+   "gen_s_max": 6.57,
+   "bundle_in_sha256": "961c7335b34b19cdde5065afee7d7852047bad672b69cfcbf7abd37b8a0dd637",
+   "bundle_out_sha256": "041585153c015c957ee2c09163eae554430c6404c05c88e5f83406d1e504d762",
+   "played_levels": [
+    "cd82_L1",
+    "cd82_L2",
+    "cd82_L3",
+    "cd82_L4",
+    "cd82_L5",
+    "cd82_L6",
+    "dc22_L1",
+    "dc22_L2",
+    "dc22_L3",
+    "dc22_L4",
+    "dc22_L5",
+    "dc22_L6",
+    "lf52_L1",
+    "lf52_L2",
+    "lf52_L4",
+    "m0r0_L1",
+    "m0r0_L2",
+    "m0r0_L3",
+    "m0r0_L4",
+    "m0r0_L5",
+    "m0r0_L6",
+    "re86_L1",
+    "re86_L2",
+    "re86_L3",
+    "re86_L4",
+    "re86_L5",
+    "re86_L6",
+    "re86_L7",
+    "re86_L8",
+    "sp80_L1",
+    "sp80_L2",
+    "sp80_L3",
+    "sp80_L4",
+    "sp80_L5",
+    "sp80_L6",
+    "su15_L1",
+    "su15_L2",
+    "su15_L3",
+    "su15_L4",
+    "su15_L5",
+    "su15_L6",
+    "su15_L7",
+    "su15_L8",
+    "su15_L9",
+    "wa30_L1",
+    "wa30_L2",
+    "wa30_L3",
+    "wa30_L4",
+    "wa30_L5",
+    "wa30_L6",
+    "wa30_L7",
+    "wa30_L8"
+   ],
+   "wall_s": 70.0
+  },
+  "k2": {
+   "run": "a3-c1s-selfinsight",
+   "arm": "A7SF",
+   "server_ready": true,
+   "levels": 52,
+   "texts": 52,
+   "no_text": [],
+   "errors": [],
+   "input_not_as_committed": [],
+   "fallback": 0,
+   "reasoning_nonempty": [],
+   "finish_length": 12,
+   "gen_s_total": 71.2,
+   "gen_s_max": 5.96,
+   "bundle_in_sha256": "36ea1f699f8c2b5200b81e27654ae6b3fd3c6ae0fb851da7474a8b417687bd74",
+   "bundle_out_sha256": "26a6c3d0578d445b22d3c73d60b492d1eff318ef40cead98e52afbeee8d7df25",
+   "played_levels": [
+    "ft09_L1",
+    "ft09_L2",
+    "ft09_L3",
+    "ft09_L4",
+    "ft09_L5",
+    "ft09_L6",
+    "g50t_L1",
+    "g50t_L2",
+    "g50t_L3",
+    "g50t_L4",
+    "g50t_L5",
+    "g50t_L6",
+    "g50t_L7",
+    "ka59_L1",
+    "ka59_L2",
+    "ka59_L3",
+    "ka59_L4",
+    "ka59_L5",
+    "ka59_L6",
+    "ka59_L7",
+    "r11l_L1",
+    "r11l_L2",
+    "r11l_L3",
+    "r11l_L4",
+    "r11l_L5",
+    "r11l_L6",
+    "s5i5_L1",
+    "s5i5_L2",
+    "s5i5_L3",
+    "s5i5_L4",
+    "s5i5_L5",
+    "s5i5_L6",
+    "s5i5_L7",
+    "s5i5_L8",
+    "sk48_L1",
+    "sk48_L2",
+    "sk48_L3",
+    "tn36_L1",
+    "tn36_L2",
+    "tn36_L4",
+    "tn36_L5",
+    "tn36_L6",
+    "tn36_L7",
+    "tu93_L1",
+    "tu93_L2",
+    "tu93_L3",
+    "tu93_L4",
+    "tu93_L5",
+    "tu93_L6",
+    "tu93_L7",
+    "tu93_L8",
+    "tu93_L9"
+   ],
+   "wall_s": 1115.7
+  },
+  "k3": {
+   "run": "a3-c1s-selfinsight",
+   "arm": "A7SF",
+   "server_ready": true,
+   "levels": 53,
+   "texts": 53,
+   "no_text": [],
+   "errors": [],
+   "input_not_as_committed": [],
+   "fallback": 0,
+   "reasoning_nonempty": [],
+   "finish_length": 4,
+   "gen_s_total": 64.8,
+   "gen_s_max": 6.5,
+   "bundle_in_sha256": "13bfa664261802a1aee9d9a23cc9bd94a9c9ae029fb45a70424bcb1fcd342435",
+   "bundle_out_sha256": "b04720c0288f0a49539d64c7c9d03fc702f0acc6eebc1936e999c4c31c4fdc6c",
+   "played_levels": [
+    "ar25_L1",
+    "ar25_L2",
+    "ar25_L3",
+    "ar25_L4",
+    "ar25_L5",
+    "ar25_L6",
+    "ar25_L7",
+    "ar25_L8",
+    "bp35_L1",
+    "bp35_L2",
+    "cn04_L1",
+    "cn04_L6",
+    "lp85_L1",
+    "lp85_L2",
+    "lp85_L3",
+    "lp85_L4",
+    "lp85_L5",
+    "lp85_L6",
+    "lp85_L7",
+    "lp85_L8",
+    "ls20_L1",
+    "ls20_L3",
+    "ls20_L4",
+    "ls20_L5",
+    "ls20_L6",
+    "ls20_L7",
+    "sb26_L1",
+    "sb26_L2",
+    "sb26_L3",
+    "sb26_L4",
+    "sb26_L5",
+    "sb26_L6",
+    "sb26_L7",
+    "sb26_L8",
+    "sc25_L1",
+    "sc25_L2",
+    "sc25_L3",
+    "sc25_L4",
+    "sc25_L5",
+    "sc25_L6",
+    "tr87_L1",
+    "tr87_L2",
+    "tr87_L3",
+    "tr87_L4",
+    "tr87_L5",
+    "tr87_L6",
+    "vc33_L1",
+    "vc33_L2",
+    "vc33_L3",
+    "vc33_L4",
+    "vc33_L5",
+    "vc33_L6",
+    "vc33_L7"
+   ],
+   "wall_s": 170.7
+  }
+ },
+ "static": {
+  "cells": {
+   "ok": true,
+   "kernels": {
+    "k1": true,
+    "k2": true,
+    "k3": true
+   },
+   "differences": "cell 0 (introduction); cell 17: header, arms line, bundle, arm registration, generation step"
+  }
+ },
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "replay_95": true,
+   "texts_95": true,
+   "ended_95": true,
+   "cells_identical_to_c1": true
+  },
+  "replay_failures": [],
+  "replay_needed": 150,
+  "no_text": [],
+  "no_text_row": [],
+  "texts": 157,
+  "texts_needed": 150,
+  "with_text_not_played": [],
+  "played_without_text": [],
+  "ended": 157,
+  "ended_needed": 150,
+  "kernel_mismatch": [],
+  "not_in_c1_level_map": []
+ },
+ "reading": {
+  "N": 157,
+  "S": 76,
+  "A0F": 90,
+  "M": -14,
+  "S_only": 12,
+  "A0F_only": 26,
+  "p": 0.03355243967962451,
+  "band": "no help",
+  "lost_to_probe_cost": 0
+ },
+ "measured_value": {
+  "per_game": {
+   "ar25": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "S_points": 29.55,
+    "S_free_points": 40.45,
+    "A0F_points": 47.92,
+    "A7F_points": 84.35
+   },
+   "bp35": {
+    "levels_in_run": 2,
+    "n_levels": 9,
+    "S_points": 0.08,
+    "S_free_points": 0.12,
+    "A0F_points": 2.56,
+    "A7F_points": 1.57
+   },
+   "cd82": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 16.31,
+    "S_free_points": 61.35,
+    "A0F_points": 40.71,
+    "A7F_points": 42.07
+   },
+   "cn04": {
+    "levels_in_run": 2,
+    "n_levels": 6,
+    "S_points": 2.07,
+    "S_free_points": 5.48,
+    "A0F_points": 5.48,
+    "A7F_points": 38.33
+   },
+   "dc22": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 14.29,
+    "S_free_points": 16.43,
+    "A0F_points": 36.7,
+    "A7F_points": 29.28
+   },
+   "ft09": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 76.54,
+    "S_free_points": 87.79,
+    "A0F_points": 98.99,
+    "A7F_points": 78.86
+   },
+   "g50t": {
+    "levels_in_run": 7,
+    "n_levels": 7,
+    "S_points": 0.0,
+    "S_free_points": 0.0,
+    "A0F_points": 3.57,
+    "A7F_points": 24.64
+   },
+   "ka59": {
+    "levels_in_run": 7,
+    "n_levels": 7,
+    "S_points": 20.93,
+    "S_free_points": 35.18,
+    "A0F_points": 56.19,
+    "A7F_points": 66.01
+   },
+   "lf52": {
+    "levels_in_run": 3,
+    "n_levels": 10,
+    "S_points": 1.01,
+    "S_free_points": 2.09,
+    "A0F_points": 2.09,
+    "A7F_points": 6.27
+   },
+   "lp85": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "S_points": 78.06,
+    "S_free_points": 95.7,
+    "A0F_points": 115.0,
+    "A7F_points": 110.1
+   },
+   "ls20": {
+    "levels_in_run": 6,
+    "n_levels": 7,
+    "S_points": 1.59,
+    "S_free_points": 2.77,
+    "A0F_points": 0.89,
+    "A7F_points": 6.79
+   },
+   "m0r0": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 19.51,
+    "S_free_points": 30.74,
+    "A0F_points": 60.24,
+    "A7F_points": 54.95
+   },
+   "r11l": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 3.69,
+    "S_free_points": 5.48,
+    "A0F_points": 21.9,
+    "A7F_points": 60.24
+   },
+   "re86": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "S_points": 38.26,
+    "S_free_points": 41.12,
+    "A0F_points": 31.94,
+    "A7F_points": 63.33
+   },
+   "s5i5": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "S_points": 0.86,
+    "S_free_points": 2.78,
+    "A0F_points": 63.47,
+    "A7F_points": 91.37
+   },
+   "sb26": {
+    "levels_in_run": 8,
+    "n_levels": 8,
+    "S_points": 13.05,
+    "S_free_points": 25.17,
+    "A0F_points": 46.04,
+    "A7F_points": 114.36
+   },
+   "sc25": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 0.83,
+    "S_free_points": 7.33,
+    "A0F_points": 32.87,
+    "A7F_points": 115.0
+   },
+   "sk48": {
+    "levels_in_run": 3,
+    "n_levels": 8,
+    "S_points": 6.96,
+    "S_free_points": 7.12,
+    "A0F_points": 9.17,
+    "A7F_points": 0.0
+   },
+   "sp80": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 0.0,
+    "S_free_points": 0.0,
+    "A0F_points": 21.9,
+    "A7F_points": 98.57
+   },
+   "su15": {
+    "levels_in_run": 9,
+    "n_levels": 9,
+    "S_points": 47.27,
+    "S_free_points": 53.67,
+    "A0F_points": 23.19,
+    "A7F_points": 67.99
+   },
+   "tn36": {
+    "levels_in_run": 6,
+    "n_levels": 7,
+    "S_points": 5.87,
+    "S_free_points": 9.22,
+    "A0F_points": 9.57,
+    "A7F_points": 43.79
+   },
+   "tr87": {
+    "levels_in_run": 6,
+    "n_levels": 6,
+    "S_points": 2.28,
+    "S_free_points": 2.83,
+    "A0F_points": 65.86,
+    "A7F_points": 84.95
+   },
+   "tu93": {
+    "levels_in_run": 9,
+    "n_levels": 9,
+    "S_points": 73.87,
+    "S_free_points": 79.82,
+    "A0F_points": 27.58,
+    "A7F_points": 78.22
+   },
+   "vc33": {
+    "levels_in_run": 7,
+    "n_levels": 7,
+    "S_points": 78.37,
+    "S_free_points": 88.17,
+    "A0F_points": 68.82,
+    "A7F_points": 111.43
+   },
+   "wa30": {
+    "levels_in_run": 8,
+    "n_levels": 9,
+    "S_points": 13.31,
+    "S_free_points": 15.99,
+    "A0F_points": 6.46,
+    "A7F_points": 33.22
+   }
+  },
+  "games": 25,
+  "mean_points_over_games": {
+   "S": 21.78,
+   "S_free": 28.67,
+   "A0F": 35.96,
+   "A7F": 60.23
+  }
+ },
+ "decision": "no help",
+ "entry_draft": "no (helps: False; probe-priced measured value 21.78 vs A0F 35.96)",
+ "free_probe": {
+  "S": 76,
+  "A0F": 90,
+  "M": -14,
+  "S_only": 12,
+  "A0F_only": 26,
+  "p": 0.03355243967962451
+ },
+ "oracle_gap": {
+  "probe_priced": {
+   "N": 157,
+   "A7F": 116,
+   "S": 76,
+   "diff": 40,
+   "A7F_only": 46,
+   "S_only": 6,
+   "p": 1.0325821975243343e-08
+  },
+  "free": {
+   "N": 157,
+   "A7F": 116,
+   "S_free": 76,
+   "diff": 40,
+   "A7F_only": 46,
+   "S_free_only": 6,
+   "p": 1.0325821975243343e-08
+  }
+ },
+ "vs_c1p": {
+  "probe_priced": {
+   "N": 146,
+   "S": 69,
+   "P": 91,
+   "diff": -22,
+   "S_only": 7,
+   "P_only": 29,
+   "p": 0.00031255115754902363
+  },
+  "free": {
+   "N": 146,
+   "S_free": 69,
+   "P": 91,
+   "diff": -22,
+   "S_free_only": 7,
+   "P_only": 29,
+   "p": 0.00031255115754902363
+  }
+ },
+ "format": {
+  "levels": 157,
+  "no_key_insight_label": 0,
+  "under_8_words": 0,
+  "chars_median": 358,
+  "chars_min": 188,
+  "chars_max": 400,
+  "at_cap": 66
+ },
+ "key_element_match": {
+  "oracle_text": {
+   "match": 68,
+   "levels": 157,
+   "S_on_match": 33,
+   "S_on_no_match": 43
+  },
+  "key_elements_json": {
+   "match": 8,
+   "levels": 25
+  }
+ },
+ "speed": {
+  "A0F": {
+   "wall_budget_endings": 67,
+   "tokens_per_action": 2064,
+   "actions_per_case_minute": 2.0,
+   "within_80_900": 56
+  },
+  "A7SF": {
+   "wall_budget_endings": 77,
+   "tokens_per_action": 1782,
+   "actions_per_case_minute": 2.14,
+   "within_80_900": 43
+  },
+  "A7F": {
+   "wall_budget_endings": 39,
+   "tokens_per_action": 1601,
+   "actions_per_case_minute": 2.84,
+   "within_80_900": 80
+  }
+ },
+ "by_band": {
+  "1-10": {
+   "levels": 24,
+   "A0F": 21,
+   "S": 17,
+   "S_free": 17,
+   "A7F": 22
+  },
+  "11-20": {
+   "levels": 52,
+   "A0F": 37,
+   "S": 34,
+   "S_free": 34,
+   "A7F": 44
+  },
+  "21-40": {
+   "levels": 38,
+   "A0F": 21,
+   "S": 17,
+   "S_free": 17,
+   "A7F": 30
+  },
+  "41-80": {
+   "levels": 36,
+   "A0F": 11,
+   "S": 8,
+   "S_free": 8,
+   "A7F": 20
+  },
+  "81+": {
+   "levels": 7,
+   "A0F": 0,
+   "S": 0,
+   "S_free": 0,
+   "A7F": 0
+  }
+ },
+ "by_game": {
+  "ar25": {
+   "levels": 8,
+   "A0F": 5,
+   "S": 5,
+   "S_free": 5,
+   "A7F": 7
+  },
+  "bp35": {
+   "levels": 2,
+   "A0F": 1,
+   "S": 1,
+   "S_free": 1,
+   "A7F": 1
+  },
+  "cd82": {
+   "levels": 6,
+   "A0F": 3,
+   "S": 4,
+   "S_free": 4,
+   "A7F": 4
+  },
+  "cn04": {
+   "levels": 2,
+   "A0F": 1,
+   "S": 1,
+   "S_free": 1,
+   "A7F": 2
+  },
+  "dc22": {
+   "levels": 6,
+   "A0F": 3,
+   "S": 2,
+   "S_free": 2,
+   "A7F": 3
+  },
+  "ft09": {
+   "levels": 6,
+   "A0F": 6,
+   "S": 6,
+   "S_free": 6,
+   "A7F": 5
+  },
+  "g50t": {
+   "levels": 7,
+   "A0F": 1,
+   "S": 0,
+   "S_free": 0,
+   "A7F": 3
+  },
+  "ka59": {
+   "levels": 7,
+   "A0F": 6,
+   "S": 4,
+   "S_free": 4,
+   "A7F": 5
+  },
+  "lf52": {
+   "levels": 3,
+   "A0F": 1,
+   "S": 1,
+   "S_free": 1,
+   "A7F": 2
+  },
+  "lp85": {
+   "levels": 8,
+   "A0F": 8,
+   "S": 7,
+   "S_free": 7,
+   "A7F": 8
+  },
+  "ls20": {
+   "levels": 6,
+   "A0F": 1,
+   "S": 1,
+   "S_free": 1,
+   "A7F": 2
+  },
+  "m0r0": {
+   "levels": 6,
+   "A0F": 4,
+   "S": 3,
+   "S_free": 3,
+   "A7F": 4
+  },
+  "r11l": {
+   "levels": 6,
+   "A0F": 2,
+   "S": 1,
+   "S_free": 1,
+   "A7F": 4
+  },
+  "re86": {
+   "levels": 8,
+   "A0F": 4,
+   "S": 5,
+   "S_free": 5,
+   "A7F": 6
+  },
+  "s5i5": {
+   "levels": 8,
+   "A0F": 5,
+   "S": 1,
+   "S_free": 1,
+   "A7F": 7
+  },
+  "sb26": {
+   "levels": 8,
+   "A0F": 7,
+   "S": 5,
+   "S_free": 5,
+   "A7F": 8
+  },
+  "sc25": {
+   "levels": 6,
+   "A0F": 4,
+   "S": 2,
+   "S_free": 2,
+   "A7F": 6
+  },
+  "sk48": {
+   "levels": 3,
+   "A0F": 2,
+   "S": 2,
+   "S_free": 2,
+   "A7F": 0
+  },
+  "sp80": {
+   "levels": 6,
+   "A0F": 2,
+   "S": 0,
+   "S_free": 0,
+   "A7F": 5
+  },
+  "su15": {
+   "levels": 9,
+   "A0F": 5,
+   "S": 5,
+   "S_free": 5,
+   "A7F": 6
+  },
+  "tn36": {
+   "levels": 6,
+   "A0F": 2,
+   "S": 2,
+   "S_free": 2,
+   "A7F": 4
+  },
+  "tr87": {
+   "levels": 6,
+   "A0F": 5,
+   "S": 1,
+   "S_free": 1,
+   "A7F": 5
+  },
+  "tu93": {
+   "levels": 9,
+   "A0F": 5,
+   "S": 8,
+   "S_free": 8,
+   "A7F": 8
+  },
+  "vc33": {
+   "levels": 7,
+   "A0F": 5,
+   "S": 7,
+   "S_free": 7,
+   "A7F": 7
+  },
+  "wa30": {
+   "levels": 8,
+   "A0F": 2,
+   "S": 2,
+   "S_free": 2,
+   "A7F": 4
+  }
+ },
+ "probe_cost": {
+  "median": 14,
+  "min": 6,
+  "max": 26
+ },
+ "generation_time": {
+  "levels": 157,
+  "median_s": 1.02,
+  "max_s": 6.57,
+  "total_s": 202.5,
+  "new_tokens_median": 128,
+  "at_token_cap": 26
+ },
+ "thinking_off": {
+  "reasoning_returned": [],
+  "finish_length": 26
+ },
+ "inputs_as_committed": {
+  "equal": 157,
+  "not_equal": []
+ },
+ "message_path": {
+  "shown_once_as_generated": 157,
+  "rows": 157,
+  "other": []
+ }
+}

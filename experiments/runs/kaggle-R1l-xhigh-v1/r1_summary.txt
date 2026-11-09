@@ -1,0 +1,40 @@
+case            A10x clr/act/tok/end          
+ar25_p3_L7_F    n/2/38986/wall_budget         
+bp35_p1_L2_F    n/0/44478/wall_budget         
+bp35_p3_L2_F    n/3/43642/wall_budget         
+cn04_p0_L6_F    n/0/44860/wall_budget         
+g50t_p1_L1_F    n/1/45208/wall_budget         
+g50t_p2_L4_F    n/0/47103/wall_budget         
+ka59_p0_L6_F    n/0/40991/wall_budget         
+ka59_p1_L6_F    n/0/46246/wall_budget         
+ka59_p3_L6_F    n/17/48530/wall_budget        
+lf52_p1_L2_F    n/5/49277/wall_budget         
+lf52_p2_L4_F    n/0/47788/wall_budget         
+ls20_p1_L6_F    n/0/44851/wall_budget         
+m0r0_p2_L6_F    n/0/42416/wall_budget         
+m0r0_p3_L6_F    n/6/46364/wall_budget         
+r11l_p2_L6_F    n/0/49353/wall_budget         
+re86_p0_L7_F    n/2/49440/wall_budget         
+re86_p1_L6_F    n/5/42499/wall_budget         
+re86_p2_L7_F    n/5/49463/wall_budget         
+re86_p3_L6_F    n/0/42109/wall_budget         
+s5i5_p0_L8_F    n/4/47901/wall_budget         
+s5i5_p2_L7_F    n/0/50513/wall_budget         
+sc25_p0_L6_F    n/0/48391/wall_budget         
+sk48_p0_L3_F    n/4/42117/wall_budget         
+sk48_p2_L1_F    n/38/43049/wall_budget        
+sp80_p1_L6_F    n/0/41484/wall_budget         
+su15_p1_L7_F    n/1/47943/wall_budget         
+su15_p2_L7_F    n/0/42462/wall_budget         
+tn36_p0_L6_F    n/1/49227/wall_budget         
+tr87_p0_L6_F    n/0/48856/wall_budget         
+tr87_p1_L6_F    n/1/50100/wall_budget         
+tu93_p0_L9_F    n/0/55247/wall_budget         
+tu93_p2_L8_F    n/4/59350/wall_budget         
+tu93_p3_L9_F    n/1/59985/wall_budget         
+wa30_p0_L5_F    n/0/55834/wall_budget         
+wa30_p3_L5_F    n/0/57406/wall_budget         
+
+A10x: cleared 0/35; median actions to clear None; timeouts 0; probes 24; errors 0
+
+R1l run: {"arm": "A10x", "arm_flags": {"ARC3_R1L_THINKING_BUDGET": "10240"}, "twin": false, "server_option_set": 0, "server_args": ["--reasoning-config", "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}", "--kv-cache-dtype", "fp8"], "server_ready_s": 650.2, "install_s": 58.7, "server_versions": {"vllm": "0.19.0", "torch": "2.10.0", "transformers": "5.8.0", "huggingface-hub": "1.5.0", "flashinfer-python": "0.6.6", "torchvision": "0.25.0", "triton": "3.6.0"}, "run_start_s": 718.5, "run_wall_s": 7224.7, "case_arms": 35, "cleared": 0, "generated_tokens_results": 1663469, "generated_tokens_server": 1797543.0, "aggregate_tok_s": 248.8, "aggregate_tok_s_requests": 230.2, "requests": {"requests": 455, "errors": 34, "generated_tokens": 1663469, "tokens_per_request": 3951.2, "truncated": 0, "truncated_share": 0.0, "budget_closed": 42, "median_latency_s": 120.88, "efforts": [""], "budgets": [10240]}, "server_alive_at_end": true}

@@ -1,0 +1,8 @@
+results: 105 case-arms over 35 cases; arms A0, A1, A2; not run: 0
+A0: run 35, cleared 9 (0.257), probes 97, capped batches 0, timeouts 38, cancelled actions 0, median wall 900.3 s, median replay 142.0 s, median tokens 41642, ends {'action_budget': 6, 'cleared': 9, 'wall_budget': 20}
+A1: run 35, cleared 5 (0.143), probes 110, capped batches 6, timeouts 37, cancelled actions 0, median wall 901.0 s, median replay 150.4 s, median tokens 46283, ends {'action_budget': 7, 'cleared': 5, 'wall_budget': 23}
+A2: run 35, cleared 6 (0.171), probes 86, capped batches 0, timeouts 1, cancelled actions 0, median wall 901.0 s, median replay 109.4 s, median tokens 47061, ends {'action_budget': 9, 'cleared': 6, 'wall_budget': 20}
+A1 vs A0: pairs 35; cleared 5 vs 9 (0.143 vs 0.257, -11.4 points); discordant 4/8 (12 of 35, 0.343); McNemar exact p 0.388; median actions to clear 51 vs 57; both cleared 1, paired median action difference -25
+A2 vs A0: pairs 35; cleared 6 vs 9 (0.171 vs 0.257, -8.6 points); discordant 3/6 (9 of 35, 0.257); McNemar exact p 0.508; median actions to clear 52.5 vs 57; both cleared 3, paired median action difference -14
+union over A0, A1, A2: 16/35 cases cleared by at least one arm (independent draws at the observed rates: 16.53); 1/35 complete cases cleared by every arm; complete cases by number of arms clearing {'0': 19, '1': 13, '2': 2, '3': 1}
+arms do not matter (labels permuted within case, 20000 draws): observed spread 0.2476, p 0.5207

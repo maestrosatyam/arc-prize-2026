@@ -1,0 +1,272 @@
+{
+ "mode": "r1x",
+ "arm": {
+  "all": 14,
+  "partial": 6,
+  "n": 35,
+  "within_160_1800": 14,
+  "within_80_900": 4,
+  "usage": {
+   "ran": 35,
+   "actions": 3277,
+   "generated_tokens": 2676083,
+   "tokens_per_action": 816.6,
+   "apm_median": 4.44,
+   "actions_median": 81
+  },
+  "path": "experiments/runs/kaggle-R1x-rulecard-v1/r1_results.jsonl",
+  "ran": 35,
+  "missing": [],
+  "hard_stop_cut": [],
+  "label_groups": {
+   "yes": [
+    7,
+    11
+   ],
+   "partial": [
+    6,
+    22
+   ],
+   "no": [
+    1,
+    2
+   ]
+  },
+  "cleared_over_budget": [],
+  "rule_card": {
+   "shown": 35,
+   "not_shown": [],
+   "kinds": [
+    "rulecard"
+   ],
+   "errors": 0,
+   "chars": [
+    984
+   ]
+  },
+  "pairs": {
+   "baseline: unchanged (Intel), 160 actions / 30 min": {
+    "A0L (R1d)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 5,
+      "other_only": 5,
+      "both": 9,
+      "neither": 16,
+      "p": 1.0
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 4,
+      "other_only": 1,
+      "both": 2,
+      "neither": 15,
+      "p": 0.375
+     }
+    },
+    "A0Lb (R1g v1)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 8,
+      "other_only": 8,
+      "both": 6,
+      "neither": 13,
+      "p": 1.0
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 3,
+      "other_only": 4,
+      "both": 3,
+      "neither": 12,
+      "p": 1.0
+     }
+    },
+    "A0Lb (R1g v2)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 3,
+      "other_only": 7,
+      "both": 11,
+      "neither": 14,
+      "p": 0.34375
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 2,
+      "other_only": 4,
+      "both": 4,
+      "neither": 12,
+      "p": 0.6875
+     }
+    },
+    "A0Lc (R1j)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 3,
+      "other_only": 6,
+      "both": 11,
+      "neither": 15,
+      "p": 0.5078125
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 2,
+      "other_only": 4,
+      "both": 4,
+      "neither": 12,
+      "p": 0.6875
+     }
+    }
+   },
+   "beside: told insight (Intel), 160 actions / 30 min": {
+    "A7L (R1g v1)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 3,
+      "other_only": 9,
+      "both": 11,
+      "neither": 12,
+      "p": 0.14599609375
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 1,
+      "other_only": 7,
+      "both": 5,
+      "neither": 9,
+      "p": 0.0703125
+     }
+    },
+    "A7L (R1g v2)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 1,
+      "other_only": 10,
+      "both": 13,
+      "neither": 11,
+      "p": 0.01171875
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 1,
+      "other_only": 7,
+      "both": 5,
+      "neither": 9,
+      "p": 0.0703125
+     }
+    }
+   }
+  },
+  "ends": {
+   "action_budget": 7,
+   "cleared": 14,
+   "wall_budget": 14
+  }
+ },
+ "rule": "A20 >= 21/35 or >= 12/22 mechanics-only: helpful; <= 11/35: harmful; otherwise neutral (report only); baseline the unchanged 30-minute samples 14, 14, 18, 17 (mean 15.75), no new baseline run",
+ "labels": {
+  "yes": 11,
+  "partial": 22,
+  "no": 2
+ },
+ "groups": {
+  "baseline: unchanged (Intel), 160 actions / 30 min": {
+   "A0L (R1d)": {
+    "all": 14,
+    "partial": 3,
+    "n": 35,
+    "within_160_1800": 14,
+    "within_80_900": 5,
+    "usage": {
+     "ran": 35,
+     "actions": 3258,
+     "generated_tokens": 2727571,
+     "tokens_per_action": 837.2,
+     "apm_median": 4.13,
+     "actions_median": 95
+    }
+   },
+   "A0Lb (R1g v1)": {
+    "all": 14,
+    "partial": 7,
+    "n": 35,
+    "within_160_1800": 14,
+    "within_80_900": 5,
+    "usage": {
+     "ran": 35,
+     "actions": 3085,
+     "generated_tokens": 2840118,
+     "tokens_per_action": 920.6,
+     "apm_median": 3.68,
+     "actions_median": 75
+    }
+   },
+   "A0Lb (R1g v2)": {
+    "all": 18,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 18,
+    "within_80_900": 6,
+    "usage": {
+     "ran": 35,
+     "actions": 3147,
+     "generated_tokens": 2461004,
+     "tokens_per_action": 782.0,
+     "apm_median": 5.19,
+     "actions_median": 80
+    }
+   },
+   "A0Lc (R1j)": {
+    "all": 17,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 17,
+    "within_80_900": 6,
+    "usage": {
+     "ran": 35,
+     "actions": 3094,
+     "generated_tokens": 2384537,
+     "tokens_per_action": 770.7,
+     "apm_median": 4.87,
+     "actions_median": 90
+    }
+   }
+  },
+  "beside: told insight (Intel), 160 actions / 30 min": {
+   "A7L (R1g v1)": {
+    "all": 20,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 20,
+    "within_80_900": 12,
+    "usage": {
+     "ran": 35,
+     "actions": 3067,
+     "generated_tokens": 1995347,
+     "tokens_per_action": 650.6,
+     "apm_median": 5.54,
+     "actions_median": 79
+    }
+   },
+   "A7L (R1g v2)": {
+    "all": 23,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 23,
+    "within_80_900": 14,
+    "usage": {
+     "ran": 35,
+     "actions": 2755,
+     "generated_tokens": 1977607,
+     "tokens_per_action": 717.8,
+     "apm_median": 5.89,
+     "actions_median": 66
+    }
+   }
+  }
+ },
+ "baseline_mean": 15.75,
+ "decision": "neutral",
+ "decision_reason": "A20 14/35, mechanics-only 6/22"
+}

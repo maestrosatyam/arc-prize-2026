@@ -1,0 +1,45 @@
+$ python3 -I arc3_r1u_analyze.py --rule revised --results experiments/runs/kaggle-R1u-thinkingcap-v2/r1_results.jsonl   # a per-run reader, not included
+R1u: arm A15 (R1s's A0H setup, ThinkingCap Flash-Next in place of Intel's Flash-Next, P0's drafter; 320 actions / 1800 s) vs the unchanged harness with the Intel model at 30 and 60 min
+labels on the cases: {'yes': 11, 'partial': 22, 'no': 2}
+
+run                      all  mechanics-only   within 160 / 1800; actions to clear (median, mean, n); actions per case-arm (median, mean); actions per case-minute (median); tokens per action
+unchanged, 160 actions / 30 min (Intel model): mean 15.75 (63/140), mechanics-only mean 6.5
+  A0L (R1d)            14/35            3/22   14; 62.5, 78.2, 14; 95, 93.1; 4.13; 837.2
+  A0Lb (R1g v1)        14/35            7/22   14; 66.0, 83.6, 14; 75, 88.1; 3.68; 920.6
+  A0Lb (R1g v2)        18/35            8/22   18; 75.0, 77.7, 18; 80, 89.9; 5.19; 782.0
+  A0Lc (R1j)           17/35            8/22   17; 79, 73.6, 17; 90, 88.4; 4.87; 770.7
+unchanged, 320 actions / 60 min (Intel model): mean 21.0 (21/35), mechanics-only mean 10.0
+  A0H (R1s)            21/35           10/22   15; 62, 94.2, 21; 122, 125.3; 4.95; 995.4
+A15 (R1u)              17/35            7/22   14; 55, 78.0, 17; 79, 118.6; 5.34; 481.6   label groups {'yes': [10, 11], 'partial': [7, 22], 'no': [0, 2]}
+case-arms in the archive 35, ran 35; missing 0; ends {'action_budget': 2, 'cleared': 17, 'wall_budget': 16}
+clears within 160 actions / 1800 s 14 (5 mechanics-only); after 3 (2 mechanics-only) ['re86_p0_L7_F', 'sc25_p0_L6_F', 'tr87_p1_L6_F']
+actions per case-arm: median 79, mean 118.6 over 35; on wall-budget ends (16) median 106.5; actions per case-minute median 5.34 over 35
+completion tokens per request: 1478.8 (1,999,328 / 1,352 requests over 35 case-arms; 0 without counts) = 0.665 x 2225 (R1i A0e 1,401,632 / 630 = 2224.8 over 35 case-arms)
+  check: generated_tokens / requests 1478.8 (counter matches generated_tokens: True); prompt tokens per request 83476.2; truncated 4 (0.003); median requests per case-arm 40
+RESETs: model 0 (expected 0), automatic 39
+server log: 4038 decode lines (760 with >= 8 running); accept length mean 2.67 (median 2.65, at >= 8 running 2.66); accept rate 0.557
+  decode throughput (generated tok/s): median 432.505, at >= 8 running mean 628.6 (median 706.995); KV-pool use max 0.94, p95 0.75; mamba-pool use max 0.67; running max 10
+  prefill: 1948 lines, cached share 0.929 (105,508,800 cached / 8,061,632 new tokens); server load 1718 s (2026-10-24T11:54:50Z to 2026-10-24T12:23:28Z)
+  P0 serving (prvsiyan, claimed): accept length about 2.7, 653-665 generated tok/s on 10 streams, KV-pool use peak 92-96%
+case-arms started before the server was ready: 10 ['ar25_p3_L7_F', 'bp35_p1_L2_F', 'bp35_p3_L2_F', 'cn04_p0_L6_F', 'g50t_p1_L1_F', 'g50t_p2_L4_F', 'ka59_p0_L6_F', 'ka59_p1_L6_F', 'ka59_p3_L6_F', 'lf52_p1_L2_F']
+kernel log: target shards 38; READY None s, deadline 722 s; run-cell server check at 1800.6 s (ready); model precache 62 files, 185.4 GB in 1488.32 s
+
+A15 paired (exact McNemar, two-sided):
+  all      vs A0L (R1d)        A15 only 4, other only 1, both 13, neither 17 (pairs 35); p 0.375
+  all      vs A0Lb (R1g v1)    A15 only 7, other only 4, both 10, neither 14 (pairs 35); p 0.549
+  all      vs A0Lb (R1g v2)    A15 only 3, other only 4, both 14, neither 14 (pairs 35); p 1.000
+  all      vs A0Lc (R1j)       A15 only 4, other only 4, both 13, neither 14 (pairs 35); p 1.000
+  all      vs A0H (R1s)        A15 only 1, other only 5, both 16, neither 13 (pairs 35); p 0.219
+  partial  vs A0L (R1d)        A15 only 4, other only 0, both 3, neither 15 (pairs 22); p 0.125
+  partial  vs A0Lb (R1g v1)    A15 only 3, other only 3, both 4, neither 12 (pairs 22); p 1.000
+  partial  vs A0Lb (R1g v2)    A15 only 3, other only 4, both 4, neither 11 (pairs 22); p 1.000
+  partial  vs A0Lc (R1j)       A15 only 3, other only 4, both 4, neither 11 (pairs 22); p 1.000
+  partial  vs A0H (R1s)        A15 only 1, other only 4, both 6, neither 11 (pairs 22); p 0.375
+
+tokens-per-request reference: 2225 (R1i A0e 1,401,632 / 630 = 2224.8 over 35 case-arms)
+actions per case-minute reference: R1s A0H median 4.949 (computed from kaggle-R1s-unch60-v1); bar 1.2 x = 5.938
+
+Rule (revised): full public run if completion tokens per request <= 0.8 x 2,225 (1,780), actions per case-minute >= 1.2 x R1s A0H's median, and clears >= 15/35; drop if tokens per request fall by less than 10% (> 2,002.5) or clears <= 12; otherwise report only
+Decision (revised): report only (actions per case-minute 5.342 vs 1.2 x 4.949 = 5.938 (below))
+
+exit 0

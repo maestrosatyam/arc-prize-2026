@@ -1,0 +1,40 @@
+$ python3 -I arc3_trick_library.py analyze experiments/runs/kaggle-R1j-v1/r1_results.jsonl --runs-root .   # a per-run reader, not included
+R1j: A9 (trick library) vs unchanged 30-minute samples
+
+arm                        all       partial           yes            no
+A9                       16/35          8/22          8/11           0/2
+A0Lc (R1j)               17/35          8/22          9/11           0/2
+A0L (R1d)                14/35          3/22         11/11           0/2
+A0Lb (R1g v1)            14/35          7/22          7/11           0/2
+A0Lb (R1g v2)            18/35          8/22         10/11           0/2
+
+A9 paired, all:
+  vs A0Lc (R1j)       A9 only 3, baseline only 4, both 13, neither 15 (pairs 35); exact McNemar p 1.000
+  vs A0L (R1d)        A9 only 5, baseline only 3, both 11, neither 16 (pairs 35); exact McNemar p 0.727
+  vs A0Lb (R1g v1)    A9 only 6, baseline only 4, both 10, neither 15 (pairs 35); exact McNemar p 0.754
+  vs A0Lb (R1g v2)    A9 only 3, baseline only 5, both 13, neither 14 (pairs 35); exact McNemar p 0.727
+  vs any baseline     A9 only 0, baseline only 7, both 16, neither 12 (pairs 35); exact McNemar p 0.016
+  vs every baseline   A9 only 12, baseline only 1, both 4, neither 18 (pairs 35); exact McNemar p 0.003
+A9 paired, partial:
+  vs A0Lc (R1j)       A9 only 3, baseline only 3, both 5, neither 11 (pairs 22); exact McNemar p 1.000
+  vs A0L (R1d)        A9 only 5, baseline only 0, both 3, neither 14 (pairs 22); exact McNemar p 0.062
+  vs A0Lb (R1g v1)    A9 only 2, baseline only 1, both 6, neither 13 (pairs 22); exact McNemar p 1.000
+  vs A0Lb (R1g v2)    A9 only 3, baseline only 3, both 5, neither 11 (pairs 22); exact McNemar p 1.000
+  vs any baseline     A9 only 0, baseline only 4, both 8, neither 10 (pairs 22); exact McNemar p 0.125
+  vs every baseline   A9 only 8, baseline only 0, both 0, neither 14 (pairs 22); exact McNemar p 0.008
+A9 paired, yes:
+  vs A0Lc (R1j)       A9 only 0, baseline only 1, both 8, neither 2 (pairs 11); exact McNemar p 1.000
+  vs A0L (R1d)        A9 only 0, baseline only 3, both 8, neither 0 (pairs 11); exact McNemar p 0.250
+  vs A0Lb (R1g v1)    A9 only 4, baseline only 3, both 4, neither 0 (pairs 11); exact McNemar p 1.000
+  vs A0Lb (R1g v2)    A9 only 0, baseline only 2, both 8, neither 1 (pairs 11); exact McNemar p 0.500
+  vs any baseline     A9 only 0, baseline only 3, both 8, neither 0 (pairs 11); exact McNemar p 0.250
+  vs every baseline   A9 only 4, baseline only 1, both 4, neither 2 (pairs 11); exact McNemar p 0.375
+
+Analogue split (all cases): analogue yes: n 24, A9 12, A0Lc 13, baseline mean 11.5, A9 not A0Lc 2; analogue partial/no: n 11, A9 4, A0Lc 4, baseline mean 4.25, A9 not A0Lc 1; Fisher p (A9 rate) 0.493
+Analogue split (partial cases): analogue yes: n 16, A9 7, A0Lc 7, baseline mean 5.0, A9 not A0Lc 2; analogue partial/no: n 6, A9 1, A0Lc 1, baseline mean 1.5, A9 not A0Lc 1; Fisher p (A9 rate) 0.351
+Judged analogue listed: message 1 6, any message 26, never 9 of 35 A9 case-arms; A9 clears with the analogue listed 9, without 7
+Clears within the R1 budget (80 actions, 900 s; reported only): A9 5 (partial 1), A0Lc 6 (partial 3)
+
+Rule: promote if A9 >= 22 of 35 (best unchanged 30-minute sample 18 + 4) or >= 12 of 22 partial. A9: 16 of 35, 8 partial; not run 0. Verdict: report and stop.
+
+exit 0

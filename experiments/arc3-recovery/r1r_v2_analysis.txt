@@ -1,0 +1,84 @@
+$ python3 -I arc3_r1r_analyze.py --results experiments/runs/kaggle-R1r-reset60-v2/r1_results.jsonl   # a per-run reader, not included
+R1r: arm A11h (R1m's A11r, EXPOSE_RESET 'on', at 320 actions / 3600 s) vs RESET at 30 and 15 min and unchanged at 30 min
+labels on the cases: {'yes': 11, 'partial': 22, 'no': 2}
+
+run                      all  mechanics-only   actions to clear (median, mean, n); RESETs (n, case-arms, counted)
+RESET, 160 actions / 30 min: mean 20.33 (61/105)
+  A11r (R1m v1)        20/35            9/22   58.5, 62.2, 20; RESETs 23, 16, 35
+  A11r (R1m v2)        21/35           11/22   89, 75.2, 21; RESETs 22, 16, 35
+  A12n (R1o)           20/35           10/22   74.5, 78.1, 20; RESETs 33, 19, 35
+RESET, 80 actions / 15 min: mean 10.0 (10/35)
+  A11q (R1p)           10/35            3/22   50.0, 46.7, 10; RESETs 15, 13, 35
+unchanged, 160 actions / 30 min: mean 15.75 (63/140)
+  A0L (R1d)            14/35            3/22   62.5, 78.2, 14
+  A0Lb (R1g v1)        14/35            7/22   66.0, 83.6, 14
+  A0Lb (R1g v2)        18/35            8/22   75.0, 77.7, 18
+  A0Lc (R1j)           17/35            8/22   79, 73.6, 17
+unchanged, 320 actions / 60 min: A0X (R1k) 3/7 residual cases
+A11h (R1r)             25/35           14/22   71, 93.5, 25   label groups {'yes': [10, 11], 'partial': [14, 22], 'no': [1, 2]}
+case-arms in the archive 35, ran 35; missing 0; ends {'action_budget': 2, 'cleared': 25, 'wall_budget': 8}
+clears within 80 actions / 900 s 13; within 160 / 1800 20 (10 mechanics-only); after 160 / 1800 5 ['ka59_p3_L6_F', 're86_p0_L7_F', 're86_p1_L6_F', 're86_p2_L7_F', 'tu93_p0_L9_F']
+
+A11h paired (exact McNemar, two-sided):
+  all      vs A11r (R1m v1)    A11h only 9, other only 4, both 16, neither 6 (pairs 35); p 0.267
+  all      vs A11r (R1m v2)    A11h only 5, other only 1, both 20, neither 9 (pairs 35); p 0.219
+  all      vs A12n (R1o)       A11h only 5, other only 0, both 20, neither 10 (pairs 35); p 0.062
+  all      vs A11q (R1p)       A11h only 15, other only 0, both 10, neither 10 (pairs 35); p 0.000
+  all      vs A0L (R1d)        A11h only 12, other only 1, both 13, neither 9 (pairs 35); p 0.003
+  all      vs A0Lb (R1g v1)    A11h only 13, other only 2, both 12, neither 8 (pairs 35); p 0.007
+  all      vs A0Lb (R1g v2)    A11h only 8, other only 1, both 17, neither 9 (pairs 35); p 0.039
+  all      vs A0Lc (R1j)       A11h only 10, other only 2, both 15, neither 8 (pairs 35); p 0.039
+  partial  vs A11r (R1m v1)    A11h only 8, other only 3, both 6, neither 5 (pairs 22); p 0.227
+  partial  vs A11r (R1m v2)    A11h only 4, other only 1, both 10, neither 7 (pairs 22); p 0.375
+  partial  vs A12n (R1o)       A11h only 4, other only 0, both 10, neither 8 (pairs 22); p 0.125
+  partial  vs A11q (R1p)       A11h only 11, other only 0, both 3, neither 8 (pairs 22); p 0.001
+  partial  vs A0L (R1d)        A11h only 11, other only 0, both 3, neither 8 (pairs 22); p 0.001
+  partial  vs A0Lb (R1g v1)    A11h only 8, other only 1, both 6, neither 7 (pairs 22); p 0.039
+  partial  vs A0Lb (R1g v2)    A11h only 7, other only 1, both 7, neither 7 (pairs 22); p 0.070
+  partial  vs A0Lc (R1j)       A11h only 8, other only 2, both 6, neither 6 (pairs 22); p 0.109
+  residual vs A0X (R1k)    A11h 1/7, other 3/7; A11h only 1, other only 3, both 0, neither 3; p 0.625
+    bp35_p3_L2_F n/n, lf52_p2_L4_F n/Y, ls20_p1_L6_F n/n, m0r0_p2_L6_F n/Y, sp80_p1_L6_F n/n, wa30_p0_L5_F n/Y, wa30_p3_L5_F Y/n
+
+RESET use (model-issued, executed, after the restore): 45 in 23 of 35 counted case-arms (max 6 in one); automatic RESETs 13; rows without counts 0; first RESET after action 160: 0
+  cleared with a RESET 14/23, without 11/12; clears reached after the first RESET 14
+  case             resets  auto  reset at           cleared    at   at s  actions  end
+  ar25_p3_L7_F          1     0  15                       Y    52   1282       52  cleared
+  bp35_p1_L2_F          1     2  30                       n     -      -       87  wall_budget
+  bp35_p3_L2_F          1     5  150                      n     -      -      183  wall_budget
+  cn04_p0_L6_F          1     0  10                       n     -      -       92  wall_budget
+  g50t_p1_L1_F          0     0                           Y    26    465       26  cleared
+  g50t_p2_L4_F          1     0  15                       Y    62    644       62  cleared
+  ka59_p0_L6_F          2     0  46,68                    Y   138    944      138  cleared
+  ka59_p1_L6_F          1     0  1                        Y    71    440       71  cleared
+  ka59_p3_L6_F          6     0  16,24,74,105,160,        Y   254   3124      254  cleared
+  lf52_p1_L2_F          0     0                           Y    55    400       55  cleared
+  lf52_p2_L4_F          3     0  1,80,120                 n     -      -      127  wall_budget
+  ls20_p1_L6_F          3     0  76,118,202               n     -      -      320  action_budget
+  m0r0_p2_L6_F          2     0  27,66                    n     -      -       97  wall_budget
+  m0r0_p3_L6_F          0     0                           Y    62    882       62  cleared
+  r11l_p2_L6_F          1     0  1                        Y    26    405       26  cleared
+  re86_p0_L7_F          1     0  99                       Y   240   1429      240  cleared
+  re86_p1_L6_F          4     0  71,79,85,108             Y   173   2433      173  cleared
+  re86_p2_L7_F          0     0                           Y   194   2170      194  cleared
+  re86_p3_L6_F          0     0                           Y    66    549       66  cleared
+  s5i5_p0_L8_F          0     0                           n     -      -       59  wall_budget
+  s5i5_p2_L7_F          1     0  56                       n     -      -       60  wall_budget
+  sc25_p0_L6_F          2     0  1,57                     Y    93   1064       93  cleared
+  sk48_p0_L3_F          0     0                           Y    77    234       77  cleared
+  sk48_p2_L1_F          0     0                           Y    85   1416       85  cleared
+  sp80_p1_L6_F          2     2  51,106                   n     -      -      195  wall_budget
+  su15_p1_L7_F          3     0  14,23,32                 Y    42    407       42  cleared
+  su15_p2_L7_F          3     0  1,10,19                  Y    32    682       32  cleared
+  tn36_p0_L6_F          1     0  27                       Y    64    529       64  cleared
+  tr87_p0_L6_F          0     0                           Y   107    895      107  cleared
+  tr87_p1_L6_F          0     0                           Y   101    441      101  cleared
+  tu93_p0_L9_F          1     3  11                       Y   104   2179      104  cleared
+  tu93_p2_L8_F          0     0                           Y    17    386       17  cleared
+  tu93_p3_L9_F          0     1                           Y    65    893       65  cleared
+  wa30_p0_L5_F          3     0  14,111,212               n     -      -      320  action_budget
+  wa30_p3_L5_F          1     0  12                       Y   132   1298      132  cleared
+
+Rule: time compounds the RESET gain if A11h >= 25/35 (about 4.7 above the 30-minute RESET mean, 20.3); otherwise not shown.
+Decision: compounds (A11h 25/35 >= 25 (30-minute RESET mean 20.3))
+
+exit 0

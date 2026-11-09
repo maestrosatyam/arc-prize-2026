@@ -1,0 +1,32 @@
+{
+ "case_id": "wa30_p0_L5_F",
+ "game_id": "wa30-ee6fef47",
+ "pass": 0,
+ "target_level": 5,
+ "a_start": 519,
+ "n_spent": 164,
+ "cut_nominal": 601,
+ "cut": 588,
+ "prefix_len": 588,
+ "actions_on_level_in_prefix": 69,
+ "restore_analysis_step": 81,
+ "restore_history_messages": 50,
+ "restore_images_omitted": 25,
+ "restore_bytes": 140561,
+ "prelude_names": [
+  "compact",
+  "state",
+  "crop",
+  "objs",
+  "find",
+  "snap",
+  "pos",
+  "bar",
+  "run",
+  "grid"
+ ],
+ "prelude_bytes": 2470,
+ "level_at_cut": 5,
+ "board_hash_at_cut": "798c75a4db20037c",
+ "pass_total_actions": 683
+}

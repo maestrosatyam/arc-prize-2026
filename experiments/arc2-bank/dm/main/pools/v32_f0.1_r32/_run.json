@@ -1,0 +1,1 @@
+{"schema": "arc2_dm_replay.v1", "run": {"setting": "v32_f0.1_r32", "views": 32, "floor": 0.1, "rescore_n": 32, "replayed": true}}

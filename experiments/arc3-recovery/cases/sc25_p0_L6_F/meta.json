@@ -1,0 +1,33 @@
+{
+ "case_id": "sc25_p0_L6_F",
+ "game_id": "sc25-635fd71a",
+ "pass": 0,
+ "target_level": 6,
+ "a_start": 191,
+ "n_spent": 103,
+ "cut_nominal": 242,
+ "cut": 239,
+ "prefix_len": 239,
+ "actions_on_level_in_prefix": 48,
+ "restore_analysis_step": 63,
+ "restore_history_messages": 62,
+ "restore_images_omitted": 32,
+ "restore_bytes": 267197,
+ "prelude_names": [
+  "crop",
+  "head",
+  "headinfo",
+  "summarize",
+  "wire_right",
+  "plugparts",
+  "headpos",
+  "h2",
+  "hrows",
+  "bar",
+  "hd"
+ ],
+ "prelude_bytes": 2721,
+ "level_at_cut": 6,
+ "board_hash_at_cut": "725e5fd84c5a576d",
+ "pass_total_actions": 294
+}

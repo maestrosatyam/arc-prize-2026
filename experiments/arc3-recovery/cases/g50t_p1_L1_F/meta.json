@@ -1,0 +1,26 @@
+{
+ "case_id": "g50t_p1_L1_F",
+ "game_id": "g50t-5849a774",
+ "pass": 1,
+ "target_level": 1,
+ "a_start": 0,
+ "n_spent": 56,
+ "cut_nominal": 28,
+ "cut": 23,
+ "prefix_len": 23,
+ "actions_on_level_in_prefix": 23,
+ "restore_analysis_step": 10,
+ "restore_history_messages": 55,
+ "restore_images_omitted": 20,
+ "restore_bytes": 188321,
+ "prelude_names": [
+  "compact",
+  "cell_area",
+  "sep",
+  "sig"
+ ],
+ "prelude_bytes": 1093,
+ "level_at_cut": 1,
+ "board_hash_at_cut": "2e9125565189b43a",
+ "pass_total_actions": 56
+}

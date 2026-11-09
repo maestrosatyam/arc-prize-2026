@@ -1,0 +1,291 @@
+{
+ "schema": "arc2_bank_bootstrap.v1",
+ "utc": "2026-10-27T00:49:27Z",
+ "args": {
+  "rules": [
+   "b0",
+   "v7_direct",
+   "q27_first",
+   "q27_agree"
+  ],
+  "base": "b0",
+  "n_tasks": [
+   120,
+   240
+  ],
+  "n_boot": 4000,
+  "seed": 0,
+  "pools": [
+   "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+   "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+   "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+  ],
+  "q27": "experiments/runs/kaggle-A2-q27-bank-v1/q27d",
+  "json": "experiments/arc2-bank/bootstrap.json"
+ },
+ "bank": {
+  "fingerprint": "f9bbb32aafbfc4de",
+  "n_tasks": 101,
+  "n_outputs": 145,
+  "n_q27_tasks": 29,
+  "sources": [
+   "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+   "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+   "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+  ],
+  "solutions": "Kaggle solutions copies beside the pools"
+ },
+ "base": "b0",
+ "n_tasks": [
+  120,
+  240
+ ],
+ "n_boot": 4000,
+ "seed": 0,
+ "mdd_definition": "MDD95 = 1.96 x sd_points of the task-resampled paired difference new - base: the board difference (points) a single paired reading must exceed to be outside the 95 % interval of task-resampling noise",
+ "rules": {
+  "b0": {
+   "rule": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 40,
+   "n_right_1": 29,
+   "score": 0.2759,
+   "task_score": 0.302,
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "rule_fingerprint": "d20c96c6691bfe04"
+  },
+  "v7_direct": {
+   "rule": "v7_direct",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 45,
+   "n_right_1": 29,
+   "score": 0.3103,
+   "task_score": 0.3284,
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "rule_fingerprint": "ba65c3fea5ffaeed"
+  },
+  "q27_first": {
+   "rule": "q27_first",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 45,
+   "n_right_1": 33,
+   "score": 0.3103,
+   "task_score": 0.3284,
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "rule_fingerprint": "49b53da829b356c6"
+  },
+  "q27_agree": {
+   "rule": "q27_agree",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 45,
+   "n_right_1": 32,
+   "score": 0.3103,
+   "task_score": 0.3284,
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "rule_fingerprint": "49960c099b6634a8"
+  }
+ },
+ "boards": {
+  "b0": [
+   {
+    "rule": "b0",
+    "n_tasks_resampled": 120,
+    "n_boot": 4000,
+    "mean_points": 27.65,
+    "sd_points": 3.7,
+    "ci95_points": [
+     20.67,
+     35.09
+    ],
+    "mean_outputs": 172.3
+   },
+   {
+    "rule": "b0",
+    "n_tasks_resampled": 240,
+    "n_boot": 4000,
+    "mean_points": 27.69,
+    "sd_points": 2.61,
+    "ci95_points": [
+     22.7,
+     33.04
+    ],
+    "mean_outputs": 344.5
+   }
+  ],
+  "v7_direct": [
+   {
+    "rule": "v7_direct",
+    "n_tasks_resampled": 120,
+    "n_boot": 4000,
+    "mean_points": 31.09,
+    "sd_points": 3.96,
+    "ci95_points": [
+     23.6,
+     39.03
+    ],
+    "mean_outputs": 172.3
+   },
+   {
+    "rule": "v7_direct",
+    "n_tasks_resampled": 240,
+    "n_boot": 4000,
+    "mean_points": 31.12,
+    "sd_points": 2.79,
+    "ci95_points": [
+     25.71,
+     36.65
+    ],
+    "mean_outputs": 344.5
+   }
+  ],
+  "q27_first": [
+   {
+    "rule": "q27_first",
+    "n_tasks_resampled": 120,
+    "n_boot": 4000,
+    "mean_points": 31.09,
+    "sd_points": 3.96,
+    "ci95_points": [
+     23.6,
+     39.03
+    ],
+    "mean_outputs": 172.3
+   },
+   {
+    "rule": "q27_first",
+    "n_tasks_resampled": 240,
+    "n_boot": 4000,
+    "mean_points": 31.12,
+    "sd_points": 2.79,
+    "ci95_points": [
+     25.71,
+     36.65
+    ],
+    "mean_outputs": 344.5
+   }
+  ],
+  "q27_agree": [
+   {
+    "rule": "q27_agree",
+    "n_tasks_resampled": 120,
+    "n_boot": 4000,
+    "mean_points": 31.09,
+    "sd_points": 3.96,
+    "ci95_points": [
+     23.6,
+     39.03
+    ],
+    "mean_outputs": 172.3
+   },
+   {
+    "rule": "q27_agree",
+    "n_tasks_resampled": 240,
+    "n_boot": 4000,
+    "mean_points": 31.12,
+    "sd_points": 2.79,
+    "ci95_points": [
+     25.71,
+     36.65
+    ],
+    "mean_outputs": 344.5
+   }
+  ]
+ },
+ "differences": {
+  "v7_direct": [
+   {
+    "base": "b0",
+    "new": "v7_direct",
+    "n_tasks_resampled": 120,
+    "n_boot": 4000,
+    "mean_points": 3.45,
+    "sd_points": 2.25,
+    "ci95_points": [
+     -0.59,
+     8.09
+    ],
+    "p_le_0": 0.0727,
+    "mdd95_points": 4.41
+   },
+   {
+    "base": "b0",
+    "new": "v7_direct",
+    "n_tasks_resampled": 240,
+    "n_boot": 4000,
+    "mean_points": 3.43,
+    "sd_points": 1.58,
+    "ci95_points": [
+     0.58,
+     6.65
+    ],
+    "p_le_0": 0.0127,
+    "mdd95_points": 3.1
+   }
+  ],
+  "q27_first": [
+   {
+    "base": "b0",
+    "new": "q27_first",
+    "n_tasks_resampled": 120,
+    "n_boot": 4000,
+    "mean_points": 3.45,
+    "sd_points": 2.25,
+    "ci95_points": [
+     -0.59,
+     8.09
+    ],
+    "p_le_0": 0.0727,
+    "mdd95_points": 4.41
+   },
+   {
+    "base": "b0",
+    "new": "q27_first",
+    "n_tasks_resampled": 240,
+    "n_boot": 4000,
+    "mean_points": 3.43,
+    "sd_points": 1.58,
+    "ci95_points": [
+     0.58,
+     6.65
+    ],
+    "p_le_0": 0.0127,
+    "mdd95_points": 3.1
+   }
+  ],
+  "q27_agree": [
+   {
+    "base": "b0",
+    "new": "q27_agree",
+    "n_tasks_resampled": 120,
+    "n_boot": 4000,
+    "mean_points": 3.45,
+    "sd_points": 2.25,
+    "ci95_points": [
+     -0.59,
+     8.09
+    ],
+    "p_le_0": 0.0727,
+    "mdd95_points": 4.41
+   },
+   {
+    "base": "b0",
+    "new": "q27_agree",
+    "n_tasks_resampled": 240,
+    "n_boot": 4000,
+    "mean_points": 3.43,
+    "sd_points": 1.58,
+    "ci95_points": [
+     0.58,
+     6.65
+    ],
+    "p_le_0": 0.0127,
+    "mdd95_points": 3.1
+   }
+  ]
+ },
+ "elapsed_s": 4.4
+}

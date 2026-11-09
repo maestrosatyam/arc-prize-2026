@@ -1,0 +1,105 @@
+{
+ "mode": "direct",
+ "samples": 2,
+ "min_start_s": 600,
+ "thinking_token_budget": 40960,
+ "max_tokens": 49152,
+ "rescue_tokens": 8192,
+ "template_kwargs": {
+  "reasoning_effort": "xhigh"
+ },
+ "temperature": 1.0,
+ "top_p": 0.95,
+ "top_k": 20,
+ "parsers": [
+  "--tool-call-parser",
+  "qwen3_coder",
+  "--reasoning-parser",
+  "qwen3"
+ ],
+ "max_model_len": 81920,
+ "max_num_seqs": 20,
+ "server_ladder": [
+  [
+   "--reasoning-config",
+   "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}",
+   "--kv-cache-dtype",
+   "fp8",
+   "--language-model-only",
+   "--speculative-config",
+   "{\"method\": \"qwen3_5_mtp\", \"num_speculative_tokens\": 2}"
+  ],
+  [
+   "--reasoning-config",
+   "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}",
+   "--kv-cache-dtype",
+   "fp8",
+   "--speculative-config",
+   "{\"method\": \"qwen3_5_mtp\", \"num_speculative_tokens\": 2}"
+  ],
+  [
+   "--reasoning-config",
+   "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}",
+   "--kv-cache-dtype",
+   "fp8",
+   "--speculative-config",
+   "{\"method\": \"mtp\", \"num_speculative_tokens\": 2}"
+  ],
+  [
+   "--reasoning-config",
+   "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}",
+   "--kv-cache-dtype",
+   "fp8"
+  ],
+  [
+   "--reasoning-config",
+   "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}"
+  ],
+  []
+ ],
+ "concurrency": 20,
+ "server_wait_s": 1200,
+ "port": 1234,
+ "server": "vllm",
+ "model_glob": "/kaggle/input/models/mikedan7/qwen3-8-27b-fp8-official/pytorch/hf-fp8/1/config.json",
+ "overlay": "/kaggle/input/datasets/keithtyser/taaf-duck-qwen38-serving-v1/serving_wheels/*.whl",
+ "wheelhouse_dir": "/kaggle/input/datasets/mirzamilanfarabi/arc3-vllm-h100-wheelhouse-v3",
+ "challenges": "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json",
+ "task_ids": [
+  "e8686506",
+  "20270e3b",
+  "28a6681f",
+  "dbff022c",
+  "7b5033c1",
+  "78332cb0",
+  "eee78d87",
+  "d35bdbdc",
+  "3dc255db",
+  "4c3d4a41",
+  "b0039139",
+  "dd6b8c4b",
+  "97d7923e",
+  "136b0064",
+  "bf45cf4b",
+  "f931b4a8",
+  "2b83f449",
+  "16de56c4",
+  "31f7f899",
+  "291dc1e1",
+  "5545f144",
+  "7666fa5d",
+  "faa9f03d",
+  "1818057f",
+  "247ef758",
+  "1ae2feb7",
+  "b9e38dc0",
+  "6e453dd6",
+  "7491f3cf",
+  "f560132c"
+ ],
+ "out_dir": "/kaggle/working/q27d",
+ "run_t0": 1793040750.2013361,
+ "deadline_epoch": 1793050350.2013361,
+ "server_give_up_epoch": 1793042550.2013361,
+ "stub_solutions": "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json"
+}

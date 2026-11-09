@@ -1,0 +1,2474 @@
+{
+ "schema": "arc2_dm_result.v1",
+ "utc": "2026-10-29T19:59:50Z",
+ "rule": "experiments/arc2-bank/DM_RULE.md",
+ "proof_only": true,
+ "proof_is_shard": null,
+ "kernels": {
+  "k0": {
+   "kernel": "k0",
+   "status": "valid",
+   "run": [
+    "dbff022c",
+    "97d7923e",
+    "5545f144",
+    "f560132c",
+    "b6f77b65",
+    "5dbc8537",
+    "4e34c42c",
+    "80a900e0",
+    "269e22fb",
+    "4c416de3",
+    "a32d8b75"
+   ],
+   "not_run": [
+    "e87109e9"
+   ],
+   "problems": [],
+   "n_problems": 0,
+   "download_gaps": [],
+   "exact_checks": [
+    {
+     "calls_floor02": 257,
+     "calls_lo02_in_floor01": 257,
+     "beams_equal": true,
+     "n_beams_floor02": 0,
+     "s": 37.7112,
+     "task": "5545f144",
+     "rank": 3
+    },
+    {
+     "calls_floor02": 49,
+     "calls_lo02_in_floor01": 49,
+     "beams_equal": true,
+     "n_beams_floor02": 0,
+     "s": 8.515,
+     "task": "4e34c42c",
+     "rank": 2
+    },
+    {
+     "calls_floor02": 424,
+     "calls_lo02_in_floor01": 424,
+     "beams_equal": true,
+     "n_beams_floor02": 1,
+     "s": 62.1362,
+     "task": "269e22fb",
+     "rank": 0
+    },
+    {
+     "calls_floor02": 988,
+     "calls_lo02_in_floor01": 988,
+     "beams_equal": true,
+     "n_beams_floor02": 7,
+     "s": 143.1376,
+     "task": "4c416de3",
+     "rank": 1
+    }
+   ],
+   "exact_checks_all_equal": true
+  }
+ },
+ "n_tasks_run": 11,
+ "report_only_tasks": [],
+ "not_run_tasks": [
+  "e87109e9"
+ ],
+ "tasks": [
+  "269e22fb",
+  "4c416de3",
+  "4e34c42c",
+  "5545f144",
+  "5dbc8537",
+  "80a900e0",
+  "97d7923e",
+  "a32d8b75",
+  "b6f77b65",
+  "dbff022c",
+  "f560132c"
+ ],
+ "halves": {
+  "A": [
+   "269e22fb",
+   "5545f144",
+   "97d7923e",
+   "a32d8b75",
+   "f560132c"
+  ],
+  "B": [
+   "4c416de3",
+   "4e34c42c",
+   "5dbc8537",
+   "80a900e0",
+   "b6f77b65",
+   "dbff022c"
+  ]
+ },
+ "n_outputs": 18,
+ "validity": {
+  "item5_s0_time_ratio": 0.9575,
+  "item5_pass": true,
+  "item6_s0_coverage_short": [],
+  "item6_pass": true,
+  "tcp_valid": false
+ },
+ "s0": {
+  "e13": {
+   "wall_s": 28162.3,
+   "cut_33480": 0.0,
+   "cut_40800": 0.0,
+   "n_rows": 11,
+   "coef": [
+    49.846645,
+    0.045191,
+    33.641899
+   ],
+   "sum_s": 4594.6
+  },
+  "alone_against_bank_b0": {
+   "n": 18,
+   "base_right": 1,
+   "new_right": 1,
+   "gained": 0,
+   "lost": 0,
+   "net": 0,
+   "p": null,
+   "gained_keys": [],
+   "lost_keys": []
+  },
+  "merged_against_bank_v7_direct": {
+   "n": 18,
+   "base_right": 1,
+   "new_right": 1,
+   "gained": 0,
+   "lost": 0,
+   "net": 0,
+   "p": null,
+   "gained_keys": [],
+   "lost_keys": []
+  },
+  "time_per_task_against_bank": {
+   "269e22fb": [
+    865.2,
+    859.9
+   ],
+   "4c416de3": [
+    541.4,
+    666.6
+   ],
+   "4e34c42c": [
+    154.3,
+    145.5
+   ],
+   "5545f144": [
+    282.0,
+    315.7
+   ],
+   "5dbc8537": [
+    205.0,
+    213.1
+   ],
+   "80a900e0": [
+    365.3,
+    433.1
+   ],
+   "97d7923e": [
+    398.1,
+    402.8
+   ],
+   "a32d8b75": [
+    819.2,
+    842.6
+   ],
+   "b6f77b65": [
+    551.9,
+    537.2
+   ],
+   "dbff022c": [
+    229.2,
+    210.0
+   ],
+   "f560132c": [
+    182.9,
+    172.1
+   ]
+  }
+ },
+ "lines": {
+  "v16_f0.2_r8_kgmon": {
+   "setting": {
+    "views": 16,
+    "floor": 0.2,
+    "rescore_n": 8,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 0.0,
+   "k": 1.0,
+   "samples_kept": 8,
+   "b0_cut_fraction": 0.0,
+   "b0_cut_tasks": [],
+   "time_ratio_to_s0": 1.0,
+   "oracle": 2,
+   "cap_stops": [],
+   "coverage_short": []
+  },
+  "v16_f0.2_r8_probmul3": {
+   "setting": {
+    "views": 16,
+    "floor": 0.2,
+    "rescore_n": 8,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 0.0,
+   "k": 1.0,
+   "samples_kept": 8,
+   "b0_cut_fraction": 0.0,
+   "b0_cut_tasks": [],
+   "time_ratio_to_s0": 1.0,
+   "oracle": 2,
+   "cap_stops": [],
+   "coverage_short": []
+  },
+  "v16_f0.2_r16_kgmon": {
+   "setting": {
+    "views": 16,
+    "floor": 0.2,
+    "rescore_n": 16,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 940.7,
+   "k": 0.8715,
+   "samples_kept": 6,
+   "b0_cut_fraction": 0.0,
+   "b0_cut_tasks": [],
+   "time_ratio_to_s0": 1.0374,
+   "oracle": 2,
+   "cap_stops": [],
+   "coverage_short": []
+  },
+  "v16_f0.2_r16_probmul3": {
+   "setting": {
+    "views": 16,
+    "floor": 0.2,
+    "rescore_n": 16,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 940.7,
+   "k": 0.8715,
+   "samples_kept": 6,
+   "b0_cut_fraction": 0.0,
+   "b0_cut_tasks": [],
+   "time_ratio_to_s0": 1.0374,
+   "oracle": 2,
+   "cap_stops": [],
+   "coverage_short": []
+  },
+  "v16_f0.2_r32_kgmon": {
+   "setting": {
+    "views": 16,
+    "floor": 0.2,
+    "rescore_n": 32,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 2814.0,
+   "k": 0.6156,
+   "samples_kept": 4,
+   "b0_cut_fraction": 0.0,
+   "b0_cut_tasks": [],
+   "time_ratio_to_s0": 1.1121,
+   "oracle": 2,
+   "cap_stops": [],
+   "coverage_short": []
+  },
+  "v16_f0.2_r32_probmul3": {
+   "setting": {
+    "views": 16,
+    "floor": 0.2,
+    "rescore_n": 32,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 2814.0,
+   "k": 0.6156,
+   "samples_kept": 4,
+   "b0_cut_fraction": 0.0,
+   "b0_cut_tasks": [],
+   "time_ratio_to_s0": 1.1121,
+   "oracle": 2,
+   "cap_stops": [],
+   "coverage_short": []
+  },
+  "v16_f0.1_r8_kgmon": {
+   "setting": {
+    "views": 16,
+    "floor": 0.1,
+    "rescore_n": 8,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 18263.5,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.0867,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.7354,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb"
+   ],
+   "coverage_short": []
+  },
+  "v16_f0.1_r8_probmul3": {
+   "setting": {
+    "views": 16,
+    "floor": 0.1,
+    "rescore_n": 8,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 18263.5,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.0867,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.7354,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb"
+   ],
+   "coverage_short": []
+  },
+  "v16_f0.1_r16_kgmon": {
+   "setting": {
+    "views": 16,
+    "floor": 0.1,
+    "rescore_n": 16,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 19839.4,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.1087,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.8075,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb"
+   ],
+   "coverage_short": []
+  },
+  "v16_f0.1_r16_probmul3": {
+   "setting": {
+    "views": 16,
+    "floor": 0.1,
+    "rescore_n": 16,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 19839.4,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.1087,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.8075,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb"
+   ],
+   "coverage_short": []
+  },
+  "v16_f0.1_r32_kgmon": {
+   "setting": {
+    "views": 16,
+    "floor": 0.1,
+    "rescore_n": 32,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 20890.3,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.1252,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.8411,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v16_f0.1_r32_probmul3": {
+   "setting": {
+    "views": 16,
+    "floor": 0.1,
+    "rescore_n": 32,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 20890.3,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.1252,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.8411,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.2_r8_kgmon": {
+   "setting": {
+    "views": 32,
+    "floor": 0.2,
+    "rescore_n": 8,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 17458.6,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.0755,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.6914,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.2_r8_probmul3": {
+   "setting": {
+    "views": 32,
+    "floor": 0.2,
+    "rescore_n": 8,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 17458.6,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.0755,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.6914,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.2_r16_kgmon": {
+   "setting": {
+    "views": 32,
+    "floor": 0.2,
+    "rescore_n": 16,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 18290.7,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.0875,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.7181,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.2_r16_probmul3": {
+   "setting": {
+    "views": 32,
+    "floor": 0.2,
+    "rescore_n": 16,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 18290.7,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.0875,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.7181,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.2_r32_kgmon": {
+   "setting": {
+    "views": 32,
+    "floor": 0.2,
+    "rescore_n": 32,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 20227.0,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.1152,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.7899,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.2_r32_probmul3": {
+   "setting": {
+    "views": 32,
+    "floor": 0.2,
+    "rescore_n": 32,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 20227.0,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.1152,
+   "b0_cut_tasks": [
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 1.7899,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "a32d8b75"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.1_r8_kgmon": {
+   "setting": {
+    "views": 32,
+    "floor": 0.1,
+    "rescore_n": 8,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 37203.7,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.351,
+   "b0_cut_tasks": [
+    "80a900e0",
+    "269e22fb",
+    "4c416de3",
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 2.4534,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "4c416de3",
+    "80a900e0",
+    "a32d8b75",
+    "b6f77b65"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.1_r8_probmul3": {
+   "setting": {
+    "views": 32,
+    "floor": 0.1,
+    "rescore_n": 8,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 37203.7,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.351,
+   "b0_cut_tasks": [
+    "80a900e0",
+    "269e22fb",
+    "4c416de3",
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 2.4534,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "4c416de3",
+    "80a900e0",
+    "a32d8b75",
+    "b6f77b65"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.1_r16_kgmon": {
+   "setting": {
+    "views": 32,
+    "floor": 0.1,
+    "rescore_n": 16,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 39125.6,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.3769,
+   "b0_cut_tasks": [
+    "80a900e0",
+    "269e22fb",
+    "4c416de3",
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 2.5375,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "4c416de3",
+    "80a900e0",
+    "a32d8b75",
+    "b6f77b65"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.1_r16_probmul3": {
+   "setting": {
+    "views": 32,
+    "floor": 0.1,
+    "rescore_n": 16,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 39125.6,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.3769,
+   "b0_cut_tasks": [
+    "80a900e0",
+    "269e22fb",
+    "4c416de3",
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 2.5375,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "4c416de3",
+    "80a900e0",
+    "a32d8b75",
+    "b6f77b65"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.1_r32_kgmon": {
+   "setting": {
+    "views": 32,
+    "floor": 0.1,
+    "rescore_n": 32,
+    "ranking": "kgmon"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 41932.1,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.4164,
+   "b0_cut_tasks": [
+    "4e34c42c",
+    "80a900e0",
+    "269e22fb",
+    "4c416de3",
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 2.5882,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "4c416de3",
+    "80a900e0",
+    "a32d8b75",
+    "b6f77b65"
+   ],
+   "coverage_short": []
+  },
+  "v32_f0.1_r32_probmul3": {
+   "setting": {
+    "views": 32,
+    "floor": 0.1,
+    "rescore_n": 32,
+    "ranking": "probmul3"
+   },
+   "alone": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "tcp": {
+    "A": {
+     "n": 8,
+     "base_right": 0,
+     "new_right": 0,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "B": {
+     "n": 10,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    },
+    "all": {
+     "n": 18,
+     "base_right": 1,
+     "new_right": 1,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "p": null,
+     "gained_keys": [],
+     "lost_keys": []
+    }
+   },
+   "delta_s": 41932.1,
+   "k": 0.0,
+   "samples_kept": 0,
+   "b0_cut_fraction": 0.4164,
+   "b0_cut_tasks": [
+    "4e34c42c",
+    "80a900e0",
+    "269e22fb",
+    "4c416de3",
+    "a32d8b75"
+   ],
+   "time_ratio_to_s0": 2.5882,
+   "oracle": 2,
+   "cap_stops": [
+    "269e22fb",
+    "4c416de3",
+    "80a900e0",
+    "a32d8b75",
+    "b6f77b65"
+   ],
+   "coverage_short": []
+  }
+ },
+ "selection": {
+  "winner": null,
+  "ranked_on_A": [
+   [
+    "v16_f0.2_r8_probmul3",
+    0,
+    0
+   ],
+   [
+    "v16_f0.2_r16_kgmon",
+    0,
+    0
+   ],
+   [
+    "v16_f0.2_r16_probmul3",
+    0,
+    0
+   ],
+   [
+    "v16_f0.2_r32_kgmon",
+    0,
+    0
+   ],
+   [
+    "v16_f0.2_r32_probmul3",
+    0,
+    0
+   ],
+   [
+    "v32_f0.2_r8_kgmon",
+    0,
+    0
+   ],
+   [
+    "v32_f0.2_r8_probmul3",
+    0,
+    0
+   ],
+   [
+    "v16_f0.1_r8_kgmon",
+    0,
+    0
+   ]
+  ]
+ },
+ "outcome": "proof: path checks only (DM_RULE.md section 7); its lines feed no decision",
+ "winner_extra": {},
+ "replay": {
+  "dir": "experiments/arc2-bank/dm/proof",
+  "settings_seconds": {
+   "v16_f0.2_r8": 4594.6,
+   "v16_f0.2_r16": 4766.4,
+   "v16_f0.2_r32": 5109.7,
+   "v16_f0.1_r8": 7973.4,
+   "v16_f0.1_r16": 8304.7,
+   "v16_f0.1_r32": 8459.0,
+   "v32_f0.2_r8": 7771.1,
+   "v32_f0.2_r16": 7893.8,
+   "v32_f0.2_r32": 8223.7,
+   "v32_f0.1_r8": 11272.3,
+   "v32_f0.1_r16": 11658.9,
+   "v32_f0.1_r32": 11891.8
+  }
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "task_ids": [
+  "7b80bb43",
+  "7c66cb00",
+  "88bcf3b4",
+  "8b7bacbf",
+  "9aaea919",
+  "a251c730",
+  "a25697e4",
+  "a47bf94d",
+  "b10624e5",
+  "b99e7126",
+  "c4d067a0",
+  "da515329",
+  "edb79dae"
+ ],
+ "present": [
+  "7b80bb43",
+  "7c66cb00",
+  "88bcf3b4",
+  "8b7bacbf",
+  "9aaea919",
+  "a251c730",
+  "a25697e4",
+  "a47bf94d",
+  "b10624e5",
+  "b99e7126",
+  "c4d067a0",
+  "da515329",
+  "edb79dae"
+ ],
+ "sha256": {
+  "7b80bb43": "89853c2ee8f9b867edac6f1f22d7372c90a46eb2e5080fa9f0f5a45a2edef0f3",
+  "7c66cb00": "446bf07d6ea161d137efe35bd4918ae6e11f722cce03e340f594b2f6d35ee2d8",
+  "88bcf3b4": "a8d714e601b09c3e7f027935c572ec14299fb0d51d194f1e01bc72c3e3c46542",
+  "8b7bacbf": "ca77a8a81c5ab37e685a74dcb3406b1007a1853b03e750d954c6b105c2b236a5",
+  "9aaea919": "883a4e57b4215efe9fd6bd2739f7a1c3ed3c8408b7520f064cf35f08c31c8dfb",
+  "a251c730": "7e970f53fcfc8492501f58a0d6aeb2e7622b824ffa777261c286af6729082ce2",
+  "a25697e4": "0cc8ec210f564155482cca36bbc86b6e67946df67a52aca657148553ff6b5811",
+  "a47bf94d": "fc2fc86b39a9d76c5173b0b9557735ff55c2eb88e09df99215ab6cde4e479438",
+  "b10624e5": "3bd32656da3f2ea720a249e95dfd91eae545720ef9bb1dcd77c2613b31de1895",
+  "b99e7126": "c3761d4d73ccda02564e54d109b8f15503f737c64566d170e13e2331aaf6e56c",
+  "c4d067a0": "001f1364cad46b0a5b682d74d21e9031705f57c15ae1af58b83e269389f58220",
+  "da515329": "5da08b2f223178dd9dc299d536b121e0dbd808d7eb2c09c8ada205c967fd45cc",
+  "edb79dae": "dfe53629a407290c01589db539ff3dc98e0a759520cdc470c9356fda10b5e07b"
+ },
+ "rule": "sealed against rule decisions (their labels were in the adapt training run, so they check rule-selection overfitting, not model generalisation); replay tools must refuse this directory without a final-pick flag"
+}

@@ -1,0 +1,394 @@
+{
+ "levels": 157,
+ "excluded": 26,
+ "starts": 183,
+ "levels_jsonl_sha256": "1c8a0dff01f4a5ec07068f2ca5640ee60e34fa672734095911b498c51a21d6ab",
+ "texts_sha256": "c870e4a57045056c2da68b230ba782a70e52fd8a8b2aaefa5dc0b61faff015ea",
+ "inputs": {
+  "level_starts.jsonl": "6f1a43443789f036e806fa344cfe556de724876a6792a8a31d59a7aab805281a",
+  "rules.json": "0bce2aaf6408285b337fcd35b5ffe2fbe1b887e36379d103d77b23dcaff89784",
+  "r1f r1_cases.tar.gz": "e50cdc86c06807f137bcf5b52013532cd0c8872180fc7baae5fa8da24383b303",
+  "arc3_solutions.jsonl": "dd74f1dee03c8c38c7e54424b5f1421e6a475e93d233ff3fbe90bfe83f1ffc60",
+  "c1_oracle.py": "ba01140e03aff3ca04572bb8fb094307ede280762dab2037babc23cb45dc5959"
+ },
+ "r1f_reproduction": {
+  "cases": 35,
+  "message_bytes_equal": 35,
+  "entry_equal": 35,
+  "cases_detail": [
+   {
+    "case_id": "ar25_p3_L7_F",
+    "game": "ar25",
+    "level": 7,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "1069d753cb9145a7f65b5a2cdde492dc14eea12d0a458ccfbcff1958b4622798"
+   },
+   {
+    "case_id": "bp35_p1_L2_F",
+    "game": "bp35",
+    "level": 2,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "e2277f4e2f2ce8fd4010907ffaeb54e719573c41e7eb58f5322dc67e1e327727"
+   },
+   {
+    "case_id": "bp35_p3_L2_F",
+    "game": "bp35",
+    "level": 2,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "e2277f4e2f2ce8fd4010907ffaeb54e719573c41e7eb58f5322dc67e1e327727"
+   },
+   {
+    "case_id": "cn04_p0_L6_F",
+    "game": "cn04",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "2e28d4c0867385cbc478dbb151df3627b6e2d8cf9207d94299b8246ce8ec32b5"
+   },
+   {
+    "case_id": "g50t_p1_L1_F",
+    "game": "g50t",
+    "level": 1,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "e824bd8bc1a94fba068986747dafdb09c1af96fba2daf132e0f83f57e3926ef9"
+   },
+   {
+    "case_id": "g50t_p2_L4_F",
+    "game": "g50t",
+    "level": 4,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "9cac09dcf016d646d8fb3e295632c98956516985aedac886ef985474bec97390"
+   },
+   {
+    "case_id": "ka59_p0_L6_F",
+    "game": "ka59",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "7c68301292a6a33aaaf0cb9d766d312fc1459db4adb845eeff8253956bb4d476"
+   },
+   {
+    "case_id": "ka59_p1_L6_F",
+    "game": "ka59",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "7c68301292a6a33aaaf0cb9d766d312fc1459db4adb845eeff8253956bb4d476"
+   },
+   {
+    "case_id": "ka59_p3_L6_F",
+    "game": "ka59",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "7c68301292a6a33aaaf0cb9d766d312fc1459db4adb845eeff8253956bb4d476"
+   },
+   {
+    "case_id": "lf52_p1_L2_F",
+    "game": "lf52",
+    "level": 2,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "95c966d1a12d2dabad089cf1ba537a15f321d09988315251ed0fa8cebe5dd591"
+   },
+   {
+    "case_id": "lf52_p2_L4_F",
+    "game": "lf52",
+    "level": 4,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "5322f8550b939d1891f6cac2ce367d10b4ad178e8ce70a8f913c2d32934b1acc"
+   },
+   {
+    "case_id": "ls20_p1_L6_F",
+    "game": "ls20",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "719677ec2ecca07081d8bb45d3bff8feada43dd079507042ce6869e06310b6b3"
+   },
+   {
+    "case_id": "m0r0_p2_L6_F",
+    "game": "m0r0",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "8188593967f8892d18084c2a566620e92dfad80b4321b61064934a70f6596a38"
+   },
+   {
+    "case_id": "m0r0_p3_L6_F",
+    "game": "m0r0",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "8188593967f8892d18084c2a566620e92dfad80b4321b61064934a70f6596a38"
+   },
+   {
+    "case_id": "r11l_p2_L6_F",
+    "game": "r11l",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "ba7953e3d192a59639854032d68525f0c2e5d15f7a49dd6463140de716affb61"
+   },
+   {
+    "case_id": "re86_p0_L7_F",
+    "game": "re86",
+    "level": 7,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "2e3e89af4147849d311c9b9ac4d8f41fbe02236de370334ca34030c646ca66cf"
+   },
+   {
+    "case_id": "re86_p1_L6_F",
+    "game": "re86",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "6c3bfc79e3d48c7a3d10f093a314db5365990d0e99c788e2f4ef871e9c056647"
+   },
+   {
+    "case_id": "re86_p2_L7_F",
+    "game": "re86",
+    "level": 7,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "2e3e89af4147849d311c9b9ac4d8f41fbe02236de370334ca34030c646ca66cf"
+   },
+   {
+    "case_id": "re86_p3_L6_F",
+    "game": "re86",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "6c3bfc79e3d48c7a3d10f093a314db5365990d0e99c788e2f4ef871e9c056647"
+   },
+   {
+    "case_id": "s5i5_p0_L8_F",
+    "game": "s5i5",
+    "level": 8,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "9a045bfbd54f0856bdbc9f2883d237ca5943cdb55acd463ce2588797cfaf64e6"
+   },
+   {
+    "case_id": "s5i5_p2_L7_F",
+    "game": "s5i5",
+    "level": 7,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "11acfc81195306927f53f3d5c55e8f86e766bbb2b7f0dba9359f8a15af030f30"
+   },
+   {
+    "case_id": "sc25_p0_L6_F",
+    "game": "sc25",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "b5ace6a6198def0694c137e32aa5760719e1a0f3cd406feeae6897b4f95bbee6"
+   },
+   {
+    "case_id": "sk48_p0_L3_F",
+    "game": "sk48",
+    "level": 3,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "20fbf9f68280b478967699c308cb9da8947fd8256db555198bb18fc5c87a3d57"
+   },
+   {
+    "case_id": "sk48_p2_L1_F",
+    "game": "sk48",
+    "level": 1,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "567ddd6d05be698cf7a7c5d7743c884b12e2f96492f0a5a313b929a44c5730ee"
+   },
+   {
+    "case_id": "sp80_p1_L6_F",
+    "game": "sp80",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "d772a42f6a207e676dd598d1e184d3e5af66fc57dfc827b699824af37d703178"
+   },
+   {
+    "case_id": "su15_p1_L7_F",
+    "game": "su15",
+    "level": 7,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "d9e4c3a80069c9aa1d21e418f130448390d91c01159b538a4bb855a764926cab"
+   },
+   {
+    "case_id": "su15_p2_L7_F",
+    "game": "su15",
+    "level": 7,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "d9e4c3a80069c9aa1d21e418f130448390d91c01159b538a4bb855a764926cab"
+   },
+   {
+    "case_id": "tn36_p0_L6_F",
+    "game": "tn36",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "26e536647279d3089aea242c499267c4adbb8c900275835ed14620f1163ea839"
+   },
+   {
+    "case_id": "tr87_p0_L6_F",
+    "game": "tr87",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "bf6411a1874035055494baf8611b53675af45049e50338f9f321fcac786316a3"
+   },
+   {
+    "case_id": "tr87_p1_L6_F",
+    "game": "tr87",
+    "level": 6,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "bf6411a1874035055494baf8611b53675af45049e50338f9f321fcac786316a3"
+   },
+   {
+    "case_id": "tu93_p0_L9_F",
+    "game": "tu93",
+    "level": 9,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "376762da8c56149df8944c39a110bb8717dca94b5f9314a89bf415a92056a96c"
+   },
+   {
+    "case_id": "tu93_p2_L8_F",
+    "game": "tu93",
+    "level": 8,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "509b8bf67d1bb535151dee48e41f36fe0f1efd0f99986b177c0d619bf4d41091"
+   },
+   {
+    "case_id": "tu93_p3_L9_F",
+    "game": "tu93",
+    "level": 9,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "376762da8c56149df8944c39a110bb8717dca94b5f9314a89bf415a92056a96c"
+   },
+   {
+    "case_id": "wa30_p0_L5_F",
+    "game": "wa30",
+    "level": 5,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "1db365e3a1c6ef1f783cba2af9369b384a2693f1b2de7d5b9669f383debba61c"
+   },
+   {
+    "case_id": "wa30_p3_L5_F",
+    "game": "wa30",
+    "level": 5,
+    "message_bytes_equal": true,
+    "entry_equal": true,
+    "message_sha256": "1db365e3a1c6ef1f783cba2af9369b384a2693f1b2de7d5b9669f383debba61c"
+   }
+  ]
+ },
+ "engine_replay": {
+  "starts": 183,
+  "ok": 183
+ },
+ "kernels": {
+  "k1": {
+   "levels": 52,
+   "case_arms": 104,
+   "games": [
+    "cd82",
+    "dc22",
+    "lf52",
+    "m0r0",
+    "re86",
+    "sp80",
+    "su15",
+    "wa30"
+   ],
+   "prefix_actions": 4850
+  },
+  "k2": {
+   "levels": 52,
+   "case_arms": 104,
+   "games": [
+    "ft09",
+    "g50t",
+    "ka59",
+    "r11l",
+    "s5i5",
+    "sk48",
+    "tn36",
+    "tu93"
+   ],
+   "prefix_actions": 3536
+  },
+  "k3": {
+   "levels": 53,
+   "case_arms": 106,
+   "games": [
+    "ar25",
+    "bp35",
+    "cn04",
+    "lp85",
+    "ls20",
+    "sb26",
+    "sc25",
+    "tr87",
+    "vc33"
+   ],
+   "prefix_actions": 3201
+  }
+ },
+ "bands_kept": {
+  "1-10": 24,
+  "11-20": 52,
+  "21-40": 38,
+  "41-80": 36,
+  "81+": 7
+ },
+ "bands_all": {
+  "1-10": 25,
+  "11-20": 52,
+  "21-40": 45,
+  "41-80": 49,
+  "81+": 12
+ },
+ "r1_cases_in_run": [
+  "ar25_L7",
+  "bp35_L2",
+  "cn04_L6",
+  "g50t_L1",
+  "g50t_L4",
+  "ka59_L6",
+  "lf52_L2",
+  "lf52_L4",
+  "ls20_L6",
+  "m0r0_L6",
+  "r11l_L6",
+  "re86_L6",
+  "re86_L7",
+  "s5i5_L7",
+  "s5i5_L8",
+  "sc25_L6",
+  "sk48_L1",
+  "sk48_L3",
+  "sp80_L6",
+  "su15_L7",
+  "tn36_L6",
+  "tr87_L6",
+  "tu93_L8",
+  "tu93_L9",
+  "wa30_L5"
+ ]
+}

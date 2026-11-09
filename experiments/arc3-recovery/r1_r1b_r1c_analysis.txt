@@ -1,0 +1,35 @@
+$ python3 -I scripts/arc3_recovery_analyze.py experiments/runs/kaggle-R1-pilot-v4/r1_results.jsonl experiments/runs/kaggle-R1b-v1/r1_results.jsonl experiments/runs/kaggle-R1c-v1/r1_results.jsonl
+results: 245 case-arms over 35 cases; arms A0, A0b, A1, A2, A3, A4, A5; not run: 0
+A0: run 35, cleared 9 (0.257), probes 97, capped batches 0, timeouts 38, cancelled actions 0, median wall 900.3 s, median replay 142.0 s, median tokens 41642, median restored messages 59, median kept functions 21, ends {'action_budget': 6, 'cleared': 9, 'wall_budget': 20}
+A0b: run 35, cleared 11 (0.314), probes 85, capped batches 0, timeouts 6, cancelled actions 0, median wall 786.8 s, median replay 1.2 s, median tokens 49048, median restored messages 59, median kept functions 21, ends {'action_budget': 8, 'cleared': 11, 'wall_budget': 16}
+A1: run 35, cleared 5 (0.143), probes 110, capped batches 6, timeouts 37, cancelled actions 0, median wall 901.0 s, median replay 150.4 s, median tokens 46283, median restored messages 59, median kept functions 21, ends {'action_budget': 7, 'cleared': 5, 'wall_budget': 23}
+A2: run 35, cleared 6 (0.171), probes 86, capped batches 0, timeouts 1, cancelled actions 0, median wall 901.0 s, median replay 109.4 s, median tokens 47061, median restored messages 59, median kept functions 21, ends {'action_budget': 9, 'cleared': 6, 'wall_budget': 20}
+A3: run 35, cleared 1 (0.029), probes 60, capped batches 0, timeouts 3, cancelled actions 0, median wall 900.8 s, median replay 1.4 s, median tokens 55376, median restored messages 0, median kept functions 0, ends {'cleared': 1, 'wall_budget': 34}
+A4: run 35, cleared 7 (0.2), probes 115, capped batches 0, timeouts 16, cancelled actions 0, median wall 900.5 s, median replay 2.5 s, median tokens 52491, median restored messages 25, median kept functions 21, ends {'action_budget': 5, 'cleared': 7, 'wall_budget': 23}
+A5: run 35, cleared 6 (0.171), probes 119, capped batches 0, timeouts 23, cancelled actions 0, median wall 855.8 s, median replay 2.1 s, median tokens 49794, median restored messages 59, median kept functions 0, ends {'action_budget': 13, 'cleared': 6, 'wall_budget': 16}
+A0b vs A0 (reproducibility floor): pairs 35; cleared 11 vs 9 (0.314 vs 0.257, 5.7 points); discordant 4/2 (6 of 35, 0.171); McNemar exact p 0.688; median actions to clear 57 vs 57; both cleared 7, paired median action difference -2
+A1 vs A0: pairs 35; cleared 5 vs 9 (0.143 vs 0.257, -11.4 points); discordant 4/8 (12 of 35, 0.343); McNemar exact p 0.388; median actions to clear 51 vs 57; both cleared 1, paired median action difference -25
+A2 vs A0: pairs 35; cleared 6 vs 9 (0.171 vs 0.257, -8.6 points); discordant 3/6 (9 of 35, 0.257); McNemar exact p 0.508; median actions to clear 52.5 vs 57; both cleared 3, paired median action difference -14
+A3 vs A0: pairs 35; cleared 1 vs 9 (0.029 vs 0.257, -22.9 points); discordant 0/8 (8 of 35, 0.229); McNemar exact p 0.008; median actions to clear 18 vs 57; both cleared 1, paired median action difference -39
+A4 vs A0: pairs 35; cleared 7 vs 9 (0.2 vs 0.257, -5.7 points); discordant 2/4 (6 of 35, 0.171); McNemar exact p 0.688; median actions to clear 49 vs 57; both cleared 5, paired median action difference -8
+A5 vs A0: pairs 35; cleared 6 vs 9 (0.171 vs 0.257, -8.6 points); discordant 2/5 (7 of 35, 0.2); McNemar exact p 0.453; median actions to clear 43.5 vs 57; both cleared 4, paired median action difference -5.5
+A1 vs A0b: pairs 35; cleared 5 vs 11 (-17.1 points); discordant 2/8; McNemar exact p 0.109
+A1 vs A0 or A0b: pairs 35; cleared 5 vs 13 (-22.9 points); discordant 2/10; McNemar exact p 0.039
+A1 vs A0 and A0b: pairs 35; cleared 5 vs 7 (-5.7 points); discordant 4/6; McNemar exact p 0.754
+A2 vs A0b: pairs 35; cleared 6 vs 11 (-14.3 points); discordant 3/8; McNemar exact p 0.227
+A2 vs A0 or A0b: pairs 35; cleared 6 vs 13 (-20.0 points); discordant 2/9; McNemar exact p 0.065
+A2 vs A0 and A0b: pairs 35; cleared 6 vs 7 (-2.9 points); discordant 4/5; McNemar exact p 1.000
+A3 vs A0b: pairs 35; cleared 1 vs 11 (-28.6 points); discordant 0/10; McNemar exact p 0.002
+A3 vs A0 or A0b: pairs 35; cleared 1 vs 13 (-34.3 points); discordant 0/12; McNemar exact p 0.000
+A3 vs A0 and A0b: pairs 35; cleared 1 vs 7 (-17.1 points); discordant 0/6; McNemar exact p 0.031
+A4 vs A0b: pairs 35; cleared 7 vs 11 (-11.4 points); discordant 1/5; McNemar exact p 0.219
+A4 vs A0 or A0b: pairs 35; cleared 7 vs 13 (-17.1 points); discordant 1/7; McNemar exact p 0.070
+A4 vs A0 and A0b: pairs 35; cleared 7 vs 7 (0.0 points); discordant 2/2; McNemar exact p 1.000
+A5 vs A0b: pairs 35; cleared 6 vs 11 (-14.3 points); discordant 1/6; McNemar exact p 0.125
+A5 vs A0 or A0b: pairs 35; cleared 6 vs 13 (-20.0 points); discordant 1/8; McNemar exact p 0.039
+A5 vs A0 and A0b: pairs 35; cleared 6 vs 7 (-2.9 points); discordant 2/3; McNemar exact p 1.000
+A4 trim (keep fraction [0.45]): shortened 35/35 restored conversations, unchanged 0; median messages 59 -> 25, est tokens 74952 -> 35427; on the shortened cases cleared A4 7/35, A0 9/35, A0b 11/35
+union over A0, A0b, A1, A2, A3, A4, A5: 17/35 cases cleared by at least one arm (independent draws at the observed rates: 26.85); 0/35 complete cases cleared by every arm; complete cases by number of arms clearing {'0': 18, '1': 5, '2': 3, '3': 5, '4': 2, '5': 1, '6': 1}
+arms do not matter (labels permuted within case, 20000 draws): observed spread 1.7061, p 0.0151
+
+exit 0

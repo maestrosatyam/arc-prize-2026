@@ -1,0 +1,45 @@
+$ python3 -I arc3_r1v_analyze.py   # a per-run reader, not included
+R1v: arm A16 (R1g's A7L, told insight) on ThinkingCap at 320 actions / 1800 s vs ThinkingCap without the insight (R1u), the insight on the Intel model and the unchanged 30-minute samples
+labels on the cases: {'yes': 11, 'partial': 22, 'no': 2}
+
+run                      all  mechanics-only   within 160 / 1800; tokens per request; tokens per action; actions per case-minute (median); actions per case-arm (median)
+ThinkingCap, no insight, 320 actions / 30 min:
+  A15 (R1u)            17/35            7/22   14; 1478.8; 481.6; 5.34; 79
+told insight (Intel), 160 actions / 30 min:
+  A7L (R1g v1)         20/35           12/22   20; n/a; 650.6; 5.54; 79
+  A7L (R1g v2)         23/35           12/22   23; n/a; 717.8; 5.89; 66
+told insight (Intel), 320 actions / 60 min:
+  A14 (R1t)            29/35           17/22   21; n/a; 764.5; 5.86; 89
+unchanged (Intel), 160 actions / 30 min:
+  A0L (R1d)            14/35            3/22   14; n/a; 837.2; 4.13; 95
+  A0Lb (R1g v1)        14/35            7/22   14; n/a; 920.6; 3.68; 75
+  A0Lb (R1g v2)        18/35            8/22   18; n/a; 782.0; 5.19; 80
+  A0Lc (R1j)           17/35            8/22   17; n/a; 770.7; 4.87; 90
+A16 (R1v)              24/35           13/22   21; 1512.0; 450.6; 6.5; 81   label groups {'yes': [10, 11], 'partial': [13, 22], 'no': [1, 2]}
+case-arms in the archive 35, ran 35; missing 0; cut by the hard stop 0; ends {'action_budget': 2, 'cleared': 24, 'wall_budget': 9}
+clears within 160 actions / 1800 s 21; after 3 ['ka59_p1_L6_F', 'ka59_p3_L6_F', 're86_p0_L7_F']
+insight shown in 35 case-arms (22 mechanics-only); kinds ['insight']; errors 0; ran without it []
+tokens per request 1512.0 (1134 requests over 35 case-arms); tokens per action 450.6 (1,714,557 / 3,805); actions per case-minute median 6.5 over 35
+
+A16 paired (exact McNemar, two-sided):
+  all      vs A15 (R1u)        A16 only 7, other only 0, both 17, neither 11 (pairs 35); p 0.016
+  all      vs A7L (R1g v1)     A16 only 7, other only 3, both 17, neither 8 (pairs 35); p 0.344
+  all      vs A7L (R1g v2)     A16 only 4, other only 3, both 20, neither 8 (pairs 35); p 1.000
+  all      vs A14 (R1t)        A16 only 1, other only 6, both 23, neither 5 (pairs 35); p 0.125
+  all      vs A0L (R1d)        A16 only 11, other only 1, both 13, neither 10 (pairs 35); p 0.006
+  all      vs A0Lb (R1g v1)    A16 only 12, other only 2, both 12, neither 9 (pairs 35); p 0.013
+  all      vs A0Lb (R1g v2)    A16 only 9, other only 3, both 15, neither 8 (pairs 35); p 0.146
+  all      vs A0Lc (R1j)       A16 only 9, other only 2, both 15, neither 9 (pairs 35); p 0.065
+  partial  vs A15 (R1u)        A16 only 6, other only 0, both 7, neither 9 (pairs 22); p 0.031
+  partial  vs A7L (R1g v1)     A16 only 4, other only 3, both 9, neither 6 (pairs 22); p 1.000
+  partial  vs A7L (R1g v2)     A16 only 3, other only 2, both 10, neither 7 (pairs 22); p 1.000
+  partial  vs A14 (R1t)        A16 only 1, other only 5, both 12, neither 4 (pairs 22); p 0.219
+  partial  vs A0L (R1d)        A16 only 10, other only 0, both 3, neither 9 (pairs 22); p 0.002
+  partial  vs A0Lb (R1g v1)    A16 only 7, other only 1, both 6, neither 8 (pairs 22); p 0.070
+  partial  vs A0Lb (R1g v2)    A16 only 8, other only 3, both 5, neither 6 (pairs 22); p 0.227
+  partial  vs A0Lc (R1j)       A16 only 7, other only 2, both 6, neither 7 (pairs 22); p 0.180
+
+Rule: A16 >= 21/35: the insight effect replicates on ThinkingCap; <= 19: not replicated; 20: inconclusive
+Decision: replicates (A16 24/35)
+
+exit 0

@@ -1,0 +1,11 @@
+case            A7X clr/act/tok/end           A0X clr/act/tok/end           
+bp35_p3_L2_F    n/155/214492/wall_budget      n/211/207430/wall_budget      
+lf52_p2_L4_F    n/160/204354/wall_budget      Y/132/121765/cleared          
+ls20_p1_L6_F    n/320/113028/action_budget    n/320/127613/action_budget    
+m0r0_p2_L6_F    Y/188/141108/cleared          Y/207/157033/cleared          
+sp80_p1_L6_F    n/75/237043/wall_budget       n/101/231372/wall_budget      
+wa30_p0_L5_F    n/320/178634/action_budget    Y/179/85410/cleared           
+wa30_p3_L5_F    n/320/119936/action_budget    n/320/85570/action_budget     
+
+A7X: cleared 1/7; median actions to clear 188; timeouts 25; probes 102; errors 0
+A0X: cleared 3/7; median actions to clear 179; timeouts 23; probes 85; errors 0

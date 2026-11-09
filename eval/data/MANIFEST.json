@@ -1,0 +1,34 @@
+{
+ "source_repo": "third_party/ARC-AGI-2",
+ "source_sha": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+ "files": {
+  "arc-agi_training-challenges.json": {
+   "sha256": "f2d25b16977e62b398d9b04111e302e859e9ba92dcc7abec4e5e4118f53f7a5c",
+   "bytes": 2761553
+  },
+  "arc-agi_training-solutions.json": {
+   "sha256": "cdf36bf5c02601a60efa5036ebf64d56aa18cdd4b82366a67ce76bc8a33ff928",
+   "bytes": 452033
+  },
+  "arc-agi_evaluation-challenges.json": {
+   "sha256": "563d8eb1b165d5305159c9be0fe6dd9efb06887912ad1945e1d47a180529e153",
+   "bytes": 666452
+  },
+  "arc-agi_evaluation-solutions.json": {
+   "sha256": "a0be86d2e8b77b8dec9396a10014f68c6659d049eed130ea8c51ca029f30f29b",
+   "bytes": 148603
+  }
+ },
+ "splits": {
+  "training": {
+   "n_tasks": 1000,
+   "n_test_outputs": 1076,
+   "n_multi_test_tasks": 69
+  },
+  "evaluation": {
+   "n_tasks": 120,
+   "n_test_outputs": 167,
+   "n_multi_test_tasks": 45
+  }
+ }
+}

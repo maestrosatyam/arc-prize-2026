@@ -1,0 +1,150 @@
+{
+ "bank": {
+  "fingerprint": "f9bbb32aafbfc4de",
+  "n_tasks": 101,
+  "n_outputs": 145
+ },
+ "labels": "team ARC-AGI-2 play release, arc2_tasks evaluation rows, field difficulty (1-5, one per task)",
+ "groups": {
+  "all": {
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "b0": {
+    "right": 40,
+    "pool": 6,
+    "never": 99
+   },
+   "v7_direct": {
+    "right": 45,
+    "pool": 10,
+    "never": 90
+   }
+  },
+  "q1": {
+   "n_tasks": 30,
+   "n_outputs": 44,
+   "b0": {
+    "right": 12,
+    "pool": 3,
+    "never": 29
+   },
+   "v7_direct": {
+    "right": 17,
+    "pool": 7,
+    "never": 20
+   }
+  },
+  "q2": {
+   "n_tasks": 30,
+   "n_outputs": 42,
+   "b0": {
+    "right": 11,
+    "pool": 1,
+    "never": 30
+   },
+   "v7_direct": {
+    "right": 11,
+    "pool": 1,
+    "never": 30
+   }
+  },
+  "q3": {
+   "n_tasks": 22,
+   "n_outputs": 30,
+   "b0": {
+    "right": 11,
+    "pool": 2,
+    "never": 17
+   },
+   "v7_direct": {
+    "right": 11,
+    "pool": 2,
+    "never": 17
+   }
+  },
+  "q4": {
+   "n_tasks": 19,
+   "n_outputs": 29,
+   "b0": {
+    "right": 6,
+    "pool": 0,
+    "never": 23
+   },
+   "v7_direct": {
+    "right": 6,
+    "pool": 0,
+    "never": 23
+   }
+  },
+  "difficulty_1": {
+   "n_tasks": 4,
+   "n_outputs": 5,
+   "b0": {
+    "right": 4,
+    "pool": 0,
+    "never": 1
+   },
+   "v7_direct": {
+    "right": 5,
+    "pool": 0,
+    "never": 0
+   }
+  },
+  "difficulty_2": {
+   "n_tasks": 18,
+   "n_outputs": 22,
+   "b0": {
+    "right": 13,
+    "pool": 1,
+    "never": 8
+   },
+   "v7_direct": {
+    "right": 13,
+    "pool": 1,
+    "never": 8
+   }
+  },
+  "difficulty_3": {
+   "n_tasks": 45,
+   "n_outputs": 63,
+   "b0": {
+    "right": 16,
+    "pool": 3,
+    "never": 44
+   },
+   "v7_direct": {
+    "right": 17,
+    "pool": 7,
+    "never": 39
+   }
+  },
+  "difficulty_4": {
+   "n_tasks": 25,
+   "n_outputs": 38,
+   "b0": {
+    "right": 6,
+    "pool": 1,
+    "never": 31
+   },
+   "v7_direct": {
+    "right": 7,
+    "pool": 1,
+    "never": 30
+   }
+  },
+  "difficulty_5": {
+   "n_tasks": 9,
+   "n_outputs": 17,
+   "b0": {
+    "right": 1,
+    "pool": 1,
+    "never": 15
+   },
+   "v7_direct": {
+    "right": 3,
+    "pool": 1,
+    "never": 13
+   }
+  }
+ }
+}

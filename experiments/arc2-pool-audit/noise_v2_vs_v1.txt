@@ -1,0 +1,29 @@
+$ python3 -I scripts/arc2_pool_audit_analyze.py --pool experiments/runs/kaggle-A2-pool-audit-v2/pool --compare experiments/runs/kaggle-A2-pool-audit-v1/pool --json experiments/runs/kaggle-A2-pool-audit-v2/compare_v1.json
+compare: new experiments/runs/kaggle-A2-pool-audit-v2/pool vs baseline experiments/runs/kaggle-A2-pool-audit-v1/pool
+ground truth: experiments/runs/kaggle-A2-pool-audit-v2/pool/_kaggle_solutions_audit_tasks.json (Kaggle evaluation solutions)
+DFS probability floor: baseline not recorded (B0 default 0.2); new not recorded (B0 default 0.2)
+same outputs: 65 test outputs over 40 tasks; tasks without a pool file: baseline none, new none
+
+  (outputs of 65)            baseline      new    delta
+  selected pass@2                  12       16       +4
+  selected pass@1                  12       13       +1
+  coverage                         15       19       +4
+  coverage gap                      3        3       +0
+  outputs with a pool entry        65       65       +0
+pass@2 gained: 4 ['36a08778_1', '800d221b_0', 'b6f77b65_2', 'd35bdbdc_1']; lost: 0
+coverage gained: 4 ['36a08778_1', '800d221b_0', 'b5ca7ac4_0', 'd35bdbdc_1']; lost: 0
+
+task elapsed s: baseline median 601.0, mean 626.12, p75 793.5, max 1379 (n 40); new median 584.5, mean 629.83, p75 837.5, max 1549 (n 40)
+per-task elapsed ratio new/baseline (40 tasks in both): median 0.9804999999999999, max 1.266 (898e7135), min 0.801; ratio of means 1.006
+stop reason: baseline {'exhausted': 40}; new {'exhausted': 39, 'per_task_cap': 1}
+tasks at the 1200 s per-task cap: baseline 0, new 1; cut by the global end time: baseline 0, new 0
+pool size, unique candidates per output: baseline median 7, mean 7.34, p75 11.0, max 18 (n 65); new median 8, mean 7.26, p75 11.0, max 16 (n 65)
+pool size, beams per output: baseline median 17, mean 14.49, p75 19.0, max 25 (n 65); new median 17, mean 14.37, p75 19.0, max 24 (n 65)
+
+full-run projection: mean task seconds x hidden tasks / ranks + overhead (model load, rank start, idle tail, final cell); 240 hidden tasks (compliance/sources.json (competition data page: the hidden rerun uses 240 tasks; the placeholder test file has 240 tasks, 259 test inputs)), 4 ranks
+  mean task s: baseline 626.1, new 629.8; overhead s: baseline 635.6 (measured: final cell time - task seconds / ranks), new 648.4 (measured: final cell time - task seconds / ranks)
+  full run: baseline 10.61 h, new 10.68 h (target 11 h: fits); per 100 tasks without overhead: baseline 4.35 h, new 4.37 h
+
+decision W1 (rule 1): pass@2 +4 of 65 >= 2 and projected full run 10.68 h <= 11 h: promote W1 toward a submission candidate
+
+exit 0

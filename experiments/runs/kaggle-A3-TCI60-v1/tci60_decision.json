@@ -1,0 +1,483 @@
+{
+ "groups": {
+  "ThinkingCap, no insight, 320 actions / 30 min": {
+   "A15 (R1u)": {
+    "all": 17,
+    "partial": 7,
+    "n": 35,
+    "within_160_1800": 14,
+    "usage": {
+     "ran": 35,
+     "actions": 4151,
+     "generated_tokens": 1999328,
+     "tokens_per_action": 481.6,
+     "requests": 1352,
+     "request_counted": 35,
+     "tokens_per_request": 1478.8,
+     "actions_median": 79,
+     "apm_median": 5.34,
+     "apm_n": 35
+    }
+   }
+  },
+  "told insight (Intel), 160 actions / 30 min": {
+   "A7L (R1g v1)": {
+    "all": 20,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 20,
+    "usage": {
+     "ran": 35,
+     "actions": 3067,
+     "generated_tokens": 1995347,
+     "tokens_per_action": 650.6,
+     "requests": null,
+     "request_counted": 0,
+     "tokens_per_request": null,
+     "actions_median": 79,
+     "apm_median": 5.54,
+     "apm_n": 35
+    }
+   },
+   "A7L (R1g v2)": {
+    "all": 23,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 23,
+    "usage": {
+     "ran": 35,
+     "actions": 2755,
+     "generated_tokens": 1977607,
+     "tokens_per_action": 717.8,
+     "requests": null,
+     "request_counted": 0,
+     "tokens_per_request": null,
+     "actions_median": 66,
+     "apm_median": 5.89,
+     "apm_n": 35
+    }
+   }
+  },
+  "told insight (Intel), 320 actions / 60 min": {
+   "A14 (R1t)": {
+    "all": 29,
+    "partial": 17,
+    "n": 35,
+    "within_160_1800": 21,
+    "usage": {
+     "ran": 35,
+     "actions": 3797,
+     "generated_tokens": 2902742,
+     "tokens_per_action": 764.5,
+     "requests": null,
+     "request_counted": 0,
+     "tokens_per_request": null,
+     "actions_median": 89,
+     "apm_median": 5.86,
+     "apm_n": 35
+    }
+   }
+  },
+  "unchanged (Intel), 160 actions / 30 min": {
+   "A0L (R1d)": {
+    "all": 14,
+    "partial": 3,
+    "n": 35,
+    "within_160_1800": 14,
+    "usage": {
+     "ran": 35,
+     "actions": 3258,
+     "generated_tokens": 2727571,
+     "tokens_per_action": 837.2,
+     "requests": null,
+     "request_counted": 0,
+     "tokens_per_request": null,
+     "actions_median": 95,
+     "apm_median": 4.13,
+     "apm_n": 35
+    }
+   },
+   "A0Lb (R1g v1)": {
+    "all": 14,
+    "partial": 7,
+    "n": 35,
+    "within_160_1800": 14,
+    "usage": {
+     "ran": 35,
+     "actions": 3085,
+     "generated_tokens": 2840118,
+     "tokens_per_action": 920.6,
+     "requests": null,
+     "request_counted": 0,
+     "tokens_per_request": null,
+     "actions_median": 75,
+     "apm_median": 3.68,
+     "apm_n": 35
+    }
+   },
+   "A0Lb (R1g v2)": {
+    "all": 18,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 18,
+    "usage": {
+     "ran": 35,
+     "actions": 3147,
+     "generated_tokens": 2461004,
+     "tokens_per_action": 782.0,
+     "requests": null,
+     "request_counted": 0,
+     "tokens_per_request": null,
+     "actions_median": 80,
+     "apm_median": 5.19,
+     "apm_n": 35
+    }
+   },
+   "A0Lc (R1j)": {
+    "all": 17,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 17,
+    "usage": {
+     "ran": 35,
+     "actions": 3094,
+     "generated_tokens": 2384537,
+     "tokens_per_action": 770.7,
+     "requests": null,
+     "request_counted": 0,
+     "tokens_per_request": null,
+     "actions_median": 90,
+     "apm_median": 4.87,
+     "apm_n": 35
+    }
+   }
+  },
+  "told insight (ThinkingCap), 320 actions / 30 min": {
+   "A16 (R1v)": {
+    "all": 24,
+    "partial": 13,
+    "n": 35,
+    "within_160_1800": 21,
+    "usage": {
+     "ran": 35,
+     "actions": 3805,
+     "generated_tokens": 1714557,
+     "tokens_per_action": 450.6,
+     "requests": 1134,
+     "request_counted": 35,
+     "tokens_per_request": 1512.0,
+     "actions_median": 81,
+     "apm_median": 6.5,
+     "apm_n": 35
+    }
+   }
+  }
+ },
+ "arm": {
+  "path": "experiments/runs/kaggle-A3-TCI60-v1/r1_results.jsonl",
+  "n": 35,
+  "ran": 35,
+  "missing": [],
+  "hard_stop_cut": [],
+  "all": 22,
+  "partial": 10,
+  "label_groups": {
+   "yes": [
+    11,
+    11
+   ],
+   "partial": [
+    10,
+    22
+   ],
+   "no": [
+    1,
+    2
+   ]
+  },
+  "within_160_1800": 18,
+  "after_160_1800": 4,
+  "after_160_1800_cases": [
+   "ka59_p0_L6_F",
+   "ka59_p1_L6_F",
+   "re86_p0_L7_F",
+   "tu93_p0_L9_F"
+  ],
+  "cleared_over_budget": [],
+  "insight": {
+   "shown": 35,
+   "shown_partial": 22,
+   "not_shown": [],
+   "kinds": [
+    "insight"
+   ],
+   "errors": 0
+  },
+  "usage": {
+   "ran": 35,
+   "actions": 5336,
+   "generated_tokens": 2373873,
+   "tokens_per_action": 444.9,
+   "requests": 1699,
+   "request_counted": 35,
+   "tokens_per_request": 1397.2,
+   "actions_median": 82,
+   "apm_median": 6.38,
+   "apm_n": 35
+  },
+  "pairs": {
+   "ThinkingCap, no insight, 320 actions / 30 min": {
+    "A15 (R1u)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 6,
+      "other_only": 1,
+      "both": 16,
+      "neither": 12,
+      "p": 0.125
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 4,
+      "other_only": 1,
+      "both": 6,
+      "neither": 11,
+      "p": 0.375
+     }
+    }
+   },
+   "told insight (Intel), 160 actions / 30 min": {
+    "A7L (R1g v1)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 6,
+      "other_only": 4,
+      "both": 16,
+      "neither": 9,
+      "p": 0.75390625
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 2,
+      "other_only": 4,
+      "both": 8,
+      "neither": 8,
+      "p": 0.6875
+     }
+    },
+    "A7L (R1g v2)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 3,
+      "other_only": 4,
+      "both": 19,
+      "neither": 9,
+      "p": 1.0
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 2,
+      "other_only": 4,
+      "both": 8,
+      "neither": 8,
+      "p": 0.6875
+     }
+    }
+   },
+   "told insight (Intel), 320 actions / 60 min": {
+    "A14 (R1t)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 0,
+      "other_only": 7,
+      "both": 22,
+      "neither": 6,
+      "p": 0.015625
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 0,
+      "other_only": 7,
+      "both": 10,
+      "neither": 5,
+      "p": 0.015625
+     }
+    }
+   },
+   "unchanged (Intel), 160 actions / 30 min": {
+    "A0L (R1d)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 9,
+      "other_only": 1,
+      "both": 13,
+      "neither": 12,
+      "p": 0.021484375
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 8,
+      "other_only": 1,
+      "both": 2,
+      "neither": 11,
+      "p": 0.0390625
+     }
+    },
+    "A0Lb (R1g v1)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 11,
+      "other_only": 3,
+      "both": 11,
+      "neither": 10,
+      "p": 0.057373046875
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 6,
+      "other_only": 3,
+      "both": 4,
+      "neither": 9,
+      "p": 0.5078125
+     }
+    },
+    "A0Lb (R1g v2)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 7,
+      "other_only": 3,
+      "both": 15,
+      "neither": 10,
+      "p": 0.34375
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 5,
+      "other_only": 3,
+      "both": 5,
+      "neither": 9,
+      "p": 0.7265625
+     }
+    },
+    "A0Lc (R1j)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 7,
+      "other_only": 2,
+      "both": 15,
+      "neither": 11,
+      "p": 0.1796875
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 4,
+      "other_only": 2,
+      "both": 6,
+      "neither": 10,
+      "p": 0.6875
+     }
+    }
+   },
+   "told insight (ThinkingCap), 320 actions / 30 min": {
+    "A16 (R1v)": {
+     "all": {
+      "pairs": 35,
+      "arm_only": 1,
+      "other_only": 3,
+      "both": 21,
+      "neither": 10,
+      "p": 0.625
+     },
+     "partial": {
+      "pairs": 22,
+      "arm_only": 0,
+      "other_only": 3,
+      "both": 10,
+      "neither": 9,
+      "p": 0.25
+     }
+    }
+   }
+  },
+  "ends": {
+   "action_budget": 10,
+   "cleared": 22,
+   "wall_budget": 3
+  },
+  "skipped": [],
+  "open_case_arms": 0,
+  "within_320_1800": 21,
+  "after_1800_cases": [
+   "tu93_p0_L9_F"
+  ],
+  "vs_r1v": {
+   "pairs": 35,
+   "arm_only": 1,
+   "other_only": 3,
+   "both": 21,
+   "neither": 10,
+   "p": 0.625
+  },
+  "r1v_all": 24,
+  "r1v_within_160_1800": 21,
+  "clustered": {
+   "vs A16 (R1v)": {
+    "net_clears": -2,
+    "p": 0.6262,
+    "ci95": [
+     -6,
+     2
+    ],
+    "cases": 35
+   },
+   "vs A15 (R1u)": {
+    "net_clears": 5,
+    "p": 0.1252,
+    "ci95": [
+     0,
+     10
+    ],
+    "cases": 35
+   }
+  },
+  "r1v_missed_ends": {
+   "bp35_p1_L2_F": "wall_budget",
+   "bp35_p3_L2_F": "wall_budget",
+   "cn04_p0_L6_F": "wall_budget",
+   "lf52_p2_L4_F": "wall_budget",
+   "ls20_p1_L6_F": "wall_budget",
+   "m0r0_p3_L6_F": "wall_budget",
+   "re86_p1_L6_F": "wall_budget",
+   "re86_p2_L7_F": "wall_budget",
+   "sp80_p1_L6_F": "wall_budget",
+   "wa30_p0_L5_F": "action_budget",
+   "wa30_p3_L5_F": "action_budget"
+  }
+ },
+ "labels": {
+  "yes": 11,
+  "partial": 22,
+  "no": 2
+ },
+ "decision": "no added effect",
+ "decision_reason": "A16 22/35",
+ "rule": "TCI60, frozen (reports/research/ARC3_TCI60_RULE_2026-10-30.md at 7475f7d; 09:3x IST Oct 30): validity (twin passed; 35 of 35 case-arms ended, no oracle errors; insight shown 35 of 35); TCI60's clears of 35 paired with R1v's 24: >= 28 time adds on ThinkingCap; <= 25 no added effect; otherwise report; exact McNemar p (two-sided) against R1v beside",
+ "archive": "experiments/runs/kaggle-A3-TCI60-v1",
+ "twin_passed": true,
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "35_case_arms_ended": true,
+   "no_oracle_errors": true,
+   "insight_shown_35": true
+  }
+ },
+ "reading": {
+  "band": "no added effect",
+  "reason": "A16 22/35",
+  "clears": 22,
+  "r1v": 24,
+  "p_vs_r1v": 0.625
+ }
+}

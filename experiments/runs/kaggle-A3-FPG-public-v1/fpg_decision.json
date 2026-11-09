@@ -1,0 +1,214 @@
+{
+ "rule": "FPG, frozen (reports/research/ARC3_FPG_FP8_PUBLIC_RULE_2026-10-30.md at e672dbe; 00:34 IST Oct 30): validity (twin passed; server loads with no error; >= 96 of 100 game-passes scored); D = FPG mean game score - P0's 48.96, game-paired permutation, two-sided, 20,000 draws: D <= -5 and p <= 0.05 FP8 loses game skill; D >= -2 no measurable loss; otherwise report",
+ "archive": "experiments/runs/kaggle-A3-FPG-public-v1",
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "server_loaded_no_error": true,
+   "scorecards_96": true
+  },
+  "passes": 4,
+  "game_passes": 100,
+  "scored": 100,
+  "scored_needed": 96,
+  "server": {
+   "ok": true,
+   "ready_line": 204,
+   "errors_before_ready": []
+  },
+  "left_out_no_score": []
+ },
+ "reading": {
+  "FPG_mean": 44.21,
+  "P0_mean": 48.96,
+  "P0_rule_mean": 48.96,
+  "D": -4.75,
+  "p": 0.163,
+  "band": "report",
+  "game_passes": 100,
+  "P0_game_passes": 100
+ },
+ "decision": "report",
+ "fpg": {
+  "game_passes": 100,
+  "mean_score": 44.21,
+  "levels_per_pass": {
+   "0": 4.04,
+   "1": 3.68,
+   "2": 3.88,
+   "3": 4.44
+  },
+  "levels_mean": 4.01,
+  "won": 25,
+  "moves_per_clear": {
+   "levels": 401,
+   "median": 29,
+   "mean": 37.3
+  },
+  "tokens_per_action": 875.1,
+  "tokens_per_game_pass": {
+   "mean": 176269,
+   "median": 158140
+  },
+  "wall_budget_endings": 75,
+  "first_model_action_s": {
+   "min": 1,
+   "median": 4485
+  }
+ },
+ "p0": {
+  "game_passes": 100,
+  "mean_score": 48.96,
+  "levels_per_pass": {
+   "0": 4.6,
+   "1": 4.44,
+   "2": 4.04,
+   "3": 4.2
+  },
+  "levels_mean": 4.32,
+  "won": 29,
+  "moves_per_clear": {
+   "levels": 432,
+   "median": 29.0,
+   "mean": 36.6
+  },
+  "tokens_per_action": 836.4,
+  "tokens_per_game_pass": {
+   "mean": 175458,
+   "median": 171437
+  },
+  "wall_budget_endings": 71,
+  "first_model_action_s": {
+   "min": 1,
+   "median": 4324
+  }
+ },
+ "per_game": {
+  "ar25": {
+   "FPG": 100.0,
+   "P0": 89.58,
+   "delta": 10.42
+  },
+  "bp35": {
+   "FPG": 1.5,
+   "P0": 1.7,
+   "delta": -0.19
+  },
+  "cd82": {
+   "FPG": 45.04,
+   "P0": 73.41,
+   "delta": -28.37
+  },
+  "cn04": {
+   "FPG": 60.71,
+   "P0": 45.16,
+   "delta": 15.55
+  },
+  "dc22": {
+   "FPG": 47.62,
+   "P0": 17.86,
+   "delta": 29.76
+  },
+  "ft09": {
+   "FPG": 73.81,
+   "P0": 86.9,
+   "delta": -13.1
+  },
+  "g50t": {
+   "FPG": 13.39,
+   "P0": 8.04,
+   "delta": 5.36
+  },
+  "ka59": {
+   "FPG": 24.28,
+   "P0": 41.12,
+   "delta": -16.84
+  },
+  "lf52": {
+   "FPG": 2.61,
+   "P0": 4.98,
+   "delta": -2.37
+  },
+  "lp85": {
+   "FPG": 97.52,
+   "P0": 100.0,
+   "delta": -2.48
+  },
+  "ls20": {
+   "FPG": 23.2,
+   "P0": 13.3,
+   "delta": 9.9
+  },
+  "m0r0": {
+   "FPG": 54.76,
+   "P0": 38.72,
+   "delta": 16.04
+  },
+  "r11l": {
+   "FPG": 66.67,
+   "P0": 92.86,
+   "delta": -26.19
+  },
+  "re86": {
+   "FPG": 50.0,
+   "P0": 50.0,
+   "delta": 0.0
+  },
+  "s5i5": {
+   "FPG": 13.29,
+   "P0": 41.26,
+   "delta": -27.97
+  },
+  "sb26": {
+   "FPG": 77.07,
+   "P0": 98.72,
+   "delta": -21.66
+  },
+  "sc25": {
+   "FPG": 60.89,
+   "P0": 54.13,
+   "delta": 6.76
+  },
+  "sk48": {
+   "FPG": 0.69,
+   "P0": 2.73,
+   "delta": -2.03
+  },
+  "sp80": {
+   "FPG": 17.52,
+   "P0": 32.14,
+   "delta": -14.62
+  },
+  "su15": {
+   "FPG": 12.78,
+   "P0": 29.83,
+   "delta": -17.05
+  },
+  "tn36": {
+   "FPG": 16.98,
+   "P0": 52.05,
+   "delta": -35.07
+  },
+  "tr87": {
+   "FPG": 75.49,
+   "P0": 84.14,
+   "delta": -8.66
+  },
+  "tu93": {
+   "FPG": 78.29,
+   "P0": 71.74,
+   "delta": 6.55
+  },
+  "vc33": {
+   "FPG": 80.36,
+   "P0": 80.29,
+   "delta": 0.07
+  },
+  "wa30": {
+   "FPG": 10.72,
+   "P0": 13.27,
+   "delta": -2.55
+  }
+ }
+}

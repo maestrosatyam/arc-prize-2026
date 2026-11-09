@@ -1,0 +1,20 @@
+{
+ "rule": "RULE.md section 2 (floor 0.40)",
+ "pairs": 2231,
+ "levels": 157,
+ "observed_agreement": 0.9027,
+ "kappa": 0.7982,
+ "low_agreement": false,
+ "levels_same_key_set": 102,
+ "confusion_A_by_B": {
+  "key/key": 208,
+  "key/part": 11,
+  "key/none": 1,
+  "part/key": 58,
+  "part/part": 362,
+  "part/none": 113,
+  "none/key": 0,
+  "none/part": 34,
+  "none/none": 1444
+ }
+}

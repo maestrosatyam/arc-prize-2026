@@ -1,0 +1,203 @@
+{
+ "n_results": 105,
+ "n_cases": 35,
+ "arms": [
+  "A0",
+  "A1",
+  "A2"
+ ],
+ "duplicates": [],
+ "not_run": [],
+ "totals": [
+  {
+   "arm": "A0",
+   "n_run": 35,
+   "cleared": 9,
+   "clear_rate": 0.257,
+   "probes": 97,
+   "readbacks": 345,
+   "batches": 1476,
+   "capped_batches": 0,
+   "timeouts": 38,
+   "cancelled_actions": 0,
+   "fresh_notice_shown": 0,
+   "end_reasons": {
+    "action_budget": 6,
+    "cleared": 9,
+    "wall_budget": 20
+   },
+   "median_wall_s": 900.3,
+   "median_replay_s": 142.0,
+   "median_generated_tokens": 41642
+  },
+  {
+   "arm": "A1",
+   "n_run": 35,
+   "cleared": 5,
+   "clear_rate": 0.143,
+   "probes": 110,
+   "readbacks": 332,
+   "batches": 1532,
+   "capped_batches": 6,
+   "timeouts": 37,
+   "cancelled_actions": 0,
+   "fresh_notice_shown": 0,
+   "end_reasons": {
+    "action_budget": 7,
+    "cleared": 5,
+    "wall_budget": 23
+   },
+   "median_wall_s": 901.0,
+   "median_replay_s": 150.4,
+   "median_generated_tokens": 46283
+  },
+  {
+   "arm": "A2",
+   "n_run": 35,
+   "cleared": 6,
+   "clear_rate": 0.171,
+   "probes": 86,
+   "readbacks": 288,
+   "batches": 1612,
+   "capped_batches": 0,
+   "timeouts": 1,
+   "cancelled_actions": 0,
+   "fresh_notice_shown": 0,
+   "end_reasons": {
+    "action_budget": 9,
+    "cleared": 6,
+    "wall_budget": 20
+   },
+   "median_wall_s": 901.0,
+   "median_replay_s": 109.4,
+   "median_generated_tokens": 47061
+  }
+ ],
+ "comparisons": [
+  {
+   "arm": "A1",
+   "control": "A0",
+   "n_pairs": 35,
+   "arm_cleared": 5,
+   "control_cleared": 9,
+   "arm_clear_rate": 0.143,
+   "control_clear_rate": 0.257,
+   "difference_points": -11.4,
+   "discordant_arm_only": 4,
+   "discordant_control_only": 8,
+   "discordant_total": 12,
+   "discordant_rate": 0.343,
+   "mcnemar_exact_p": 0.3876953125,
+   "median_actions_to_clear_arm": 51,
+   "median_actions_to_clear_control": 57,
+   "n_both_cleared": 1,
+   "paired_median_action_difference": -25,
+   "paired_median_token_difference": -655,
+   "cases_arm_only": [
+    "cn04_p0_L6_F",
+    "g50t_p2_L4_F",
+    "sk48_p0_L3_F",
+    "tu93_p3_L9_F"
+   ],
+   "cases_control_only": [
+    "ar25_p3_L7_F",
+    "g50t_p1_L1_F",
+    "ka59_p1_L6_F",
+    "r11l_p2_L6_F",
+    "re86_p3_L6_F",
+    "sc25_p0_L6_F",
+    "su15_p1_L7_F",
+    "tu93_p2_L8_F"
+   ]
+  },
+  {
+   "arm": "A2",
+   "control": "A0",
+   "n_pairs": 35,
+   "arm_cleared": 6,
+   "control_cleared": 9,
+   "arm_clear_rate": 0.171,
+   "control_clear_rate": 0.257,
+   "difference_points": -8.6,
+   "discordant_arm_only": 3,
+   "discordant_control_only": 6,
+   "discordant_total": 9,
+   "discordant_rate": 0.257,
+   "mcnemar_exact_p": 0.5078125,
+   "median_actions_to_clear_arm": 52.5,
+   "median_actions_to_clear_control": 57,
+   "n_both_cleared": 3,
+   "paired_median_action_difference": -14,
+   "paired_median_token_difference": 856,
+   "cases_arm_only": [
+    "su15_p2_L7_F",
+    "tn36_p0_L6_F",
+    "tr87_p1_L6_F"
+   ],
+   "cases_control_only": [
+    "ar25_p3_L7_F",
+    "ka59_p1_L6_F",
+    "r11l_p2_L6_F",
+    "re86_p3_L6_F",
+    "su15_p1_L7_F",
+    "tu93_p2_L8_F"
+   ]
+  }
+ ],
+ "union": {
+  "arms": [
+   "A0",
+   "A1",
+   "A2"
+  ],
+  "n_cases": 35,
+  "n_complete_cases": 35,
+  "cleared_by_at_least_one": 16,
+  "cleared_by_all": 1,
+  "expected_at_least_one_if_independent": 16.53,
+  "cases_cleared_by_at_least_one": [
+   "ar25_p3_L7_F",
+   "cn04_p0_L6_F",
+   "g50t_p1_L1_F",
+   "g50t_p2_L4_F",
+   "ka59_p1_L6_F",
+   "lf52_p1_L2_F",
+   "r11l_p2_L6_F",
+   "re86_p3_L6_F",
+   "sc25_p0_L6_F",
+   "sk48_p0_L3_F",
+   "su15_p1_L7_F",
+   "su15_p2_L7_F",
+   "tn36_p0_L6_F",
+   "tr87_p1_L6_F",
+   "tu93_p2_L8_F",
+   "tu93_p3_L9_F"
+  ],
+  "cases_cleared_by_all": [
+   "lf52_p1_L2_F"
+  ],
+  "complete_cases_by_number_of_arms_clearing": {
+   "0": 19,
+   "1": 13,
+   "2": 2,
+   "3": 1
+  }
+ },
+ "arms_do_not_matter": {
+  "arms": [
+   "A0",
+   "A1",
+   "A2"
+  ],
+  "n_cases": 35,
+  "draws": 20000,
+  "seed": 0,
+  "statistic": "sum over arms of n_a (p_a - p)^2, arm labels permuted within case",
+  "observed_spread": 0.2476,
+  "p_value": 0.5207,
+  "draws_at_or_above_observed": 10414
+ },
+ "inputs": [
+  "experiments/runs/kaggle-R1-pilot-v4/r1_results.jsonl"
+ ]
+}

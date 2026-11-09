@@ -1,0 +1,220 @@
+{
+ "validity": {
+  "ok": true,
+  "twin_passed": true,
+  "twin_logs": [
+   "experiments/runs/kaggle-A2-GS1-v1/preflight/arc-agi-2-gs1-scorer-preflight.log"
+  ],
+  "server_checks": true,
+  "low_margin_outputs": 72,
+  "candidates": 452,
+  "missing": 0,
+  "missing_outputs": [],
+  "incomplete": 0,
+  "incomplete_outputs": [],
+  "roundtrip_failures": 0,
+  "ties": 0,
+  "tie_fraction": 0.0,
+  "scored_outside_scope": []
+ },
+ "gate": {
+  "gs_low": {
+   "n_right": 35,
+   "n_outputs": 145,
+   "gained": 1,
+   "lost": 6,
+   "net": -5,
+   "gate_v2": false,
+   "gate_v1": false,
+   "sign_test_p": 0.99219,
+   "gained_keys": [
+    "eee78d87_0"
+   ],
+   "lost_keys": [
+    "36a08778_1",
+    "4a21e3da_1",
+    "a395ee82_0",
+    "a6f40cea_0",
+    "b5ca7ac4_0",
+    "d8e07eb2_0"
+   ],
+   "registration": "registered 2026-10-28 (registered (gate v2: net >= 3 and lost <= 1; then the sealed sign check once; then the time gate on B0's E13 p90 end with 30 min spare))"
+  },
+  "_base": {
+   "rule": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 40,
+   "n_right_1": 29,
+   "score": 0.2759,
+   "task_score": 0.302,
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "rule_fingerprint": "d20c96c6691bfe04"
+  }
+ },
+ "sealed_command": "envs/kaggle-sim/bin/python scripts/arc2_bank_replay.py --sealed --final-pick --rule gs_low --glimmer experiments/runs/kaggle-A2-GS1-v1/gs1/gs1_scores_unsealed.json --glimmer-sealed experiments/runs/kaggle-A2-GS1-v1/gs1/sealed/gs1_scores_sealed.json",
+ "time_gate": {
+  "ok": true,
+  "s_per_request": 4.478,
+  "views": [
+   "identity"
+  ],
+  "startup_s": 714.6,
+  "bank_outputs": 145,
+  "bank_low_margin_outputs": 72,
+  "bank_low_margin_b0_candidates": 422,
+  "bank_low_margin_candidates_with_27b": 452,
+  "b0_low_candidates_per_output": 2.9103,
+  "hidden_outputs": 259.20000000000005,
+  "hidden_candidates": 754.4,
+  "scorer_s": 4092.6,
+  "b0_p90_end_s": 36995.5,
+  "b0_mean_end_s": 35871.7,
+  "end_s": 41088.1,
+  "limit_s": 43200,
+  "spare_s": 1800,
+  "margin_s": 311.9,
+  "scorer_budget_s": 4404.5,
+  "max_s_per_request": 4.891
+ },
+ "recorded": {
+  "right_candidate_ranks_where_b0_missed": [
+   {
+    "output": "136b0064_0",
+    "glimmer_rank": 1,
+    "of": 2,
+    "b0_rank": null,
+    "sources": [
+     "q27:1"
+    ]
+   },
+   {
+    "output": "16de56c4_0",
+    "glimmer_rank": 1,
+    "of": 1,
+    "b0_rank": null,
+    "sources": [
+     "q27:1"
+    ]
+   },
+   {
+    "output": "1ae2feb7_0",
+    "glimmer_rank": 8,
+    "of": 8,
+    "b0_rank": null,
+    "sources": [
+     "q27:0",
+     "q27:1"
+    ]
+   },
+   {
+    "output": "291dc1e1_0",
+    "glimmer_rank": 1,
+    "of": 1,
+    "b0_rank": null,
+    "sources": [
+     "q27:0",
+     "q27:1"
+    ]
+   },
+   {
+    "output": "3dc255db_0",
+    "glimmer_rank": 10,
+    "of": 17,
+    "b0_rank": 7,
+    "sources": [
+     "b0:7"
+    ]
+   },
+   {
+    "output": "7b5033c1_0",
+    "glimmer_rank": 12,
+    "of": 12,
+    "b0_rank": null,
+    "sources": [
+     "q27:0"
+    ]
+   },
+   {
+    "output": "dbff022c_0",
+    "glimmer_rank": 7,
+    "of": 7,
+    "b0_rank": null,
+    "sources": [
+     "q27:1"
+    ]
+   },
+   {
+    "output": "eee78d87_0",
+    "glimmer_rank": 1,
+    "of": 8,
+    "b0_rank": 4,
+    "sources": [
+     "b0:4"
+    ]
+   },
+   {
+    "output": "f931b4a8_0",
+    "glimmer_rank": 1,
+    "of": 4,
+    "b0_rank": null,
+    "sources": [
+     "q27:0",
+     "q27:1"
+    ]
+   },
+   {
+    "output": "fc7cae8d_0",
+    "glimmer_rank": 7,
+    "of": 9,
+    "b0_rank": 3,
+    "sources": [
+     "b0:3"
+    ]
+   }
+  ],
+  "by_task": {
+   "eee78d87": {
+    "gs_low": [
+     "+eee78d87_0"
+    ]
+   },
+   "36a08778": {
+    "gs_low": [
+     "-36a08778_1"
+    ]
+   },
+   "4a21e3da": {
+    "gs_low": [
+     "-4a21e3da_1"
+    ]
+   },
+   "a395ee82": {
+    "gs_low": [
+     "-a395ee82_0"
+    ]
+   },
+   "a6f40cea": {
+    "gs_low": [
+     "-a6f40cea_0"
+    ]
+   },
+   "b5ca7ac4": {
+    "gs_low": [
+     "-b5ca7ac4_0"
+    ]
+   },
+   "d8e07eb2": {
+    "gs_low": [
+     "-d8e07eb2_0"
+    ]
+   }
+  },
+  "seconds_per_candidate": 4.478,
+  "tokens_per_candidate": 5629.4,
+  "scoring_wall_s": 2279.1,
+  "prompt_tok_per_s": 1257.2,
+  "requests_ok": 509
+ },
+ "decision": "GS1: gate v2 not passed (gs_low net -5, lost 6): declined, report only"
+}

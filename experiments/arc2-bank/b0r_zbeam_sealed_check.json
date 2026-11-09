@@ -1,0 +1,201 @@
+{
+ "schema": "arc2_b0r_sealed_check.v1",
+ "rule": "experiments/arc2-bank/B0R_RULE.md section 5: a rule proposed for an entry gets the sealed sign check once, at the final pick",
+ "requested": "15:3x IST Oct 31 (per the 15:21 IST plan: zbeam built today as the Oct 31 backup or the Nov 1 entry): run it now, beside the build, as written, as a report only",
+ "decides": "nothing: the entry is decided separately",
+ "seal": "this is the bank's first sealed read (no sealed=true line in the replay ledger before it): it spends the seal for every lever; the sealed 19 are no longer an untouched final-pick check for any rule",
+ "recorded_before_any_zbeam_score": true,
+ "utc": "2026-10-31T09:57:23Z",
+ "ist": "2026-10-31 15:27 IST",
+ "command": "envs/kaggle-sim/bin/python scripts/arc2_bank_replay.py --sealed --final-pick --rule b0r_zbeam (base b0; ledger line sealed=true)",
+ "result": {
+  "sealed_19": {
+   "n_tasks": 19,
+   "gained": 0,
+   "lost": 1,
+   "net": -1,
+   "gained_keys": [],
+   "lost_keys": [
+    "3a25b0d8_0"
+   ]
+  },
+  "all_172": {
+   "n_right": 49,
+   "n_outputs": 172,
+   "gained": 2,
+   "lost": 2,
+   "net": 0,
+   "sign_test_p": 0.6875,
+   "gained_keys": [
+    "b6f77b65_0",
+    "fc7cae8d_0"
+   ],
+   "lost_keys": [
+    "20270e3b_1",
+    "3a25b0d8_0"
+   ]
+  },
+  "base_b0_all_172": {
+   "rule": "b0",
+   "n_tasks": 120,
+   "n_outputs": 172,
+   "n_right": 49,
+   "n_right_1": 35,
+   "score": 0.2849,
+   "task_score": 0.3083,
+   "bank_fingerprint": "90a0117c2b2eb528",
+   "rule_fingerprint": "d20c96c6691bfe04"
+  }
+ },
+ "note": "27B samples of the sealed 19 are not in the q27 bank (C2's q27d_sealed is refused by the replay), so the merged form b0r_zbeam_v7 has no sealed reading; zbeam against B0 alone is the check",
+ "report": {
+  "schema": "arc2_bank_replay.v1",
+  "utc": "2026-10-31T09:57:23Z",
+  "bank_fingerprint": "90a0117c2b2eb528",
+  "sources": [
+   "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+   "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+   "experiments/runs/kaggle-A2-bank-part1-v1/pool_sealed",
+   "experiments/runs/kaggle-A2-bank-part2-v1/pool_sealed",
+   "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+  ],
+  "q27_dirs": [
+   "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+  ],
+  "logged_as": null,
+  "solutions_source": "Kaggle solutions copies beside the pools",
+  "n_tasks": 120,
+  "n_outputs": 172,
+  "n_q27_tasks": 29,
+  "sealed_read": true,
+  "base": {
+   "rule": "b0",
+   "n_tasks": 120,
+   "n_outputs": 172,
+   "n_right": 49,
+   "n_right_1": 35,
+   "score": 0.2849,
+   "task_score": 0.3083,
+   "bank_fingerprint": "90a0117c2b2eb528",
+   "rule_fingerprint": "d20c96c6691bfe04"
+  },
+  "rules": [
+   {
+    "schema": "arc2_bank_replay.v1",
+    "utc": "2026-10-31T09:57:23Z",
+    "rule": "b0r_zbeam",
+    "rule_run": "b0r_zbeam",
+    "logged_as": null,
+    "family": "b0r",
+    "description": "B0R: kgmon's first kept; attempt 2 the best other candidate by z(n_beams) + z(-score_aug_mean) + z(-best beam_score)",
+    "rule_fingerprint": "ecc949463c73aaec",
+    "bank_fingerprint": "90a0117c2b2eb528",
+    "base": "b0",
+    "q27_dirs": [
+     "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+    ],
+    "n_tasks": 120,
+    "n_outputs": 172,
+    "n_right": 49,
+    "n_right_1": 35,
+    "score": 0.2849,
+    "task_score": 0.3111,
+    "gained": 2,
+    "lost": 2,
+    "net": 0,
+    "sign_test_p": 0.6875,
+    "task_mean_delta": 0.00278,
+    "task_ci95": [
+     -0.01667,
+     0.02639
+    ],
+    "gate_v1": false,
+    "gate_v2": false,
+    "registration": "registered 2026-10-29 (registered (frozen 2026-10-29 15:41 IST at 166b24a); CHOSEN on dev 8228b8c (pooled 90 of 390 against kgmon's 86, +9 -5, net +4, 5 of 6 pools >= 0); screened on the bank 2026-10-29 (b0r_result.json): G1 41 vs 40 (+2 -1, net +1) gate v2 no; G3 held out PASS; per section 8 kgmon stays)",
+    "sealed": true,
+    "tasks_subset": false,
+    "sources": [
+     "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+     "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+     "experiments/runs/kaggle-A2-bank-part1-v1/pool_sealed",
+     "experiments/runs/kaggle-A2-bank-part2-v1/pool_sealed",
+     "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+    ],
+    "gained_keys": [
+     "b6f77b65_0",
+     "fc7cae8d_0"
+    ],
+    "lost_keys": [
+     "20270e3b_1",
+     "3a25b0d8_0"
+    ],
+    "glimmer": {
+     "files": [
+      "experiments/runs/kaggle-A2-GS1-v1/gs1/gs1_scores_unsealed.json",
+      "experiments/runs/kaggle-A2-GS1-v1/gs1/sealed/gs1_scores_sealed.json"
+     ],
+     "sha256": {
+      "experiments/runs/kaggle-A2-GS1-v1/gs1/gs1_scores_unsealed.json": "41e8c3e24de3014192bf5c40bd790f334c08adee703ec5cce2898f081e17e907",
+      "experiments/runs/kaggle-A2-GS1-v1/gs1/sealed/gs1_scores_sealed.json": "94d9ae38693244da135d8252e9cd044b754d085289e352a93c592a53f6775bbc"
+     },
+     "tasks_scored": 71
+    },
+    "decider": {
+     "files": [
+      "experiments/runs/kaggle-A2-DC1-v1/dc1/dc1_probs_unsealed.json",
+      "experiments/runs/kaggle-A2-DC1-v1/dc1/sealed/dc1_probs_sealed.json"
+     ],
+     "sha256": {
+      "experiments/runs/kaggle-A2-DC1-v1/dc1/dc1_probs_unsealed.json": "5c60af35b859c083a07c01e8f276bcc6d1dfcf454f30ec83d94102f73a53d92b",
+      "experiments/runs/kaggle-A2-DC1-v1/dc1/sealed/dc1_probs_sealed.json": "c8c3e1e758c6e3131543a2887b74e71df01f9c87250dcc46972a2fbb7d07a140"
+     },
+     "tasks_with_probabilities": 98
+    },
+    "sealed_split": {
+     "n_tasks": 19,
+     "gained": 0,
+     "lost": 1,
+     "net": -1,
+     "gained_keys": [],
+     "lost_keys": [
+      "3a25b0d8_0"
+     ]
+    }
+   }
+  ],
+  "screened_rules_on_this_bank": 1,
+  "false_positive_rates": {
+   "gate_v1": 0.0,
+   "gate_v2": 0.0,
+   "net_needed_fp5": 2,
+   "net_needed_fp1": 3,
+   "source": "experiments/arc2-bank/null_calibration.json"
+  },
+  "expected_false_positives": {
+   "gate_v1": 0.0,
+   "gate_v2": 0.0
+  },
+  "glimmer": {
+   "files": [
+    "experiments/runs/kaggle-A2-GS1-v1/gs1/gs1_scores_unsealed.json",
+    "experiments/runs/kaggle-A2-GS1-v1/gs1/sealed/gs1_scores_sealed.json"
+   ],
+   "sha256": {
+    "experiments/runs/kaggle-A2-GS1-v1/gs1/gs1_scores_unsealed.json": "41e8c3e24de3014192bf5c40bd790f334c08adee703ec5cce2898f081e17e907",
+    "experiments/runs/kaggle-A2-GS1-v1/gs1/sealed/gs1_scores_sealed.json": "94d9ae38693244da135d8252e9cd044b754d085289e352a93c592a53f6775bbc"
+   },
+   "tasks_scored": 71
+  },
+  "decider": {
+   "files": [
+    "experiments/runs/kaggle-A2-DC1-v1/dc1/dc1_probs_unsealed.json",
+    "experiments/runs/kaggle-A2-DC1-v1/dc1/sealed/dc1_probs_sealed.json"
+   ],
+   "sha256": {
+    "experiments/runs/kaggle-A2-DC1-v1/dc1/dc1_probs_unsealed.json": "5c60af35b859c083a07c01e8f276bcc6d1dfcf454f30ec83d94102f73a53d92b",
+    "experiments/runs/kaggle-A2-DC1-v1/dc1/sealed/dc1_probs_sealed.json": "c8c3e1e758c6e3131543a2887b74e71df01f9c87250dcc46972a2fbb7d07a140"
+   },
+   "tasks_with_probabilities": 98
+  }
+ }
+}

@@ -1,0 +1,804 @@
+{
+ "schema": "arc2_b0r_dev.v1",
+ "utc": "2026-10-29T10:19:23Z",
+ "rule_doc": "experiments/arc2-bank/B0R_RULE.md",
+ "rule_frozen": "166b24a (frozen 2026-10-29 15:41 IST; status line bb4d8a5)",
+ "rules": {
+  "b0r_zbeam": {
+   "fingerprint": "ecc949463c73aaec",
+   "code_fingerprint": "ce5c0ba7c2c51c10",
+   "description": "B0R: kgmon's first kept; attempt 2 the best other candidate by z(n_beams) + z(-score_aug_mean) + z(-best beam_score)"
+  },
+  "b0r_amax": {
+   "fingerprint": "1e21aa4a7eaf41d4",
+   "code_fingerprint": "48e9a095f10444e1",
+   "description": "B0R: kgmon's first kept; attempt 2 the best other candidate by n_beams - max(score_aug)"
+  },
+  "b0r_borda": {
+   "fingerprint": "0b2ea7074750e774",
+   "code_fingerprint": "7421013a0d61b3d2",
+   "description": "B0R: kgmon's first kept; attempt 2 the best other candidate by -(rank_kgmon + rank_probmul3)"
+  }
+ },
+ "qualify_rule": "pooled net >= +3 and net >= 0 on at least 5 of 6 pools; order by pooled net, then fewer lost, then rule order",
+ "pools": [
+  {
+   "pool": "kaggle-A2-pool-audit-v1",
+   "dir": "experiments/runs/kaggle-A2-pool-audit-v1/pool",
+   "setting": "128 sequences",
+   "bank_setting": false,
+   "n_tasks": 40,
+   "n_outputs": 65,
+   "solutions_source": "Kaggle solutions copies beside the pools",
+   "floor": {
+    "n_outputs": 65,
+    "n_candidates": 477,
+    "candidate_failures": {},
+    "outputs_failing": 0,
+    "outputs_failing_keys": [],
+    "outputs_failing_frac": 0.0,
+    "item1_pool_ok": true,
+    "kgmon_vs_submitted_mismatch": [],
+    "item2_ok": true
+   },
+   "in_choice": true
+  },
+  {
+   "pool": "kaggle-A2-pool-audit-v2",
+   "dir": "experiments/runs/kaggle-A2-pool-audit-v2/pool",
+   "setting": "128 sequences",
+   "bank_setting": false,
+   "n_tasks": 40,
+   "n_outputs": 65,
+   "solutions_source": "Kaggle solutions copies beside the pools",
+   "floor": {
+    "n_outputs": 65,
+    "n_candidates": 472,
+    "candidate_failures": {},
+    "outputs_failing": 0,
+    "outputs_failing_keys": [],
+    "outputs_failing_frac": 0.0,
+    "item1_pool_ok": true,
+    "kgmon_vs_submitted_mismatch": [],
+    "item2_ok": true
+   },
+   "in_choice": true
+  },
+  {
+   "pool": "kaggle-A2-H1-v1",
+   "dir": "experiments/runs/kaggle-A2-H1-v1/pool",
+   "setting": "64 sequences",
+   "bank_setting": true,
+   "n_tasks": 40,
+   "n_outputs": 65,
+   "solutions_source": "Kaggle solutions copies beside the pools",
+   "floor": {
+    "n_outputs": 65,
+    "n_candidates": 370,
+    "candidate_failures": {},
+    "outputs_failing": 0,
+    "outputs_failing_keys": [],
+    "outputs_failing_frac": 0.0,
+    "item1_pool_ok": true,
+    "kgmon_vs_submitted_mismatch": [],
+    "item2_ok": true
+   },
+   "in_choice": true
+  },
+  {
+   "pool": "kaggle-A2-H1-v2",
+   "dir": "experiments/runs/kaggle-A2-H1-v2/pool",
+   "setting": "64 sequences",
+   "bank_setting": true,
+   "n_tasks": 40,
+   "n_outputs": 65,
+   "solutions_source": "Kaggle solutions copies beside the pools",
+   "floor": {
+    "n_outputs": 65,
+    "n_candidates": 370,
+    "candidate_failures": {},
+    "outputs_failing": 0,
+    "outputs_failing_keys": [],
+    "outputs_failing_frac": 0.0,
+    "item1_pool_ok": true,
+    "kgmon_vs_submitted_mismatch": [],
+    "item2_ok": true
+   },
+   "in_choice": true
+  },
+  {
+   "pool": "kaggle-A2-H2-v1",
+   "dir": "experiments/runs/kaggle-A2-H2-v1/pool",
+   "setting": "32 sequences",
+   "bank_setting": false,
+   "n_tasks": 40,
+   "n_outputs": 65,
+   "solutions_source": "Kaggle solutions copies beside the pools",
+   "floor": {
+    "n_outputs": 65,
+    "n_candidates": 256,
+    "candidate_failures": {},
+    "outputs_failing": 0,
+    "outputs_failing_keys": [],
+    "outputs_failing_frac": 0.0,
+    "item1_pool_ok": true,
+    "kgmon_vs_submitted_mismatch": [],
+    "item2_ok": true
+   },
+   "in_choice": true
+  },
+  {
+   "pool": "kaggle-A2-adapt-dev-v1",
+   "dir": "experiments/runs/kaggle-A2-adapt-dev-v1/pool",
+   "setting": "64 sequences, adapted base",
+   "bank_setting": false,
+   "n_tasks": 40,
+   "n_outputs": 65,
+   "solutions_source": "Kaggle solutions copies beside the pools",
+   "floor": {
+    "n_outputs": 65,
+    "n_candidates": 384,
+    "candidate_failures": {},
+    "outputs_failing": 0,
+    "outputs_failing_keys": [],
+    "outputs_failing_frac": 0.0,
+    "item1_pool_ok": true,
+    "kgmon_vs_submitted_mismatch": [],
+    "item2_ok": true
+   },
+   "in_choice": true
+  }
+ ],
+ "table": {
+  "kaggle-A2-pool-audit-v1": {
+   "b0r_zbeam": {
+    "n_outputs": 65,
+    "base_right": 12,
+    "right": 13,
+    "gained": 1,
+    "lost": 0,
+    "net": 1,
+    "gained_keys": [
+     "b6f77b65_0"
+    ],
+    "lost_keys": []
+   },
+   "b0r_amax": {
+    "n_outputs": 65,
+    "base_right": 12,
+    "right": 13,
+    "gained": 1,
+    "lost": 0,
+    "net": 1,
+    "gained_keys": [
+     "b6f77b65_2"
+    ],
+    "lost_keys": []
+   },
+   "b0r_borda": {
+    "n_outputs": 65,
+    "base_right": 12,
+    "right": 12,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   }
+  },
+  "kaggle-A2-pool-audit-v2": {
+   "b0r_zbeam": {
+    "n_outputs": 65,
+    "base_right": 16,
+    "right": 15,
+    "gained": 1,
+    "lost": 2,
+    "net": -1,
+    "gained_keys": [
+     "b6f77b65_0"
+    ],
+    "lost_keys": [
+     "800d221b_0",
+     "d35bdbdc_1"
+    ]
+   },
+   "b0r_amax": {
+    "n_outputs": 65,
+    "base_right": 16,
+    "right": 17,
+    "gained": 1,
+    "lost": 0,
+    "net": 1,
+    "gained_keys": [
+     "b5ca7ac4_0"
+    ],
+    "lost_keys": []
+   },
+   "b0r_borda": {
+    "n_outputs": 65,
+    "base_right": 16,
+    "right": 16,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   }
+  },
+  "kaggle-A2-H1-v1": {
+   "b0r_zbeam": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 15,
+    "gained": 1,
+    "lost": 1,
+    "net": 0,
+    "gained_keys": [
+     "b6f77b65_0"
+    ],
+    "lost_keys": [
+     "b5ca7ac4_0"
+    ]
+   },
+   "b0r_amax": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 15,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   },
+   "b0r_borda": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 15,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   }
+  },
+  "kaggle-A2-H1-v2": {
+   "b0r_zbeam": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 16,
+    "gained": 2,
+    "lost": 1,
+    "net": 1,
+    "gained_keys": [
+     "221dfab4_1",
+     "b6f77b65_0"
+    ],
+    "lost_keys": [
+     "b5ca7ac4_0"
+    ]
+   },
+   "b0r_amax": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 15,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   },
+   "b0r_borda": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 15,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   }
+  },
+  "kaggle-A2-H2-v1": {
+   "b0r_zbeam": {
+    "n_outputs": 65,
+    "base_right": 13,
+    "right": 15,
+    "gained": 2,
+    "lost": 0,
+    "net": 2,
+    "gained_keys": [
+     "b6f77b65_0",
+     "d35bdbdc_1"
+    ],
+    "lost_keys": []
+   },
+   "b0r_amax": {
+    "n_outputs": 65,
+    "base_right": 13,
+    "right": 14,
+    "gained": 1,
+    "lost": 0,
+    "net": 1,
+    "gained_keys": [
+     "142ca369_0"
+    ],
+    "lost_keys": []
+   },
+   "b0r_borda": {
+    "n_outputs": 65,
+    "base_right": 13,
+    "right": 14,
+    "gained": 1,
+    "lost": 0,
+    "net": 1,
+    "gained_keys": [
+     "b5ca7ac4_0"
+    ],
+    "lost_keys": []
+   }
+  },
+  "kaggle-A2-adapt-dev-v1": {
+   "b0r_zbeam": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 16,
+    "gained": 2,
+    "lost": 1,
+    "net": 1,
+    "gained_keys": [
+     "b6f77b65_0",
+     "d35bdbdc_1"
+    ],
+    "lost_keys": [
+     "b5ca7ac4_0"
+    ]
+   },
+   "b0r_amax": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 15,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   },
+   "b0r_borda": {
+    "n_outputs": 65,
+    "base_right": 15,
+    "right": 15,
+    "gained": 0,
+    "lost": 0,
+    "net": 0,
+    "gained_keys": [],
+    "lost_keys": []
+   }
+  }
+ },
+ "choice": {
+  "pools": [
+   "kaggle-A2-pool-audit-v1",
+   "kaggle-A2-pool-audit-v2",
+   "kaggle-A2-H1-v1",
+   "kaggle-A2-H1-v2",
+   "kaggle-A2-H2-v1",
+   "kaggle-A2-adapt-dev-v1"
+  ],
+  "pools_needed_net_ge_0": 5,
+  "pooled": {
+   "b0r_zbeam": {
+    "n_outputs": 390,
+    "base_right": 86,
+    "right": 90,
+    "gained": 9,
+    "lost": 5,
+    "net": 4,
+    "pools_net_ge_0": 5
+   },
+   "b0r_amax": {
+    "n_outputs": 390,
+    "base_right": 86,
+    "right": 89,
+    "gained": 3,
+    "lost": 0,
+    "net": 3,
+    "pools_net_ge_0": 6
+   },
+   "b0r_borda": {
+    "n_outputs": 390,
+    "base_right": 86,
+    "right": 87,
+    "gained": 1,
+    "lost": 0,
+    "net": 1,
+    "pools_net_ge_0": 6
+   }
+  },
+  "qualifies": {
+   "b0r_zbeam": true,
+   "b0r_amax": true,
+   "b0r_borda": false
+  },
+  "order": [
+   "b0r_zbeam",
+   "b0r_amax"
+  ],
+  "chosen": "b0r_zbeam"
+ },
+ "chosen": "b0r_zbeam",
+ "stopped": null,
+ "outcome": "chosen b0r_zbeam for the bank",
+ "split_half": {
+  "salt": "b0r-half",
+  "A": [
+   "2c181942",
+   "0934a4d8",
+   "d35bdbdc",
+   "221dfab4",
+   "38007db0",
+   "13e47133",
+   "78332cb0",
+   "409aa875",
+   "7666fa5d",
+   "cb2d8a2c",
+   "8e5c0c38",
+   "7b3084d4",
+   "b0039139",
+   "faa9f03d",
+   "e87109e9",
+   "db695cfb",
+   "dd6b8c4b",
+   "247ef758",
+   "bf45cf4b",
+   "71e489b6"
+  ],
+  "B": [
+   "9385bd28",
+   "8b9c3697",
+   "b6f77b65",
+   "4e34c42c",
+   "36a08778",
+   "c7f57c3e",
+   "5961cc34",
+   "abc82100",
+   "142ca369",
+   "800d221b",
+   "4c416de3",
+   "16b78196",
+   "b5ca7ac4",
+   "898e7135",
+   "16de56c4",
+   "20a9e565",
+   "e12f9a14",
+   "f931b4a8",
+   "cbebaa4b",
+   "28a6681f"
+  ],
+  "choice_A": {
+   "pools": [
+    "kaggle-A2-pool-audit-v1",
+    "kaggle-A2-pool-audit-v2",
+    "kaggle-A2-H1-v1",
+    "kaggle-A2-H1-v2",
+    "kaggle-A2-H2-v1",
+    "kaggle-A2-adapt-dev-v1"
+   ],
+   "pools_needed_net_ge_0": 5,
+   "pooled": {
+    "b0r_zbeam": {
+     "n_outputs": 198,
+     "base_right": 55,
+     "right": 57,
+     "gained": 3,
+     "lost": 1,
+     "net": 2,
+     "pools_net_ge_0": 5
+    },
+    "b0r_amax": {
+     "n_outputs": 198,
+     "base_right": 55,
+     "right": 55,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "pools_net_ge_0": 6
+    },
+    "b0r_borda": {
+     "n_outputs": 198,
+     "base_right": 55,
+     "right": 55,
+     "gained": 0,
+     "lost": 0,
+     "net": 0,
+     "pools_net_ge_0": 6
+    }
+   },
+   "qualifies": {
+    "b0r_zbeam": false,
+    "b0r_amax": false,
+    "b0r_borda": false
+   },
+   "order": [],
+   "chosen": null
+  },
+  "choice_B": {
+   "pools": [
+    "kaggle-A2-pool-audit-v1",
+    "kaggle-A2-pool-audit-v2",
+    "kaggle-A2-H1-v1",
+    "kaggle-A2-H1-v2",
+    "kaggle-A2-H2-v1",
+    "kaggle-A2-adapt-dev-v1"
+   ],
+   "pools_needed_net_ge_0": 5,
+   "pooled": {
+    "b0r_zbeam": {
+     "n_outputs": 192,
+     "base_right": 31,
+     "right": 33,
+     "gained": 6,
+     "lost": 4,
+     "net": 2,
+     "pools_net_ge_0": 6
+    },
+    "b0r_amax": {
+     "n_outputs": 192,
+     "base_right": 31,
+     "right": 34,
+     "gained": 3,
+     "lost": 0,
+     "net": 3,
+     "pools_net_ge_0": 6
+    },
+    "b0r_borda": {
+     "n_outputs": 192,
+     "base_right": 31,
+     "right": 32,
+     "gained": 1,
+     "lost": 0,
+     "net": 1,
+     "pools_net_ge_0": 6
+    }
+   },
+   "qualifies": {
+    "b0r_zbeam": false,
+    "b0r_amax": true,
+    "b0r_borda": false
+   },
+   "order": [
+    "b0r_amax"
+   ],
+   "chosen": "b0r_amax"
+  },
+  "chosen_qualifies_in_both": false
+ },
+ "rank_of_truth": {
+  "pooled": {
+   "covered": 104,
+   "kgmon": {
+    "1": 78,
+    "2": 8,
+    "3": 9,
+    "4": 6,
+    "5+": 3
+   },
+   "b0r_zbeam": {
+    "1": 78,
+    "2": 12,
+    "3": 6,
+    "4": 5,
+    "5+": 3
+   },
+   "b0r_amax": {
+    "1": 78,
+    "2": 11,
+    "3": 2,
+    "4": 5,
+    "5+": 8
+   },
+   "b0r_borda": {
+    "1": 78,
+    "2": 9,
+    "3": 8,
+    "4": 6,
+    "5+": 3
+   }
+  },
+  "per_pool": {
+   "kaggle-A2-pool-audit-v1": {
+    "covered": 15,
+    "kgmon": {
+     "5+": 1,
+     "1": 12,
+     "3": 2
+    },
+    "b0r_zbeam": {
+     "4": 1,
+     "1": 12,
+     "2": 1,
+     "3": 1
+    },
+    "b0r_amax": {
+     "5+": 1,
+     "1": 12,
+     "4": 1,
+     "2": 1
+    },
+    "b0r_borda": {
+     "5+": 1,
+     "1": 12,
+     "3": 2
+    }
+   },
+   "kaggle-A2-pool-audit-v2": {
+    "covered": 19,
+    "kgmon": {
+     "5+": 1,
+     "1": 13,
+     "2": 3,
+     "3": 1,
+     "4": 1
+    },
+    "b0r_zbeam": {
+     "4": 2,
+     "1": 13,
+     "3": 1,
+     "5+": 1,
+     "2": 2
+    },
+    "b0r_amax": {
+     "5+": 2,
+     "1": 13,
+     "2": 4
+    },
+    "b0r_borda": {
+     "5+": 1,
+     "1": 13,
+     "2": 3,
+     "3": 1,
+     "4": 1
+    }
+   },
+   "kaggle-A2-H1-v1": {
+    "covered": 17,
+    "kgmon": {
+     "4": 2,
+     "1": 14,
+     "2": 1
+    },
+    "b0r_zbeam": {
+     "4": 1,
+     "1": 14,
+     "5+": 1,
+     "2": 1
+    },
+    "b0r_amax": {
+     "5+": 1,
+     "1": 14,
+     "2": 1,
+     "4": 1
+    },
+    "b0r_borda": {
+     "4": 2,
+     "1": 14,
+     "2": 1
+    }
+   },
+   "kaggle-A2-H1-v2": {
+    "covered": 17,
+    "kgmon": {
+     "4": 1,
+     "1": 14,
+     "2": 1,
+     "3": 1
+    },
+    "b0r_zbeam": {
+     "2": 2,
+     "1": 14,
+     "5+": 1
+    },
+    "b0r_amax": {
+     "5+": 1,
+     "1": 14,
+     "2": 1,
+     "3": 1
+    },
+    "b0r_borda": {
+     "4": 1,
+     "1": 14,
+     "2": 1,
+     "3": 1
+    }
+   },
+   "kaggle-A2-H2-v1": {
+    "covered": 18,
+    "kgmon": {
+     "3": 4,
+     "1": 13,
+     "4": 1
+    },
+    "b0r_zbeam": {
+     "3": 3,
+     "1": 13,
+     "2": 2
+    },
+    "b0r_amax": {
+     "2": 1,
+     "1": 13,
+     "3": 1,
+     "5+": 2,
+     "4": 1
+    },
+    "b0r_borda": {
+     "3": 3,
+     "1": 13,
+     "2": 1,
+     "4": 1
+    }
+   },
+   "kaggle-A2-adapt-dev-v1": {
+    "covered": 18,
+    "kgmon": {
+     "5+": 1,
+     "1": 12,
+     "2": 3,
+     "4": 1,
+     "3": 1
+    },
+    "b0r_zbeam": {
+     "3": 1,
+     "1": 12,
+     "2": 4,
+     "4": 1
+    },
+    "b0r_amax": {
+     "4": 2,
+     "1": 12,
+     "2": 3,
+     "5+": 1
+    },
+    "b0r_borda": {
+     "5+": 1,
+     "1": 12,
+     "2": 3,
+     "4": 1,
+     "3": 1
+    }
+   }
+  }
+ },
+ "distinct_outputs": {
+  "b0r_zbeam": {
+   "outputs_gained": 3,
+   "outputs_lost": 3,
+   "gained_pools": {
+    "221dfab4_1": 1,
+    "b6f77b65_0": 6,
+    "d35bdbdc_1": 2
+   },
+   "lost_pools": {
+    "800d221b_0": 1,
+    "b5ca7ac4_0": 3,
+    "d35bdbdc_1": 1
+   }
+  },
+  "b0r_amax": {
+   "outputs_gained": 3,
+   "outputs_lost": 0,
+   "gained_pools": {
+    "142ca369_0": 1,
+    "b5ca7ac4_0": 1,
+    "b6f77b65_2": 1
+   },
+   "lost_pools": {}
+  },
+  "b0r_borda": {
+   "outputs_gained": 1,
+   "outputs_lost": 0,
+   "gained_pools": {
+    "b5ca7ac4_0": 1
+   },
+   "lost_pools": {}
+  }
+ }
+}

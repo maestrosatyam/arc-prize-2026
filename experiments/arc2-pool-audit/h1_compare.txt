@@ -1,0 +1,87 @@
+$ python3 -I arc2_pool_audit_analyze_h1.py (a reader not included) --pool experiments/runs/kaggle-A2-H1-v1/pool --compare experiments/runs/kaggle-A2-pool-audit-v1/pool --compare experiments/runs/kaggle-A2-pool-audit-v2/pool --json experiments/runs/kaggle-A2-H1-v1/compare.json
+compare: new experiments/runs/kaggle-A2-H1-v1/pool vs baseline experiments/runs/kaggle-A2-pool-audit-v1/pool
+ground truth: experiments/runs/kaggle-A2-H1-v1/pool/_kaggle_solutions_audit_tasks.json (Kaggle evaluation solutions)
+DFS probability floor: baseline not recorded (B0 default 0.2); new 0.2
+test-time training augment n: baseline not recorded (B0 default 16, 128 sequences); new 8 (64 sequences)
+same outputs: 65 test outputs over 40 tasks; tasks without a pool file: baseline none, new none
+
+  (outputs of 65)            baseline      new    delta
+  selected pass@2                  12       15       +3
+  selected pass@1                  12       14       +2
+  coverage                         15       17       +2
+  coverage gap                      3        2       -1
+  outputs with a pool entry        65       65       +0
+pass@2 gained: 4 ['36a08778_1', '800d221b_0', '8e5c0c38_0', 'b5ca7ac4_0']; lost: 1 ['8e5c0c38_1']
+coverage gained: 5 ['221dfab4_1', '36a08778_1', '800d221b_0', '8e5c0c38_0', 'b5ca7ac4_0']; lost: 3 ['142ca369_0', '8e5c0c38_1', 'b6f77b65_2']
+
+task elapsed s: baseline median 601.0, mean 626.12, p75 793.5, max 1379 (n 40); new median 459.0, mean 515.9, p75 692.5, max 1368 (n 40)
+per-task elapsed ratio new/baseline (40 tasks in both): median 0.7935000000000001, max 1.221 (800d221b), min 0.39; ratio of means 0.824
+stop reason: baseline {'exhausted': 40}; new {'exhausted': 39, 'per_task_cap': 1}
+tasks at the 1200 s per-task cap: baseline 0, new 1; cut by the global end time: baseline 0, new 0
+pool size, unique candidates per output: baseline median 7, mean 7.34, p75 11.0, max 18 (n 65); new median 5, mean 5.69, p75 9.0, max 17 (n 65)
+pool size, beams per output: baseline median 17, mean 14.49, p75 19.0, max 25 (n 65); new median 14, mean 12.25, p75 19.0, max 27 (n 65)
+
+per-phase seconds per task (mean over 40 tasks in both; run logs (both runs)):
+  phase                       baseline       new   ratio  median task ratio
+  task                           626.1     515.9   0.824              0.794
+  test-time training             189.0      97.3   0.515              0.518
+    of which train_runtime       182.7      91.9   0.503              0.503
+  DFS                            385.9     377.6   0.978              0.934
+  rescoring                       51.1      40.9     0.8              0.798
+  other                            0.1       0.1     1.0                1.0
+  TTT optimizer steps per task: baseline {'128': 40}; new {'64': 40}; DFS batches: baseline 260, new 259; candidates rescored: baseline 477, new 370
+  new run's pool timers (40 tasks): task_s 515.9, ttt_s 97.3, train_runtime_s 91.9, dfs_s 377.5, rescoring_s 40.9, other_s 0.2
+
+full-run projection: mean task seconds x hidden tasks / ranks + overhead (model load, rank start, idle tail, final cell); 240 hidden tasks (compliance/sources.json (competition data page: the hidden rerun uses 240 tasks; the placeholder test file has 240 tasks, 259 test inputs)), 4 ranks
+  mean task s: baseline 626.1, new 515.9; overhead s: baseline 635.6 (measured: final cell time - task seconds / ranks), new 856.4 (measured: final cell time - task seconds / ranks)
+  full run: baseline 10.61 h, new 8.84 h (target 11 h: fits); per 100 tasks without overhead: baseline 4.35 h, new 3.58 h
+
+====================================================================================================
+
+compare: new experiments/runs/kaggle-A2-H1-v1/pool vs baseline experiments/runs/kaggle-A2-pool-audit-v2/pool
+ground truth: experiments/runs/kaggle-A2-H1-v1/pool/_kaggle_solutions_audit_tasks.json (Kaggle evaluation solutions)
+DFS probability floor: baseline not recorded (B0 default 0.2); new 0.2
+test-time training augment n: baseline not recorded (B0 default 16, 128 sequences); new 8 (64 sequences)
+same outputs: 65 test outputs over 40 tasks; tasks without a pool file: baseline none, new none
+
+  (outputs of 65)            baseline      new    delta
+  selected pass@2                  16       15       -1
+  selected pass@1                  13       14       +1
+  coverage                         19       17       -2
+  coverage gap                      3        2       -1
+  outputs with a pool entry        65       65       +0
+pass@2 gained: 2 ['8e5c0c38_0', 'b5ca7ac4_0']; lost: 3 ['8e5c0c38_1', 'b6f77b65_2', 'd35bdbdc_1']
+coverage gained: 2 ['221dfab4_1', '8e5c0c38_0']; lost: 4 ['142ca369_0', '8e5c0c38_1', 'b6f77b65_2', 'd35bdbdc_1']
+
+task elapsed s: baseline median 584.5, mean 629.83, p75 837.5, max 1549 (n 40); new median 459.0, mean 515.9, p75 692.5, max 1368 (n 40)
+per-task elapsed ratio new/baseline (40 tasks in both): median 0.7915000000000001, max 1.329 (faa9f03d), min 0.386; ratio of means 0.819
+stop reason: baseline {'exhausted': 39, 'per_task_cap': 1}; new {'exhausted': 39, 'per_task_cap': 1}
+tasks at the 1200 s per-task cap: baseline 1, new 1; cut by the global end time: baseline 0, new 0
+pool size, unique candidates per output: baseline median 8, mean 7.26, p75 11.0, max 16 (n 65); new median 5, mean 5.69, p75 9.0, max 17 (n 65)
+pool size, beams per output: baseline median 17, mean 14.37, p75 19.0, max 24 (n 65); new median 14, mean 12.25, p75 19.0, max 27 (n 65)
+
+per-phase seconds per task (mean over 40 tasks in both; run logs (both runs)):
+  phase                       baseline       new   ratio  median task ratio
+  task                           629.8     515.9   0.819              0.792
+  test-time training             191.8      97.3   0.507              0.513
+    of which train_runtime       185.5      91.9   0.495              0.497
+  DFS                            386.0     377.6   0.978              0.952
+  rescoring                       51.8      40.9    0.79              0.831
+  other                            0.1       0.1     1.0                1.0
+  TTT optimizer steps per task: baseline {'128': 40}; new {'64': 40}; DFS batches: baseline 259, new 259; candidates rescored: baseline 472, new 370
+  new run's pool timers (40 tasks): task_s 515.9, ttt_s 97.3, train_runtime_s 91.9, dfs_s 377.5, rescoring_s 40.9, other_s 0.2
+
+full-run projection: mean task seconds x hidden tasks / ranks + overhead (model load, rank start, idle tail, final cell); 240 hidden tasks (compliance/sources.json (competition data page: the hidden rerun uses 240 tasks; the placeholder test file has 240 tasks, 259 test inputs)), 4 ranks
+  mean task s: baseline 629.8, new 515.9; overhead s: baseline 648.4 (measured: final cell time - task seconds / ranks), new 856.4 (measured: final cell time - task seconds / ranks)
+  full run: baseline 10.68 h, new 8.84 h (target 11 h: fits); per 100 tasks without overhead: baseline 4.37 h, new 3.58 h
+
+====================================================================================================
+
+H1 against 2 audit run(s) (experiments/runs/kaggle-A2-pool-audit-v1/pool, experiments/runs/kaggle-A2-pool-audit-v2/pool):
+  pass@2: new 15 of 65; audit runs [12, 16] (range 12-16, new inside it); rule needs >= 12
+  coverage: new 17; audit runs [15, 19] (range 15-19, new inside it)
+  mean task s: new 515.9; audit runs [626.1, 629.8], mean 628.0; drop 0.1784 (rule needs >= 0.1; all tasks finished: True)
+  full-run projection: new 8.84 h, audit runs' mean 10.64 h, freed 1.8 h
+decision H1: pass@2 15 of 65 >= 12; mean task time 515.9 s is 17.8 % below the audit runs' 628.0 s (needs >= 10 % below): free. Halving the test-time training costs nothing measurable here; projected full run 8.84 h against 10.64 h (about 1.8 h freed for a second solver)
+
+exit 0

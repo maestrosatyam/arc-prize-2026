@@ -1,0 +1,27 @@
+{
+ "task_ids": [
+  "21897d95",
+  "2d0172a1",
+  "3a25b0d8",
+  "3e6067c3",
+  "4c7dc4dd",
+  "64efde09"
+ ],
+ "present": [
+  "21897d95",
+  "2d0172a1",
+  "3a25b0d8",
+  "3e6067c3",
+  "4c7dc4dd",
+  "64efde09"
+ ],
+ "sha256": {
+  "21897d95": "5d8464c37c769752c8da39b859707a1f70663b500990a102a3b811c1dc3cdbb7",
+  "2d0172a1": "0e55b858b40e9abb870aedbe47e787dc31df56289ea0b70aa25f1ff5c81d3e5f",
+  "3a25b0d8": "ca413827219455c4bf18a998a2af5b0858987a390890be6495855804df354fff",
+  "3e6067c3": "1b5aa807692217d12a529365380f3ed438dbe8bb816e1b74219d3fa622b74da0",
+  "4c7dc4dd": "b2e669ef4308dc93291218f15d618ccb1a5ba4fab4e6b2558901fb34295a98a1",
+  "64efde09": "544b63430fd6870f0277414f76d5c1c9cf6778544a378fdb8faf66cde0b5f950"
+ },
+ "rule": "sealed against rule decisions (their labels were in the adapt training run, so they check rule-selection overfitting, not model generalisation); replay tools must refuse this directory without a final-pick flag"
+}

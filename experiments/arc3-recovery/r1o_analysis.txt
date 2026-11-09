@@ -1,0 +1,74 @@
+$ python3 -I arc3_r1o_analyze.py   # a per-run reader, not included
+R1o: arm A12n (R1m's A11r + the restart nudge as the first system-prompt line) vs unchanged 30-minute samples and R1m's A11r
+labels on the control cases: {'yes': 11, 'partial': 22, 'no': 2}
+
+arm                    all  mechanics-only    actions to clear (median, mean, n)
+A0L (R1d)            14/35            3/22        62.5, 78.2, 14
+A0Lb (R1g v1)        14/35            7/22        66.0, 83.6, 14
+A0Lb (R1g v2)        18/35            8/22        75.0, 77.7, 18
+A0Lc (R1j)           17/35            8/22        79, 73.6, 17
+A11r (R1m v1)        20/35            9/22        58.5, 62.2, 20
+A11r (R1m v2)        21/35           11/22        89, 75.2, 21
+A12n (R1o)           20/35           10/22        74.5, 78.1, 20   groups {'yes': [10, 11], 'partial': [10, 22], 'no': [0, 2]}
+case-arms in the archive 35, ran 35; ends {'action_budget': 5, 'cleared': 20, 'wall_budget': 10}
+
+A12n paired (exact McNemar, two-sided):
+  all      vs A0L (R1d)      A12n only 7, other only 1, both 13, neither 14 (pairs 35); p 0.070
+  all      vs A0Lb (R1g v1)  A12n only 9, other only 3, both 11, neither 12 (pairs 35); p 0.146
+  all      vs A0Lb (R1g v2)  A12n only 4, other only 2, both 16, neither 13 (pairs 35); p 0.688
+  all      vs A0Lc (R1j)     A12n only 6, other only 3, both 14, neither 12 (pairs 35); p 0.508
+  all      vs A11r (R1m v1)  A12n only 6, other only 6, both 14, neither 9 (pairs 35); p 1.000
+  all      vs A11r (R1m v2)  A12n only 3, other only 4, both 17, neither 11 (pairs 35); p 1.000
+  partial  vs A0L (R1d)      A12n only 7, other only 0, both 3, neither 12 (pairs 22); p 0.016
+  partial  vs A0Lb (R1g v1)  A12n only 5, other only 2, both 5, neither 10 (pairs 22); p 0.453
+  partial  vs A0Lb (R1g v2)  A12n only 4, other only 2, both 6, neither 10 (pairs 22); p 0.688
+  partial  vs A0Lc (R1j)     A12n only 5, other only 3, both 5, neither 9 (pairs 22); p 0.727
+  partial  vs A11r (R1m v1)  A12n only 5, other only 4, both 5, neither 8 (pairs 22); p 1.000
+  partial  vs A11r (R1m v2)  A12n only 2, other only 3, both 8, neither 9 (pairs 22); p 1.000
+
+RESET use (model-issued, executed, after the restore):
+  A12n (R1o)       33 model RESETs in 19 of 35 counted case-arms (max 5 in one); automatic 12; cleared with a RESET 10/19, without 10/16; clears after the first RESET 10; rows without counts 0
+  A11r (R1m v1)    23 model RESETs in 16 of 35 counted case-arms (max 4 in one); automatic 9; cleared with a RESET 8/16, without 12/19; clears after the first RESET 8; rows without counts 0
+  A11r (R1m v2)    22 model RESETs in 16 of 35 counted case-arms (max 4 in one); automatic 16; cleared with a RESET 10/16, without 11/19; clears after the first RESET 10; rows without counts 0
+  case             resets  auto  reset at           cleared    at after  actions  end           A11r (R1m v1): cleared, resets
+  ar25_p3_L7_F          0     0                           Y    31     -       31  cleared       Y, 0
+  bp35_p1_L2_F          0     3                           n     -     -       87  wall_budget   Y, 0
+  bp35_p3_L2_F          1     2  25                       n     -     -       59  wall_budget   n, 0
+  cn04_p0_L6_F          0     0                           n     -     -       21  wall_budget   n, 1
+  g50t_p1_L1_F          0     0                           Y    47     -       47  cleared       Y, 0
+  g50t_p2_L4_F          2     0  14,52                    Y    83     Y       83  cleared       Y, 1
+  ka59_p0_L6_F          2     0  41,72                    n     -     -      160  action_budget Y, 0
+  ka59_p1_L6_F          0     1                           Y   148     -      148  cleared       Y, 1
+  ka59_p3_L6_F          3     0  37,120,134               n     -     -      160  action_budget n, 1
+  lf52_p1_L2_F          1     0  11                       Y    51     Y       51  cleared       Y, 0
+  lf52_p2_L4_F          1     0  1                        n     -     -       34  wall_budget   n, 1
+  ls20_p1_L6_F          2     0  27,69                    n     -     -      160  action_budget n, 2
+  m0r0_p2_L6_F          1     0  35                       n     -     -       42  wall_budget   Y, 0
+  m0r0_p3_L6_F          1     0  26                       Y   128     Y      128  cleared       n, 0
+  r11l_p2_L6_F          1     0  1                        Y    34     Y       34  cleared       Y, 1
+  re86_p0_L7_F          0     0                           n     -     -      160  action_budget n, 0
+  re86_p1_L6_F          0     0                           Y    93     -       93  cleared       Y, 0
+  re86_p2_L7_F          0     0                           n     -     -      100  wall_budget   n, 0
+  re86_p3_L6_F          0     0                           Y    80     -       80  cleared       Y, 1
+  s5i5_p0_L8_F          1     0  18                       n     -     -       27  wall_budget   Y, 0
+  s5i5_p2_L7_F          0     0                           n     -     -       13  wall_budget   n, 0
+  sc25_p0_L6_F          1     1  1                        Y    90     Y       90  cleared       n, 2
+  sk48_p0_L3_F          0     0                           Y    74     -       74  cleared       Y, 0
+  sk48_p2_L1_F          1     0  20                       Y    89     Y       89  cleared       n, 1
+  sp80_p1_L6_F          0     1                           n     -     -       36  wall_budget   n, 0
+  su15_p1_L7_F          4     0  13,37,45,55              Y    65     Y       65  cleared       Y, 2
+  su15_p2_L7_F          5     0  1,14,32,40,51            Y    63     Y       63  cleared       Y, 1
+  tn36_p0_L6_F          2     0  41,105                   Y   133     Y      133  cleared       n, 4
+  tr87_p0_L6_F          0     0                           Y    71     -       71  cleared       n, 0
+  tr87_p1_L6_F          0     0                           Y    75     -       75  cleared       Y, 1
+  tu93_p0_L9_F          1     2  29                       n     -     -       51  wall_budget   Y, 0
+  tu93_p2_L8_F          0     1                           Y    26     -       26  cleared       Y, 0
+  tu93_p3_L9_F          0     1                           Y    65     -       65  cleared       Y, 0
+  wa30_p0_L5_F          2     0  1,123                    n     -     -      160  action_budget Y, 1
+  wa30_p3_L5_F          1     0  15                       Y   116     Y      116  cleared       n, 2
+
+Rule: helpful if >= 21/35; harmful if <= 11/35; otherwise neutral; and against R1m: the nudge adds value only if A12n clears >= 3 more than A11r's mean.
+Decision: neutral (A12n 20/35 between 12 and 20)
+Against R1m: no added value (A12n 20/35 vs A11r mean 20.5 over 2 run(s) [20, 21]; needs >= 23.5)
+
+exit 0

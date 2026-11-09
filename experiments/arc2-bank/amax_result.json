@@ -1,0 +1,238 @@
+{
+ "schema": "arc2_amax_result.v1",
+ "utc": "2026-11-01T17:48:05Z",
+ "rule": "b0r_amax",
+ "rule_fingerprint": "1e21aa4a7eaf41d4",
+ "rule_v7_fingerprint": "287b153bb48e2f0a",
+ "code_fingerprint": "81f5ea0f02b137e9",
+ "bank_fingerprint": "f9bbb32aafbfc4de",
+ "sources": [
+  "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+  "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+  "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+ ],
+ "solutions_source": "Kaggle solutions copies beside the pools",
+ "n_tasks": 101,
+ "n_outputs": 145,
+ "held_out_tasks": [
+  "135a2760",
+  "136b0064",
+  "1818057f",
+  "195c6913",
+  "1ae2feb7",
+  "20270e3b",
+  "269e22fb",
+  "271d71e2",
+  "291dc1e1",
+  "2b83f449",
+  "2ba387bc",
+  "31f7f899",
+  "332f06d7",
+  "35ab12c3",
+  "3dc255db",
+  "446ef5d2",
+  "45a5af55",
+  "4a21e3da",
+  "4c3d4a41",
+  "53fb4810",
+  "5545f144",
+  "581f7754",
+  "58490d8a",
+  "58f5dbd5",
+  "5dbc8537",
+  "62593bfd",
+  "65b59efc",
+  "67e490f4",
+  "6e453dd6",
+  "6e4f6532",
+  "6ffbe589",
+  "7491f3cf",
+  "7b0280bc",
+  "7b5033c1",
+  "7ed72f31",
+  "80a900e0",
+  "8698868d",
+  "88e364bc",
+  "89565ca0",
+  "8f215267",
+  "8f3a5a89",
+  "97d7923e",
+  "981571dc",
+  "9bbf930d",
+  "a32d8b75",
+  "a395ee82",
+  "a6f40cea",
+  "aa4ec2a5",
+  "b9e38dc0",
+  "d59b0160",
+  "d8e07eb2",
+  "db0c5428",
+  "dbff022c",
+  "de809cff",
+  "dfadab01",
+  "e3721c99",
+  "e376de54",
+  "e8686506",
+  "eee78d87",
+  "f560132c",
+  "fc7cae8d"
+ ],
+ "floor": {
+  "n_outputs": 145,
+  "n_candidates": 828,
+  "candidate_failures": {},
+  "outputs_failing": 0,
+  "outputs_failing_keys": [],
+  "outputs_failing_frac": 0.0,
+  "item1_pool_ok": true,
+  "kgmon_vs_submitted_mismatch": [],
+  "item2_ok": true
+ },
+ "G1": {
+  "base": "b0",
+  "base_right": 40,
+  "right": 40,
+  "gained": 0,
+  "lost": 0,
+  "net": 0,
+  "gate_v2": false,
+  "gate_v1": false,
+  "sign_test_p": null,
+  "gained_keys": [],
+  "lost_keys": [],
+  "task_level": {
+   "n_tasks": 101,
+   "n_changed": 0,
+   "mean_delta": 0.0,
+   "base_task_score": 0.302,
+   "new_task_score": 0.302,
+   "bootstrap": {
+    "n_tasks": 101,
+    "n_boot": 2000,
+    "mean": 0.0,
+    "sd": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_le_0": 1.0
+   }
+  },
+  "board": {
+   "base": "b0",
+   "new": "b0r_amax",
+   "n_tasks_resampled": 120,
+   "n_boot": 4000,
+   "mean_points": 0.0,
+   "sd_points": 0.0,
+   "ci95_points": [
+    0.0,
+    0.0
+   ],
+   "p_le_0": 1.0
+  }
+ },
+ "G2": {
+  "base": "v7_direct",
+  "base_right": 45,
+  "right": 45,
+  "gained": 0,
+  "lost": 0,
+  "net": 0,
+  "gate_v2": false,
+  "gate_v1": false,
+  "sign_test_p": null,
+  "gained_keys": [],
+  "lost_keys": [],
+  "task_level": {
+   "n_tasks": 101,
+   "n_changed": 0,
+   "mean_delta": 0.0,
+   "base_task_score": 0.3284,
+   "new_task_score": 0.3284,
+   "bootstrap": {
+    "n_tasks": 101,
+    "n_boot": 2000,
+    "mean": 0.0,
+    "sd": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_le_0": 1.0
+   }
+  },
+  "board": {
+   "base": "v7_direct",
+   "new": "b0r_amax_v7",
+   "n_tasks_resampled": 120,
+   "n_boot": 4000,
+   "mean_points": 0.0,
+   "sd_points": 0.0,
+   "ci95_points": [
+    0.0,
+    0.0
+   ],
+   "p_le_0": 1.0
+  }
+ },
+ "G3": {
+  "n_tasks": 61,
+  "g1": {
+   "n_outputs": 80,
+   "base_right": 25,
+   "right": 25,
+   "gained": 0,
+   "lost": 0,
+   "net": 0,
+   "gained_keys": [],
+   "lost_keys": []
+  },
+  "g2": {
+   "n_outputs": 80,
+   "base_right": 27,
+   "right": 27,
+   "gained": 0,
+   "lost": 0,
+   "net": 0,
+   "gained_keys": [],
+   "lost_keys": []
+  },
+  "pass": true
+ },
+ "outcome": "build: the amax entry and one commit run (23:12 IST Nov 1); the submission is a separate decision",
+ "rank_of_truth": {
+  "covered": 46,
+  "kgmon": {
+   "1": 29,
+   "2": 11,
+   "3": 4,
+   "4": 1,
+   "5+": 1
+  },
+  "b0r_amax": {
+   "1": 29,
+   "2": 11,
+   "3": 2,
+   "4": 2,
+   "5+": 2
+  }
+ },
+ "false_positive_rates": {
+  "gate_v1": 0.0,
+  "gate_v2": 0.0,
+  "net_needed_fp5": 2,
+  "net_needed_fp1": 3,
+  "source": "experiments/arc2-bank/null_calibration.json"
+ },
+ "rule_doc": "experiments/arc2-bank/AMAX_RULE.md",
+ "rule_status": "Status: FROZEN 2026-11-01 23:17 IST (17:47 UTC Nov 1),",
+ "gate": "AMAX_RULE.md section 4: net >= 0 in G1 and in G2; 0 outputs where attempt 2 differs = stop",
+ "attempt2_changes": {
+  "outputs_3plus": 102,
+  "attempt2_differs_from_kgmon": 29,
+  "attempt2_differs_from_zbeam": 42
+ },
+ "gate_pass": true,
+ "beside": "gate v2, G3 and the bootstraps are recorded only; they decide nothing here"
+}

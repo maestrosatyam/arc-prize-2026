@@ -1,0 +1,447 @@
+{
+ "validity": {
+  "ok": true,
+  "problems": [],
+  "answered": 112,
+  "eligible": 112,
+  "over_16384": 0
+ },
+ "gate": {
+  "dc_fit": {
+   "n_right": 34,
+   "n_outputs": 145,
+   "gained": 0,
+   "lost": 6,
+   "net": -6,
+   "gate_v2": false,
+   "gate_v1": false,
+   "sign_test_p": 1.0,
+   "gained_keys": [],
+   "lost_keys": [
+    "2ba387bc_0",
+    "45a5af55_0",
+    "4c3d4a41_0",
+    "4c3d4a41_1",
+    "8f3a5a89_0",
+    "e8686506_0"
+   ],
+   "registration": "registered 2026-10-28 (registered (frozen 2026-10-28 23:25 IST, b80d5ce; gate v2 inside dc1, four rules; then the sealed sign check once))"
+  },
+  "dc_long": {
+   "n_right": 25,
+   "n_outputs": 145,
+   "gained": 2,
+   "lost": 17,
+   "net": -15,
+   "gate_v2": false,
+   "gate_v1": false,
+   "sign_test_p": 0.99996,
+   "gained_keys": [
+    "dfadab01_0",
+    "fc7cae8d_0"
+   ],
+   "lost_keys": [
+    "2ba387bc_0",
+    "36a08778_1",
+    "45a5af55_0",
+    "4c3d4a41_0",
+    "4c3d4a41_1",
+    "53fb4810_0",
+    "6e453dd6_0",
+    "71e489b6_1",
+    "7b0280bc_0",
+    "8e5c0c38_0",
+    "8f3a5a89_0",
+    "a395ee82_0",
+    "a6f40cea_0",
+    "d8e07eb2_0",
+    "d8e07eb2_1",
+    "de809cff_0",
+    "e8686506_0"
+   ],
+   "registration": "registered 2026-10-28 (registered (frozen 2026-10-28 23:25 IST, b80d5ce; gate v2 inside dc1, four rules; then the sealed sign check once))"
+  },
+  "dc_keep1": {
+   "n_right": 36,
+   "n_outputs": 145,
+   "gained": 0,
+   "lost": 4,
+   "net": -4,
+   "gate_v2": false,
+   "gate_v1": false,
+   "sign_test_p": 1.0,
+   "gained_keys": [],
+   "lost_keys": [
+    "2ba387bc_0",
+    "4c3d4a41_1",
+    "8f3a5a89_0",
+    "e8686506_0"
+   ],
+   "registration": "registered 2026-10-28 (registered (frozen 2026-10-28 23:25 IST, b80d5ce; gate v2 inside dc1, four rules; then the sealed sign check once))"
+  },
+  "dc_keep1_long": {
+   "n_right": 35,
+   "n_outputs": 145,
+   "gained": 2,
+   "lost": 7,
+   "net": -5,
+   "gate_v2": false,
+   "gate_v1": false,
+   "sign_test_p": 0.98047,
+   "gained_keys": [
+    "dfadab01_0",
+    "fc7cae8d_0"
+   ],
+   "lost_keys": [
+    "2ba387bc_0",
+    "4c3d4a41_1",
+    "53fb4810_0",
+    "6e453dd6_0",
+    "8f3a5a89_0",
+    "d8e07eb2_0",
+    "e8686506_0"
+   ],
+   "registration": "registered 2026-10-28 (registered (frozen 2026-10-28 23:25 IST, b80d5ce; gate v2 inside dc1, four rules; then the sealed sign check once))"
+  },
+  "_base": {
+   "rule": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 40,
+   "n_right_1": 29,
+   "score": 0.2759,
+   "task_score": 0.302,
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "rule_fingerprint": "d20c96c6691bfe04"
+  }
+ },
+ "recorded": {
+  "outputs": 112,
+  "tiers": {
+   "long_16384": 62,
+   "fit_4096": 50
+  },
+  "fit_4096": 50,
+  "calibration": {
+   "top_right": {
+    "n": 15,
+    "mean_top_probability": 0.2854,
+    "mean_options": 7.4667
+   },
+   "top_wrong": {
+    "n": 27,
+    "mean_top_probability": 0.2599,
+    "mean_options": 7.1481
+   },
+   "orders_agree_on_top_rate": 0.2589
+  },
+  "decider_top_equals_b0_top": 25,
+  "orders_agree_on_top": 29,
+  "headroom": [
+   {
+    "output": "1ae2feb7_1",
+    "b0_rank": 3,
+    "decider_rank": 6,
+    "of": 6,
+    "fit_4096": true
+   },
+   {
+    "output": "3dc255db_0",
+    "b0_rank": 7,
+    "decider_rank": 10,
+    "of": 15,
+    "fit_4096": true
+   },
+   {
+    "output": "b6f77b65_0",
+    "b0_rank": 3,
+    "decider_rank": 4,
+    "of": 5,
+    "fit_4096": true
+   },
+   {
+    "output": "dfadab01_0",
+    "b0_rank": 3,
+    "decider_rank": 2,
+    "of": 5,
+    "fit_4096": false
+   },
+   {
+    "output": "eee78d87_0",
+    "b0_rank": 4,
+    "decider_rank": 5,
+    "of": 6,
+    "fit_4096": true
+   },
+   {
+    "output": "fc7cae8d_0",
+    "b0_rank": 3,
+    "decider_rank": 1,
+    "of": 9,
+    "fit_4096": false
+   }
+  ],
+  "b0_right": [
+   {
+    "output": "135a2760_0",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 5,
+    "fit_4096": false
+   },
+   {
+    "output": "1818057f_0",
+    "b0_rank": 1,
+    "decider_rank": 2,
+    "of": 2,
+    "fit_4096": true
+   },
+   {
+    "output": "1ae2feb7_2",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 10,
+    "fit_4096": true
+   },
+   {
+    "output": "20270e3b_1",
+    "b0_rank": 2,
+    "decider_rank": 1,
+    "of": 9,
+    "fit_4096": true
+   },
+   {
+    "output": "2ba387bc_0",
+    "b0_rank": 2,
+    "decider_rank": 4,
+    "of": 5,
+    "fit_4096": true
+   },
+   {
+    "output": "31f7f899_0",
+    "b0_rank": 2,
+    "decider_rank": 1,
+    "of": 6,
+    "fit_4096": true
+   },
+   {
+    "output": "36a08778_0",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 7,
+    "fit_4096": false
+   },
+   {
+    "output": "36a08778_1",
+    "b0_rank": 1,
+    "decider_rank": 9,
+    "of": 12,
+    "fit_4096": false
+   },
+   {
+    "output": "45a5af55_0",
+    "b0_rank": 1,
+    "decider_rank": 3,
+    "of": 3,
+    "fit_4096": true
+   },
+   {
+    "output": "4a21e3da_1",
+    "b0_rank": 2,
+    "decider_rank": 2,
+    "of": 6,
+    "fit_4096": false
+   },
+   {
+    "output": "4c3d4a41_0",
+    "b0_rank": 1,
+    "decider_rank": 5,
+    "of": 7,
+    "fit_4096": true
+   },
+   {
+    "output": "4c3d4a41_1",
+    "b0_rank": 2,
+    "decider_rank": 3,
+    "of": 5,
+    "fit_4096": true
+   },
+   {
+    "output": "53fb4810_0",
+    "b0_rank": 2,
+    "decider_rank": 3,
+    "of": 8,
+    "fit_4096": false
+   },
+   {
+    "output": "58f5dbd5_0",
+    "b0_rank": 1,
+    "decider_rank": 2,
+    "of": 6,
+    "fit_4096": true
+   },
+   {
+    "output": "6e453dd6_0",
+    "b0_rank": 2,
+    "decider_rank": 7,
+    "of": 9,
+    "fit_4096": false
+   },
+   {
+    "output": "71e489b6_0",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 6,
+    "fit_4096": true
+   },
+   {
+    "output": "71e489b6_1",
+    "b0_rank": 1,
+    "decider_rank": 7,
+    "of": 8,
+    "fit_4096": false
+   },
+   {
+    "output": "7666fa5d_0",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 4,
+    "fit_4096": true
+   },
+   {
+    "output": "78332cb0_1",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 9,
+    "fit_4096": true
+   },
+   {
+    "output": "7b0280bc_0",
+    "b0_rank": 1,
+    "decider_rank": 4,
+    "of": 11,
+    "fit_4096": false
+   },
+   {
+    "output": "7ed72f31_0",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 13,
+    "fit_4096": false
+   },
+   {
+    "output": "800d221b_0",
+    "b0_rank": 1,
+    "decider_rank": 2,
+    "of": 10,
+    "fit_4096": false
+   },
+   {
+    "output": "8b9c3697_0",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 9,
+    "fit_4096": false
+   },
+   {
+    "output": "8e5c0c38_0",
+    "b0_rank": 1,
+    "decider_rank": 3,
+    "of": 4,
+    "fit_4096": false
+   },
+   {
+    "output": "8f3a5a89_0",
+    "b0_rank": 2,
+    "decider_rank": 5,
+    "of": 6,
+    "fit_4096": true
+   },
+   {
+    "output": "a395ee82_0",
+    "b0_rank": 1,
+    "decider_rank": 4,
+    "of": 11,
+    "fit_4096": false
+   },
+   {
+    "output": "a6f40cea_0",
+    "b0_rank": 1,
+    "decider_rank": 4,
+    "of": 13,
+    "fit_4096": false
+   },
+   {
+    "output": "aa4ec2a5_0",
+    "b0_rank": 1,
+    "decider_rank": 2,
+    "of": 3,
+    "fit_4096": false
+   },
+   {
+    "output": "b5ca7ac4_0",
+    "b0_rank": 2,
+    "decider_rank": 1,
+    "of": 16,
+    "fit_4096": false
+   },
+   {
+    "output": "b6f77b65_1",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 2,
+    "fit_4096": true
+   },
+   {
+    "output": "d35bdbdc_2",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 5,
+    "fit_4096": true
+   },
+   {
+    "output": "d8e07eb2_0",
+    "b0_rank": 2,
+    "decider_rank": 6,
+    "of": 6,
+    "fit_4096": false
+   },
+   {
+    "output": "d8e07eb2_1",
+    "b0_rank": 1,
+    "decider_rank": 6,
+    "of": 7,
+    "fit_4096": false
+   },
+   {
+    "output": "db0c5428_0",
+    "b0_rank": 1,
+    "decider_rank": 1,
+    "of": 2,
+    "fit_4096": true
+   },
+   {
+    "output": "de809cff_0",
+    "b0_rank": 1,
+    "decider_rank": 6,
+    "of": 9,
+    "fit_4096": false
+   },
+   {
+    "output": "e8686506_0",
+    "b0_rank": 2,
+    "decider_rank": 4,
+    "of": 5,
+    "fit_4096": true
+   }
+  ],
+  "b0_right_kept_in_top2": 19,
+  "headroom_lifted_to_top2": 2,
+  "seconds_per_request": {
+   "median": 1.085,
+   "p90": 2.427,
+   "n": 224
+  }
+ },
+ "decision": "DROP: neither dc1 rule passes gate v2 (dc_fit net -6, lost 6; dc_long net -15, lost 17; dc_keep1 net -4, lost 4; dc_keep1_long net -5, lost 7)"
+}

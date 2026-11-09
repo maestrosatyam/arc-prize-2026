@@ -1,0 +1,56 @@
+[
+ {
+  "stage": "start",
+  "status": "ok",
+  "s": 0.3,
+  "detail": "server=vllm",
+  "python": "3.12.13"
+ },
+ {
+  "stage": "install",
+  "status": "ok",
+  "s": 213.0,
+  "detail": "213 s"
+ },
+ {
+  "stage": "server",
+  "status": "ok",
+  "s": 762.5,
+  "detail": "option set 0 up after 550 s",
+  "option_set": 0,
+  "args": [
+   "--reasoning-config",
+   "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}",
+   "--kv-cache-dtype",
+   "fp8",
+   "--language-model-only",
+   "--speculative-config",
+   "{\"method\": \"qwen3_5_mtp\", \"num_speculative_tokens\": 2}"
+  ],
+  "smoke": {
+   "error": null,
+   "content": "4",
+   "reasoning": "",
+   "finish_reason": "stop",
+   "completion_tokens": 2
+  }
+ },
+ {
+  "stage": "agent",
+  "status": "ok",
+  "s": 8723.6,
+  "detail": "29 tasks answered, 2715587 tokens",
+  "agent_wall_s": 7960.9,
+  "gen_tok_per_s": 341.1
+ },
+ {
+  "stage": "server",
+  "status": "stopped",
+  "s": 8728.9
+ },
+ {
+  "stage": "end",
+  "status": "ok",
+  "s": 8730.3
+ }
+]

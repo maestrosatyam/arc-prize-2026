@@ -1,0 +1,147 @@
+case_id	game	level	band	fallback	A0F_cleared	A7cF_cleared	A7F_cleared	A7cF_clear_actions	A7cF_score	A7cF_end
+ar25_L1	ar25	1	11-20	0	1	1	1	20	1.15	cleared
+ar25_L2	ar25	2	11-20	0	1	1	1	25	1.15	cleared
+ar25_L3	ar25	3	21-40	0	1	1	1	41	1.15	cleared
+ar25_L4	ar25	4	21-40	0	1	1	1	31	1.15	cleared
+ar25_L5	ar25	5	21-40	0	1	1	1	39	1.15	cleared
+ar25_L6	ar25	6	41-80	0	0	1	1	65	1.15	cleared
+ar25_L7	ar25	7	21-40	0	0	0	0		0.0	wall_budget
+ar25_L8	ar25	8	41-80	0	0	1	1	54	1.15	cleared
+bp35_L1	bp35	1	11-20	0	1	1	1	19	1.15	cleared
+bp35_L2	bp35	2	41-80	0	0	0	0		0.0	wall_budget
+cd82_L1	cd82	1	1-10	0	1	0	1		0.0	wall_budget
+cd82_L2	cd82	2	1-10	0	1	1	1	23	0.121	cleared
+cd82_L3	cd82	3	11-20	0	0	1	0	56	0.536	cleared
+cd82_L4	cd82	4	11-20	0	0	1	0	42	0.25	cleared
+cd82_L5	cd82	5	11-20	0	0	0	1		0.0	wall_budget
+cd82_L6	cd82	6	11-20	0	1	1	1	16	1.15	cleared
+cn04_L1	cn04	1	11-20	0	1	1	1	14	1.15	cleared
+cn04_L6	cn04	6	41-80	0	0	0	1		0.0	action_budget
+dc22_L1	dc22	1	21-40	0	1	1	1	41	1.15	cleared
+dc22_L3	dc22	3	41-80	0	0	0	1		0.0	wall_budget
+dc22_L4	dc22	4	41-80	0	1	1	0	87	1.15	cleared
+dc22_L5	dc22	5	81+	0	0	0	0		0.0	wall_budget
+dc22_L6	dc22	6	81+	0	0	0	0		0.0	wall_budget
+ft09_L1	ft09	1	1-10	0	1	1	1	6	1.15	cleared
+ft09_L2	ft09	2	1-10	0	1	1	1	12	1.0	cleared
+ft09_L4	ft09	4	11-20	1	1	1	1	16	1.15	cleared
+ft09_L5	ft09	5	21-40	0	1	1	0	24	1.15	cleared
+g50t_L1	g50t	1	11-20	0	1	1	1	83	0.883	cleared
+g50t_L2	g50t	2	21-40	0	0	1	1	111	1.15	cleared
+g50t_L3	g50t	3	41-80	0	0	0	1		0.0	wall_budget
+g50t_L4	g50t	4	21-40	0	0	0	0		0.0	action_budget
+g50t_L5	g50t	5	41-80	1	0	0	0		0.0	wall_budget
+g50t_L6	g50t	6	41-80	0	0	0	0		0.0	wall_budget
+g50t_L7	g50t	7	41-80	0	0	0	0		0.0	wall_budget
+ka59_L1	ka59	1	21-40	0	1	1	1	22	1.15	cleared
+ka59_L2	ka59	2	41-80	0	1	1	1	59	1.15	cleared
+ka59_L3	ka59	3	21-40	0	1	1	1	142	0.129	cleared
+ka59_L4	ka59	4	21-40	0	1	0	0		0.0	wall_budget
+ka59_L5	ka59	5	11-20	0	1	1	1	26	1.15	cleared
+ka59_L6	ka59	6	41-80	0	1	0	1		0.0	wall_budget
+ka59_L7	ka59	7	81+	0	0	0	0		0.0	wall_budget
+lf52_L1	lf52	1	1-10	0	1	1	1	11	1.15	cleared
+lf52_L2	lf52	2	21-40	0	0	1	1	66	1.15	cleared
+lf52_L4	lf52	4	41-80	0	0	0	0		0.0	wall_budget
+lp85_L2	lp85	2	1-10	1	1	1	1	17	1.15	cleared
+lp85_L3	lp85	3	11-20	1	1	1	1	20	1.15	cleared
+lp85_L4	lp85	4	11-20	1	1	1	1	21	0.58	cleared
+lp85_L5	lp85	5	1-10	1	1	1	1	11	1.15	cleared
+lp85_L6	lp85	6	11-20	1	1	1	1	20	1.15	cleared
+lp85_L7	lp85	7	1-10	1	1	1	1	18	1.15	cleared
+lp85_L8	lp85	8	11-20	1	1	1	1	29	1.15	cleared
+ls20_L1	ls20	1	11-20	0	1	1	1	20	1.15	cleared
+ls20_L3	ls20	3	41-80	0	0	0	1		0.0	wall_budget
+ls20_L4	ls20	4	41-80	0	0	0	0		0.0	wall_budget
+ls20_L5	ls20	5	41-80	0	0	0	0		0.0	wall_budget
+ls20_L6	ls20	6	41-80	0	0	0	0		0.0	wall_budget
+ls20_L7	ls20	7	41-80	0	0	0	0		0.0	wall_budget
+m0r0_L1	m0r0	1	11-20	0	1	1	1	18	1.15	cleared
+m0r0_L2	m0r0	2	21-40	0	1	1	1	35	1.15	cleared
+m0r0_L3	m0r0	3	41-80	0	1	0	0		0.0	wall_budget
+m0r0_L4	m0r0	4	11-20	0	0	0	1		0.0	wall_budget
+m0r0_L5	m0r0	5	41-80	0	1	0	1		0.0	wall_budget
+m0r0_L6	m0r0	6	41-80	0	0	0	0		0.0	wall_budget
+r11l_L1	r11l	1	1-10	0	1	1	1	4	1.15	cleared
+r11l_L2	r11l	2	1-10	0	0	1	1	25	1.15	cleared
+r11l_L3	r11l	3	11-20	0	1	0	1		0.0	wall_budget
+r11l_L4	r11l	4	11-20	0	0	1	0	16	1.15	cleared
+r11l_L5	r11l	5	11-20	0	0	0	1		0.0	wall_budget
+r11l_L6	r11l	6	11-20	0	0	0	0		0.0	wall_budget
+re86_L1	re86	1	11-20	0	1	1	1	21	1.15	cleared
+re86_L2	re86	2	21-40	0	1	1	1	36	1.15	cleared
+re86_L3	re86	3	41-80	0	1	1	1	52	1.15	cleared
+re86_L4	re86	4	41-80	0	1	1	1	60	1.15	cleared
+re86_L5	re86	5	41-80	0	0	1	1	70	1.15	cleared
+re86_L6	re86	6	41-80	0	0	0	1		0.0	wall_budget
+re86_L7	re86	7	81+	0	0	0	0		0.0	wall_budget
+re86_L8	re86	8	81+	0	0	0	0		0.0	wall_budget
+s5i5_L1	s5i5	1	11-20	0	1	1	1	19	1.108	cleared
+s5i5_L2	s5i5	2	21-40	1	1	1	1	33	1.15	cleared
+s5i5_L3	s5i5	3	41-80	1	1	1	1	59	1.15	cleared
+s5i5_L4	s5i5	4	21-40	1	0	0	1		0.0	wall_budget
+s5i5_L5	s5i5	5	21-40	1	0	1	1	43	1.15	cleared
+s5i5_L6	s5i5	6	21-40	0	1	1	1	48	0.627	cleared
+s5i5_L7	s5i5	7	41-80	0	0	0	0		0.0	wall_budget
+s5i5_L8	s5i5	8	21-40	1	1	0	1		0.0	wall_budget
+sb26_L1	sb26	1	1-10	0	1	1	1	9	1.15	cleared
+sb26_L2	sb26	2	11-20	0	1	1	1	84	0.111	cleared
+sb26_L3	sb26	3	11-20	0	1	1	1	18	1.0	cleared
+sb26_L4	sb26	4	11-20	0	1	1	1	24	0.627	cleared
+sb26_L5	sb26	5	11-20	0	1	0	1		0.0	wall_budget
+sb26_L6	sb26	6	11-20	0	1	1	1	28	0.675	cleared
+sb26_L7	sb26	7	11-20	0	1	1	1	17	1.15	cleared
+sb26_L8	sb26	8	11-20	0	0	1	1	33	0.298	cleared
+sc25_L1	sc25	1	11-20	0	1	1	1	35	1.058	cleared
+sc25_L2	sc25	2	1-10	0	1	1	1	12	0.25	cleared
+sc25_L3	sc25	3	11-20	0	1	1	1	15	1.15	cleared
+sc25_L4	sc25	4	21-40	0	1	1	1	57	1.15	cleared
+sc25_L5	sc25	5	21-40	0	0	1	1	138	1.074	cleared
+sc25_L6	sc25	6	21-40	0	0	0	1		0.0	wall_budget
+sk48_L1	sk48	1	11-20	0	1	1	0	103	0.351	cleared
+sk48_L2	sk48	2	21-40	0	1	0	0		0.0	wall_budget
+sk48_L3	sk48	3	41-80	0	0	0	0		0.0	wall_budget
+sp80_L1	sp80	1	1-10	0	1	1	1	12	1.15	cleared
+sp80_L2	sp80	2	1-10	0	0	1	1	17	1.15	cleared
+sp80_L3	sp80	3	1-10	0	1	1	0	17	1.15	cleared
+sp80_L4	sp80	4	11-20	0	0	1	1	50	1.15	cleared
+sp80_L5	sp80	5	21-40	0	0	0	1		0.0	wall_budget
+sp80_L6	sp80	6	21-40	0	0	0	1		0.0	wall_budget
+su15_L1	su15	1	1-10	0	1	1	1	15	1.15	cleared
+su15_L2	su15	2	11-20	0	1	1	1	19	1.15	cleared
+su15_L3	su15	3	11-20	1	1	1	1	22	1.15	cleared
+su15_L4	su15	4	11-20	0	0	0	0		0.0	wall_budget
+su15_L5	su15	5	1-10	0	0	0	0		0.0	wall_budget
+su15_L6	su15	6	11-20	0	1	1	0	23	1.15	cleared
+su15_L7	su15	7	1-10	0	1	0	1		0.0	wall_budget
+su15_L8	su15	8	11-20	1	0	0	1		0.0	wall_budget
+su15_L9	su15	9	11-20	0	0	1	1	24	1.15	cleared
+tn36_L2	tn36	2	1-10	0	1	1	1	24	1.15	cleared
+tn36_L4	tn36	4	11-20	0	0	0	1		0.0	wall_budget
+tn36_L5	tn36	5	11-20	0	0	0	0		0.0	wall_budget
+tn36_L6	tn36	6	21-40	0	0	0	1		0.0	wall_budget
+tn36_L7	tn36	7	21-40	0	0	0	0		0.0	wall_budget
+tr87_L1	tr87	1	11-20	1	1	1	1	27	1.15	cleared
+tr87_L5	tr87	5	11-20	0	1	1	1	101	0.494	cleared
+tr87_L6	tr87	6	21-40	1	0	1	1	65	1.15	cleared
+tu93_L2	tu93	2	1-10	0	1	1	1	15	1.138	cleared
+tu93_L3	tu93	3	11-20	0	1	1	1	27	1.15	cleared
+tu93_L4	tu93	4	11-20	0	1	1	1	49	0.735	cleared
+tu93_L5	tu93	5	21-40	1	0	1	1	29	1.15	cleared
+tu93_L6	tu93	6	21-40	0	0	1	1	41	1.15	cleared
+tu93_L7	tu93	7	11-20	0	0	1	1	24	0.34	cleared
+tu93_L8	tu93	8	21-40	0	1	1	1	25	0.846	cleared
+tu93_L9	tu93	9	21-40	0	0	0	0		0.0	wall_budget
+vc33_L1	vc33	1	1-10	0	1	1	1	15	0.218	cleared
+vc33_L2	vc33	2	1-10	1	1	1	1	11	1.15	cleared
+vc33_L3	vc33	3	21-40	1	1	1	1	27	1.15	cleared
+vc33_L4	vc33	4	21-40	1	0	1	1	78	0.612	cleared
+vc33_L5	vc33	5	41-80	1	0	0	1		0.0	wall_budget
+vc33_L6	vc33	6	11-20	1	1	0	1		0.0	wall_budget
+vc33_L7	vc33	7	41-80	1	1	1	1	77	1.15	cleared
+wa30_L1	wa30	1	21-40	1	1	1	1	51	1.15	cleared
+wa30_L2	wa30	2	41-80	0	1	0	1		0.0	wall_budget
+wa30_L3	wa30	3	41-80	1	0	0	1		0.0	action_budget
+wa30_L4	wa30	4	41-80	0	0	1	0	150	0.427	cleared
+wa30_L5	wa30	5	81+	0	0	0	0		0.0	wall_budget
+wa30_L6	wa30	6	41-80	0	0	1	0	62	1.15	cleared

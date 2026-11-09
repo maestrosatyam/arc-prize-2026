@@ -1,0 +1,332 @@
+{
+ "note": "Extract of the team's submissions ledger: one row per Kaggle competition submission or final selection; internal notes are left out.",
+ "entries": [
+  {
+   "entry_id": "sub-20261017-arc2-cpu-v3",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-17T04:27:40Z",
+   "notebook_slug": "team-account-1/arc-prize-2026-arc-agi-2-cpu-fallback",
+   "submission_id": "57295060",
+   "public_score": 0.0
+  },
+  {
+   "entry_id": "sub-20261017-arc3-p0-v1",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-17T12:01:46Z",
+   "notebook_slug": "team-account-1/arc-agi-3-p0-unmodified-dfranzen",
+   "submission_id": "57310234",
+   "public_score": 27.01
+  },
+  {
+   "entry_id": "sub-20261018-arc3-p0-v1-second",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-18T03:51:44Z",
+   "notebook_slug": "team-account-1/arc-agi-3-p0-unmodified-dfranzen",
+   "submission_id": "57337312",
+   "public_score": 25.62
+  },
+  {
+   "entry_id": "sub-20261019-arc2-b0-v1",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-19T07:06:43Z",
+   "notebook_slug": "team-account-1/arc-agi-2-b0-unmodified-mikelou1",
+   "submission_id": "57387075",
+   "public_score": 30.56,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261019-arc3-p0-v1-third",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-19T07:06:47Z",
+   "notebook_slug": "team-account-1/arc-agi-3-p0-unmodified-dfranzen",
+   "submission_id": "57387077",
+   "public_score": 27.94,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261022-arc2-b0-half",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-22T09:28:52Z",
+   "notebook_slug": "team-account-4/arc-agi-2-b0-half-ttt",
+   "submission_id": "57518886",
+   "public_score": 28.89,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261022-arc3-dprime",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-22T09:40:16Z",
+   "notebook_slug": "team-account-6/arc-agi-3-p0-dprime-keepalive",
+   "submission_id": "57519241",
+   "public_score": 23.1,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261023-arc2-hybrid-size",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-23T00:03:04Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-size",
+   "submission_id": "57541839",
+   "public_score": 31.39,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261023-arc3-p0-reset",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-23T00:04:03Z",
+   "notebook_slug": "team-account-2/arc-agi-3-p0-reset",
+   "submission_id": "57541952",
+   "public_score": 0.0,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261024-arc3-p0-reset-ka2",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-24T03:33:07Z",
+   "notebook_slug": "team-account-2/arc-agi-3-p0-reset-ka2",
+   "submission_id": "57581028",
+   "public_score": 21.32,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261024-arc2-hybrid-v2",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-24T04:40:14Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-v2",
+   "submission_id": "57582551",
+   "public_score": 31.81,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261025-arc2-hybrid-v6nb",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-25T00:03:14Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-v6nb",
+   "submission_id": "57610305",
+   "public_score": 28.61,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261025-arc3-p0-ka2",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-25T00:04:16Z",
+   "notebook_slug": "team-account-2/arc-agi-3-p0-ka2",
+   "submission_id": "57610430",
+   "public_score": 24.03,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261026-arc2-hybrid-v7vr",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-26T00:03:05Z",
+   "notebook_slug": "purushottamanurag/arc-agi-2-hybrid-v7vr",
+   "submission_id": "57646090",
+   "public_score": 34.31,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261026-arc3-dprime-ka2",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-26T00:04:02Z",
+   "notebook_slug": "team-account-6/arc-agi-3-dprime-ka2",
+   "submission_id": "57646234",
+   "public_score": 25.92,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261027-arc2-hybrid-v7",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-27T00:03:05Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-v7",
+   "submission_id": "57682082",
+   "public_score": 30.97,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261027-arc3-dprime-ka2",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-27T00:04:04Z",
+   "notebook_slug": "team-account-6/arc-agi-3-dprime-ka2",
+   "submission_id": "57682209",
+   "public_score": 22.42,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261028-arc2-hybrid-v7vr2",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-28T00:03:03Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-v7vr2",
+   "submission_id": "57716508",
+   "public_score": 32.64,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261028-arc3-a3l1-fp8ple",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-28T00:04:05Z",
+   "notebook_slug": "drdiwakarmishra/arc-agi-3-p0-ka2-fp8ple",
+   "submission_id": "57716633",
+   "public_score": 27.54,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261029-arc2-hybrid-v7vr2",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-29T00:03:04Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-v7vr2",
+   "submission_id": "57752087",
+   "public_score": 32.22,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261029-arc3-tcka2",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-29T00:04:05Z",
+   "notebook_slug": "team-account-2/arc-agi-3-p0-ka2-thinkingcap",
+   "submission_id": "57752194",
+   "public_score": 16.53,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261030-arc2-hybrid-v7vr",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-30T00:03:05Z",
+   "notebook_slug": "purushottamanurag/arc-agi-2-hybrid-v7vr",
+   "submission_id": "57785824",
+   "public_score": 29.31,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261030-arc3-fp8ple",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-30T00:04:05Z",
+   "notebook_slug": "drdiwakarmishra/arc-agi-3-p0-ka2-fp8ple",
+   "submission_id": "57785925",
+   "public_score": 30.26,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261031-arc3-hlb",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-31T08:54:38Z",
+   "notebook_slug": "team-account-2/arc-agi-3-fp8-hlb",
+   "submission_id": "57833374",
+   "public_score": 23.67,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261031-arc2-hybrid-v7vr2-s1",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-10-31T11:41:18Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-v7vr2-s1s",
+   "submission_id": "57837368",
+   "public_score": 31.81,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261101-arc2-hybrid-v7vr2-zbeam",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-11-01T00:01:03Z",
+   "notebook_slug": "purushottamanurag/arc-agi-2-hybrid-v7vr2-zbeams",
+   "submission_id": "57853811",
+   "public_score": 32.64,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261101-arc3-hlc",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-11-01T06:14:22Z",
+   "notebook_slug": "team-account-2/arc-agi-3-fp8-hlc",
+   "submission_id": "57862352",
+   "public_score": 26.51,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261102-arc2-hybrid-v7vr2-amax",
+   "track": "arc2",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-11-02T00:01:04Z",
+   "notebook_slug": "team-account-3/arc-agi-2-hybrid-v7vr2-amaxs",
+   "submission_id": "57887325",
+   "public_score": 29.31,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sub-20261102-arc3-hls",
+   "track": "arc3",
+   "kind": "official_submission",
+   "utc_timestamp": "2026-11-02T00:01:05Z",
+   "notebook_slug": "drdiwakarmishra/arc-agi-3-fp8-hls",
+   "submission_id": "57887330",
+   "public_score": 29.13,
+   "selects_entry_id": null
+  },
+  {
+   "entry_id": "sel-20261102-arc3-fp8ple",
+   "track": "arc3",
+   "kind": "final_selection",
+   "utc_timestamp": "2026-11-02T13:50:00Z",
+   "notebook_slug": "drdiwakarmishra/arc-agi-3-p0-ka2-fp8ple",
+   "submission_id": "57785925",
+   "public_score": 30.26,
+   "selects_entry_id": "sub-20261030-arc3-fp8ple"
+  },
+  {
+   "entry_id": "sel-20261102-arc3-hls",
+   "track": "arc3",
+   "kind": "final_selection",
+   "utc_timestamp": "2026-11-02T13:50:00Z",
+   "notebook_slug": "drdiwakarmishra/arc-agi-3-fp8-hls",
+   "submission_id": "57887330",
+   "public_score": 29.13,
+   "selects_entry_id": "sub-20261102-arc3-hls"
+  },
+  {
+   "entry_id": "sel-20261102-arc2-hybrid-v7vr",
+   "track": "arc2",
+   "kind": "final_selection",
+   "utc_timestamp": "2026-11-02T14:37:00Z",
+   "notebook_slug": "purushottamanurag/arc-agi-2-hybrid-v7vr",
+   "submission_id": "57646090",
+   "public_score": 34.31,
+   "selects_entry_id": "sub-20261026-arc2-hybrid-v7vr"
+  },
+  {
+   "entry_id": "sel-20261102-arc2-hybrid-v7vr2-zbeam",
+   "track": "arc2",
+   "kind": "final_selection",
+   "utc_timestamp": "2026-11-02T14:37:00Z",
+   "notebook_slug": "purushottamanurag/arc-agi-2-hybrid-v7vr2-zbeams",
+   "submission_id": "57853811",
+   "public_score": 32.64,
+   "selects_entry_id": "sub-20261101-arc2-hybrid-v7vr2-zbeam"
+  }
+ ]
+}

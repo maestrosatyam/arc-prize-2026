@@ -1,0 +1,1537 @@
+diff --git a/ARC3-Inference/inference/agent/python_tool_sandbox.py b/ARC3-Inference/inference/agent/python_tool_sandbox.py
+index 58a94b3..8214d06 100644
+--- a/ARC3-Inference/inference/agent/python_tool_sandbox.py
++++ b/ARC3-Inference/inference/agent/python_tool_sandbox.py
+@@ -813,9 +813,15 @@ def run_sandboxed_python(
+     kept_functions: list[str] | None = None,
+     retain_imports: bool = False,
+     repair_hints: bool = False,
++    cancel_deadline: float | None = None,
+ ) -> dict[str, Any]:
++    # cancel_deadline (R1, A2): a monotonic instant after which an action
++    # request from the snippet is refused instead of executed; the refused
++    # batches are reported in ``cancelled_actions`` of a timeout result. None
++    # keeps the original behaviour: a batch dequeued at the limit still runs.
+     with tempfile.TemporaryDirectory(prefix="rgb_python_tool_") as sandbox_dir:
+         host_action_results: list[dict[str, Any]] = []
++        host_cancelled: list[list[Any]] = []
+         try:
+             process = subprocess.Popen(
+                 [sys.executable, "-I", "-S", "-c", _SANDBOX_BOOTSTRAP],
+@@ -873,6 +879,7 @@ def run_sandboxed_python(
+                     "error": f"Tool timed out after {timeout_seconds}s",
+                     "stdout": "",
+                     "action_results": list(host_action_results),
++                    **({"cancelled_actions": list(host_cancelled)} if cancel_deadline is not None else {}),
+                 }
+ 
+             try:
+@@ -924,6 +931,18 @@ def run_sandboxed_python(
+                 )
+                 continue
+             if msg_type == "action":
++                if cancel_deadline is not None and time.monotonic() >= cancel_deadline:
++                    # R1 A2: dequeued at or after the limit; refuse rather than
++                    # run a batch whose result the model will never see
++                    host_cancelled.append(list(message.get("actions") or []))
++                    _send_json_line(
++                        process.stdin,
++                        {
++                            "type": "action_error",
++                            "error": "tool time limit reached; this action call was cancelled and nothing was executed.",
++                        },
++                    )
++                    continue
+                 try:
+                     # the message carries more than the action list: stale_after
+                     # tells the solver a previous action in this snippet changed
+diff --git a/ARC3-Inference/inference/agent/r1_recovery.py b/ARC3-Inference/inference/agent/r1_recovery.py
+new file mode 100644
+index 0000000..99f6406
+--- /dev/null
++++ b/ARC3-Inference/inference/agent/r1_recovery.py
+@@ -0,0 +1,380 @@
++"""R1 recovery pilot: per-object flags, probe notice, prelude seeding, timeout report.
++
++Every behaviour change in the R1 patch is gated by one of the flags below. A flag
++is read from the object's ``_r1_flags`` dict when present (so arms can differ
++between concurrently running sessions in one process) and from the environment
++otherwise. With no flag set the patched harness behaves as the P0 harness.
++
++  ARC3_R1_PROBE_NOTICE   1      A1: one-time notice prepended to the first opener
++  ARC3_R1_BATCH_CAP      6      A1: action batches capped until a read-back
++  ARC3_R1_TOOL_TIMEOUT   120    A2: python tool timeout in seconds (P0: 30)
++  ARC3_R1_TIMEOUT_CANCEL 1      A2: cancel queued actions at the tool timeout,
++                                keep retained functions, report what ran
++  ARC3_R1_FRESH_START    1      A3 (R1b): the restored conversation and prelude
++                                are not loaded; one context line is prepended
++                                to the first opener
++  ARC3_R1_TRIM_RESTORE   1      A4 (R1c): the restored conversation is cut to
++                                its most recent TRIM_KEEP_FRACTION of messages
++                                (the share P0's own trims kept), aligned to a
++                                user message; retained functions kept; no notice
++  ARC3_R1_NO_PRELUDE     1      A5 (R1c): the prelude is not run and no
++                                retained functions are seeded; conversation
++                                restored in full; no notice
++  ARC3_R1_REPERTOIRE     1      A6 (R1e): the repertoire sweep, a message
++                                listing the action effects observed in this
++                                game (inference.agent.r1_repertoire) and asking
++                                for untested uses of them; prepended to the
++                                first opener after the restore point and again
++                                every 25 actions on a level not yet cleared
++"""
++from __future__ import annotations
++
++import math
++import os
++from typing import Any
++
++PROBE_NOTICE = (
++    "Your model of this level has been contradicted at least once. Before any plan "
++    "longer than 6 actions: name the two hypotheses that explain the last contradiction, "
++    "run a probe of at most 6 actions that distinguishes them, read back the board, state "
++    "which hypothesis survived. Repeat until a prediction holds."
++)
++
++PROBE_BATCH_SIZE = 6
++
++# A4 dose: the share of history messages one P0 trim keeps. Source: the 87 trims
++# recorded in the failure-annotation dossiers (experiments/arc3-failure-annotation/
++# dossiers/*.md, "sNN: before->after"): median 87 -> 39 messages, median kept
++# share 0.45 (pooled 0.45).
++TRIM_KEEP_FRACTION = 0.45
++
++FRESH_NOTICE = "This game is in progress: level {level} of {n_levels}, {actions} actions taken so far."
++
++FLAG_NAMES = (
++    "ARC3_R1_PROBE_NOTICE",
++    "ARC3_R1_BATCH_CAP",
++    "ARC3_R1_TOOL_TIMEOUT",
++    "ARC3_R1_TIMEOUT_CANCEL",
++    "ARC3_R1_FRESH_START",
++    "ARC3_R1_TRIM_RESTORE",
++    "ARC3_R1_NO_PRELUDE",
++    "ARC3_R1_REPERTOIRE",
++)
++
++# R1: A0, A1, A2. R1b: A0b (a second sample of A0) and A3 (fresh continuation).
++# R1c: A4 (restored conversation after one P0-sized trim, functions kept) and
++# A5 (full restored conversation, no retained functions). R1d: A0L (A0 with a
++# doubled budget). R1e: A6 (repertoire sweep) and A0c (a third sample of A0).
++ARM_FLAGS: dict[str, dict[str, str]] = {
++    "A0": {},
++    "A1": {"ARC3_R1_PROBE_NOTICE": "1", "ARC3_R1_BATCH_CAP": str(PROBE_BATCH_SIZE)},
++    "A2": {"ARC3_R1_TOOL_TIMEOUT": "120", "ARC3_R1_TIMEOUT_CANCEL": "1"},
++    "A0b": {},
++    "A3": {"ARC3_R1_FRESH_START": "1"},
++    "A4": {"ARC3_R1_TRIM_RESTORE": "1"},
++    "A5": {"ARC3_R1_NO_PRELUDE": "1"},
++    "A0L": {},
++    "A6": {"ARC3_R1_REPERTOIRE": "1"},
++    "A0c": {},
++}
++
++
++def fresh_notice(level: Any, n_levels: Any, actions: Any) -> str:
++    return FRESH_NOTICE.format(level=level, n_levels=n_levels if n_levels is not None else "?", actions=actions)
++
++
++def r1_flag(obj: Any, name: str, default: str = "") -> str:
++    flags = getattr(obj, "_r1_flags", None)
++    if isinstance(flags, dict) and name in flags:
++        return str(flags[name])
++    return os.environ.get(name, default)
++
++
++def r1_int(obj: Any, name: str, default: int = 0) -> int:
++    raw = r1_flag(obj, name, "").strip()
++    if not raw:
++        return default
++    try:
++        return int(float(raw))
++    except ValueError:
++        return default
++
++
++def r1_bool(obj: Any, name: str) -> bool:
++    return r1_flag(obj, name, "").strip().lower() in {"1", "true", "yes", "on"}
++
++
++def new_stats() -> dict[str, int]:
++    return {
++        "batches": 0,
++        "capped_batches": 0,
++        "probes": 0,
++        "readbacks": 0,
++        "timeouts": 0,
++        "cancelled_actions": 0,
++        "notice_shown": 0,
++        "fresh_notice_shown": 0,
++        "repertoire_shown": 0,
++        "repertoire_chars_max": 0,
++        "repertoire_errors": 0,
++    }
++
++
++def batch_cap_detail(cap: int, executed: int, requested: int) -> str:
++    return (
++        f"Batch capped at {cap} actions: actions {executed + 1}-{requested} of your list were NOT "
++        f"executed. The cap holds until you read back the board (a python call that inspects "
++        f"current_frame and executes no action); after a read-back one batch of any size is allowed."
++    )
++
++
++def timeout_report(timeout_seconds: int, executed: list[str], cancelled: list[str], kept_functions: bool) -> str:
++    def fmt(items: list[str]) -> str:
++        if not items:
++            return "none"
++        shown = ", ".join(items[:40])
++        if len(items) > 40:
++            shown += f", ... ({len(items)} total)"
++        return shown
++    text = (
++        f"Tool timed out after {timeout_seconds}s. Actions executed before the limit: {fmt(executed)} "
++        f"({len(executed)}). Actions cancelled at the limit and NOT executed: {fmt(cancelled)} "
++        f"({len(cancelled)}). The board reflects only the executed actions; re-read current_frame "
++        f"before planning."
++    )
++    if kept_functions:
++        text += " Your retained functions were kept."
++    return text
++
++
++def executed_displays(action_results: list[dict[str, Any]]) -> list[str]:
++    out: list[str] = []
++    for item in action_results:
++        if not isinstance(item, dict) or not item.get("executed"):
++            continue
++        names = item.get("executed_actions")
++        if isinstance(names, list) and names:
++            out.extend(str(n) for n in names)
++        else:
++            out.append(str(item.get("action_display") or item.get("action_name") or "?"))
++    return out
++
++
++def cancelled_displays(action_results: list[dict[str, Any]], host_cancelled: list[list[Any]]) -> list[str]:
++    out: list[str] = []
++    for item in action_results:
++        if isinstance(item, dict) and item.get("stop_reason") == "tool_timeout":
++            out.extend(str(n) for n in (item.get("skipped_actions") or []))
++    for batch in host_cancelled:
++        for a in batch:
++            if isinstance(a, dict):
++                name = a.get("action") or a.get("name") or "?"
++                if "row" in a or "col" in a or "x" in a or "y" in a:
++                    row = a.get("row", a.get("y"))
++                    col = a.get("col", a.get("x"))
++                    out.append(f"{name}(row={row}, col={col})")
++                else:
++                    out.append(str(name))
++            else:
++                out.append(str(a))
++    return out
++
++
++def seed_kept_functions(prelude_code: str, *, timeout_seconds: int = 30) -> tuple[dict[str, str], str]:
++    """Run the prelude once in the sandbox with actions refused; return name->source.
++
++    Best effort: the sandbox's own retention policy decides what survives, the
++    same policy that produced P0's retained set turn by turn.
++    """
++    from inference.agent.python_tool_sandbox import run_sandboxed_python
++    from inference.utils.retained_functions import function_signature
++
++    if not prelude_code.strip():
++        return {}, ""
++
++    def refuse(actions, stale_after=None):  # noqa: ANN001
++        raise RuntimeError("actions are not available while seeding the prelude")
++
++    result = run_sandboxed_python(
++        code=prelude_code,
++        timeout_seconds=timeout_seconds,
++        initial_state={"current_frame": None, "history": [], "valid_actions": [],
++                       "death_ledger": None, "last_action_call_result": {}},
++        action_handler=refuse,
++        animation_handler=None,
++        kept_functions=[],
++        retain_imports=True,
++        repair_hints=False,
++    )
++    kept: dict[str, str] = {}
++    for item in result.get("keepable_functions") or []:
++        try:
++            name, source = item["name"], item["source"]
++            if function_signature(source).split("(", 1)[0] == name:
++                kept[name] = source
++        except Exception:  # noqa: BLE001
++            continue
++    return kept, str(result.get("error") or "")
++
++
++def restore_agent(agent: Any, state_path, history: list[dict[str, Any]], kept: dict[str, str], *,
++                  actions_at_level_start: int = 0) -> None:
++    """Put a fresh ToolAgent into the state P0 had at the restore point.
++
++    With an empty ``history`` and ``kept`` (A3) the agent starts a new
++    conversation on the replayed board.
++    """
++    agent._ensure_session(state_path)
++    agent._history_messages = [dict(m) for m in history]
++    agent._kept_functions = dict(kept)
++    agent._retained_clear_notice = ""
++    agent._actions_at_level_start = int(actions_at_level_start)
++    agent._tokens_at_level_start = 0
++    agent._r1_probe_notice_pending = True
++    agent._r1_fresh_notice_pending = True
++    agent._r1_repertoire_pending = True
++
++
++def repertoire_notice(agent: Any, history_entries: list[Any], step_env: Any = None) -> str:
++    """A6: the repertoire sweep when one is due, else "".
++
++    Due at the first opener after the restore point (``restore_agent`` arms it)
++    and again once SWEEP_EVERY more actions have been taken on the current
++    level since the last sweep; on a level change the count starts again, so
++    without a restore the first sweep comes after SWEEP_EVERY actions on a
++    level. The observations come from the session's events log (its viewer
++    events; the runtime-state history when there is no session) and the
++    conversation. A failure is counted and yields no message.
++    """
++    if not r1_bool(agent, "ARC3_R1_REPERTOIRE"):
++        return ""
++    from inference.agent import r1_repertoire as rep
++
++    try:
++        session = getattr(step_env, "__self__", None)
++        events = getattr(session, "viewer_events", None)
++        records = rep.records_from_events(events) if events else rep.records_from_history(history_entries)
++        if not records:
++            return ""
++        level = int(records[-1]["level"])
++        n = rep.actions_on_level(records)
++        if getattr(agent, "_r1_repertoire_level", None) != level:
++            agent._r1_repertoire_level = level
++            agent._r1_repertoire_last = None
++        last = getattr(agent, "_r1_repertoire_last", None)
++        due = bool(getattr(agent, "_r1_repertoire_pending", False)) or (
++            n >= rep.SWEEP_EVERY if last is None else n - int(last) >= rep.SWEEP_EVERY
++        )
++        if not due:
++            return ""
++        text = rep.sweep_message(records, list(getattr(agent, "_history_messages", None) or []))
++    except Exception:  # noqa: BLE001
++        agent._r1_stats["repertoire_errors"] += 1
++        agent._r1_repertoire_pending = False
++        return ""
++    agent._r1_repertoire_pending = False
++    agent._r1_repertoire_last = n
++    agent._r1_stats["repertoire_shown"] += 1
++    agent._r1_stats["repertoire_chars_max"] = max(int(agent._r1_stats["repertoire_chars_max"]), len(text))
++    return text
++
++
++def _history_tokens(agent: Any, tools: list[dict[str, Any]], history: list[dict[str, Any]]) -> int:
++    system = {"role": "system", "content": agent._system_prompt}
++    return int(agent._estimate_request_input_tokens([system, *history], tools=tools))
++
++
++def trim_restored_history(agent: Any, state_path, keep_fraction: float = TRIM_KEEP_FRACTION) -> dict[str, Any]:
++    """A4: cut the restored conversation to the share of messages one P0 trim keeps.
++
++    Keeps the most recent ceil(keep_fraction * n) messages, applies the turn cap
++    as ``_persistent_history_messages`` does (150 / drain 30 in P0; does not bind
++    on the restored histories), then aligns the start to a user message with the
++    harness's ``_drop_until_first_user_message``. If that alignment would leave no
++    message at all, the cut moves back to the last user message before it (P0's
++    trimmer never drops the last user message either). Called after
++    ``restore_agent``; returns the sizes before and after (messages, and the
++    request estimate in tokens for the record).
++    """
++    from inference.agent import tool_agent as _ta
++
++    agent._ensure_session(state_path)
++    tools = agent._tools(state_path)
++    history = list(agent._history_messages)
++    n = len(history)
++    n_keep = min(n, int(math.ceil(float(keep_fraction) * n - 1e-9)))
++    start = n - n_keep
++    kept = agent._keep_recent_history_turns(
++        history[start:],
++        max_turns=_ta._persistent_history_assistant_turns(),
++        drain_turns=_ta._history_turn_drain(),
++        force_drain=n_keep < n and _ta._history_drain_coalesce(),
++    )
++    kept = agent._drop_until_first_user_message(kept)
++    backed_off = False
++    if not kept and n:
++        users = [i for i in range(min(start, n - 1), -1, -1) if str(history[i].get("role", "")).strip() == "user"]
++        if users:
++            kept = history[users[0]:]
++            backed_off = True
++    tokens_before = _history_tokens(agent, tools, history)
++    if len(kept) < n:
++        agent._note_history_evicted()
++    agent._history_messages = kept
++    return {
++        "messages_before": n,
++        "messages_after": len(kept),
++        "keep_fraction": float(keep_fraction),
++        "keep_messages": n_keep,
++        "backed_off": backed_off,
++        "tokens_before": tokens_before,
++        "tokens_after": _history_tokens(agent, tools, kept),
++    }
++
++
++def trim_restored_history_tokens(agent: Any, state_path) -> dict[str, int]:
++    """Token-target variant (not used by any arm): reduce the restored
++    conversation as one P0 context trim would, to P0's post-trim token target.
++
++    P0 trims in ``ToolAgent._trim_messages_for_context``: once the request
++    estimate exceeds the budget (context window minus max output minus the
++    safety margin: 131072 - 12288 - 512 = 118272 in P0) it drops the oldest
++    history blocks until the estimate is at or below the budget minus the drain,
++    where the drain is ARC3_CONTEXT_DRAIN_TOKENS capped at half the budget
++    (P0: min(59392, 59136) = 59136, so the target is 59136 estimated tokens);
++    the turn cap then runs with the coalesced drain
++    (``_persistent_history_messages``; 150 - 30 = 120 assistant messages in P0). Here the same two functions run on
++    [system, *restored history] with ``force_drain=True``, which enters the
++    drain directly, so the history ends at the post-trim target whatever its
++    size. A history already at or below the target is left as it is.
++    Called after ``restore_agent``; returns the sizes before and after.
++    """
++    from inference.agent import tool_agent as _ta
++
++    agent._ensure_session(state_path)
++    tools = agent._tools(state_path)
++    system = {"role": "system", "content": agent._system_prompt}
++    history = list(agent._history_messages)
++    messages = [system, *history]
++    budget = int(agent._context_budget_tokens)
++    drain = min(_ta._context_drain_tokens(), budget // 2)
++    target = max(1, budget - drain) if drain else budget
++    before_tokens = agent._estimate_request_input_tokens(messages, tools=tools)
++    trimmed = agent._trim_messages_for_context(messages, tools=tools, force_drain=True)[1:]
++    kept = agent._keep_recent_history_turns(
++        trimmed,
++        max_turns=_ta._persistent_history_assistant_turns(),
++        drain_turns=_ta._history_turn_drain(),
++        force_drain=len(trimmed) < len(history) and _ta._history_drain_coalesce(),
++    )
++    kept = agent._drop_until_first_user_message(kept)
++    agent._history_messages = kept
++    after_tokens = agent._estimate_request_input_tokens([system, *kept], tools=tools)
++    return {
++        "messages_before": len(history),
++        "messages_after": len(kept),
++        "tokens_before": int(before_tokens),
++        "tokens_after": int(after_tokens),
++        "target_tokens": int(target),
++        "budget_tokens": budget,
++    }
+diff --git a/ARC3-Inference/inference/agent/r1_repertoire.py b/ARC3-Inference/inference/agent/r1_repertoire.py
+new file mode 100644
+index 0000000..9b143f8
+--- /dev/null
++++ b/ARC3-Inference/inference/agent/r1_repertoire.py
+@@ -0,0 +1,377 @@
++"""R1e, arm A6 (repertoire sweep): the action effects the agent has observed in this game, read off the
++harness's own action log, and the message that asks the agent to look for new uses of them.
++
++Generic for any ARC-AGI-3 game. The only inputs are what the agent was shown: the board after every action
++(the events log / runtime-state history of this game), the action name (for a click, the colour letter of
++the clicked cell on the board before the click), the level after every action, the engine's level-complete
++and game-over flags, and the animation notes in the conversation. Nothing comes from game source or rules.
++
++Per action the board before and after are compared colour by colour, in the letters the agent sees:
++  - the background (most frequent colour on the board before) is never described;
++  - two colours that trade cells both ways (an object moving over a floor) are one mover: the colour with
++    fewer cells on the board after is the object, the other is not described;
++  - cells of colour x that became colour y with no y -> x cells in the same step: "x turns y";
++  - any other change of a colour: "moves <direction>" (cells lost and gained in similar numbers, centroid
++    shifted by at least one cell), "appears", "disappears", "grows", "shrinks", or "changes shape";
++  - no changed cell: "no change"; more than half the board changed: "most of the board changes";
++  - an action that completes a level, ends the game (game over), or returns the board to the level's
++    starting board is counted as that event and not described cell by cell.
++A description present after at least 70% of the actions of the game (at least 10 actions, under two or more
++action names) follows any action (a step counter, a timer); it is listed once as "Every action" and dropped
++from the per-action lines.
++
++Message: at most MAX_CHARS characters (on the 35 R1 cases 714-898 characters, 229-323 tokens with the Qwen2.5
++tokenizer); the observation block is shortened (fewer effects per action, fewer clicked colours listed one by
++one) until it fits, and the request at its end is never cut.
++"""
++from __future__ import annotations
++
++import math
++import re
++from collections import Counter
++from typing import Any, Iterable
++
++import numpy as np
++
++try:
++    from inference.utils.grid_utils import ARC_COLOR_CHARS
++except Exception:  # noqa: BLE001  (tests may import this module on its own)
++    ARC_COLOR_CHARS = "WwgGcBMPRbSYOrNp"
++
++SWEEP_EVERY = 25          # actions on the current level between two sweeps
++MAX_CHARS = 900           # message cap; letter lists tokenise at about 2.7-3.0 characters per token
++CHARS_PER_TOKEN = 2.6     # conservative: the lowest ratio measured on these messages (Qwen2.5 BPE) rounded down
++CLOCK_SHARE = 0.7
++CLOCK_MIN_ACTIONS = 10
++MOUSE_RE = re.compile(r"MOUSE\(row=(-?\d+), col=(-?\d+)\)")
++ANIM_RE = re.compile(r"(?:The last executed action \(`([^`]+)`\)|(That fatal action)) animated over \d+ frames")
++ACTION_ORDER = ("UP", "DOWN", "LEFT", "RIGHT", "SPACE", "MOUSE", "UNDO")
++
++HEADER = ("Repertoire check. Effects seen in this game so far, from the action log "
++          "(letters = board colours; n/m = all levels/this level):")
++ASK = ("Before acting, write down every way each mechanic above could be used differently on this level: a new "
++       "role, a new combination or order, an object not touched yet. Mark the ones already tested on this level. "
++       "Then run the cheapest untested one as a short probe and read back the board.")
++
++
++def _letter(v: Any) -> str:
++    return ARC_COLOR_CHARS[max(0, min(15, int(v)))]
++
++
++# ----------------------------------------------------------------------------
++# records: one per board, in action order
++
++def _board_of(ev: dict[str, Any]) -> Any:
++    if ev.get("board") is not None:
++        return ev["board"]
++    text = ev.get("board_ascii")
++    if not isinstance(text, str) or not text:
++        return None
++    index = {ch: i for i, ch in enumerate(ARC_COLOR_CHARS)}
++    return [[index.get(ch, 0) for ch in line] for line in text.split("\n")]
++
++
++def records_from_events(events: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
++    """Viewer events of a game (the session's ``viewer_events``, also written to the ``*_events.jsonl``
++    sidecar): the initial board and one per action. ``board`` (numbers) or ``board_ascii`` (letters)."""
++    out: list[dict[str, Any]] = []
++    for ev in events:
++        kind = ev.get("type")
++        board = _board_of(ev) if kind in ("initial", "action") else None
++        if board is None:
++            continue
++        out.append({
++            "action": None if kind == "initial" else str(ev.get("action_display") or ev.get("action_name") or "?"),
++            "board": board,
++            "level": int(ev.get("level") or 1),
++            "level_completed": bool(ev.get("level_completed")),
++            "game_over": bool(ev.get("game_over")),
++        })
++    return out
++
++
++def records_from_history(entries: Iterable[Any]) -> list[dict[str, Any]]:
++    """Runtime-state history entries (``HistoryEntry``: action, frame, result); no initial board."""
++    out: list[dict[str, Any]] = []
++    for e in entries:
++        result = getattr(e, "result", None) or {}
++        out.append({
++            "action": str(getattr(e, "action", "") or result.get("action_display") or "?"),
++            "board": e.frame.grid,
++            "level": int(e.frame.level or 1),
++            "level_completed": bool(result.get("level_completed")),
++            "game_over": bool(result.get("game_over")),
++        })
++    return out
++
++
++# ----------------------------------------------------------------------------
++# one action
++
++def action_key(action: str, before: np.ndarray | None) -> str:
++    m = MOUSE_RE.fullmatch(action.strip())
++    if m:
++        r, c = int(m.group(1)), int(m.group(2))
++        if before is not None and 0 <= r < before.shape[0] and 0 <= c < before.shape[1]:
++            return f"MOUSE on {_letter(before[r, c])}"
++        return "MOUSE"
++    return action.strip().upper() or "?"
++
++
++def _direction(dr: float, dc: float) -> str:
++    vert = "down" if dr > 0 else "up"
++    horiz = "right" if dc > 0 else "left"
++    if abs(dr) >= 2 * abs(dc):
++        return vert
++    if abs(dc) >= 2 * abs(dr):
++        return horiz
++    return f"{vert}-{horiz}"
++
++
++def board_effects(before: np.ndarray, after: np.ndarray) -> tuple[set[str], set[str]]:
++    """(descriptions, colour letters of every changed cell before or after) for one action."""
++    if before.shape != after.shape:
++        return {"board changes size"}, set()
++    diff = before != after
++    n = int(diff.sum())
++    if n == 0:
++        return {"no change"}, set()
++    bv, av = before[diff], after[diff]
++    touched = {_letter(v) for v in np.unique(np.concatenate([bv, av]))}
++    if n > diff.size // 2:
++        return {"most of the board changes"}, touched
++    values, counts = np.unique(before, return_counts=True)
++    bg = int(values[int(np.argmax(counts))])
++    coords = np.argwhere(diff)
++    trans = Counter(zip(bv.tolist(), av.tolist()))
++    count_after = {int(v): int(c) for v, c in zip(*np.unique(after, return_counts=True))}
++    count_before = {int(v): int(c) for v, c in zip(*np.unique(before, return_counts=True))}
++
++    skip = {bg}
++    for (x, y) in trans:
++        if x < y and (y, x) in trans:
++            # two colours trading cells: an object moving over a floor; the larger one is the floor
++            skip.add(x if count_after.get(x, 0) > count_after.get(y, 0) else y)
++    out: set[str] = set()
++    turned_to: dict[int, set[int]] = {}
++    turned_from: dict[int, set[int]] = {}
++    for (x, y) in sorted(trans):
++        if x in skip or y in skip or (y, x) in trans:
++            continue
++        out.add(f"{_letter(x)} turns {_letter(y)}")
++        turned_to.setdefault(x, set()).add(y)
++        turned_from.setdefault(y, set()).add(x)
++    for v in sorted({int(x) for x in np.unique(np.concatenate([bv, av]))} - skip):
++        lost = (bv == v) & ~np.isin(av, list(turned_to.get(v, ())))
++        gained = (av == v) & ~np.isin(bv, list(turned_from.get(v, ())))
++        nl, ng = int(lost.sum()), int(gained.sum())
++        if not nl and not ng:
++            continue
++        name = _letter(v)
++        if nl and ng:
++            d = coords[gained].mean(axis=0) - coords[lost].mean(axis=0)
++            if math.hypot(float(d[0]), float(d[1])) >= 1.0 and min(nl, ng) >= 0.5 * max(nl, ng):
++                out.add(f"{name} moves {_direction(float(d[0]), float(d[1]))}")
++            else:
++                out.add(f"{name} changes shape")
++        elif ng:
++            out.add(f"{name} appears" if count_before.get(v, 0) == 0 else f"{name} grows")
++        else:
++            out.add(f"{name} disappears" if count_after.get(v, 0) == 0 else f"{name} shrinks")
++    return out or {"no change"}, touched
++
++
++# ----------------------------------------------------------------------------
++# the game so far
++
++def observe(records: list[dict[str, Any]], messages: list[dict[str, Any]] | None = None) -> dict[str, Any]:
++    """Per-action observations of the game so far. ``records`` in action order; a record with action None is
++    the initial board. ``messages`` is the conversation (animation notes are read from its user turns)."""
++    steps: list[dict[str, Any]] = []
++    level_start: np.ndarray | None = None
++    prev: dict[str, Any] | None = None
++    prev_board: np.ndarray | None = None
++    for rec in records:
++        board = np.asarray(rec["board"], dtype=np.int16)
++        if rec["action"] is None:
++            prev, prev_board, level_start = rec, board, board
++            continue
++        if prev is None:
++            prev, prev_board, level_start = rec, board, board   # first action without its board before: skip
++            continue
++        level = int(prev["level"])
++        key = action_key(rec["action"], prev_board)
++        step = {"key": key, "level": level, "event": None, "effects": set(), "touched": set()}
++        if key.startswith("MOUSE on "):
++            step["touched"].add(key[-1])
++        if rec["level_completed"] or int(rec["level"]) != level:
++            step["event"] = "level clear" if rec["level_completed"] or int(rec["level"]) > level else "level change"
++            level_start = board
++        elif rec["game_over"]:
++            step["event"] = "game over"
++        elif key == "RESET":
++            step["event"] = "reset"
++            level_start = board
++        elif (level_start is not None and board.shape == level_start.shape and np.array_equal(board, level_start)
++              and not np.array_equal(prev_board, board)):
++            step["event"] = "back to level start"
++        else:
++            effects, touched = board_effects(prev_board, board)
++            step["effects"] = effects
++            step["touched"] |= touched
++        steps.append(step)
++        prev, prev_board = rec, board
++
++    current_level = int(records[-1]["level"]) if records else 1
++    plain = [s for s in steps if s["event"] is None]
++    clock: set[str] = set()
++    if len(plain) >= CLOCK_MIN_ACTIONS:
++        counts = Counter(e for s in plain for e in s["effects"] if e not in ("no change", "most of the board changes"))
++        for eff, c in counts.items():
++            keys = {s["key"] for s in plain if eff in s["effects"]}
++            if c >= CLOCK_SHARE * len(plain) and len(keys) >= 2:
++                clock.add(eff)
++    for s in plain:
++        rest = s["effects"] - clock
++        s["effects"] = rest or {"no change"}
++
++    actions: dict[str, dict[str, Any]] = {}
++    for s in steps:
++        if s["key"] == "RESET":
++            continue
++        a = actions.setdefault(s["key"], {"n": 0, "n_level": 0, "effects": Counter(), "effects_level": Counter()})
++        here = s["level"] == current_level
++        a["n"] += 1
++        a["n_level"] += int(here)
++        for eff in (s["effects"] if s["event"] is None else {s["event"]}):
++            a["effects"][eff] += 1
++            a["effects_level"][eff] += int(here)
++
++    events: dict[str, Counter] = {}
++    for s in steps:
++        if s["event"] in ("level clear", "game over", "back to level start"):
++            events.setdefault(s["event"], Counter())[s["key"]] += 1
++    resets = sum(1 for s in steps if s["key"] == "RESET")
++
++    touched_level: set[str] = set()
++    for s in steps:
++        if s["level"] == current_level:
++            touched_level |= s["touched"]
++    untouched: list[str] = []
++    if records:
++        board = np.asarray(records[-1]["board"], dtype=np.int16)
++        values, counts = np.unique(board, return_counts=True)
++        bg = int(values[int(np.argmax(counts))])
++        untouched = sorted({_letter(v) for v in values if int(v) != bg} - touched_level)
++
++    return {
++        "current_level": current_level,
++        "actions_on_level": actions_on_level(records),
++        "actions": actions,
++        "clock": sorted(clock),
++        "events": events,
++        "resets": resets,
++        "animations": animation_counts(messages or []),
++        "untouched": untouched,
++        "n_steps": len(steps),
++    }
++
++
++def actions_on_level(records: list[dict[str, Any]]) -> int:
++    """Actions taken on the current level: trailing actions that started on it."""
++    n = 0
++    for i in range(len(records) - 1, 0, -1):
++        rec, prev = records[i], records[i - 1]
++        if rec["action"] is None or int(prev["level"]) != int(records[-1]["level"]) or rec["level_completed"]:
++            break
++        n += 1
++    if records and records[0]["action"] is not None and len(records) == n + 1 \
++            and int(records[0]["level"]) == int(records[-1]["level"]) and not records[0]["level_completed"]:
++        n += 1   # history without an initial board: the first action counts too
++    return n
++
++
++def animation_counts(messages: list[dict[str, Any]]) -> Counter:
++    """Animation notes the harness put in the conversation (user turns), by action name."""
++    out: Counter = Counter()
++    for m in messages:
++        if str(m.get("role")) != "user":
++            continue
++        content = m.get("content")
++        if isinstance(content, list):
++            text = "\n".join(str(p.get("text") or "") for p in content if isinstance(p, dict))
++        else:
++            text = str(content or "")
++        for named, fatal in ANIM_RE.findall(text):
++            name = "a fatal action" if fatal else ("MOUSE" if named.startswith("MOUSE") else named.strip().upper())
++            out[name] += 1
++    return out
++
++
++# ----------------------------------------------------------------------------
++# the message
++
++def _order(key: str) -> tuple:
++    base = key.split(" ", 1)[0]
++    return (ACTION_ORDER.index(base) if base in ACTION_ORDER else len(ACTION_ORDER), key)
++
++
++def _action_lines(obs: dict[str, Any], per_action: int, mouse_keys: int) -> list[str]:
++    acts = obs["actions"]
++    mouse = sorted((k for k in acts if k.startswith("MOUSE")), key=lambda k: (-acts[k]["n_level"], -acts[k]["n"], k))
++    shown = [k for k in acts if not k.startswith("MOUSE")] + mouse[:mouse_keys]
++    lines = []
++    for key in sorted(shown, key=_order):
++        a = acts[key]
++        effs = sorted(a["effects"], key=lambda e: (-a["effects_level"][e], -a["effects"][e], e))[:per_action]
++        body = "; ".join(f"{e} {a['effects'][e]}/{a['effects_level'][e]}" for e in effs)
++        lines.append(f"{key} {a['n']}/{a['n_level']}: {body}")
++    rest = mouse[mouse_keys:]
++    if rest:
++        n = sum(acts[k]["n"] for k in rest)
++        nl = sum(acts[k]["n_level"] for k in rest)
++        lines.append(f"MOUSE on other colours ({', '.join(k[-1] for k in rest)}) {n}/{nl}")
++    return lines
++
++
++def _fmt_counter(c: Counter, limit: int = 3) -> str:
++    return ", ".join(f"{k} {v}" for k, v in c.most_common(limit))
++
++
++def render(obs: dict[str, Any], max_chars: int = MAX_CHARS) -> str:
++    tail: list[str] = []
++    if obs["clock"]:
++        tail.append("Every action: " + ", ".join(obs["clock"]) + ".")
++    ev = obs["events"]
++    parts = []
++    for name, label in (("level clear", "level clears"), ("game over", "game overs"), ("back to level start", "back to level start")):
++        if ev.get(name):
++            parts.append(f"{label} {sum(ev[name].values())} ({_fmt_counter(ev[name])})")
++    if obs["resets"]:
++        parts.append(f"RESET {obs['resets']}")
++    if parts:
++        tail.append("Events: " + "; ".join(parts) + ".")
++    if obs["animations"]:
++        tail.append("Animations reported after: " + _fmt_counter(obs["animations"], 4) + ".")
++    if obs["untouched"]:
++        tail.append("On the board, never changed on this level: " + ", ".join(obs["untouched"]) + ".")
++    text = ""
++    for per_action, mouse_keys in ((3, 4), (2, 3), (2, 2), (1, 2), (1, 1)):
++        lines = _action_lines(obs, per_action, mouse_keys) or ["(no action taken yet)"]
++        text = "\n".join([HEADER, *lines, *tail, ASK])
++        if len(text) <= max_chars:
++            return text
++    # still too long: cut the observation block, keep the request whole
++    head = "\n".join([HEADER, *_action_lines(obs, 1, 1), *tail])
++    room = max(0, max_chars - len(ASK) - 5)
++    return head[:room].rstrip() + " ...\n" + ASK
++
++
++def sweep_message(records: list[dict[str, Any]], messages: list[dict[str, Any]] | None = None,
++                  max_chars: int = MAX_CHARS) -> str:
++    return render(observe(records, messages), max_chars=max_chars)
++
++
++def estimate_tokens(text: str) -> int:
++    """Conservative token estimate (CHARS_PER_TOKEN characters per token)."""
++    return int(math.ceil(len(text) / CHARS_PER_TOKEN))
+diff --git a/ARC3-Inference/inference/agent/tool_agent.py b/ARC3-Inference/inference/agent/tool_agent.py
+index 84a9cdd..65033e5 100644
+--- a/ARC3-Inference/inference/agent/tool_agent.py
++++ b/ARC3-Inference/inference/agent/tool_agent.py
+@@ -67,6 +67,7 @@ from inference.agent.vision_context import (
+ )
+ 
+ from inference.agent.python_tool_sandbox import run_sandboxed_python
++from inference.agent import r1_recovery as _r1
+ from inference.agent.runtime_state import Frame, HistoryEntry, RUNTIME_STATE_FILENAME, load_runtime_state
+ from inference.utils.openai_compat import (
+     assemble_streamed_chat_response,
+@@ -3585,6 +3586,21 @@ class ToolAgent:
+         self._last_step_summary: dict[str, Any] | None = None
+         self._last_action_call_result: dict[str, Any] | None = None
+         self._summarized_knowledge = _empty_world_model()
++        # R1 recovery pilot (inference.agent.r1_recovery): per-object flags, the
++        # one-time probe notice, the batch cap state and the per-game counters.
++        # All inert unless a flag is set on this object or in the environment.
++        self._r1_flags: dict[str, str] = {}
++        self._r1_probe_notice_pending = True
++        self._r1_fresh_notice_pending = True
++        self._r1_cap_lifted = False
++        self._r1_last_batch_executed: int | None = None
++        self._r1_tool_deadline: float | None = None
++        self._r1_stats = _r1.new_stats()
++        # A6 (R1e): armed by r1_recovery.restore_agent; level and action count
++        # of the last repertoire sweep
++        self._r1_repertoire_pending = False
++        self._r1_repertoire_level: int | None = None
++        self._r1_repertoire_last: int | None = None
+ 
+     def _headers(self) -> dict[str, str]:
+         api_key = (
+@@ -5846,9 +5862,24 @@ class ToolAgent:
+                 # own per-position guards, which name a specific action and
+                 # carry an override
+                 step_arguments["stale_after"] = stale_after
++            r1_cap = _r1.r1_int(self, "ARC3_R1_BATCH_CAP", 0)
++            if r1_cap > 0 and not self._r1_cap_lifted:
++                # A1: capped until the model reads the board back; the solver
++                # truncates the batch and names the actions it did not run
++                step_arguments["r1_batch_cap"] = r1_cap
++            if self._r1_tool_deadline is not None and _r1.r1_bool(self, "ARC3_R1_TIMEOUT_CANCEL"):
++                # A2: the solver stops a batch at the tool deadline instead of
++                # finishing it after the model has lost sight of the result
++                step_arguments["r1_deadline"] = self._r1_tool_deadline
+             raw_payload = self._step_env_callback(step_arguments)
+             if not isinstance(raw_payload, dict):
+                 raise RuntimeError("action(actions) did not return a JSON-like payload.")
++            if raw_payload.get("executed"):
++                self._r1_stats["batches"] += 1
++                self._r1_cap_lifted = False
++                self._r1_last_batch_executed = int(raw_payload.get("executed_count") or 1)
++                if raw_payload.get("r1_cap_applied"):
++                    self._r1_stats["capped_batches"] += 1
+             if reset_exposed() and raw_payload.get("executed"):
+                 # Use actual execution, not submitted batch size: a refused
+                 # call does not consume the snippet's first-action allowance.
+@@ -5893,16 +5924,25 @@ class ToolAgent:
+         # per snippet: a repeat across snippets is the model choosing, not a
+         # loop failing to converge
+         self._repeat_state_seen.clear()
++        r1_timeout = _r1.r1_int(self, "ARC3_R1_TOOL_TIMEOUT", 0)
++        python_timeout = r1_timeout if r1_timeout > 0 else self._python_timeout
++        r1_cancel = _r1.r1_bool(self, "ARC3_R1_TIMEOUT_CANCEL")
++        self._r1_tool_deadline = time.monotonic() + max(1, int(python_timeout)) if r1_cancel else None
++        sandbox_kwargs: dict[str, Any] = {}
++        if r1_cancel:
++            sandbox_kwargs["cancel_deadline"] = self._r1_tool_deadline
+         sandbox_result = run_sandboxed_python(
+             code=code,
+-            timeout_seconds=self._python_timeout,
++            timeout_seconds=python_timeout,
+             initial_state=_serialized_runtime_state(),
+             action_handler=_handle_action,
+             animation_handler=_handle_animation if _animation_enabled() else None,
+             kept_functions=self._retained_sources(),
+             retain_imports=_get_env_bool("ARC3_PERSISTENT_FUNCTIONS_IMPORTS", False),
+             repair_hints=_get_env_bool("ARC3_PERSISTENT_FUNCTIONS_REPAIR_HINTS", False),
++            **sandbox_kwargs,
+         )
++        self._r1_tool_deadline = None
+ 
+         action_results = [
+             item
+@@ -5910,7 +5950,31 @@ class ToolAgent:
+             if isinstance(item, dict)
+         ]
+         payload: dict[str, Any] = {"tool": "python"}
+-        self._record_retained_functions(sandbox_result, payload)
++        r1_timed_out = str(sandbox_result.get("error", "") or "").startswith("Tool timed out")
++        if r1_timed_out:
++            self._r1_stats["timeouts"] += 1
++        if r1_timed_out and r1_cancel:
++            # A2: the sandbox died at the limit, so no retention payload came
++            # back; keep the previous definitions instead of wiping them, and
++            # tell the model exactly what ran and what was cancelled
++            executed = _r1.executed_displays(action_results)
++            cancelled = _r1.cancelled_displays(action_results, sandbox_result.get("cancelled_actions") or [])
++            self._r1_stats["cancelled_actions"] += len(cancelled)
++            sandbox_result = dict(sandbox_result)
++            sandbox_result["error"] = _r1.timeout_report(
++                int(python_timeout), executed, cancelled, bool(self._kept_functions)
++            )
++            if self._kept_functions:
++                payload["function_retention"] = "Your retained functions were kept across the timeout."
++        else:
++            self._record_retained_functions(sandbox_result, payload)
++        if not any(bool(item.get("executed")) for item in action_results):
++            # a python call that executed nothing is a read-back of the board
++            self._r1_stats["readbacks"] += 1
++            if self._r1_last_batch_executed is not None and self._r1_last_batch_executed <= _r1.PROBE_BATCH_SIZE:
++                self._r1_stats["probes"] += 1
++            self._r1_last_batch_executed = None
++            self._r1_cap_lifted = True
+         rendered_stdout = str(sandbox_result.get("stdout", "") or "")
+         rendered_error = str(sandbox_result.get("error", "") or "")
+         if rendered_error:
+@@ -6594,6 +6658,27 @@ class ToolAgent:
+         )
+         display_action_num = _display_action_number(action_num)
+         self._wm_absorbed_in_turn = False
++        if self._r1_probe_notice_pending and _r1.r1_bool(self, "ARC3_R1_PROBE_NOTICE"):
++            # A1: shown once, in the first opener after the restore point
++            user_prompt = _r1.PROBE_NOTICE + "\n\n" + user_prompt
++            self._r1_probe_notice_pending = False
++            self._r1_stats["notice_shown"] += 1
++        if self._r1_fresh_notice_pending and _r1.r1_bool(self, "ARC3_R1_FRESH_START"):
++            # A3: a fresh conversation on a board in progress; one line of
++            # context before the harness's own first-turn prompt, shown once
++            session_obj = getattr(step_env, "__self__", None)
++            n_levels = getattr(getattr(session_obj, "game", None), "number_of_levels", None)
++            level = current_frame.level if current_frame is not None else 1
++            actions = max(int(action_num), current_frame.step if current_frame is not None else 0)
++            user_prompt = _r1.fresh_notice(level, n_levels, actions) + "\n\n" + user_prompt
++            self._r1_fresh_notice_pending = False
++            self._r1_stats["fresh_notice_shown"] += 1
++        if _r1.r1_bool(self, "ARC3_R1_REPERTOIRE"):
++            # A6: the repertoire sweep, at the restore point and every 25
++            # actions on a level not yet cleared
++            r1_sweep = _r1.repertoire_notice(self, history_entries, step_env)
++            if r1_sweep:
++                user_prompt = r1_sweep + "\n\n" + user_prompt
+ 
+         with open(analyzer_log, "a", encoding="utf-8") as f:
+             step_label = f"analysis_step={analysis_step} | " if analysis_step is not None else ""
+diff --git a/ARC3-Inference/inference/framework/r1_runner.py b/ARC3-Inference/inference/framework/r1_runner.py
+new file mode 100644
+index 0000000..50c7597
+--- /dev/null
++++ b/ARC3-Inference/inference/framework/r1_runner.py
+@@ -0,0 +1,422 @@
++"""R1 recovery pilot runner: replay a recorded prefix, restore the conversation,
++play one arm under a fixed budget; case-major over (case, arm) with a thread pool.
++
++Used by the Kaggle notebook (arc-agi-3-r1-recovery-pilot) and by the offline
++dry run (scripts/arc3_recovery_dryrun.py) with a scripted analyzer.
++"""
++from __future__ import annotations
++
++import base64
++import gzip
++import hashlib
++import io
++import json
++import tarfile
++import threading
++import time
++import traceback
++from concurrent.futures import ThreadPoolExecutor
++from datetime import datetime, timedelta, timezone
++from pathlib import Path
++from typing import Any, Callable
++
++import arcengine
++import arc_agi
++import taaf.game
++import taaf.game_api
++
++from inference.agent import r1_recovery as _r1
++from inference.agent.runtime_state import RUNTIME_STATE_FILENAME
++from inference.framework.solver import _HarnessGameSession, _grid_from_state, _level_number
++
++ARMS = ("A0", "A1", "A2")          # R1
++R1B_ARMS = ("A0b", "A3")           # R1b: second A0 sample, fresh continuation
++R1C_ARMS = ("A4", "A5")            # R1c: dose-matched trim of the restored history, no retained functions
++R1E_ARMS = ("A6", "A0c")           # R1e: repertoire sweep, third A0 sample
++ALL_ARMS = ARMS + R1B_ARMS + R1C_ARMS + R1E_ARMS
++DEFAULT_ACTION_BUDGET = 80
++DEFAULT_WALL_BUDGET_S = 15 * 60
++
++RESULT_FIELDS = (
++    "case_id", "arm", "game_id", "target_level", "cut", "cleared", "actions_used", "generated_tokens",
++    "wall_s", "probes", "readbacks", "batches", "capped_batches", "timeouts", "cancelled_actions",
++    "notice_shown", "fresh_notice_shown", "end_reason", "turns", "levels_completed_end", "final_state", "solver_note",
++    "replay_ok", "replay_s", "restore_history_messages", "kept_functions", "prelude_error", "started_utc", "error",
++    "restore_history_before_trim", "restore_tokens_before_trim", "restore_tokens_after_trim", "trim_keep_fraction",
++    "clear_actions", "clear_wall_s", "repertoire_shown", "repertoire_chars_max", "repertoire_errors",
++)
++STAT_FIELDS = ("probes", "readbacks", "batches", "capped_batches", "timeouts", "cancelled_actions",
++               "notice_shown", "fresh_notice_shown", "repertoire_shown", "repertoire_chars_max", "repertoire_errors")
++
++
++# ----------------------------------------------------------------------------
++# bundle
++
++def load_bundle_text(b64_text: str) -> dict[str, dict[str, Any]]:
++    raw = base64.b64decode("".join(b64_text.split()))
++    return load_bundle_bytes(raw)
++
++
++def load_bundle_bytes(gz_bytes: bytes) -> dict[str, dict[str, Any]]:
++    cases: dict[str, dict[str, Any]] = {}
++    with tarfile.open(fileobj=io.BytesIO(gzip.decompress(gz_bytes)), mode="r") as tar:
++        for member in tar.getmembers():
++            if not member.isfile():
++                continue
++            cid, name = member.name.split("/", 1)
++            data = tar.extractfile(member).read()
++            case = cases.setdefault(cid, {"case_id": cid})
++            if name == "meta.json":
++                case["meta"] = json.loads(data)
++            elif name == "prefix_actions.json":
++                case["prefix"] = json.loads(data)
++            elif name == "restore.json":
++                case["restore"] = json.loads(data)
++            elif name == "prelude.py":
++                case["prelude"] = data.decode("utf-8")
++    for cid, case in cases.items():
++        for key in ("meta", "prefix", "restore", "prelude"):
++            if key not in case:
++                raise ValueError(f"bundle case {cid} lacks {key}")
++    return cases
++
++
++def load_cases_dir(path: Path) -> dict[str, dict[str, Any]]:
++    cases: dict[str, dict[str, Any]] = {}
++    for d in sorted(p for p in Path(path).iterdir() if p.is_dir()):
++        cases[d.name] = {
++            "case_id": d.name,
++            "meta": json.loads((d / "meta.json").read_text()),
++            "prefix": json.loads((d / "prefix_actions.json").read_text()),
++            "restore": json.loads((d / "restore.json").read_text()),
++            "prelude": (d / "prelude.py").read_text(),
++        }
++    return cases
++
++
++# ----------------------------------------------------------------------------
++# game construction and replay
++
++_GAME_LOCK = threading.Lock()
++
++
++def offline_game(env_dir: str, game_id: str, run_session: taaf.game.RunSession) -> taaf.game_api.GameAPI:
++    spec = taaf.game_api.ArcadeSpec(operation_mode=arc_agi.OperationMode.OFFLINE, environments_dir=env_dir)
++    game = taaf.game_api.GameAPI(env_name=game_id, arcade_spec=spec)
++    with _GAME_LOCK:
++        game.start_game(run_session)
++    return game
++
++
++def replay_prefix(session: _HarnessGameSession, prefix: list[dict[str, Any]]) -> None:
++    """Replay recorded actions through the session so history, viewer events
++    and runtime state come out as they did in P0; no tokens are charged.
++
++    The runtime-state file and the viewer payload (with its events sidecar)
++    are written once, after the last replayed action, instead of per action:
++    the state file grows with the prefix, so per-action rewrites made the
++    replay quadratic in the prefix length. The files that result are the same.
++    """
++    previous = session.r1_defer_state_writes
++    session.r1_defer_state_writes = True
++    try:
++        for a in prefix:
++            action = arcengine.ActionInput(id=getattr(arcengine.GameAction, a["name"]), data=dict(a.get("data") or {}))
++            session._execute_action(action, batch_index=1, batch_size=1, generated_tokens=0, flush_viewer_payload=False)
++    finally:
++        session.r1_defer_state_writes = previous
++    session.write_runtime_state()
++    session.write_viewer_payload()
++
++
++def board_hash(session: _HarnessGameSession) -> str:
++    grid = [list(row) for row in _grid_from_state(session.game.current_state)]
++    return hashlib.sha256(json.dumps(grid).encode()).hexdigest()[:16]
++
++
++# ----------------------------------------------------------------------------
++# one case-arm
++
++def run_case_arm(
++    *,
++    solver: Any,
++    case: dict[str, Any],
++    arm: str,
++    index: int,
++    job_dir: Path,
++    env_dir: str,
++    run_session: taaf.game.RunSession,
++    analyzer_factory: Callable[[Any, int], Any],
++    stop_event: threading.Event,
++    action_budget: int = DEFAULT_ACTION_BUDGET,
++    wall_budget_s: float = DEFAULT_WALL_BUDGET_S,
++    arm_flags: dict[str, dict[str, str]] | None = None,
++) -> dict[str, Any]:
++    arm_flags = arm_flags or _r1.ARM_FLAGS
++    meta = case["meta"]
++    cid = case["case_id"]
++    result: dict[str, Any] = {k: None for k in RESULT_FIELDS}
++    result.update({
++        "case_id": cid, "arm": arm, "game_id": meta["game_id"], "target_level": int(meta["target_level"]),
++        "cut": int(meta["cut"]), "cleared": False, "actions_used": 0, "generated_tokens": 0, "wall_s": 0.0,
++        "started_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "replay_ok": False,
++    })
++    stem = f"{cid}_{arm}"
++    artifacts = job_dir / "artifacts"
++    transcripts = job_dir / "transcripts"
++    artifacts.mkdir(parents=True, exist_ok=True)
++    transcripts.mkdir(parents=True, exist_ok=True)
++    state_path = artifacts / f"{stem}_{RUNTIME_STATE_FILENAME}"
++    viewer_data_path = artifacts / f"{stem}_viewer_data.json"
++    transcript_path = transcripts / f"{stem}.txt"
++    analysis_relpath = f"solver_analysis/{stem}.html"
++
++    game = None
++    session = None
++    turns_before = 0
++    t_start = time.monotonic()
++    try:
++        game = offline_game(env_dir, meta["game_id"], run_session)
++        analyzer = analyzer_factory(game, index)
++        analyzer._r1_flags = dict(arm_flags[arm])
++        session = _HarnessGameSession(
++            solver=solver, game=game, analyzer=analyzer, game_index=index, pass_index=0,
++            state_path=state_path, transcript_path=transcript_path, analysis_html_relpath=analysis_relpath,
++            stop_event=stop_event, viewer_data_path=viewer_data_path,
++        )
++        session._append_initial_viewer_event()
++        t_replay = time.monotonic()
++        replay_prefix(session, case["prefix"])
++        result["replay_s"] = round(time.monotonic() - t_replay, 1)
++        replay_ok = (
++            session.action_count == int(meta["cut"])
++            and board_hash(session) == meta.get("board_hash_at_cut")
++            and _level_number(game) == int(meta.get("level_at_cut") or meta["target_level"])
++        )
++        result["replay_ok"] = bool(replay_ok)
++        if not replay_ok:
++            result["end_reason"] = "replay_mismatch"
++            result["error"] = (f"replay mismatch: actions={session.action_count} board={board_hash(session)} "
++                               f"level={_level_number(game)}")
++            return result
++
++        if _r1.r1_bool(analyzer, "ARC3_R1_FRESH_START"):
++            # A3: same board, empty conversation, no prelude
++            history, kept, prelude_error = [], {}, ""
++        elif _r1.r1_bool(analyzer, "ARC3_R1_NO_PRELUDE"):
++            # A5: full conversation, no retained functions
++            history, kept, prelude_error = case["restore"], {}, ""
++        else:
++            history = case["restore"]
++            kept, prelude_error = _r1.seed_kept_functions(case["prelude"])
++        _r1.restore_agent(analyzer, state_path, history, kept, actions_at_level_start=int(meta["a_start"]))
++        if _r1.r1_bool(analyzer, "ARC3_R1_TRIM_RESTORE"):
++            # A4: the restored conversation cut to the share of messages a P0 trim keeps
++            trim = _r1.trim_restored_history(analyzer, state_path)
++            result["restore_history_before_trim"] = trim["messages_before"]
++            result["restore_tokens_before_trim"] = trim["tokens_before"]
++            result["restore_tokens_after_trim"] = trim["tokens_after"]
++            result["trim_keep_fraction"] = trim["keep_fraction"]
++        result["restore_history_messages"] = len(analyzer._history_messages)
++        result["kept_functions"] = len(kept)
++        result["prelude_error"] = prelude_error or None
++        session.analysis_step = max(0, int(meta.get("restore_analysis_step") or 1) - 1)
++        turns_before = session.analysis_step
++
++        session.started_at = time.monotonic()
++        session.r1_action_limit = int(meta["cut"]) + int(action_budget)
++        session.r1_deadline = session.started_at + float(wall_budget_s)
++        session.r1_target_level = int(meta["target_level"])
++        t_start = session.started_at
++        _mark_clear(session, result, int(meta["cut"]), int(meta["target_level"]))
++        session.play()
++    except Exception as exc:  # noqa: BLE001
++        result["error"] = f"{type(exc).__name__}: {exc}\n{traceback.format_exc()[-2000:]}"
++        result["end_reason"] = result["end_reason"] or "error"
++    finally:
++        result["wall_s"] = round(time.monotonic() - t_start, 1)
++        if session is not None and game is not None and game.game_run is not None:
++            run = game.game_run
++            stats = getattr(session.analyzer, "_r1_stats", None) or _r1.new_stats()
++            cleared = bool(run.state == "won" or int(run.levels_completed) >= int(meta["target_level"]))
++            result.update({
++                "cleared": cleared,
++                "actions_used": max(0, session.action_count - int(meta["cut"])),
++                "generated_tokens": int(getattr(session.analyzer, "generated_tokens", 0) or 0),
++                "turns": max(0, int(session.analysis_step) - int(turns_before)),
++                "levels_completed_end": int(run.levels_completed),
++                "final_state": run.state,
++                "solver_note": run.solver_note,
++                **{k: int(stats.get(k, 0)) for k in STAT_FIELDS},
++            })
++            if result["end_reason"] is None:
++                reason = session.r1_end_reason
++                if reason is None and cleared:
++                    reason = "cleared"
++                elif reason is None and stop_event.is_set():
++                    reason = "hard_stop"
++                elif reason is None and result["wall_s"] >= float(wall_budget_s):
++                    reason = "wall_budget"
++                elif reason is None and str(run.solver_note or "").startswith("error"):
++                    reason = "error"
++                result["end_reason"] = reason or "loop_exit"
++            if run.final_score is None:
++                try:
++                    game.finish_game()
++                except Exception:  # noqa: BLE001
++                    pass
++    return result
++
++
++def _mark_clear(session: _HarnessGameSession, result: dict[str, Any], cut: int, target_level: int) -> None:
++    """Record actions after the cut and seconds after the restore at the action
++    that clears the target level (clear_actions, clear_wall_s). wall_s is taken
++    when the case-arm ends, which can be later than the clear."""
++    execute = session._execute_action
++
++    def execute_and_mark(*args: Any, **kwargs: Any) -> dict[str, Any]:
++        payload = execute(*args, **kwargs)
++        if result.get("clear_wall_s") is None:
++            state = session.game.current_state
++            if state.won or int(state.levels_completed) >= target_level:
++                result["clear_wall_s"] = round(time.monotonic() - session.started_at, 1)
++                result["clear_actions"] = max(0, session.action_count - cut)
++        return payload
++
++    session._execute_action = execute_and_mark
++
++
++# ----------------------------------------------------------------------------
++# the pilot
++
++def run_pilot(
++    *,
++    solver: Any,
++    cases: dict[str, dict[str, Any]],
++    job_dir: Path,
++    env_dir: str,
++    results_path: Path,
++    analyzer_factory: Callable[[Any, int], Any] | None = None,
++    arms: tuple[str, ...] = ARMS,
++    concurrency: int = 10,
++    action_budget: int = DEFAULT_ACTION_BUDGET,
++    wall_budget_s: float = DEFAULT_WALL_BUDGET_S,
++    hard_stop_monotonic: float | None = None,
++    case_order: list[str] | None = None,
++    arm_flags: dict[str, dict[str, str]] | None = None,
++    log: Callable[[str], None] = print,
++) -> list[dict[str, Any]]:
++    """Case-major over arms; results appended to results_path as they finish."""
++    job_dir = Path(job_dir)
++    job_dir.mkdir(parents=True, exist_ok=True)
++    artifacts = job_dir / "artifacts"
++    artifacts.mkdir(parents=True, exist_ok=True)
++    # keeps the artifacts dir at >= 2 runtime-state files so the agent's request
++    # log resolves to the per-game name even when a single game is running
++    (artifacts / f"_r1_keepalive_{RUNTIME_STATE_FILENAME}").write_text("{}")
++
++    if analyzer_factory is None:
++        def analyzer_factory(game, index):  # noqa: ANN001
++            return solver._make_analyzer(game, index, solver._local_server_for_game_index(index))
++
++    solver.max_runtime_s_per_game = float(wall_budget_s)
++    solver.max_actions_per_game = None
++    solver._warmup_remaining = 0
++    if hard_stop_monotonic is not None:
++        remaining = max(0.0, hard_stop_monotonic - time.monotonic())
++        solver.soft_end_time = datetime.now() + timedelta(seconds=remaining)
++    stop_event = solver._stop_event
++    stop_event.clear()
++    run_session = taaf.game.RunSession(record_intermediate_states=False)
++
++    order = case_order or sorted(cases)
++    jobs = [(cid, arm) for cid in order for arm in arms]
++    results: list[dict[str, Any]] = []
++    lock = threading.Lock()
++    results_path = Path(results_path)
++    results_path.parent.mkdir(parents=True, exist_ok=True)
++    results_path.write_text("")
++
++    def watchdog() -> None:
++        while hard_stop_monotonic is not None and not stop_event.is_set():
++            if time.monotonic() >= hard_stop_monotonic:
++                log("[r1] hard stop reached; stopping sessions")
++                stop_event.set()
++                return
++            time.sleep(5)
++
++    if hard_stop_monotonic is not None:
++        threading.Thread(target=watchdog, daemon=True).start()
++
++    def one(index: int, cid: str, arm: str) -> dict[str, Any]:
++        if hard_stop_monotonic is not None and time.monotonic() >= hard_stop_monotonic or stop_event.is_set():
++            res = {k: None for k in RESULT_FIELDS}
++            res.update({"case_id": cid, "arm": arm, "game_id": cases[cid]["meta"]["game_id"],
++                        "target_level": cases[cid]["meta"]["target_level"], "cut": cases[cid]["meta"]["cut"],
++                        "cleared": False, "actions_used": 0, "generated_tokens": 0, "wall_s": 0.0,
++                        "end_reason": "skipped_hard_stop"})
++            return res
++        log(f"[r1] start {cid} {arm} ({index + 1}/{len(jobs)})")
++        res = run_case_arm(
++            solver=solver, case=cases[cid], arm=arm, index=index, job_dir=job_dir, env_dir=env_dir,
++            run_session=run_session, analyzer_factory=analyzer_factory, stop_event=stop_event,
++            action_budget=action_budget, wall_budget_s=wall_budget_s, arm_flags=arm_flags,
++        )
++        return res
++
++    def record(res: dict[str, Any]) -> None:
++        with lock:
++            results.append(res)
++            with open(results_path, "a", encoding="utf-8") as f:
++                f.write(json.dumps(res, ensure_ascii=True) + "\n")
++        log(f"[r1] done {res['case_id']} {res['arm']}: cleared={res['cleared']} actions={res['actions_used']} "
++            f"tokens={res['generated_tokens']} wall={res['wall_s']}s end={res['end_reason']}"
++            + (f" error={str(res['error'])[:120]!r}" if res.get("error") else ""))
++
++    with ThreadPoolExecutor(max_workers=max(1, int(concurrency)), thread_name_prefix="r1-case") as pool:
++        futures = [pool.submit(one, i, cid, arm) for i, (cid, arm) in enumerate(jobs)]
++        for fut in futures:
++            try:
++                record(fut.result())
++            except Exception as exc:  # noqa: BLE001
++                record({**{k: None for k in RESULT_FIELDS}, "case_id": "?", "arm": "?", "cleared": False,
++                        "end_reason": "error", "error": f"{type(exc).__name__}: {exc}"})
++    try:
++        run_session.close()
++    except Exception:  # noqa: BLE001
++        pass
++    return results
++
++
++def summary_table(results: list[dict[str, Any]], arms: tuple[str, ...] | None = None) -> str:
++    by_case: dict[str, dict[str, dict[str, Any]]] = {}
++    for r in results:
++        by_case.setdefault(str(r.get("case_id")), {})[str(r.get("arm"))] = r
++    if arms is None:
++        seen = {str(r.get("arm")) for r in results}
++        arms = tuple(a for a in ALL_ARMS if a in seen) + tuple(sorted(seen - set(ALL_ARMS))) or ARMS
++    lines = []
++    head = f"{'case':<16}" + "".join(f"{arm + ' clr/act/tok/end':<30}" for arm in arms)
++    lines.append(head)
++    for cid in sorted(by_case):
++        row = f"{cid:<16}"
++        for arm in arms:
++            r = by_case[cid].get(arm)
++            if r is None:
++                row += f"{'-':<30}"
++            else:
++                cell = f"{'Y' if r.get('cleared') else 'n'}/{r.get('actions_used')}/{r.get('generated_tokens')}/{r.get('end_reason')}"
++                row += f"{cell:<30}"
++        lines.append(row)
++    lines.append("")
++    for arm in arms:
++        rs = [r for r in results if r.get("arm") == arm and r.get("end_reason") not in ("skipped_hard_stop", None)]
++        n = len(rs)
++        c = sum(1 for r in rs if r.get("cleared"))
++        acts = sorted(int(r.get("actions_used") or 0) for r in rs if r.get("cleared"))
++        med = acts[len(acts) // 2] if acts else None
++        lines.append(f"{arm}: cleared {c}/{n}; median actions to clear {med}; "
++                     f"timeouts {sum(int(r.get('timeouts') or 0) for r in rs)}; "
++                     f"probes {sum(int(r.get('probes') or 0) for r in rs)}; "
++                     f"errors {sum(1 for r in rs if r.get('error'))}")
++    return "\n".join(lines)
+diff --git a/ARC3-Inference/inference/framework/solver.py b/ARC3-Inference/inference/framework/solver.py
+index e40976c..ee115e3 100644
+--- a/ARC3-Inference/inference/framework/solver.py
++++ b/ARC3-Inference/inference/framework/solver.py
+@@ -437,6 +437,12 @@ def _format_action_display(
+     return to_model_action(action_name)
+ 
+ 
++def _r1_batch_cap_detail(cap: int | None, executed: int, requested: int) -> str:
++    from inference.agent.r1_recovery import batch_cap_detail
++
++    return batch_cap_detail(int(cap or 0), executed, requested)
++
++
+ def _is_engine_game_over(game: taaf.game.Game) -> bool:
+     return game.current_state.raw.state == arcengine.GameState.GAME_OVER
+ 
+@@ -492,6 +498,16 @@ class _HarnessGameSession:
+     # and older animations are almost never what it is asking about.
+     animation_record: dict[str, Any] | None = None
+     _viewer_events_flushed: int = field(default=0, init=False, repr=False)
++    # R1 recovery pilot: per-session budget and target. None (the default)
++    # leaves should_stop and step_env exactly as before.
++    r1_action_limit: int | None = None     # stop when action_count reaches this
++    r1_deadline: float | None = None       # monotonic instant, wall budget
++    r1_target_level: int | None = None     # stop once this level is cleared
++    r1_end_reason: str | None = None
++    # R1 replay: while True, _execute_action neither rewrites the runtime-state
++    # file nor flushes the viewer payload (the caller writes both once at the
++    # end); history entries and viewer events still accumulate in memory.
++    r1_defer_state_writes: bool = False
+ 
+     def current_frame(self) -> Frame:
+         return Frame(
+@@ -593,8 +609,29 @@ class _HarnessGameSession:
+             return True
+         if self.token_limit_reached():
+             return True
++        if self._r1_stop():
++            return True
+         return False
+ 
++    def _r1_stop(self) -> bool:
++        """R1 budget: level cleared, action budget spent, or wall budget spent."""
++        if self.r1_target_level is None and self.r1_action_limit is None and self.r1_deadline is None:
++            return False
++        reason = None
++        if self.r1_target_level is not None and (
++            self.game.current_state.won or int(self.game.current_state.levels_completed) >= int(self.r1_target_level)
++        ):
++            reason = "cleared"
++        elif self.r1_action_limit is not None and self.action_count >= int(self.r1_action_limit):
++            reason = "action_budget"
++        elif self.r1_deadline is not None and time.monotonic() >= float(self.r1_deadline):
++            reason = "wall_budget"
++        if reason is None:
++            return False
++        if self.r1_end_reason is None:
++            self.r1_end_reason = reason
++        return True
++
+     def _queue_position(self) -> int:
+         """Position in the dispatch order, used only to break ties in the
+         untrimmed priority band so games do not all queue at one value."""
+@@ -1014,6 +1051,16 @@ class _HarnessGameSession:
+             _format_action_display(action.id.name, dict(action.data))
+             for action in requested_actions
+         ]
++        # R1 A1: the agent passes a cap while a read-back is owed; positions
++        # past it are reported as skipped, never executed. R1 A2: a tool
++        # deadline after which the rest of the batch is cancelled.
++        r1_cap = arguments.get("r1_batch_cap")
++        r1_cap = int(r1_cap) if isinstance(r1_cap, (int, float)) and int(r1_cap) > 0 else None
++        r1_cap_applied = r1_cap is not None and batch_size > r1_cap
++        r1_deadline = arguments.get("r1_deadline")
++        r1_deadline = float(r1_deadline) if isinstance(r1_deadline, (int, float)) else None
++        if r1_cap_applied:
++            requested_actions = list(requested_actions[:r1_cap])
+ 
+         guard_hook = getattr(self, "action_guard_hook", None)
+         blocked_detail: str | None = None
+@@ -1032,6 +1079,9 @@ class _HarnessGameSession:
+             if self.should_stop():
+                 stop_reason = "stopped"
+                 break
++            if r1_deadline is not None and time.monotonic() >= r1_deadline:
++                stop_reason = "tool_timeout"
++                break
+             if (
+                 stale_after
+                 and batch_index == 1
+@@ -1133,6 +1183,24 @@ class _HarnessGameSession:
+                 stop_reason = "no_op_action"
+                 break
+ 
++        if r1_cap_applied and stop_reason is None:
++            stop_reason = "batch_cap"
++        if not executed_payloads and stop_reason == "tool_timeout":
++            detail = (
++                "Tool time limit reached before this batch started: none of "
++                f"{requested_displays!r} was executed."
++            )
++            return {
++                **self._error_payload(detail),
++                "executed": False,
++                "stop_reason": "tool_timeout",
++                "stop_detail": detail,
++                "requested_count": batch_size,
++                "executed_count": 0,
++                "stopped_early": True,
++                "requested_actions": requested_displays,
++                "skipped_actions": list(requested_displays),
++            }
+         if not executed_payloads:
+             if blocked_detail is not None:
+                 # Nothing ran at all: report the refusal itself rather than a
+@@ -1195,6 +1263,16 @@ class _HarnessGameSession:
+         if blocked_detail is not None:
+             final_payload["stop_detail"] = blocked_detail
+             final_payload["blocked_action"] = requested_displays[len(executed_payloads)]
++        if r1_cap_applied:
++            final_payload["r1_cap_applied"] = True
++        if stop_reason == "batch_cap":
++            final_payload["stop_detail"] = _r1_batch_cap_detail(r1_cap, len(executed_payloads), batch_size)
++        elif stop_reason == "tool_timeout":
++            skipped = requested_displays[len(executed_payloads):]
++            final_payload["stop_detail"] = (
++                f"Tool time limit reached after {len(executed_payloads)} of {batch_size} actions: "
++                f"{skipped!r} were cancelled and NOT executed."
++            )
+         if stop_reason == "no_op_action":
+             noop_index = len(executed_payloads)
+             final_payload["no_op_action_index"] = noop_index
+@@ -1339,9 +1417,10 @@ class _HarnessGameSession:
+         self.history_entries.append(
+             HistoryEntry(action=action_display, frame=current_frame, result=individual_result)
+         )
+-        self.write_runtime_state()
++        if not self.r1_defer_state_writes:
++            self.write_runtime_state()
+         self._append_action_viewer_event(payload, current_frame)
+-        if flush_viewer_payload:
++        if flush_viewer_payload and not self.r1_defer_state_writes:
+             self.write_viewer_payload()
+         return payload
+ 

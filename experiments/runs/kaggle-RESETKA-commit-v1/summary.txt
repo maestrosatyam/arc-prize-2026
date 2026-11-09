@@ -1,0 +1,41 @@
+benchmark: duck-harness-kaggle
+solver:    duck-harness
+games:     25
+passes:    4
+runs:      100 (won: 30)
+started:   2026-10-23 08:50:28
+ended:     2026-10-23 17:02:26
+duration:  8h 11m 57s
+mean score:    44.67
+median score:  35.40
+total actions: 19504
+total tokens:  17006182
+generated tokens/sec: 576.14 (job wallclock)
+total wallclock: 2625914.4s
+
+per-game (mean across passes):
+  ar25-0c556536: score=100.00, levels=8.0/8, actions=305, tokens=155910
+  bp35-0a0ad940: score=1.31, levels=0.8/9, actions=50, tokens=111576
+  cd82-fb555c5d: score=87.49, levels=6.0/6, actions=157, tokens=140808
+  cn04-2fe56bfb: score=42.86, levels=3.5/6, actions=165, tokens=177700
+  dc22-fdcac232: score=22.62, levels=2.2/6, actions=200, tokens=166633
+  ft09-0d8bbf25: score=86.90, levels=5.5/6, actions=105, tokens=99346
+  g50t-5849a774: score=11.61, levels=1.5/7, actions=181, tokens=144647
+  ka59-38d34dbb: score=34.69, levels=4.0/7, actions=296, tokens=251428
+  lf52-271a04aa: score=5.00, levels=1.8/10, actions=125, tokens=135660
+  lp85-305b61c3: score=100.00, levels=8.0/8, actions=140, tokens=145259
+  ls20-9607627b: score=26.99, levels=3.8/7, actions=418, tokens=229175
+  m0r0-492f87ba: score=63.35, levels=4.5/6, actions=270, tokens=242175
+  r11l-495a7899: score=82.14, levels=5.2/6, actions=92, tokens=211708
+  re86-8af5384d: score=50.00, levels=5.5/8, actions=369, tokens=180558
+  s5i5-18d95033: score=27.51, levels=3.5/8, actions=155, tokens=310526
+  sb26-7fbdac44: score=81.53, levels=7.0/8, actions=154, tokens=100249
+  sc25-635fd71a: score=51.26, levels=4.0/6, actions=261, tokens=134945
+  sk48-d8078629: score=0.33, levels=0.2/8, actions=62, tokens=86955
+  sp80-589a99af: score=26.19, levels=2.5/6, actions=101, tokens=237958
+  su15-1944f8ab: score=13.33, levels=3.0/9, actions=90, tokens=157582
+  tn36-ef4dde99: score=20.63, levels=2.2/7, actions=171, tokens=123095
+  tr87-cd924810: score=74.92, levels=4.8/6, actions=295, tokens=155732
+  tu93-0768757b: score=52.44, levels=6.0/9, actions=186, tokens=219950
+  vc33-5430563c: score=43.16, levels=4.2/7, actions=182, tokens=171815
+  wa30-ee6fef47: score=10.45, levels=2.5/9, actions=340, tokens=160149

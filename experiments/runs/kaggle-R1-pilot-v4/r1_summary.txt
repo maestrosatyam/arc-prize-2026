@@ -1,0 +1,40 @@
+case            A0 clr/act/tok/end            A1 clr/act/tok/end            A2 clr/act/tok/end            
+ar25_p3_L7_F    Y/40/29058/cleared            n/0/50972/wall_budget         n/14/53552/wall_budget        
+bp35_p1_L2_F    n/25/54455/wall_budget        n/55/51729/wall_budget        n/25/57232/wall_budget        
+bp35_p3_L2_F    n/53/53011/wall_budget        n/40/54305/wall_budget        n/36/55875/wall_budget        
+cn04_p0_L6_F    n/15/50821/wall_budget        Y/36/35261/cleared            n/12/55782/wall_budget        
+g50t_p1_L1_F    Y/57/36322/cleared            n/46/50714/wall_budget        Y/43/28292/cleared            
+g50t_p2_L4_F    n/80/30294/action_budget      Y/51/21184/cleared            n/79/43780/wall_budget        
+ka59_p0_L6_F    n/73/49397/wall_budget        n/80/22056/action_budget      n/68/43207/wall_budget        
+ka59_p1_L6_F    Y/77/31471/cleared            n/80/19713/action_budget      n/80/24589/action_budget      
+ka59_p3_L6_F    n/56/45567/wall_budget        n/74/39004/wall_budget        n/60/47061/wall_budget        
+lf52_p1_L2_F    Y/74/22427/cleared            Y/49/21772/cleared            Y/57/23283/cleared            
+lf52_p2_L4_F    n/77/43166/wall_budget        n/18/51227/wall_budget        n/80/19834/action_budget      
+ls20_p1_L6_F    n/55/34384/wall_budget        n/66/37493/wall_budget        n/80/13923/action_budget      
+m0r0_p2_L6_F    n/31/48727/wall_budget        n/33/48379/wall_budget        n/58/39556/wall_budget        
+m0r0_p3_L6_F    n/30/53054/wall_budget        n/71/46283/wall_budget        n/45/47294/wall_budget        
+r11l_p2_L6_F    Y/60/25895/cleared            n/35/68297/wall_budget        n/35/59882/wall_budget        
+re86_p0_L7_F    n/80/27293/action_budget      n/80/26031/action_budget      n/80/25152/action_budget      
+re86_p1_L6_F    n/80/35046/action_budget      n/65/38086/wall_budget        n/58/53796/wall_budget        
+re86_p2_L7_F    n/47/21669/wall_budget        n/51/32398/wall_budget        n/37/34218/wall_budget        
+re86_p3_L6_F    Y/59/41642/cleared            n/42/47241/wall_budget        n/54/56565/wall_budget        
+s5i5_p0_L8_F    n/26/54701/wall_budget        n/25/54955/wall_budget        n/31/54446/wall_budget        
+s5i5_p2_L7_F    n/8/58837/wall_budget         n/6/57034/wall_budget         n/5/59238/wall_budget         
+sc25_p0_L6_F    Y/57/36594/cleared            n/51/46497/wall_budget        Y/72/38425/cleared            
+sk48_p0_L3_F    n/22/49609/wall_budget        Y/75/12391/cleared            n/80/17603/action_budget      
+sk48_p2_L1_F    n/80/29169/action_budget      n/61/54217/wall_budget        n/61/57653/wall_budget        
+sp80_p1_L6_F    n/30/54431/wall_budget        n/15/54369/wall_budget        n/51/54525/wall_budget        
+su15_p1_L7_F    Y/44/15850/cleared            n/80/38606/action_budget      n/80/27142/action_budget      
+su15_p2_L7_F    n/40/51788/wall_budget        n/20/60428/wall_budget        Y/44/49791/cleared            
+tn36_p0_L6_F    n/47/41332/wall_budget        n/53/47283/wall_budget        Y/48/23702/cleared            
+tr87_p0_L6_F    n/79/44617/wall_budget        n/57/44372/wall_budget        n/80/9667/action_budget       
+tr87_p1_L6_F    n/80/21341/action_budget      n/80/24552/action_budget      Y/63/14747/cleared            
+tu93_p0_L9_F    n/47/54097/wall_budget        n/15/57125/wall_budget        n/2/58163/wall_budget         
+tu93_p2_L8_F    Y/30/39147/cleared            n/17/58574/wall_budget        n/13/62258/wall_budget        
+tu93_p3_L9_F    n/38/56250/wall_budget        Y/65/45380/cleared            n/36/58581/wall_budget        
+wa30_p0_L5_F    n/79/37112/wall_budget        n/80/21533/action_budget      n/80/44503/action_budget      
+wa30_p3_L5_F    n/80/59928/action_budget      n/80/30478/action_budget      n/80/49801/action_budget      
+
+A0: cleared 9/35; median actions to clear 57; timeouts 38; probes 97; errors 0
+A1: cleared 5/35; median actions to clear 51; timeouts 37; probes 110; errors 0
+A2: cleared 6/35; median actions to clear 57; timeouts 1; probes 86; errors 0

@@ -1,0 +1,36 @@
+$ python3 -I scripts/arc2_pool_audit_analyze.py --pool experiments/runs/kaggle-A2-pool-audit-v1/pool --json experiments/runs/kaggle-A2-pool-audit-v1/analysis.json
+pool audit: experiments/runs/kaggle-A2-pool-audit-v1/pool
+ground truth: experiments/runs/kaggle-A2-pool-audit-v1/pool/_kaggle_solutions_audit_tasks.json (Kaggle evaluation solutions)
+Kaggle solutions copy: 40/40 tasks identical to the local ground truth
+tasks: 40 / 40 with a pool file; without: none; truncated by a time cap: none
+test outputs: 65 (with a pool entry: 65)
+
+selected pass@2 (official metric): 12 / 65 (18.5%)
+selected pass@1:                   12 / 65 (18.5%)
+coverage (correct anywhere):       15 / 65 (23.1%)
+coverage gap (coverage - pass@2):  3 / 65 (4.6%)
+
+correct within the first k candidates (denominator 65):
+  k              1      2      3      5     10
+  kgmon         12     12     14     15     15   (submitted ranking; k=2 is oracle best-2 by own ranking)
+  probmul3      12     12     14     15     15
+rank of correct when in pool (kgmon):    {'1': 12, '2': 0, '3': 2, '4-5': 1, '6-10': 0, '11+': 0}
+rank of correct when in pool (probmul3): {'1': 12, '2': 0, '3': 2, '4-5': 1, '6-10': 0, '11+': 0}
+pool size, unique candidates per output: {'n': 65, 'min': 0, 'p25': 3.0, 'median': 7, 'mean': 7.34, 'p75': 11.0, 'max': 18}
+  buckets: {'0': 3, '1': 8, '2': 3, '3-5': 11, '6-10': 22, '11-20': 18, '21+': 0}
+pool size, beams per output: {'n': 65, 'min': 0, 'p25': 10.0, 'median': 17, 'mean': 14.49, 'p75': 19.0, 'max': 25}
+in pool but not selected (3): ['142ca369_0 (kgmon rank 5, probmul3 rank 5, pool 9)', 'b6f77b65_0 (kgmon rank 3, probmul3 rank 3, pool 7)', 'b6f77b65_2 (kgmon rank 3, probmul3 rank 3, pool 5)']
+submitted != exported selection: none; attempts from {'submitted': 65}
+
+decision 1 (selection): coverage gap 3 of 65 outputs >= 3: selector work is justified
+
+budget use:
+  stop reason per task: {'exhausted': 40}; tasks per rank: {'1': 12, '0': 9, '2': 8, '3': 11}
+  task elapsed s: {'n': 40, 'min': 164, 'p25': 387.0, 'median': 601.0, 'mean': 626.12, 'p75': 793.5, 'max': 1379}
+  time to first correct candidate, s (15 of 15 outputs with the correct grid in the pool): {'n': 15, 'min': 150.1, 'p25': 188.64999999999998, 'median': 250.8, 'mean': 278.66, 'p75': 294.95, 'max': 580.4}
+  same, as a fraction of the task's time: {'n': 15, 'min': 0.217, 'p25': 0.405, 'median': 0.491, 'mean': 0.5, 'p75': 0.5734999999999999, 'max': 1.0}
+  final top-2 already fixed at a fraction of the task's time: 25%: 0/39 tasks, 2/62 outputs; 50%: 1/39 tasks, 7/62 outputs; 75%: 13/39 tasks, 29/62 outputs (tasks without timing or candidates: 1)
+  margin (kgmon rank 1 - rank 2) vs correctness: pass_at_2 AUC 0.939 (n_pos 11, n_neg 43); pass_at_1 AUC 0.939 (n_pos 11, n_neg 43); outputs with a margin 54, single-candidate {'n': 8, 'correct': 1}, empty pool 3
+decision 2 (budget): margin AUC (pass@2) 0.939 (n_pos 11, n_neg 43); top-2 fixed by 50% of the task's time in 0.026 of tasks (1/39): no adaptive budget experiment (needs AUC >= 0.8 and share >= 0.5)
+
+exit 0

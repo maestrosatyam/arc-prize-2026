@@ -1,0 +1,176 @@
+{
+ "mamba_vs_transformer:icl": {
+  "exact_outputs": {
+   "arm": 4,
+   "transformer": 12,
+   "arm_only": 1,
+   "transformer_only": 9,
+   "sign_p": 0.0215
+  },
+  "cell_acc": {
+   "diff": -0.1062,
+   "ci95": [
+    -0.1452,
+    -0.0711
+   ]
+  },
+  "changed_cell_acc": {
+   "diff": -0.0916,
+   "ci95": [
+    -0.1857,
+    -0.0047
+   ]
+  },
+  "n_queries": 121,
+  "n_same_shape": 86
+ },
+ "gru_vs_transformer:icl": {
+  "exact_outputs": {
+   "arm": 2,
+   "transformer": 12,
+   "arm_only": 1,
+   "transformer_only": 11,
+   "sign_p": 0.0063
+  },
+  "cell_acc": {
+   "diff": -0.1095,
+   "ci95": [
+    -0.1537,
+    -0.0633
+   ]
+  },
+  "changed_cell_acc": {
+   "diff": -0.1674,
+   "ci95": [
+    -0.2834,
+    -0.0661
+   ]
+  },
+  "n_queries": 121,
+  "n_same_shape": 86
+ },
+ "hybrid_vs_transformer:icl": {
+  "exact_outputs": {
+   "arm": 5,
+   "transformer": 12,
+   "arm_only": 2,
+   "transformer_only": 9,
+   "sign_p": 0.0654
+  },
+  "cell_acc": {
+   "diff": -0.0588,
+   "ci95": [
+    -0.0991,
+    -0.0236
+   ]
+  },
+  "changed_cell_acc": {
+   "diff": -0.1112,
+   "ci95": [
+    -0.1886,
+    -0.0332
+   ]
+  },
+  "n_queries": 121,
+  "n_same_shape": 86
+ },
+ "mamba_vs_transformer:ttt": {
+  "exact_outputs": {
+   "arm": 7,
+   "transformer": 15,
+   "arm_only": 1,
+   "transformer_only": 9,
+   "sign_p": 0.0215
+  },
+  "cell_acc": {
+   "diff": -0.0939,
+   "ci95": [
+    -0.125,
+    -0.0629
+   ]
+  },
+  "changed_cell_acc": {
+   "diff": -0.0627,
+   "ci95": [
+    -0.1532,
+    0.0321
+   ]
+  },
+  "n_queries": 121,
+  "n_same_shape": 86
+ },
+ "gru_vs_transformer:ttt": {
+  "exact_outputs": {
+   "arm": 5,
+   "transformer": 15,
+   "arm_only": 1,
+   "transformer_only": 11,
+   "sign_p": 0.0063
+  },
+  "cell_acc": {
+   "diff": -0.1038,
+   "ci95": [
+    -0.1389,
+    -0.069
+   ]
+  },
+  "changed_cell_acc": {
+   "diff": -0.0971,
+   "ci95": [
+    -0.1838,
+    -0.0081
+   ]
+  },
+  "n_queries": 121,
+  "n_same_shape": 86
+ },
+ "hybrid_vs_transformer:ttt": {
+  "exact_outputs": {
+   "arm": 13,
+   "transformer": 15,
+   "arm_only": 4,
+   "transformer_only": 6,
+   "sign_p": 0.7539
+  },
+  "cell_acc": {
+   "diff": -0.0181,
+   "ci95": [
+    -0.0477,
+    0.0131
+   ]
+  },
+  "changed_cell_acc": {
+   "diff": -0.0224,
+   "ci95": [
+    -0.1021,
+    0.0605
+   ]
+  },
+  "n_queries": 121,
+  "n_same_shape": 86
+ },
+ "mamba_vs_transformer:tf_nll": {
+  "diff": 0.0782,
+  "ci95": [
+   0.0445,
+   0.1146
+  ],
+  "n_tasks": 193
+ },
+ "gru_vs_transformer:tf_nll": {
+  "diff": 0.1817,
+  "ci95": [
+   0.1365,
+   0.2306
+  ],
+  "n_tasks": 193
+ },
+ "hybrid_vs_transformer:tf_nll": {
+  "diff": 0.077,
+  "ci95": [
+   0.0526,
+   0.1011
+  ],
+  "n_tasks": 193
+ }
+}

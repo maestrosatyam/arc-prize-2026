@@ -1,0 +1,47 @@
+$ python3 -I arc3_r1s_analyze.py   # a per-run reader, not included
+R1s: arm A0H (unchanged harness, EXPOSE_RESET off, at 320 actions / 3600 s) vs R1r A11h (RESET, same budget), unchanged at 30 min and RESET at 30 min
+labels on the cases: {'yes': 11, 'partial': 22, 'no': 2}
+
+run                      all  mechanics-only   within 160 / 1800; actions to clear (median, mean, n)
+RESET, 320 actions / 60 min (R1r): mean 25.5 (51/70), mechanics-only mean 14.0
+  A11h (R1r v1)        26/35           14/22   17; 64.5, 77.5, 26
+  A11h (R1r v2)        25/35           14/22   20; 71, 93.5, 25
+unchanged, 160 actions / 30 min: mean 15.75 (63/140), mechanics-only mean 6.5
+  A0L (R1d)            14/35            3/22   14; 62.5, 78.2, 14
+  A0Lb (R1g v1)        14/35            7/22   14; 66.0, 83.6, 14
+  A0Lb (R1g v2)        18/35            8/22   18; 75.0, 77.7, 18
+  A0Lc (R1j)           17/35            8/22   17; 79, 73.6, 17
+RESET, 160 actions / 30 min: mean 20.33 (61/105), mechanics-only mean 10.0
+  A11r (R1m v1)        20/35            9/22   20; 58.5, 62.2, 20
+  A11r (R1m v2)        21/35           11/22   21; 89, 75.2, 21
+  A12n (R1o)           20/35           10/22   20; 74.5, 78.1, 20
+A0H (R1s)              21/35           10/22   15; 62, 94.2, 21   label groups {'yes': [10, 11], 'partial': [10, 22], 'no': [1, 2]}
+case-arms in the archive 35, ran 35; missing 0; ends {'action_budget': 2, 'cleared': 21, 'wall_budget': 12}
+clears within 160 actions / 1800 s 15 (6 mechanics-only); after 6 (4 mechanics-only) ['g50t_p2_L4_F', 'ka59_p0_L6_F', 'sk48_p2_L1_F', 'su15_p2_L7_F', 'tu93_p0_L9_F', 'wa30_p3_L5_F']
+time share of R1r's gain over the unchanged 30-minute mean: 0.54 ((A0H - unchanged mean) / (R1r mean - unchanged mean); report only)
+RESET counters: model RESETs 0 (expected 0; cases []); automatic RESETs 43 in 17 case-arms; counted 35, rows without counts 0
+
+A0H paired (exact McNemar, two-sided):
+  all      vs A11h (R1r v1)    A0H only 2, other only 7, both 19, neither 7 (pairs 35); p 0.180
+  all      vs A11h (R1r v2)    A0H only 0, other only 4, both 21, neither 10 (pairs 35); p 0.125
+  all      vs A0L (R1d)        A0H only 8, other only 1, both 13, neither 13 (pairs 35); p 0.039
+  all      vs A0Lb (R1g v1)    A0H only 10, other only 3, both 11, neither 11 (pairs 35); p 0.092
+  all      vs A0Lb (R1g v2)    A0H only 6, other only 3, both 15, neither 11 (pairs 35); p 0.508
+  all      vs A0Lc (R1j)       A0H only 7, other only 3, both 14, neither 11 (pairs 35); p 0.344
+  all      vs A11r (R1m v1)    A0H only 7, other only 6, both 14, neither 8 (pairs 35); p 1.000
+  all      vs A11r (R1m v2)    A0H only 3, other only 3, both 18, neither 11 (pairs 35); p 1.000
+  all      vs A12n (R1o)       A0H only 4, other only 3, both 17, neither 11 (pairs 35); p 1.000
+  partial  vs A11h (R1r v1)    A0H only 2, other only 6, both 8, neither 6 (pairs 22); p 0.289
+  partial  vs A11h (R1r v2)    A0H only 0, other only 4, both 10, neither 8 (pairs 22); p 0.125
+  partial  vs A0L (R1d)        A0H only 7, other only 0, both 3, neither 12 (pairs 22); p 0.016
+  partial  vs A0Lb (R1g v1)    A0H only 5, other only 2, both 5, neither 10 (pairs 22); p 0.453
+  partial  vs A0Lb (R1g v2)    A0H only 5, other only 3, both 5, neither 9 (pairs 22); p 0.727
+  partial  vs A0Lc (R1j)       A0H only 5, other only 3, both 5, neither 9 (pairs 22); p 0.727
+  partial  vs A11r (R1m v1)    A0H only 6, other only 5, both 4, neither 7 (pairs 22); p 1.000
+  partial  vs A11r (R1m v2)    A0H only 2, other only 3, both 8, neither 9 (pairs 22); p 1.000
+  partial  vs A12n (R1o)       A0H only 3, other only 3, both 7, neither 9 (pairs 22); p 1.000
+
+Rule: ">= 22 time explains most of R1r's gain; <= 18 RESET adds value"; between: report only.
+Decision: between: report only (18 < A0H 21/35 < 22)
+
+exit 0

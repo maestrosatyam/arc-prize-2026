@@ -1,0 +1,124 @@
+{
+ "rule": "experiments/arc3-wm/WM2_RULE.md (frozen 2026-10-27 20:15 IST)",
+ "decision": "report",
+ "valid": true,
+ "validity": {
+  "n_case_arms": 35,
+  "ran_to_clear_or_budget": 35,
+  "ran_needed": 33,
+  "replay_mismatch": [],
+  "trigger_fired_levels": 28,
+  "no_gate_record": []
+ },
+ "clears": 16,
+ "of": 35,
+ "partial_clears": 8,
+ "partial_of": 22,
+ "cleared_cases": [
+  "ar25_p3_L7_F",
+  "cn04_p0_L6_F",
+  "g50t_p1_L1_F",
+  "g50t_p2_L4_F",
+  "ka59_p1_L6_F",
+  "lf52_p1_L2_F",
+  "m0r0_p3_L6_F",
+  "re86_p3_L6_F",
+  "sc25_p0_L6_F",
+  "sk48_p0_L3_F",
+  "sk48_p2_L1_F",
+  "su15_p1_L7_F",
+  "su15_p2_L7_F",
+  "tr87_p1_L6_F",
+  "tu93_p2_L8_F",
+  "tu93_p3_L9_F"
+ ],
+ "partial_cleared_cases": [
+  "ar25_p3_L7_F",
+  "cn04_p0_L6_F",
+  "g50t_p1_L1_F",
+  "g50t_p2_L4_F",
+  "m0r0_p3_L6_F",
+  "sc25_p0_L6_F",
+  "sk48_p2_L1_F",
+  "tu93_p3_L9_F"
+ ],
+ "thresholds": {
+  "promote_clears": 22,
+  "promote_partial": 11,
+  "harmful_clears": 11
+ },
+ "controls": {
+  "unchanged": {
+   "R1d v1": 14,
+   "R1g v1": 14,
+   "R1g v2": 18,
+   "R1j v1": 17
+  },
+  "unchanged_partial": {
+   "R1d v1": 3,
+   "R1g v1": 7,
+   "R1g v2": 8,
+   "R1j v1": 8
+  },
+  "told_insight": {
+   "R1g v1": 20,
+   "R1g v2": 23
+  },
+  "told_insight_partial": {
+   "R1g v1": 12,
+   "R1g v2": 12
+  }
+ },
+ "recorded": {
+  "clears_within_80_actions_900_s": 5,
+  "fast_cases": [
+   "ar25_p3_L7_F",
+   "g50t_p1_L1_F",
+   "lf52_p1_L2_F",
+   "sk48_p0_L3_F",
+   "su15_p1_L7_F"
+  ],
+  "end_reasons": {
+   "action_budget": 4,
+   "cleared": 16,
+   "wall_budget": 15
+  },
+  "levels_seen": 28,
+  "levels_gate_closed": 28,
+  "levels_with_refusal": 27,
+  "refusals": 29,
+  "refusals_per_refused_level": 1.07,
+  "failure_kinds": {
+   "GAME_OVER": 19,
+   "reset": 0,
+   "UNDO": 62,
+   "no_change": 34
+  },
+  "case_arms_with_verify": 26,
+  "levels_with_verify": 26,
+  "levels_with_verify_ok": 6,
+  "verify_calls": 90,
+  "verify_ok": 10,
+  "verify_ok_note": "a lower bound of the rule's ok: ok also requires every replayed transition to match, stricter than 'every transition since the last mismatch' (2026-10-27); the gate opens on the call, so clears are untouched",
+  "checked_per_ok_median": 24.0,
+  "seconds_failure_to_opening_median": 148.7,
+  "gates_never_opened": 2,
+  "tokens_median": 84063,
+  "transcripts": {
+   "files": 35,
+   "snippets": 1221,
+   "snippets_traceback": 175,
+   "results_nameerror": 62,
+   "gate_refusals_seen": 29,
+   "wm_snippets": 103,
+   "wm_snippets_error": 5,
+   "wm_error_classes": {
+    "StaleStateActionError": 1,
+    "NameError": 3,
+    "TypeError": 1
+   }
+  },
+  "wm1_reference": "WM1: tools called on 25 of 481 levels; verify ok on 11 levels (all cleared); 5 of 66 tool snippets errored"
+ },
+ "read_next": "the model's step on the cleared cases against oracle.json (transcripts/<case>_WM2*.txt)"
+}

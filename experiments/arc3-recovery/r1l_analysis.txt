@@ -1,0 +1,42 @@
+$ python3 -I arc3_r1l_analyze.py   # a per-run reader, not included
+R1l: Qwen3.8-27B-FP8 agent (A10l low effort, A10x xhigh + thinking budget) vs unchanged 30-minute samples
+labels on the control cases: {'yes': 11, 'partial': 22, 'no': 2}
+
+arm                    all  mechanics-only
+A0L (R1d)            14/35            3/22
+A0Lb (R1g v1)        14/35            7/22
+A0Lb (R1g v2)        18/35            8/22
+A0Lc (R1j)           17/35            8/22
+A10l (R1l)            0/35            0/22   groups {'yes': [0, 11], 'partial': [0, 22], 'no': [0, 2]}
+A10x (R1l)            0/35            0/22   groups {'yes': [0, 11], 'partial': [0, 22], 'no': [0, 2]}
+
+A10l paired (exact McNemar, two-sided):
+  all      vs A0L (R1d)      A10l only 0, control only 14, both 0, neither 21 (pairs 35); p 0.000
+  all      vs A0Lb (R1g v1)  A10l only 0, control only 14, both 0, neither 21 (pairs 35); p 0.000
+  all      vs A0Lb (R1g v2)  A10l only 0, control only 18, both 0, neither 17 (pairs 35); p 0.000
+  all      vs A0Lc (R1j)     A10l only 0, control only 17, both 0, neither 18 (pairs 35); p 0.000
+  partial  vs A0L (R1d)      A10l only 0, control only 3, both 0, neither 19 (pairs 22); p 0.250
+  partial  vs A0Lb (R1g v1)  A10l only 0, control only 7, both 0, neither 15 (pairs 22); p 0.016
+  partial  vs A0Lb (R1g v2)  A10l only 0, control only 8, both 0, neither 14 (pairs 22); p 0.008
+  partial  vs A0Lc (R1j)     A10l only 0, control only 8, both 0, neither 14 (pairs 22); p 0.008
+  requests 988 ({'low': 988}), tokens/request 2667.4, truncated 16 (share 0.016), budget closures 0, request errors 31
+  actions per case-arm median 24 mean 37.9; wall median 1800.4 s; tokens per case-arm median 75029.0; ends {'action_budget': 3, 'wall_budget': 32}; not run 0
+  aggregate generated tok/s 376.3; server option set 0 ['--reasoning-config', '{"reasoning_start_str": "<think>", "reasoning_end_str": "</think>"}', '--kv-cache-dtype', 'fp8', '--speculative-config', '{"method": "qwen3_5_mtp", "num_speculative_tokens": 2}']; ready 617.5 s after start; run wall 7220.4 s
+
+A10x paired (exact McNemar, two-sided):
+  all      vs A0L (R1d)      A10x only 0, control only 14, both 0, neither 21 (pairs 35); p 0.000
+  all      vs A0Lb (R1g v1)  A10x only 0, control only 14, both 0, neither 21 (pairs 35); p 0.000
+  all      vs A0Lb (R1g v2)  A10x only 0, control only 18, both 0, neither 17 (pairs 35); p 0.000
+  all      vs A0Lc (R1j)     A10x only 0, control only 17, both 0, neither 18 (pairs 35); p 0.000
+  partial  vs A0L (R1d)      A10x only 0, control only 3, both 0, neither 19 (pairs 22); p 0.250
+  partial  vs A0Lb (R1g v1)  A10x only 0, control only 7, both 0, neither 15 (pairs 22); p 0.016
+  partial  vs A0Lb (R1g v2)  A10x only 0, control only 8, both 0, neither 14 (pairs 22); p 0.008
+  partial  vs A0Lc (R1j)     A10x only 0, control only 8, both 0, neither 14 (pairs 22); p 0.008
+  requests 421 ({'default': 421}), tokens/request 3951.2, truncated 0 (share 0.0), budget closures 42, request errors 34
+  actions per case-arm median 0 mean 2.9; wall median 1800.2 s; tokens per case-arm median 47788.0; ends {'wall_budget': 35}; not run 0
+  aggregate generated tok/s 248.8; server option set 0 ['--reasoning-config', '{"reasoning_start_str": "<think>", "reasoning_end_str": "</think>"}', '--kv-cache-dtype', 'fp8']; ready 650.2 s after start; run wall 7224.7 s
+
+Rule: promote if either arm >= 20/35 or >= 11/22 mechanics-only; close the model lever if both <= 15/35; otherwise report only.
+Decision: close (A10l 0/35 (0/22 mechanics-only), A10x 0/35 (0/22 mechanics-only): both <= 15/35; the model lever is closed for ARC-AGI-3)
+
+exit 0

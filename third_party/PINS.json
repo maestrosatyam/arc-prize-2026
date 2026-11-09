@@ -1,0 +1,43 @@
+{
+ "ARC-AGI-2": {
+  "url": "https://github.com/arcprize/ARC-AGI-2",
+  "sha": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "date": "2025-05-15",
+  "license": "Apache-2.0",
+  "use": "public training (1000) and evaluation (120) tasks"
+ },
+ "ARC-AGI-3-Kaggle-Starter": {
+  "url": "https://github.com/arcprize/ARC-AGI-3-Kaggle-Starter",
+  "sha": "eeb1535404f321d280a8f9194bbc1d7aca5f05fc",
+  "date": "2026-05-27",
+  "license": "none stated in repo (flagged)",
+  "use": "notebook builder pattern and MyAgent contract"
+ },
+ "ARC-AGI-3-Agents": {
+  "url": "https://github.com/arcprize/ARC-AGI-3-Agents",
+  "sha": "4743e7d0aaae0ded0d98a89a7e282e63564cd58b",
+  "date": "2026-08-03",
+  "license": "MIT (c) 2025 ARC Prize",
+  "use": "Agent/Swarm framework (a copy is attached to the Kaggle competition data)"
+ },
+ "duck-harness": {
+  "url": "https://github.com/Tufalabs/duck-harness",
+  "sha": "7652836056c59e044f093e3c13ed7438c814169e",
+  "date": "2026-07-01",
+  "license": "MIT per pyproject classifier; no LICENSE file in repo (flagged)",
+  "use": "reference for TAAF/Duck harness; sparse checkout without example-run"
+ },
+ "arc-agi (PyPI)": {
+  "version": "0.9.9",
+  "arcengine": "0.9.3",
+  "license": "see licenses/NOTICES.md",
+  "use": "official engine and scorer"
+ },
+ "clone_command": "git clone --depth 1 <url> && git checkout <sha>; duck-harness: --filter=blob:none --sparse, sparse-checkout set ARC3-Inference tufa-arc-agi-framework",
+ "arc-agi-3-solution (da-fr)": {
+  "url": "https://github.com/da-fr/arc-agi-3-solution",
+  "sha": "10882e332d883af3e61616df8c8a17d03a328a75",
+  "license": "Apache-2.0 (LICENSE file present)",
+  "use": "ARC-AGI-3 P0 baseline source (Duck harness fork, Milestone 2); sparse checkout"
+ }
+}

@@ -1,0 +1,11 @@
+{"case_id": "dc22_L2", "game": "dc22", "insight_chars": 48, "kernel": "k1", "level": 2, "reason": "no control: no core-claim subset within 20% of 48 characters (select_control, R1f's tolerance)"}
+{"case_id": "ft09_L3", "game": "ft09", "insight_chars": 45, "kernel": "k2", "level": 3, "reason": "no control: no core-claim subset within 20% of 45 characters (select_control, R1f's tolerance)"}
+{"case_id": "ft09_L6", "game": "ft09", "insight_chars": 43, "kernel": "k2", "level": 6, "reason": "no control: no core-claim subset within 20% of 43 characters (select_control, R1f's tolerance)"}
+{"case_id": "lp85_L1", "game": "lp85", "insight_chars": 40, "kernel": "k3", "level": 1, "reason": "no control: no core-claim subset within 20% of 40 characters (select_control, R1f's tolerance)"}
+{"case_id": "tn36_L1", "game": "tn36", "insight_chars": 54, "kernel": "k2", "level": 1, "reason": "no control: no core-claim subset within 20% of 54 characters (select_control, R1f's tolerance)"}
+{"case_id": "tr87_L2", "game": "tr87", "insight_chars": 75, "kernel": "k3", "level": 2, "reason": "no control: no core-claim subset within 20% of 75 characters (select_control, R1f's tolerance)"}
+{"case_id": "tr87_L3", "game": "tr87", "insight_chars": 86, "kernel": "k3", "level": 3, "reason": "no control: no core-claim subset within 20% of 86 characters (select_control, R1f's tolerance)"}
+{"case_id": "tr87_L4", "game": "tr87", "insight_chars": 76, "kernel": "k3", "level": 4, "reason": "no control: no core-claim subset within 20% of 76 characters (select_control, R1f's tolerance)"}
+{"case_id": "tu93_L1", "game": "tu93", "insight_chars": 50, "kernel": "k2", "level": 1, "reason": "no control: no core-claim subset within 20% of 50 characters (select_control, R1f's tolerance)"}
+{"case_id": "wa30_L7", "game": "wa30", "insight_chars": 64, "kernel": "k1", "level": 7, "reason": "no control: no core-claim subset within 20% of 64 characters (select_control, R1f's tolerance)"}
+{"case_id": "wa30_L8", "game": "wa30", "insight_chars": 61, "kernel": "k1", "level": 8, "reason": "no control: no core-claim subset within 20% of 61 characters (select_control, R1f's tolerance)"}

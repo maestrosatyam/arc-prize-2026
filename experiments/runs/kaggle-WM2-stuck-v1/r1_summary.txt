@@ -1,0 +1,38 @@
+case            WM2 clr/act/tok/end           
+ar25_p3_L7_F    Y/44/13670/cleared            
+bp35_p1_L2_F    n/28/115004/wall_budget       
+bp35_p3_L2_F    n/127/95738/wall_budget       
+cn04_p0_L6_F    Y/48/86071/cleared            
+g50t_p1_L1_F    Y/19/43344/cleared            
+g50t_p2_L4_F    Y/120/48275/cleared           
+ka59_p0_L6_F    n/113/84026/wall_budget       
+ka59_p1_L6_F    Y/154/38425/cleared           
+ka59_p3_L6_F    n/160/73591/action_budget     
+lf52_p1_L2_F    Y/52/17328/cleared            
+lf52_p2_L4_F    n/157/78503/wall_budget       
+ls20_p1_L6_F    n/149/54415/wall_budget       
+m0r0_p2_L6_F    n/10/101268/wall_budget       
+m0r0_p3_L6_F    Y/60/63577/cleared            
+r11l_p2_L6_F    n/35/112943/wall_budget       
+re86_p0_L7_F    n/131/90638/wall_budget       
+re86_p1_L6_F    n/93/98027/wall_budget        
+re86_p2_L7_F    n/97/97491/wall_budget        
+re86_p3_L6_F    Y/90/49896/cleared            
+s5i5_p0_L8_F    n/18/120157/wall_budget       
+s5i5_p2_L7_F    n/6/114728/wall_budget        
+sc25_p0_L6_F    Y/102/33698/cleared           
+sk48_p0_L3_F    Y/77/8604/cleared             
+sk48_p2_L1_F    Y/44/92266/cleared            
+sp80_p1_L6_F    n/24/117522/wall_budget       
+su15_p1_L7_F    Y/5/9301/cleared              
+su15_p2_L7_F    Y/31/99974/cleared            
+tn36_p0_L6_F    n/50/117907/wall_budget       
+tr87_p0_L6_F    n/160/86448/action_budget     
+tr87_p1_L6_F    Y/128/33805/cleared           
+tu93_p0_L9_F    n/52/131955/wall_budget       
+tu93_p2_L8_F    Y/25/91196/cleared            
+tu93_p3_L9_F    Y/65/56633/cleared            
+wa30_p0_L5_F    n/160/68657/action_budget     
+wa30_p3_L5_F    n/160/84063/action_budget     
+
+WM2: cleared 16/35; median actions to clear 60; timeouts 18; probes 152; errors 0

@@ -1,0 +1,1794 @@
+{
+ "rule": "R1Z_RULE.md (frozen in advance 2026-10-28 about 00:50 IST; revisions 3-5 frozen 12:08 IST): validity (twin passed; >= 33/35 ended by clear / action budget / wall budget; prefixes match; a law at 0.9 on >= 10 levels from the model's own fits; A22P: proposer fired on >= 20 levels); promote at >= 10/35 within 80 actions / 900 s; paper result at >= 22/35 at 30 min with < 10 within budget; harmful at <= 11/35; otherwise report; additivity (report only): A22P >= A21 + 3",
+ "results": "experiments/runs/kaggle-R1z-lawlib-v1/r1_results.jsonl",
+ "labels": {
+  "yes": 11,
+  "partial": 22,
+  "no": 2
+ },
+ "groups": {
+  "baseline: unchanged (Intel), 160 actions / 30 min": {
+   "A0L (R1d)": {
+    "all": 14,
+    "partial": 3,
+    "n": 35,
+    "within_160_1800": 14,
+    "within_80_900": 5,
+    "usage": {
+     "ran": 35,
+     "actions": 3258,
+     "generated_tokens": 2727571,
+     "tokens_per_action": 837.2,
+     "apm_median": 4.13,
+     "actions_median": 95
+    }
+   },
+   "A0Lb (R1g v1)": {
+    "all": 14,
+    "partial": 7,
+    "n": 35,
+    "within_160_1800": 14,
+    "within_80_900": 5,
+    "usage": {
+     "ran": 35,
+     "actions": 3085,
+     "generated_tokens": 2840118,
+     "tokens_per_action": 920.6,
+     "apm_median": 3.68,
+     "actions_median": 75
+    }
+   },
+   "A0Lb (R1g v2)": {
+    "all": 18,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 18,
+    "within_80_900": 6,
+    "usage": {
+     "ran": 35,
+     "actions": 3147,
+     "generated_tokens": 2461004,
+     "tokens_per_action": 782.0,
+     "apm_median": 5.19,
+     "actions_median": 80
+    }
+   },
+   "A0Lc (R1j)": {
+    "all": 17,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 17,
+    "within_80_900": 6,
+    "usage": {
+     "ran": 35,
+     "actions": 3094,
+     "generated_tokens": 2384537,
+     "tokens_per_action": 770.7,
+     "apm_median": 4.87,
+     "actions_median": 90
+    }
+   }
+  },
+  "beside: told insight (Intel), 160 actions / 30 min": {
+   "A7L (R1g v1)": {
+    "all": 20,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 20,
+    "within_80_900": 12,
+    "usage": {
+     "ran": 35,
+     "actions": 3067,
+     "generated_tokens": 1995347,
+     "tokens_per_action": 650.6,
+     "apm_median": 5.54,
+     "actions_median": 79
+    }
+   },
+   "A7L (R1g v2)": {
+    "all": 23,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 23,
+    "within_80_900": 14,
+    "usage": {
+     "ran": 35,
+     "actions": 2755,
+     "generated_tokens": 1977607,
+     "tokens_per_action": 717.8,
+     "apm_median": 5.89,
+     "actions_median": 66
+    }
+   }
+  },
+  "beside: tools with the gate (WM2), 160 actions / 30 min": {
+   "WM2": {
+    "all": 16,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 16,
+    "within_80_900": 5,
+    "usage": {
+     "ran": 35,
+     "actions": 2794,
+     "generated_tokens": 2629144,
+     "tokens_per_action": 941.0,
+     "apm_median": 3.75,
+     "actions_median": 65
+    }
+   }
+  },
+  "beside: proposer (R1y), 160 actions / 30 min": {
+   "A21 (R1y)": {
+    "all": 17,
+    "partial": 6,
+    "n": 35,
+    "within_160_1800": 17,
+    "within_80_900": 7,
+    "usage": {
+     "ran": 35,
+     "actions": 2807,
+     "generated_tokens": 2070794,
+     "tokens_per_action": 737.7,
+     "apm_median": 3.67,
+     "actions_median": 82
+    }
+   }
+  }
+ },
+ "missing_archives": [],
+ "arms": {
+  "A22L": {
+   "arm": "A22L",
+   "validity": {
+    "valid": false,
+    "checks": {
+     "twin_passed": true,
+     "ended_by_clear_or_budget": true,
+     "prefixes_match": true,
+     "law_09_levels": false
+    },
+    "twin_log": true,
+    "case_arms": 35,
+    "ended": 35,
+    "ended_needed": 33,
+    "replay_mismatch": [],
+    "law_09_levels_model": 4,
+    "law_09_levels_host": 12,
+    "law_09_needed": 10,
+    "proposer_fired_levels": null,
+    "proposer_fired_needed": null,
+    "change_l_note": "the arm did not exercise change L (rule)"
+   },
+   "lever": "report",
+   "lever_reason": "A22L 20/35 at 30 min, 4 within 80 actions / 900 s",
+   "decision": "no decision (validity failed): report only",
+   "counts": {
+    "all": 20,
+    "partial": 10,
+    "n": 35,
+    "within_160_1800": 20,
+    "within_80_900": 4,
+    "usage": {
+     "ran": 35,
+     "actions": 2699,
+     "generated_tokens": 2489769,
+     "tokens_per_action": 922.5,
+     "apm_median": 2.75,
+     "actions_median": 70
+    },
+    "missing": [],
+    "hard_stop_cut": [],
+    "cleared": [
+     "bp35_p1_L2_F",
+     "g50t_p1_L1_F",
+     "g50t_p2_L4_F",
+     "ka59_p1_L6_F",
+     "lf52_p1_L2_F",
+     "lf52_p2_L4_F",
+     "re86_p1_L6_F",
+     "re86_p2_L7_F",
+     "re86_p3_L6_F",
+     "s5i5_p0_L8_F",
+     "s5i5_p2_L7_F",
+     "sc25_p0_L6_F",
+     "sk48_p0_L3_F",
+     "sk48_p2_L1_F",
+     "su15_p1_L7_F",
+     "su15_p2_L7_F",
+     "tn36_p0_L6_F",
+     "tr87_p0_L6_F",
+     "tr87_p1_L6_F",
+     "tu93_p2_L8_F"
+    ],
+    "fast": [
+     "re86_p3_L6_F",
+     "sk48_p0_L3_F",
+     "su15_p1_L7_F",
+     "tr87_p0_L6_F"
+    ],
+    "ends": {
+     "action_budget": 2,
+     "cleared": 20,
+     "wall_budget": 13
+    }
+   },
+   "pairs": {
+    "baseline: unchanged (Intel), 160 actions / 30 min": {
+     "A0L (R1d)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 7,
+       "other_only": 1,
+       "both": 13,
+       "neither": 14,
+       "p": 0.0703125
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 7,
+       "other_only": 0,
+       "both": 3,
+       "neither": 12,
+       "p": 0.015625
+      }
+     },
+     "A0Lb (R1g v1)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 9,
+       "other_only": 3,
+       "both": 11,
+       "neither": 12,
+       "p": 0.14599609375
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 5,
+       "other_only": 2,
+       "both": 5,
+       "neither": 10,
+       "p": 0.453125
+      }
+     },
+     "A0Lb (R1g v2)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 7,
+       "other_only": 5,
+       "both": 13,
+       "neither": 10,
+       "p": 0.7744140625
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 6,
+       "other_only": 4,
+       "both": 4,
+       "neither": 8,
+       "p": 0.75390625
+      }
+     },
+     "A0Lc (R1j)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 5,
+       "other_only": 2,
+       "both": 15,
+       "neither": 13,
+       "p": 0.453125
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 4,
+       "other_only": 2,
+       "both": 6,
+       "neither": 10,
+       "p": 0.6875
+      }
+     }
+    },
+    "beside: told insight (Intel), 160 actions / 30 min": {
+     "A7L (R1g v1)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 6,
+       "other_only": 6,
+       "both": 14,
+       "neither": 9,
+       "p": 1.0
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 3,
+       "other_only": 5,
+       "both": 7,
+       "neither": 7,
+       "p": 0.7265625
+      }
+     },
+     "A7L (R1g v2)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 4,
+       "other_only": 7,
+       "both": 16,
+       "neither": 8,
+       "p": 0.548828125
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 3,
+       "other_only": 5,
+       "both": 7,
+       "neither": 7,
+       "p": 0.7265625
+      }
+     }
+    },
+    "beside: tools with the gate (WM2), 160 actions / 30 min": {
+     "WM2": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 8,
+       "other_only": 4,
+       "both": 12,
+       "neither": 11,
+       "p": 0.3876953125
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 6,
+       "other_only": 4,
+       "both": 4,
+       "neither": 8,
+       "p": 0.75390625
+      }
+     }
+    },
+    "beside: proposer (R1y), 160 actions / 30 min": {
+     "A21 (R1y)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 7,
+       "other_only": 4,
+       "both": 13,
+       "neither": 11,
+       "p": 0.548828125
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 6,
+       "other_only": 2,
+       "both": 4,
+       "neither": 10,
+       "p": 0.2890625
+      }
+     }
+    }
+   },
+   "library": {
+    "levels_law_09_model": 4,
+    "levels_law_09_host": 12,
+    "levels_law_09_either": 13,
+    "case_arms_with_fit_call": 7,
+    "fit_calls": 14,
+    "best_law_rate_median": 0.9,
+    "model_rate_median": 0.07,
+    "model_rate_at_09": 0,
+    "host_best_law_rate_median": 0.889,
+    "seconds_failure_to_first_law_09_median": -81.05000000000001,
+    "first_law_09_before_failure": 2,
+    "kinds_09_levels": {
+     "gate": 2,
+     "strip": 2,
+     "click_paint": 1,
+     "click_toggle": 1,
+     "fall": 1,
+     "move": 1
+    },
+    "best_law_kinds": {
+     "fall": 1,
+     "gate": 1,
+     "strip": 1,
+     "move": 1
+    },
+    "best_law_scopes": {
+     "all": 3,
+     "['DOWN', 'LEFT', 'RIGHT', 'UP']": 1
+    },
+    "plans": {
+     "plan_scoped": 0,
+     "plan_full": 0,
+     "plan_uncomposed": 1,
+     "found_scoped": 0,
+     "found_full": 0,
+     "found_uncomposed": 0,
+     "executed": 7,
+     "executed_scoped": 0,
+     "executed_completed": 0,
+     "executed_completed_scoped": 0
+    },
+    "plan_found_rate": {
+     "scoped": null,
+     "full": null,
+     "uncomposed": 0.0
+    },
+    "plan_length_found_median": null,
+    "cleared_after_executed_plan": [],
+    "per_case": {
+     "ar25_p3_L7_F": {
+      "cleared": false,
+      "fit_calls": 1,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": 0,
+      "best_law_rate_max": 0.8,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "bp35_p1_L2_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "bp35_p3_L2_F": {
+      "cleared": false,
+      "fit_calls": 2,
+      "law_09_model": true,
+      "law_09_host": false,
+      "best_law": {
+       "kind": "fall",
+       "scope": "all",
+       "rate": 0.907,
+       "checked": 86,
+       "active": 15
+      },
+      "model_rate_max": 0.07,
+      "best_law_rate_max": 0.907,
+      "host_best_law_rate": 0.878,
+      "kinds_09": [
+       "click_paint",
+       "click_toggle",
+       "fall"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "cn04_p0_L6_F": {
+      "cleared": false,
+      "fit_calls": 1,
+      "law_09_model": true,
+      "law_09_host": true,
+      "best_law": {
+       "kind": "gate",
+       "scope": "all",
+       "rate": 1.0,
+       "checked": 24,
+       "active": 3
+      },
+      "model_rate_max": 0.083,
+      "best_law_rate_max": 1.0,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [
+       "gate"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "g50t_p1_L1_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.783,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "g50t_p2_L4_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ka59_p0_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.963,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ka59_p1_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.973,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ka59_p3_L6_F": {
+      "cleared": false,
+      "fit_calls": 5,
+      "law_09_model": true,
+      "law_09_host": true,
+      "best_law": {
+       "kind": "strip",
+       "scope": "all",
+       "rate": 0.9,
+       "checked": 60,
+       "active": 16
+      },
+      "model_rate_max": 0.017,
+      "best_law_rate_max": 0.9,
+      "host_best_law_rate": 0.902,
+      "kinds_09": [
+       "strip"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "lf52_p1_L2_F": {
+      "cleared": true,
+      "fit_calls": 2,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": 0.3,
+      "best_law_rate_max": 0.804,
+      "host_best_law_rate": 0.836,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "lf52_p2_L4_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ls20_p1_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.812,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "m0r0_p2_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "m0r0_p3_L6_F": {
+      "cleared": false,
+      "fit_calls": 2,
+      "law_09_model": true,
+      "law_09_host": true,
+      "best_law": {
+       "kind": "move",
+       "scope": [
+        "DOWN",
+        "LEFT",
+        "RIGHT",
+        "UP"
+       ],
+       "rate": 1.0,
+       "checked": 35,
+       "active": 8
+      },
+      "model_rate_max": 0.627,
+      "best_law_rate_max": 1.0,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [
+       "gate",
+       "move",
+       "strip"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "r11l_p2_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.9,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p0_L7_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p1_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p2_L7_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.827,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p3_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "s5i5_p0_L8_F": {
+      "cleared": true,
+      "fit_calls": 1,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": 0,
+      "best_law_rate_max": 0.562,
+      "host_best_law_rate": 0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "s5i5_p2_L7_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.756,
+      "kinds_09": [],
+      "plans": 1,
+      "executed_plan_completed": false
+     },
+     "sc25_p0_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "sk48_p0_L3_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "sk48_p2_L1_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.571,
+      "kinds_09": [],
+      "plans": 2,
+      "executed_plan_completed": false
+     },
+     "sp80_p1_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "su15_p1_L7_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "su15_p2_L7_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.917,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tn36_p0_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.943,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tr87_p0_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tr87_p1_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tu93_p0_L9_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.407,
+      "kinds_09": [],
+      "plans": 4,
+      "executed_plan_completed": false
+     },
+     "tu93_p2_L8_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.833,
+      "kinds_09": [],
+      "plans": 1,
+      "executed_plan_completed": false
+     },
+     "tu93_p3_L9_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.517,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "wa30_p0_L5_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.856,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "wa30_p3_L5_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.915,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     }
+    }
+   },
+   "gate": {
+    "levels_armed": 24,
+    "refusals": 25,
+    "verify_calls": 102,
+    "verify_ok": 7,
+    "no_gate_record": []
+   },
+   "transcripts": {
+    "files": 35,
+    "snippets": 1206,
+    "snippets_traceback": 182,
+    "gate_refusals_seen": 25,
+    "wm_snippets": 181,
+    "wm_snippets_error": 25,
+    "wm_error_classes": {
+     "AttributeError": 10,
+     "NameError": 7,
+     "TypeError": 3,
+     "StaleStateActionError": 1,
+     "ImportError": 1,
+     "KeyError": 2,
+     "IndexError": 1
+    },
+    "tool_timeouts_seen": 22
+   }
+  },
+  "A22P": {
+   "arm": "A22P",
+   "validity": {
+    "valid": false,
+    "checks": {
+     "twin_passed": true,
+     "ended_by_clear_or_budget": true,
+     "prefixes_match": true,
+     "law_09_levels": false,
+     "proposer_fired_levels": true
+    },
+    "twin_log": true,
+    "case_arms": 35,
+    "ended": 35,
+    "ended_needed": 33,
+    "replay_mismatch": [],
+    "law_09_levels_model": 4,
+    "law_09_levels_host": 16,
+    "law_09_needed": 10,
+    "proposer_fired_levels": 27,
+    "proposer_fired_needed": 20,
+    "change_l_note": "the arm did not exercise change L (rule)"
+   },
+   "lever": "harmful",
+   "lever_reason": "A22P 10/35 at 30 min, 3 within 80 actions / 900 s",
+   "decision": "no decision (validity failed): report only",
+   "counts": {
+    "all": 10,
+    "partial": 3,
+    "n": 35,
+    "within_160_1800": 10,
+    "within_80_900": 3,
+    "usage": {
+     "ran": 35,
+     "actions": 2567,
+     "generated_tokens": 2643241,
+     "tokens_per_action": 1029.7,
+     "apm_median": 2.99,
+     "actions_median": 65
+    },
+    "missing": [],
+    "hard_stop_cut": [],
+    "cleared": [
+     "g50t_p1_L1_F",
+     "ka59_p1_L6_F",
+     "lf52_p1_L2_F",
+     "re86_p1_L6_F",
+     "re86_p3_L6_F",
+     "sc25_p0_L6_F",
+     "sk48_p0_L3_F",
+     "su15_p2_L7_F",
+     "tr87_p0_L6_F",
+     "tr87_p1_L6_F"
+    ],
+    "fast": [
+     "g50t_p1_L1_F",
+     "lf52_p1_L2_F",
+     "sk48_p0_L3_F"
+    ],
+    "ends": {
+     "action_budget": 1,
+     "cleared": 10,
+     "wall_budget": 24
+    }
+   },
+   "pairs": {
+    "baseline: unchanged (Intel), 160 actions / 30 min": {
+     "A0L (R1d)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 2,
+       "other_only": 6,
+       "both": 8,
+       "neither": 19,
+       "p": 0.2890625
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 2,
+       "other_only": 2,
+       "both": 1,
+       "neither": 17,
+       "p": 1.0
+      }
+     },
+     "A0Lb (R1g v1)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 6,
+       "other_only": 10,
+       "both": 4,
+       "neither": 15,
+       "p": 0.454498291015625
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 3,
+       "other_only": 7,
+       "both": 0,
+       "neither": 12,
+       "p": 0.34375
+      }
+     },
+     "A0Lb (R1g v2)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 1,
+       "other_only": 9,
+       "both": 9,
+       "neither": 16,
+       "p": 0.021484375
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 1,
+       "other_only": 6,
+       "both": 2,
+       "neither": 13,
+       "p": 0.125
+      }
+     },
+     "A0Lc (R1j)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 1,
+       "other_only": 8,
+       "both": 9,
+       "neither": 17,
+       "p": 0.0390625
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 1,
+       "other_only": 6,
+       "both": 2,
+       "neither": 13,
+       "p": 0.125
+      }
+     }
+    },
+    "beside: told insight (Intel), 160 actions / 30 min": {
+     "A7L (R1g v1)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 3,
+       "other_only": 13,
+       "both": 7,
+       "neither": 12,
+       "p": 0.021270751953125
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 1,
+       "other_only": 10,
+       "both": 2,
+       "neither": 9,
+       "p": 0.01171875
+      }
+     },
+     "A7L (R1g v2)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 2,
+       "other_only": 15,
+       "both": 8,
+       "neither": 10,
+       "p": 0.002349853515625
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 1,
+       "other_only": 10,
+       "both": 2,
+       "neither": 9,
+       "p": 0.01171875
+      }
+     }
+    },
+    "beside: tools with the gate (WM2), 160 actions / 30 min": {
+     "WM2": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 2,
+       "other_only": 8,
+       "both": 8,
+       "neither": 17,
+       "p": 0.109375
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 1,
+       "other_only": 6,
+       "both": 2,
+       "neither": 13,
+       "p": 0.125
+      }
+     }
+    },
+    "beside: proposer (R1y), 160 actions / 30 min": {
+     "A21 (R1y)": {
+      "all": {
+       "pairs": 35,
+       "arm_only": 1,
+       "other_only": 8,
+       "both": 9,
+       "neither": 17,
+       "p": 0.0390625
+      },
+      "partial": {
+       "pairs": 22,
+       "arm_only": 1,
+       "other_only": 4,
+       "both": 2,
+       "neither": 15,
+       "p": 0.375
+      }
+     }
+    }
+   },
+   "library": {
+    "levels_law_09_model": 4,
+    "levels_law_09_host": 16,
+    "levels_law_09_either": 16,
+    "case_arms_with_fit_call": 9,
+    "fit_calls": 17,
+    "best_law_rate_median": 0.883,
+    "model_rate_median": 0.035,
+    "model_rate_at_09": 0,
+    "host_best_law_rate_median": 0.915,
+    "seconds_failure_to_first_law_09_median": 73.85,
+    "first_law_09_before_failure": 1,
+    "kinds_09_levels": {
+     "strip": 3,
+     "click_paint": 1,
+     "click_toggle": 1,
+     "fall": 1,
+     "gate": 1
+    },
+    "best_law_kinds": {
+     "strip": 2,
+     "click_toggle": 1,
+     "gate": 1
+    },
+    "best_law_scopes": {
+     "all": 3,
+     "['CLICK']": 1
+    },
+    "plans": {
+     "plan_scoped": 0,
+     "plan_full": 0,
+     "plan_uncomposed": 1,
+     "found_scoped": 0,
+     "found_full": 0,
+     "found_uncomposed": 0,
+     "executed": 6,
+     "executed_scoped": 0,
+     "executed_completed": 0,
+     "executed_completed_scoped": 0
+    },
+    "plan_found_rate": {
+     "scoped": null,
+     "full": null,
+     "uncomposed": 0.0
+    },
+    "plan_length_found_median": null,
+    "cleared_after_executed_plan": [],
+    "per_case": {
+     "ar25_p3_L7_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "bp35_p1_L2_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.885,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "bp35_p3_L2_F": {
+      "cleared": false,
+      "fit_calls": 4,
+      "law_09_model": true,
+      "law_09_host": true,
+      "best_law": {
+       "kind": "click_toggle",
+       "scope": [
+        "CLICK"
+       ],
+       "rate": 0.917,
+       "checked": 24,
+       "active": 21
+      },
+      "model_rate_max": 0.035,
+      "best_law_rate_max": 0.933,
+      "host_best_law_rate": 0.917,
+      "kinds_09": [
+       "click_paint",
+       "click_toggle",
+       "fall"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "cn04_p0_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.704,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "g50t_p1_L1_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "g50t_p2_L4_F": {
+      "cleared": false,
+      "fit_calls": 2,
+      "law_09_model": true,
+      "law_09_host": true,
+      "best_law": {
+       "kind": "gate",
+       "scope": "all",
+       "rate": 1.0,
+       "checked": 63,
+       "active": 12
+      },
+      "model_rate_max": 0.064,
+      "best_law_rate_max": 1.0,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [
+       "gate",
+       "strip"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ka59_p0_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.973,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ka59_p1_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.973,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ka59_p3_L6_F": {
+      "cleared": false,
+      "fit_calls": 2,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": 0.015,
+      "best_law_rate_max": 0.881,
+      "host_best_law_rate": 0.882,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "lf52_p1_L2_F": {
+      "cleared": true,
+      "fit_calls": 1,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": 0.302,
+      "best_law_rate_max": 0.805,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "lf52_p2_L4_F": {
+      "cleared": false,
+      "fit_calls": 3,
+      "law_09_model": true,
+      "law_09_host": true,
+      "best_law": {
+       "kind": "strip",
+       "scope": "all",
+       "rate": 0.938,
+       "checked": 80,
+       "active": 1
+      },
+      "model_rate_max": 0.25,
+      "best_law_rate_max": 0.938,
+      "host_best_law_rate": 0.927,
+      "kinds_09": [
+       "strip"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "ls20_p1_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.5,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "m0r0_p2_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "m0r0_p3_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 2,
+      "executed_plan_completed": false
+     },
+     "r11l_p2_L6_F": {
+      "cleared": false,
+      "fit_calls": 1,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": 0.033,
+      "best_law_rate_max": 0.883,
+      "host_best_law_rate": 0.883,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p0_L7_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.839,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p1_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p2_L7_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.972,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "re86_p3_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "s5i5_p0_L8_F": {
+      "cleared": false,
+      "fit_calls": 1,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": 0,
+      "best_law_rate_max": 0.615,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "s5i5_p2_L7_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.5,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "sc25_p0_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "sk48_p0_L3_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "sk48_p2_L1_F": {
+      "cleared": false,
+      "fit_calls": 2,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": 0.103,
+      "best_law_rate_max": 0.571,
+      "host_best_law_rate": 0.6,
+      "kinds_09": [],
+      "plans": 1,
+      "executed_plan_completed": false
+     },
+     "sp80_p1_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.909,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "su15_p1_L7_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.905,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "su15_p2_L7_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tn36_p0_L6_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.959,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tr87_p0_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tr87_p1_L6_F": {
+      "cleared": true,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": null,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tu93_p0_L9_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.394,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "tu93_p2_L8_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": true,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 1.0,
+      "kinds_09": [],
+      "plans": 4,
+      "executed_plan_completed": false
+     },
+     "tu93_p3_L9_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.517,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "wa30_p0_L5_F": {
+      "cleared": false,
+      "fit_calls": 0,
+      "law_09_model": false,
+      "law_09_host": false,
+      "best_law": null,
+      "model_rate_max": null,
+      "best_law_rate_max": null,
+      "host_best_law_rate": 0.683,
+      "kinds_09": [],
+      "plans": 0,
+      "executed_plan_completed": false
+     },
+     "wa30_p3_L5_F": {
+      "cleared": false,
+      "fit_calls": 1,
+      "law_09_model": true,
+      "law_09_host": true,
+      "best_law": {
+       "kind": "strip",
+       "scope": "all",
+       "rate": 0.915,
+       "checked": 59,
+       "active": 1
+      },
+      "model_rate_max": 0.034,
+      "best_law_rate_max": 0.915,
+      "host_best_law_rate": 0.915,
+      "kinds_09": [
+       "strip"
+      ],
+      "plans": 0,
+      "executed_plan_completed": false
+     }
+    }
+   },
+   "gate": {
+    "levels_armed": 27,
+    "refusals": 25,
+    "verify_calls": 91,
+    "verify_ok": 9,
+    "no_gate_record": []
+   },
+   "transcripts": {
+    "files": 35,
+    "snippets": 1305,
+    "snippets_traceback": 180,
+    "gate_refusals_seen": 25,
+    "wm_snippets": 176,
+    "wm_snippets_error": 30,
+    "wm_error_classes": {
+     "AttributeError": 10,
+     "TypeError": 6,
+     "ImportError": 1,
+     "NameError": 7,
+     "KeyError": 4,
+     "StaleStateActionError": 1,
+     "IndexError": 1
+    },
+    "tool_timeouts_seen": 23
+   },
+   "simulation": {
+    "simulations": 59,
+    "shown": 35,
+    "not_shown": {
+     "no law at 0.9": 24
+    },
+    "levels_shown": 18,
+    "tests": 103,
+    "outcomes": {
+     "no change": 82,
+     "change": 8,
+     "not parsed": 13
+    },
+    "predictions_run": 0,
+    "predictions_matched": 0,
+    "match_share": null
+   },
+   "proposer": {
+    "fired_levels": 27,
+    "calls": 59,
+    "log_calls": 59,
+    "errors": 0,
+    "efforts": {
+     "medium": 59
+    },
+    "cut_at_budget": 0,
+    "cut_share": 0.0,
+    "tokens_per_call_median": 1559,
+    "seconds_per_call_median": 21.7,
+    "share_of_wall": 0.03,
+    "with_simulation": 35
+   }
+  }
+ },
+ "additivity": {
+  "A22P": 10,
+  "A21": 17,
+  "needed_above": 3,
+  "additive": false,
+  "pair": {
+   "pairs": 35,
+   "arm_only": 1,
+   "other_only": 8,
+   "both": 9,
+   "neither": 17,
+   "p": 0.0390625
+  },
+  "within_80_900": {
+   "A22P": 3,
+   "A21": 7
+  }
+ },
+ "a22p_vs_a22l": {
+  "pairs": 35,
+  "arm_only": 0,
+  "other_only": 10,
+  "both": 10,
+  "neither": 15,
+  "p": 0.001953125
+ },
+ "decision": {
+  "A22L": "no decision (validity failed): report only",
+  "A22P": "no decision (validity failed): report only"
+ }
+}

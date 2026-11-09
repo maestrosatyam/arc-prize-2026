@@ -1,0 +1,723 @@
+{
+ "rule": "R1Y_RULE.md (frozen 2026-10-27 23:31 IST): validity (twin passed; >= 33/35 ended by clear / action budget / wall budget; prefixes match; proposer fired in >= 25 cases; errors <= 10% of calls); helpful at >= 21/35 or >= 12/22 partial; harmful at <= 11/35; otherwise neutral; entry option B: not harmful (>= 12/35) and >= 5 within 80 actions / 900 s",
+ "arm": "A21",
+ "results": "experiments/runs/kaggle-R1y-proposer-v1/r1_results.jsonl",
+ "labels": {
+  "yes": 11,
+  "partial": 22,
+  "no": 2
+ },
+ "groups": {
+  "baseline: unchanged (Intel), 160 actions / 30 min": {
+   "A0L (R1d)": {
+    "all": 14,
+    "partial": 3,
+    "n": 35,
+    "within_160_1800": 14,
+    "within_80_900": 5,
+    "usage": {
+     "ran": 35,
+     "actions": 3258,
+     "generated_tokens": 2727571,
+     "tokens_per_action": 837.2,
+     "apm_median": 4.13,
+     "actions_median": 95
+    }
+   },
+   "A0Lb (R1g v1)": {
+    "all": 14,
+    "partial": 7,
+    "n": 35,
+    "within_160_1800": 14,
+    "within_80_900": 5,
+    "usage": {
+     "ran": 35,
+     "actions": 3085,
+     "generated_tokens": 2840118,
+     "tokens_per_action": 920.6,
+     "apm_median": 3.68,
+     "actions_median": 75
+    }
+   },
+   "A0Lb (R1g v2)": {
+    "all": 18,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 18,
+    "within_80_900": 6,
+    "usage": {
+     "ran": 35,
+     "actions": 3147,
+     "generated_tokens": 2461004,
+     "tokens_per_action": 782.0,
+     "apm_median": 5.19,
+     "actions_median": 80
+    }
+   },
+   "A0Lc (R1j)": {
+    "all": 17,
+    "partial": 8,
+    "n": 35,
+    "within_160_1800": 17,
+    "within_80_900": 6,
+    "usage": {
+     "ran": 35,
+     "actions": 3094,
+     "generated_tokens": 2384537,
+     "tokens_per_action": 770.7,
+     "apm_median": 4.87,
+     "actions_median": 90
+    }
+   }
+  },
+  "beside: told insight (Intel), 160 actions / 30 min": {
+   "A7L (R1g v1)": {
+    "all": 20,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 20,
+    "within_80_900": 12,
+    "usage": {
+     "ran": 35,
+     "actions": 3067,
+     "generated_tokens": 1995347,
+     "tokens_per_action": 650.6,
+     "apm_median": 5.54,
+     "actions_median": 79
+    }
+   },
+   "A7L (R1g v2)": {
+    "all": 23,
+    "partial": 12,
+    "n": 35,
+    "within_160_1800": 23,
+    "within_80_900": 14,
+    "usage": {
+     "ran": 35,
+     "actions": 2755,
+     "generated_tokens": 1977607,
+     "tokens_per_action": 717.8,
+     "apm_median": 5.89,
+     "actions_median": 66
+    }
+   }
+  },
+  "beside: rule card (Intel), 160 actions / 30 min": {
+   "A20 (R1x)": {
+    "all": 14,
+    "partial": 6,
+    "n": 35,
+    "within_160_1800": 14,
+    "within_80_900": 4,
+    "usage": {
+     "ran": 35,
+     "actions": 3277,
+     "generated_tokens": 2676083,
+     "tokens_per_action": 816.6,
+     "apm_median": 4.44,
+     "actions_median": 81
+    }
+   }
+  }
+ },
+ "missing_archives": [],
+ "validity": {
+  "valid": false,
+  "checks": {
+   "twin_passed": true,
+   "ended_by_clear_or_budget": true,
+   "prefixes_match": true,
+   "proposer_fired_cases": false,
+   "proposer_error_rate": true
+  },
+  "twin_log": true,
+  "case_arms": 35,
+  "ended": 35,
+  "ended_needed": 33,
+  "replay_mismatch": [],
+  "fired_cases": 24,
+  "fired_needed": 25,
+  "calls": 52,
+  "errors": 3,
+  "errors_cut_by_case_arm_budget": 3,
+  "error_rate": 0.058,
+  "error_rate_max": 0.1,
+  "log_calls": 52,
+  "log_matches_rows": true
+ },
+ "lever": "neutral",
+ "lever_reason": "A21 17/35, partial 6/22",
+ "entry_option_b": {
+  "pass": true,
+  "clears": 17,
+  "needed_clears": 12,
+  "within_80_900": 7,
+  "needed_within_80_900": 5
+ },
+ "decision": "no decision (validity failed): report only",
+ "decision_reason": "A21 17/35, partial 6/22",
+ "arm_counts": {
+  "all": 17,
+  "partial": 6,
+  "n": 35,
+  "within_160_1800": 17,
+  "within_80_900": 7,
+  "usage": {
+   "ran": 35,
+   "actions": 2807,
+   "generated_tokens": 2070794,
+   "tokens_per_action": 737.7,
+   "apm_median": 3.67,
+   "actions_median": 82
+  },
+  "missing": [],
+  "hard_stop_cut": [],
+  "cleared": [
+   "ar25_p3_L7_F",
+   "g50t_p1_L1_F",
+   "ka59_p1_L6_F",
+   "lf52_p1_L2_F",
+   "r11l_p2_L6_F",
+   "re86_p3_L6_F",
+   "sc25_p0_L6_F",
+   "sk48_p0_L3_F",
+   "sk48_p2_L1_F",
+   "su15_p1_L7_F",
+   "su15_p2_L7_F",
+   "tn36_p0_L6_F",
+   "tr87_p0_L6_F",
+   "tr87_p1_L6_F",
+   "tu93_p0_L9_F",
+   "tu93_p2_L8_F",
+   "tu93_p3_L9_F"
+  ],
+  "cleared_over_budget": [],
+  "ends": {
+   "action_budget": 5,
+   "cleared": 17,
+   "wall_budget": 13
+  },
+  "oracle": {
+   "kinds": [
+    "proposal"
+   ],
+   "shown": 49,
+   "errors": 0
+  }
+ },
+ "pairs": {
+  "baseline: unchanged (Intel), 160 actions / 30 min": {
+   "A0L (R1d)": {
+    "all": {
+     "pairs": 35,
+     "arm_only": 5,
+     "other_only": 2,
+     "both": 12,
+     "neither": 16,
+     "p": 0.453125
+    },
+    "partial": {
+     "pairs": 22,
+     "arm_only": 4,
+     "other_only": 1,
+     "both": 2,
+     "neither": 15,
+     "p": 0.375
+    }
+   },
+   "A0Lb (R1g v1)": {
+    "all": {
+     "pairs": 35,
+     "arm_only": 7,
+     "other_only": 4,
+     "both": 10,
+     "neither": 14,
+     "p": 0.548828125
+    },
+    "partial": {
+     "pairs": 22,
+     "arm_only": 2,
+     "other_only": 3,
+     "both": 4,
+     "neither": 13,
+     "p": 1.0
+    }
+   },
+   "A0Lb (R1g v2)": {
+    "all": {
+     "pairs": 35,
+     "arm_only": 2,
+     "other_only": 3,
+     "both": 15,
+     "neither": 15,
+     "p": 1.0
+    },
+    "partial": {
+     "pairs": 22,
+     "arm_only": 1,
+     "other_only": 3,
+     "both": 5,
+     "neither": 13,
+     "p": 0.625
+    }
+   },
+   "A0Lc (R1j)": {
+    "all": {
+     "pairs": 35,
+     "arm_only": 4,
+     "other_only": 4,
+     "both": 13,
+     "neither": 14,
+     "p": 1.0
+    },
+    "partial": {
+     "pairs": 22,
+     "arm_only": 2,
+     "other_only": 4,
+     "both": 4,
+     "neither": 12,
+     "p": 0.6875
+    }
+   }
+  },
+  "beside: told insight (Intel), 160 actions / 30 min": {
+   "A7L (R1g v1)": {
+    "all": {
+     "pairs": 35,
+     "arm_only": 4,
+     "other_only": 7,
+     "both": 13,
+     "neither": 11,
+     "p": 0.548828125
+    },
+    "partial": {
+     "pairs": 22,
+     "arm_only": 1,
+     "other_only": 7,
+     "both": 5,
+     "neither": 9,
+     "p": 0.0703125
+    }
+   },
+   "A7L (R1g v2)": {
+    "all": {
+     "pairs": 35,
+     "arm_only": 1,
+     "other_only": 7,
+     "both": 16,
+     "neither": 11,
+     "p": 0.0703125
+    },
+    "partial": {
+     "pairs": 22,
+     "arm_only": 0,
+     "other_only": 6,
+     "both": 6,
+     "neither": 10,
+     "p": 0.03125
+    }
+   }
+  },
+  "beside: rule card (Intel), 160 actions / 30 min": {
+   "A20 (R1x)": {
+    "all": {
+     "pairs": 35,
+     "arm_only": 5,
+     "other_only": 2,
+     "both": 12,
+     "neither": 16,
+     "p": 0.453125
+    },
+    "partial": {
+     "pairs": 22,
+     "arm_only": 2,
+     "other_only": 2,
+     "both": 4,
+     "neither": 14,
+     "p": 1.0
+    }
+   }
+  }
+ },
+ "proposer": {
+  "per_case": {
+   "ar25_p3_L7_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "bp35_p1_L2_F": {
+    "calls": 2,
+    "seconds": 276.5,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 2,
+    "shown": 2,
+    "tokens": 16755,
+    "cleared": false
+   },
+   "bp35_p3_L2_F": {
+    "calls": 3,
+    "seconds": 406.7,
+    "errors": 0,
+    "throttled": 1,
+    "failure_turns": 4,
+    "shown": 3,
+    "tokens": 25060,
+    "cleared": false
+   },
+   "cn04_p0_L6_F": {
+    "calls": 1,
+    "seconds": 164.7,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 1,
+    "shown": 1,
+    "tokens": 8373,
+    "cleared": false
+   },
+   "g50t_p1_L1_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "g50t_p2_L4_F": {
+    "calls": 3,
+    "seconds": 433.7,
+    "errors": 0,
+    "throttled": 1,
+    "failure_turns": 4,
+    "shown": 3,
+    "tokens": 25214,
+    "cleared": false
+   },
+   "ka59_p0_L6_F": {
+    "calls": 1,
+    "seconds": 140.9,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 1,
+    "shown": 1,
+    "tokens": 8354,
+    "cleared": false
+   },
+   "ka59_p1_L6_F": {
+    "calls": 1,
+    "seconds": 153.4,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 1,
+    "shown": 1,
+    "tokens": 8328,
+    "cleared": true
+   },
+   "ka59_p3_L6_F": {
+    "calls": 1,
+    "seconds": 146.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 1,
+    "shown": 1,
+    "tokens": 8403,
+    "cleared": false
+   },
+   "lf52_p1_L2_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "lf52_p2_L4_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": false
+   },
+   "ls20_p1_L6_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": false
+   },
+   "m0r0_p2_L6_F": {
+    "calls": 4,
+    "seconds": 505.4,
+    "errors": 1,
+    "throttled": 0,
+    "failure_turns": 4,
+    "shown": 3,
+    "tokens": 25109,
+    "cleared": false
+   },
+   "m0r0_p3_L6_F": {
+    "calls": 4,
+    "seconds": 605.7,
+    "errors": 1,
+    "throttled": 0,
+    "failure_turns": 4,
+    "shown": 3,
+    "tokens": 33141,
+    "cleared": false
+   },
+   "r11l_p2_L6_F": {
+    "calls": 1,
+    "seconds": 176.6,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 1,
+    "shown": 1,
+    "tokens": 8343,
+    "cleared": true
+   },
+   "re86_p0_L7_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": false
+   },
+   "re86_p1_L6_F": {
+    "calls": 2,
+    "seconds": 315.3,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 2,
+    "shown": 2,
+    "tokens": 16741,
+    "cleared": false
+   },
+   "re86_p2_L7_F": {
+    "calls": 2,
+    "seconds": 317.7,
+    "errors": 1,
+    "throttled": 0,
+    "failure_turns": 2,
+    "shown": 1,
+    "tokens": 8358,
+    "cleared": false
+   },
+   "re86_p3_L6_F": {
+    "calls": 2,
+    "seconds": 258.6,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 2,
+    "shown": 2,
+    "tokens": 16699,
+    "cleared": true
+   },
+   "s5i5_p0_L8_F": {
+    "calls": 2,
+    "seconds": 292.7,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 2,
+    "shown": 2,
+    "tokens": 16711,
+    "cleared": false
+   },
+   "s5i5_p2_L7_F": {
+    "calls": 1,
+    "seconds": 129.7,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 1,
+    "shown": 1,
+    "tokens": 8508,
+    "cleared": false
+   },
+   "sc25_p0_L6_F": {
+    "calls": 3,
+    "seconds": 417.2,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 3,
+    "shown": 3,
+    "tokens": 25190,
+    "cleared": true
+   },
+   "sk48_p0_L3_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "sk48_p2_L1_F": {
+    "calls": 5,
+    "seconds": 662.4,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 5,
+    "shown": 5,
+    "tokens": 41682,
+    "cleared": true
+   },
+   "sp80_p1_L6_F": {
+    "calls": 1,
+    "seconds": 141.8,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 1,
+    "shown": 1,
+    "tokens": 8272,
+    "cleared": false
+   },
+   "su15_p1_L7_F": {
+    "calls": 4,
+    "seconds": 597.3,
+    "errors": 0,
+    "throttled": 2,
+    "failure_turns": 6,
+    "shown": 4,
+    "tokens": 33602,
+    "cleared": true
+   },
+   "su15_p2_L7_F": {
+    "calls": 2,
+    "seconds": 300.0,
+    "errors": 0,
+    "throttled": 1,
+    "failure_turns": 3,
+    "shown": 2,
+    "tokens": 16801,
+    "cleared": true
+   },
+   "tn36_p0_L6_F": {
+    "calls": 2,
+    "seconds": 265.3,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 2,
+    "shown": 2,
+    "tokens": 17016,
+    "cleared": true
+   },
+   "tr87_p0_L6_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "tr87_p1_L6_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "tu93_p0_L9_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "tu93_p2_L8_F": {
+    "calls": 0,
+    "seconds": 0.0,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 0,
+    "shown": 0,
+    "tokens": 0,
+    "cleared": true
+   },
+   "tu93_p3_L9_F": {
+    "calls": 3,
+    "seconds": 280.6,
+    "errors": 0,
+    "throttled": 0,
+    "failure_turns": 3,
+    "shown": 3,
+    "tokens": 25181,
+    "cleared": true
+   },
+   "wa30_p0_L5_F": {
+    "calls": 1,
+    "seconds": 81.7,
+    "errors": 0,
+    "throttled": 1,
+    "failure_turns": 2,
+    "shown": 1,
+    "tokens": 8322,
+    "cleared": false
+   },
+   "wa30_p3_L5_F": {
+    "calls": 1,
+    "seconds": 75.8,
+    "errors": 0,
+    "throttled": 1,
+    "failure_turns": 2,
+    "shown": 1,
+    "tokens": 8317,
+    "cleared": false
+   }
+  },
+  "calls_total": 52,
+  "calls_median_per_case": 1,
+  "seconds_median_per_case": 153.4,
+  "seconds_total": 7145.7,
+  "share_of_wall": 0.158,
+  "seconds_median_per_call": 141.2,
+  "tokens_per_action_agent": 737.7,
+  "tokens_per_action_with_proposer": 886.8,
+  "proposer_tokens": 418480,
+  "rescues": 50,
+  "throttled": 7,
+  "failure_kinds": {
+   "GAME_OVER": 19,
+   "reset": 19,
+   "UNDO": 19,
+   "no_change": 33
+  },
+  "notes_kinds": {
+   "rule_card": 0,
+   "reasoning": 52
+  }
+ },
+ "coding": {
+  "template": "experiments/runs/kaggle-R1y-proposer-v1/proposal_coding_template.csv",
+  "proposals": 49,
+  "oracle_insights": 35,
+  "summary": null
+ }
+}

@@ -1,0 +1,311 @@
+{
+ "schema": "arc2_bank_replay.v1",
+ "utc": "2026-10-27T00:52:47Z",
+ "bank_fingerprint": "f9bbb32aafbfc4de",
+ "sources": [
+  "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+  "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+  "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+ ],
+ "solutions_source": "Kaggle solutions copies beside the pools",
+ "n_tasks": 101,
+ "n_outputs": 145,
+ "n_q27_tasks": 29,
+ "sealed_read": false,
+ "base": {
+  "rule": "b0",
+  "n_tasks": 101,
+  "n_outputs": 145,
+  "n_right": 40,
+  "n_right_1": 29,
+  "score": 0.2759,
+  "task_score": 0.302,
+  "bank_fingerprint": "f9bbb32aafbfc4de",
+  "rule_fingerprint": "d20c96c6691bfe04"
+ },
+ "rules": [
+  {
+   "schema": "arc2_bank_replay.v1",
+   "utc": "2026-10-27T00:52:47Z",
+   "rule": "b0_kgmon",
+   "family": "b0",
+   "description": "kgmon top two recomputed from the pool (consistency check)",
+   "rule_fingerprint": "8f99f74b542e2a3e",
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "base": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 40,
+   "n_right_1": 29,
+   "score": 0.2759,
+   "task_score": 0.302,
+   "gained": 0,
+   "lost": 0,
+   "net": 0,
+   "sign_test_p": null,
+   "task_mean_delta": 0.0,
+   "task_ci95": [
+    0.0,
+    0.0
+   ],
+   "gate_v1": false,
+   "gate_v2": false,
+   "registration": "registered 2026-10-27 (check)",
+   "sealed": false,
+   "tasks_subset": false,
+   "sources": [
+    "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+    "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+    "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+   ],
+   "gained_keys": [],
+   "lost_keys": []
+  },
+  {
+   "schema": "arc2_bank_replay.v1",
+   "utc": "2026-10-27T00:52:47Z",
+   "rule": "b0_probmul3",
+   "family": "b0",
+   "description": "probmul3 top two from the pool",
+   "rule_fingerprint": "91dd7115917c2e78",
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "base": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 40,
+   "n_right_1": 31,
+   "score": 0.2759,
+   "task_score": 0.302,
+   "gained": 0,
+   "lost": 0,
+   "net": 0,
+   "sign_test_p": null,
+   "task_mean_delta": 0.0,
+   "task_ci95": [
+    0.0,
+    0.0
+   ],
+   "gate_v1": false,
+   "gate_v2": false,
+   "registration": "registered 2026-10-27 (registered)",
+   "sealed": false,
+   "tasks_subset": false,
+   "sources": [
+    "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+    "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+    "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+   ],
+   "gained_keys": [],
+   "lost_keys": []
+  },
+  {
+   "schema": "arc2_bank_replay.v1",
+   "utc": "2026-10-27T00:52:47Z",
+   "rule": "v7_direct",
+   "family": "merge",
+   "description": "hybrid v7: attempt_2 = first 27B sample that differs from attempt_1",
+   "rule_fingerprint": "ba65c3fea5ffaeed",
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "base": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 45,
+   "n_right_1": 29,
+   "score": 0.3103,
+   "task_score": 0.3284,
+   "gained": 7,
+   "lost": 2,
+   "net": 5,
+   "sign_test_p": 0.08984,
+   "task_mean_delta": 0.0264,
+   "task_ci95": [
+    -0.01815,
+    0.07426
+   ],
+   "gate_v1": false,
+   "gate_v2": false,
+   "registration": "registered 2026-10-27 (registered (the entry's own rule))",
+   "sealed": false,
+   "tasks_subset": false,
+   "sources": [
+    "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+    "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+    "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+   ],
+   "gained_keys": [
+    "16de56c4_0",
+    "1ae2feb7_0",
+    "1ae2feb7_1",
+    "291dc1e1_0",
+    "7b5033c1_0",
+    "f931b4a8_0",
+    "f931b4a8_1"
+   ],
+   "lost_keys": [
+    "4c3d4a41_1",
+    "e8686506_0"
+   ]
+  },
+  {
+   "schema": "arc2_bank_replay.v1",
+   "utc": "2026-10-27T00:52:47Z",
+   "rule": "q27_first",
+   "family": "merge",
+   "description": "27B's first grid as attempt_1, B0's attempt_1 second",
+   "rule_fingerprint": "49b53da829b356c6",
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "base": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 45,
+   "n_right_1": 33,
+   "score": 0.3103,
+   "task_score": 0.3284,
+   "gained": 7,
+   "lost": 2,
+   "net": 5,
+   "sign_test_p": 0.08984,
+   "task_mean_delta": 0.0264,
+   "task_ci95": [
+    -0.01815,
+    0.07426
+   ],
+   "gate_v1": false,
+   "gate_v2": false,
+   "registration": "registered 2026-10-27 (registered)",
+   "sealed": false,
+   "tasks_subset": false,
+   "sources": [
+    "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+    "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+    "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+   ],
+   "gained_keys": [
+    "16de56c4_0",
+    "1ae2feb7_0",
+    "1ae2feb7_1",
+    "291dc1e1_0",
+    "7b5033c1_0",
+    "f931b4a8_0",
+    "f931b4a8_1"
+   ],
+   "lost_keys": [
+    "4c3d4a41_1",
+    "e8686506_0"
+   ]
+  },
+  {
+   "schema": "arc2_bank_replay.v1",
+   "utc": "2026-10-27T00:52:47Z",
+   "rule": "q27_agree",
+   "family": "merge",
+   "description": "E15: agreeing 27B samples first, else v7's merge",
+   "rule_fingerprint": "49960c099b6634a8",
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "base": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 45,
+   "n_right_1": 32,
+   "score": 0.3103,
+   "task_score": 0.3284,
+   "gained": 7,
+   "lost": 2,
+   "net": 5,
+   "sign_test_p": 0.08984,
+   "task_mean_delta": 0.0264,
+   "task_ci95": [
+    -0.01815,
+    0.07426
+   ],
+   "gate_v1": false,
+   "gate_v2": false,
+   "registration": "registered 2026-10-27 (registered)",
+   "sealed": false,
+   "tasks_subset": false,
+   "sources": [
+    "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+    "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+    "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+   ],
+   "gained_keys": [
+    "16de56c4_0",
+    "1ae2feb7_0",
+    "1ae2feb7_1",
+    "291dc1e1_0",
+    "7b5033c1_0",
+    "f931b4a8_0",
+    "f931b4a8_1"
+   ],
+   "lost_keys": [
+    "4c3d4a41_1",
+    "e8686506_0"
+   ]
+  },
+  {
+   "schema": "arc2_bank_replay.v1",
+   "utc": "2026-10-27T00:52:47Z",
+   "rule": "oracle",
+   "family": "oracle",
+   "description": "coverage bound: any correct grid in the pool or samples first",
+   "rule_fingerprint": "2b7a2b8041e679c1",
+   "bank_fingerprint": "f9bbb32aafbfc4de",
+   "base": "b0",
+   "n_tasks": 101,
+   "n_outputs": 145,
+   "n_right": 55,
+   "n_right_1": 55,
+   "score": 0.3793,
+   "task_score": 0.4109,
+   "gained": 15,
+   "lost": 0,
+   "net": 15,
+   "sign_test_p": 3e-05,
+   "task_mean_delta": 0.10891,
+   "task_ci95": [
+    0.05446,
+    0.17162
+   ],
+   "gate_v1": true,
+   "gate_v2": true,
+   "registration": "bound (reads labels)",
+   "sealed": false,
+   "tasks_subset": false,
+   "sources": [
+    "experiments/runs/kaggle-A2-bank-part1-v1/pool",
+    "experiments/runs/kaggle-A2-bank-part2-v1/pool",
+    "experiments/runs/kaggle-A2-q27-bank-v1/q27d"
+   ],
+   "gained_keys": [
+    "136b0064_0",
+    "16de56c4_0",
+    "1ae2feb7_0",
+    "1ae2feb7_1",
+    "20270e3b_0",
+    "291dc1e1_0",
+    "3dc255db_0",
+    "7b5033c1_0",
+    "b6f77b65_0",
+    "dbff022c_0",
+    "dfadab01_0",
+    "eee78d87_0",
+    "f931b4a8_0",
+    "f931b4a8_1",
+    "fc7cae8d_0"
+   ],
+   "lost_keys": []
+  }
+ ],
+ "screened_rules_on_this_bank": 5,
+ "false_positive_rates": {
+  "gate_v1": 0.0,
+  "gate_v2": 0.0,
+  "net_needed_fp5": 2,
+  "net_needed_fp1": 3,
+  "source": "experiments/arc2-bank/null_calibration.json"
+ },
+ "expected_false_positives": {
+  "gate_v1": 0.0,
+  "gate_v2": 0.0
+ }
+}

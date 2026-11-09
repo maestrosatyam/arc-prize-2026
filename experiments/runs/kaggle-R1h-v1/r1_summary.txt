@@ -1,0 +1,11 @@
+case            A8L clr/act/tok/end           A7Lr clr/act/tok/end          
+bp35_p3_L2_F    n/40/110249/wall_budget       n/52/112897/wall_budget       
+lf52_p2_L4_F    n/52/108413/wall_budget       n/118/107137/wall_budget      
+ls20_p1_L6_F    n/160/51833/action_budget     n/160/28371/action_budget     
+m0r0_p2_L6_F    n/126/92682/wall_budget       n/23/109484/wall_budget       
+sp80_p1_L6_F    Y/46/44763/cleared            n/22/115264/wall_budget       
+wa30_p0_L5_F    n/160/89545/action_budget     n/160/74492/action_budget     
+wa30_p3_L5_F    n/160/83389/action_budget     n/160/69390/action_budget     
+
+A8L: cleared 1/7; median actions to clear 46; timeouts 6; probes 40; errors 0
+A7Lr: cleared 0/7; median actions to clear None; timeouts 5; probes 43; errors 0

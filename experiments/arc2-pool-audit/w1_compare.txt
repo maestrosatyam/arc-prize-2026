@@ -1,0 +1,29 @@
+$ python3 -I scripts/arc2_pool_audit_analyze.py --pool experiments/runs/kaggle-A2-W1-v1/pool --compare experiments/runs/kaggle-A2-pool-audit-v1/pool --json experiments/runs/kaggle-A2-W1-v1/compare.json
+compare: new experiments/runs/kaggle-A2-W1-v1/pool vs baseline experiments/runs/kaggle-A2-pool-audit-v1/pool
+ground truth: experiments/runs/kaggle-A2-W1-v1/pool/_kaggle_solutions_audit_tasks.json (Kaggle evaluation solutions)
+DFS probability floor: baseline not recorded (B0 default 0.2); new 0.05
+same outputs: 65 test outputs over 40 tasks; tasks without a pool file: baseline none, new none
+
+  (outputs of 65)            baseline      new    delta
+  selected pass@2                  12       14       +2
+  selected pass@1                  12       14       +2
+  coverage                         15       19       +4
+  coverage gap                      3        5       +2
+  outputs with a pool entry        65       65       +0
+pass@2 gained: 2 ['36a08778_1', '800d221b_0']; lost: 0
+coverage gained: 4 ['36a08778_1', '78332cb0_0', '800d221b_0', 'd35bdbdc_1']; lost: 0
+
+task elapsed s: baseline median 601.0, mean 626.12, p75 793.5, max 1379 (n 40); new median 1215.5, mean 1040.58, p75 1339.5, max 1791 (n 40)
+per-task elapsed ratio new/baseline (40 tasks in both): median 1.7055, max 3.156 (16de56c4), min 0.879; ratio of means 1.662
+stop reason: baseline {'exhausted': 40}; new {'exhausted': 20, 'per_task_cap': 20}
+tasks at the 1200 s per-task cap: baseline 0, new 20; cut by the global end time: baseline 0, new 0
+pool size, unique candidates per output: baseline median 7, mean 7.34, p75 11.0, max 18 (n 65); new median 18, mean 17.69, p75 26.0, max 50 (n 65)
+pool size, beams per output: baseline median 17, mean 14.49, p75 19.0, max 25 (n 65); new median 30, mean 30.42, p75 43.0, max 65 (n 65)
+
+full-run projection: mean task seconds x hidden tasks / ranks + overhead (model load, rank start, idle tail, final cell); 240 hidden tasks (compliance/sources.json (competition data page: the hidden rerun uses 240 tasks; the placeholder test file has 240 tasks, 259 test inputs)), 4 ranks
+  mean task s: baseline 626.1, new 1040.6; overhead s: baseline 635.6 (measured: final cell time - task seconds / ranks), new 1069.6 (measured: final cell time - task seconds / ranks)
+  full run: baseline 10.61 h, new 17.64 h (target 11 h: does not fit); per 100 tasks without overhead: baseline 4.35 h, new 7.23 h
+
+decision W1 (rule 2): pass@2 +2 of 65 >= 2 but projected full run 17.64 h > 11 h: not promoted as is; next a time-bounded variant (widen only low-margin outputs, D11)
+
+exit 0

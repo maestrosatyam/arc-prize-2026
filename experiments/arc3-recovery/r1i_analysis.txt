@@ -1,0 +1,153 @@
+$ python3 -I scripts/arc3_recovery_analyze.py experiments/runs/kaggle-R1-pilot-v4/r1_results.jsonl experiments/runs/kaggle-R1b-v1/r1_results.jsonl experiments/runs/kaggle-R1c-v1/r1_results.jsonl experiments/runs/kaggle-R1d-v1/r1_results.jsonl experiments/runs/kaggle-R1e-v1/r1_results.jsonl experiments/runs/kaggle-R1f-v1/r1_results.jsonl experiments/runs/kaggle-R1i-v1/r1_results.jsonl
+results: 560 case-arms over 35 cases; arms A0, A0b, A0c, A0d, A0e, A1, A2, A3, A4, A5, A6, A8l, A0L, A7, A7c, A7w; not run: 0
+A0: run 35, cleared 9 (0.257), probes 97, capped batches 0, timeouts 38, cancelled actions 0, median wall 900.3 s, median replay 142.0 s, median tokens 41642, median restored messages 59, median kept functions 21, ends {'action_budget': 6, 'cleared': 9, 'wall_budget': 20}
+A0b: run 35, cleared 11 (0.314), probes 85, capped batches 0, timeouts 6, cancelled actions 0, median wall 786.8 s, median replay 1.2 s, median tokens 49048, median restored messages 59, median kept functions 21, ends {'action_budget': 8, 'cleared': 11, 'wall_budget': 16}
+A0c: run 35, cleared 6 (0.171), probes 109, capped batches 0, timeouts 23, cancelled actions 0, median wall 900.1 s, median replay 2.7 s, median tokens 45434, median restored messages 59, median kept functions 21, ends {'action_budget': 10, 'cleared': 6, 'wall_budget': 19}
+A0d: run 35, cleared 5 (0.143), probes 94, capped batches 0, timeouts 20, cancelled actions 0, median wall 858.7 s, median replay 1.7 s, median tokens 42762, median restored messages 59, median kept functions 21, ends {'action_budget': 15, 'cleared': 5, 'wall_budget': 15}
+A0e: run 35, cleared 7 (0.2), probes 96, capped batches 0, timeouts 21, cancelled actions 0, median wall 831.0 s, median replay 2.6 s, median tokens 41765, median restored messages 59, median kept functions 21, ends {'action_budget': 12, 'cleared': 7, 'wall_budget': 16}
+A1: run 35, cleared 5 (0.143), probes 110, capped batches 6, timeouts 37, cancelled actions 0, median wall 901.0 s, median replay 150.4 s, median tokens 46283, median restored messages 59, median kept functions 21, ends {'action_budget': 7, 'cleared': 5, 'wall_budget': 23}
+A2: run 35, cleared 6 (0.171), probes 86, capped batches 0, timeouts 1, cancelled actions 0, median wall 901.0 s, median replay 109.4 s, median tokens 47061, median restored messages 59, median kept functions 21, ends {'action_budget': 9, 'cleared': 6, 'wall_budget': 20}
+A3: run 35, cleared 1 (0.029), probes 60, capped batches 0, timeouts 3, cancelled actions 0, median wall 900.8 s, median replay 1.4 s, median tokens 55376, median restored messages 0, median kept functions 0, ends {'cleared': 1, 'wall_budget': 34}
+A4: run 35, cleared 7 (0.2), probes 115, capped batches 0, timeouts 16, cancelled actions 0, median wall 900.5 s, median replay 2.5 s, median tokens 52491, median restored messages 25, median kept functions 21, ends {'action_budget': 5, 'cleared': 7, 'wall_budget': 23}
+A5: run 35, cleared 6 (0.171), probes 119, capped batches 0, timeouts 23, cancelled actions 0, median wall 855.8 s, median replay 2.1 s, median tokens 49794, median restored messages 59, median kept functions 0, ends {'action_budget': 13, 'cleared': 6, 'wall_budget': 16}
+A6: run 35, cleared 8 (0.229), probes 98, capped batches 0, timeouts 18, cancelled actions 0, median wall 900.2 s, median replay 2.6 s, median tokens 45747, median restored messages 59, median kept functions 21, ends {'action_budget': 8, 'cleared': 8, 'wall_budget': 19}
+A8l: run 35, cleared 7 (0.2), probes 93, capped batches 0, timeouts 21, cancelled actions 0, median wall 900.1 s, median replay 5.5 s, median tokens 45734, median restored messages 59, median kept functions 21, ends {'action_budget': 10, 'cleared': 7, 'wall_budget': 18}
+A0L: run 35, cleared 14 (0.4), probes 173, capped batches 0, timeouts 29, cancelled actions 0, median wall 1494.2 s, median replay 3.9 s, median tokens 86741, median restored messages 59, median kept functions 21, ends {'action_budget': 5, 'cleared': 14, 'wall_budget': 16}
+A7: run 35, cleared 12 (0.343), probes 82, capped batches 0, timeouts 16, cancelled actions 0, median wall 900.1 s, median replay 3.2 s, median tokens 46231, median restored messages 59, median kept functions 21, ends {'action_budget': 5, 'cleared': 12, 'wall_budget': 18}
+A7c: run 35, cleared 10 (0.286), probes 85, capped batches 0, timeouts 19, cancelled actions 0, median wall 900.2 s, median replay 1.9 s, median tokens 48898, median restored messages 59, median kept functions 21, ends {'action_budget': 7, 'cleared': 10, 'wall_budget': 18}
+A7w: run 35, cleared 7 (0.2), probes 90, capped batches 0, timeouts 30, cancelled actions 0, median wall 900.3 s, median replay 2.6 s, median tokens 48391, median restored messages 59, median kept functions 21, ends {'action_budget': 8, 'cleared': 7, 'wall_budget': 20}
+A0b vs A0 (reproducibility floor): pairs 35; cleared 11 vs 9 (0.314 vs 0.257, 5.7 points); discordant 4/2 (6 of 35, 0.171); McNemar exact p 0.688; median actions to clear 57 vs 57; both cleared 7, paired median action difference -2
+A0c vs A0 (reproducibility floor): pairs 35; cleared 6 vs 9 (0.171 vs 0.257, -8.6 points); discordant 1/4 (5 of 35, 0.143); McNemar exact p 0.375; median actions to clear 31.5 vs 57; both cleared 5, paired median action difference -4
+A0d vs A0 (reproducibility floor): pairs 35; cleared 5 vs 9 (0.143 vs 0.257, -11.4 points); discordant 3/7 (10 of 35, 0.286); McNemar exact p 0.344; median actions to clear 60 vs 57; both cleared 2, paired median action difference -17.0
+A0e vs A0 (reproducibility floor): pairs 35; cleared 7 vs 9 (0.2 vs 0.257, -5.7 points); discordant 5/7 (12 of 35, 0.343); McNemar exact p 0.774; median actions to clear 65 vs 57; both cleared 2, paired median action difference -8.5
+A1 vs A0: pairs 35; cleared 5 vs 9 (0.143 vs 0.257, -11.4 points); discordant 4/8 (12 of 35, 0.343); McNemar exact p 0.388; median actions to clear 51 vs 57; both cleared 1, paired median action difference -25
+A2 vs A0: pairs 35; cleared 6 vs 9 (0.171 vs 0.257, -8.6 points); discordant 3/6 (9 of 35, 0.257); McNemar exact p 0.508; median actions to clear 52.5 vs 57; both cleared 3, paired median action difference -14
+A3 vs A0: pairs 35; cleared 1 vs 9 (0.029 vs 0.257, -22.9 points); discordant 0/8 (8 of 35, 0.229); McNemar exact p 0.008; median actions to clear 18 vs 57; both cleared 1, paired median action difference -39
+A4 vs A0: pairs 35; cleared 7 vs 9 (0.2 vs 0.257, -5.7 points); discordant 2/4 (6 of 35, 0.171); McNemar exact p 0.688; median actions to clear 49 vs 57; both cleared 5, paired median action difference -8
+A5 vs A0: pairs 35; cleared 6 vs 9 (0.171 vs 0.257, -8.6 points); discordant 2/5 (7 of 35, 0.2); McNemar exact p 0.453; median actions to clear 43.5 vs 57; both cleared 4, paired median action difference -5.5
+A6 vs A0: pairs 35; cleared 8 vs 9 (0.229 vs 0.257, -2.9 points); discordant 6/7 (13 of 35, 0.371); McNemar exact p 1.000; median actions to clear 54.5 vs 57; both cleared 2, paired median action difference -2.5
+A8l vs A0: pairs 35; cleared 7 vs 9 (0.2 vs 0.257, -5.7 points); discordant 1/3 (4 of 35, 0.114); McNemar exact p 0.625; median actions to clear 42 vs 57; both cleared 6, paired median action difference -10.0
+A7 vs A0: pairs 35; cleared 12 vs 9 (0.343 vs 0.257, 8.6 points); discordant 5/2 (7 of 35, 0.2); McNemar exact p 0.453; median actions to clear 48.5 vs 57; both cleared 7, paired median action difference -13
+A7c vs A0: pairs 35; cleared 10 vs 9 (0.286 vs 0.257, 2.9 points); discordant 5/4 (9 of 35, 0.257); McNemar exact p 1.000; median actions to clear 62.5 vs 57; both cleared 5, paired median action difference 0
+A7w vs A0: pairs 35; cleared 7 vs 9 (0.2 vs 0.257, -5.7 points); discordant 3/5 (8 of 35, 0.229); McNemar exact p 0.727; median actions to clear 47 vs 57; both cleared 4, paired median action difference -2.5
+A0c vs A0b: pairs 35; cleared 6 vs 11 (-14.3 points); discordant 1/6; McNemar exact p 0.125
+A0c vs A0 or A0b: pairs 35; cleared 6 vs 13 (-20.0 points); discordant 1/8; McNemar exact p 0.039
+A0c vs A0 and A0b: pairs 35; cleared 6 vs 7 (-2.9 points); discordant 1/2; McNemar exact p 1.000
+A0d vs A0b: pairs 35; cleared 5 vs 11 (-17.1 points); discordant 3/9; McNemar exact p 0.146
+A0d vs A0 or A0b: pairs 35; cleared 5 vs 13 (-22.9 points); discordant 3/11; McNemar exact p 0.057
+A0d vs A0 and A0b: pairs 35; cleared 5 vs 7 (-5.7 points); discordant 3/5; McNemar exact p 0.727
+A0e vs A0b: pairs 35; cleared 7 vs 11 (-11.4 points); discordant 3/7; McNemar exact p 0.344
+A0e vs A0 or A0b: pairs 35; cleared 7 vs 13 (-17.1 points); discordant 3/9; McNemar exact p 0.146
+A0e vs A0 and A0b: pairs 35; cleared 7 vs 7 (0.0 points); discordant 5/5; McNemar exact p 1.000
+A1 vs A0b: pairs 35; cleared 5 vs 11 (-17.1 points); discordant 2/8; McNemar exact p 0.109
+A1 vs A0 or A0b: pairs 35; cleared 5 vs 13 (-22.9 points); discordant 2/10; McNemar exact p 0.039
+A1 vs A0 and A0b: pairs 35; cleared 5 vs 7 (-5.7 points); discordant 4/6; McNemar exact p 0.754
+A2 vs A0b: pairs 35; cleared 6 vs 11 (-14.3 points); discordant 3/8; McNemar exact p 0.227
+A2 vs A0 or A0b: pairs 35; cleared 6 vs 13 (-20.0 points); discordant 2/9; McNemar exact p 0.065
+A2 vs A0 and A0b: pairs 35; cleared 6 vs 7 (-2.9 points); discordant 4/5; McNemar exact p 1.000
+A3 vs A0b: pairs 35; cleared 1 vs 11 (-28.6 points); discordant 0/10; McNemar exact p 0.002
+A3 vs A0 or A0b: pairs 35; cleared 1 vs 13 (-34.3 points); discordant 0/12; McNemar exact p 0.000
+A3 vs A0 and A0b: pairs 35; cleared 1 vs 7 (-17.1 points); discordant 0/6; McNemar exact p 0.031
+A4 vs A0b: pairs 35; cleared 7 vs 11 (-11.4 points); discordant 1/5; McNemar exact p 0.219
+A4 vs A0 or A0b: pairs 35; cleared 7 vs 13 (-17.1 points); discordant 1/7; McNemar exact p 0.070
+A4 vs A0 and A0b: pairs 35; cleared 7 vs 7 (0.0 points); discordant 2/2; McNemar exact p 1.000
+A5 vs A0b: pairs 35; cleared 6 vs 11 (-14.3 points); discordant 1/6; McNemar exact p 0.125
+A5 vs A0 or A0b: pairs 35; cleared 6 vs 13 (-20.0 points); discordant 1/8; McNemar exact p 0.039
+A5 vs A0 and A0b: pairs 35; cleared 6 vs 7 (-2.9 points); discordant 2/3; McNemar exact p 1.000
+A6 vs A0b: pairs 35; cleared 8 vs 11 (-8.6 points); discordant 6/9; McNemar exact p 0.607
+A6 vs A0 or A0b: pairs 35; cleared 8 vs 13 (-14.3 points); discordant 5/10; McNemar exact p 0.302
+A6 vs A0 and A0b: pairs 35; cleared 8 vs 7 (2.9 points); discordant 7/6; McNemar exact p 1.000
+A8l vs A0b: pairs 35; cleared 7 vs 11 (-11.4 points); discordant 0/4; McNemar exact p 0.125
+A8l vs A0 or A0b: pairs 35; cleared 7 vs 13 (-17.1 points); discordant 0/6; McNemar exact p 0.031
+A8l vs A0 and A0b: pairs 35; cleared 7 vs 7 (0.0 points); discordant 1/1; McNemar exact p 1.000
+A7 vs A0b: pairs 35; cleared 12 vs 11 (2.9 points); discordant 4/3; McNemar exact p 1.000
+A7 vs A0 or A0b: pairs 35; cleared 12 vs 13 (-2.9 points); discordant 3/4; McNemar exact p 1.000
+A7 vs A0 and A0b: pairs 35; cleared 12 vs 7 (14.3 points); discordant 6/1; McNemar exact p 0.125
+A7c vs A0b: pairs 35; cleared 10 vs 11 (-2.9 points); discordant 3/4; McNemar exact p 1.000
+A7c vs A0 or A0b: pairs 35; cleared 10 vs 13 (-8.6 points); discordant 3/6; McNemar exact p 0.508
+A7c vs A0 and A0b: pairs 35; cleared 10 vs 7 (8.6 points); discordant 5/2; McNemar exact p 0.453
+A7w vs A0b: pairs 35; cleared 7 vs 11 (-11.4 points); discordant 2/6; McNemar exact p 0.289
+A7w vs A0 or A0b: pairs 35; cleared 7 vs 13 (-17.1 points); discordant 2/8; McNemar exact p 0.109
+A7w vs A0 and A0b: pairs 35; cleared 7 vs 7 (0.0 points); discordant 3/3; McNemar exact p 1.000
+A4 trim (keep fraction [0.45]): shortened 35/35 restored conversations, unchanged 0; median messages 59 -> 25, est tokens 74952 -> 35427; on the shortened cases cleared A4 7/35, A0 9/35, A0b 11/35
+union over A0, A0b, A0c, A0d, A0e, A1, A2, A3, A4, A5, A6, A8l, A7, A7c, A7w: 23/35 cases cleared by at least one arm (independent draws at the observed rates: 33.93); 0/35 complete cases cleared by every arm; complete cases by number of arms clearing {'0': 12, '1': 6, '2': 1, '3': 2, '4': 3, '5': 2, '6': 3, '7': 2, '9': 1, '10': 3}
+arms do not matter (labels permuted within case, 20000 draws): observed spread 2.9067, p 0.0468
+time dose-response (A0L, budget 160 actions / 1800 s; R1 budget 80 / 900 s): run 35; cleared within the R1 budget 5, within its own 14, gain 9; median clear at 62.5 actions, 749.75 s; clears without clear fields 0; hard-stop ends 0; ends {'action_budget': 5, 'cleared': 14, 'wall_budget': 16}
+A0L at 15 min vs A0: pairs 35; cleared 5 vs 9 (-11.4 points); discordant 2/6; McNemar exact p 0.289
+A0L at 15 min vs A0b: pairs 35; cleared 5 vs 11 (-17.1 points); discordant 0/6; McNemar exact p 0.031
+A0L at 30 min vs A0: pairs 35; cleared 14 vs 9 (14.3 points); discordant 7/2; McNemar exact p 0.180
+A0L at 30 min vs A0b: pairs 35; cleared 14 vs 11 (8.6 points); discordant 5/2; McNemar exact p 0.453
+A0L at 30 min vs A0 or A0b: pairs 35; cleared 14 vs 13 (2.9 points); discordant 4/3; McNemar exact p 1.000
+A0L at 30 min vs A0L at 15 min: pairs 35; cleared 14 vs 5 (25.7 points); discordant 9/0; McNemar exact p 0.004
+cleared only after the R1 budget: 9: bp35_p1_L2_F (43 actions, 1312.4 s; over wall), g50t_p1_L1_F (83 actions, 786.1 s; over actions), g50t_p2_L4_F (118 actions, 633.9 s; over actions), ka59_p1_L6_F (154 actions, 602.0 s; over actions), lf52_p1_L2_F (95 actions, 829.6 s; over actions), re86_p3_L6_F (63 actions, 1015.8 s; over wall), sk48_p2_L1_F (54 actions, 934.8 s; over wall), su15_p2_L7_F (100 actions, 1601.2 s; over actions and wall), tr87_p0_L6_F (149 actions, 1015.5 s; over actions and wall)
+R1d decision (gain >= 5 time-limited, <= 2 competence-limited): time-limited: next work is time allocation in the 9-hour run
+repertoire sweep (A6; baselines A0, A0b, A0c; 35 cases where all ran): sweeps shown 82 (median 2 per case-arm, 0 case-arms without one), errors 0, max message 899 chars; cleared A6 8, A0 9, A0b 11, A0c 6; any baseline 14, every baseline 5
+  all: A6 vs A0: pairs 35; cleared 8 vs 9 (-2.9 points); discordant 6/7; McNemar exact p 1.000
+  all: A6 vs A0b: pairs 35; cleared 8 vs 11 (-8.6 points); discordant 6/9; McNemar exact p 0.607
+  all: A6 vs A0c: pairs 35; cleared 8 vs 6 (5.7 points); discordant 7/5; McNemar exact p 0.774
+  all: A6 vs any baseline: pairs 35; cleared 8 vs 14 (-17.1 points); discordant 5/11; McNemar exact p 0.210
+  all: A6 vs every baseline: pairs 35; cleared 8 vs 5 (8.6 points); discordant 7/4; McNemar exact p 0.549
+  partial (22 cases): cleared A6 4, A0 3, A0b 3, A0c 3; best sample 3, median sample 3; any baseline 5, every baseline 2
+    partial: A6 vs A0: pairs 22; cleared 4 vs 3 (4.5 points); discordant 3/2; McNemar exact p 1.000
+    partial: A6 vs A0b: pairs 22; cleared 4 vs 3 (4.5 points); discordant 4/3; McNemar exact p 1.000
+    partial: A6 vs A0c: pairs 22; cleared 4 vs 3 (4.5 points); discordant 4/3; McNemar exact p 1.000
+    partial: A6 vs any baseline: pairs 22; cleared 4 vs 5 (-4.5 points); discordant 3/4; McNemar exact p 1.000
+    partial: A6 vs every baseline: pairs 22; cleared 4 vs 2 (9.1 points); discordant 4/2; McNemar exact p 0.688
+  yes (11 cases): cleared A6 3, A0 6, A0b 8, A0c 3; best sample 8, median sample 6; any baseline 9, every baseline 3
+    yes: A6 vs A0: pairs 11; cleared 3 vs 6 (-27.3 points); discordant 2/5; McNemar exact p 0.453
+    yes: A6 vs A0b: pairs 11; cleared 3 vs 8 (-45.5 points); discordant 1/6; McNemar exact p 0.125
+    yes: A6 vs A0c: pairs 11; cleared 3 vs 3 (0.0 points); discordant 2/2; McNemar exact p 1.000
+    yes: A6 vs any baseline: pairs 11; cleared 3 vs 9 (-54.5 points); discordant 1/7; McNemar exact p 0.070
+    yes: A6 vs every baseline: pairs 11; cleared 3 vs 3 (0.0 points); discordant 2/2; McNemar exact p 1.000
+  no (2 cases): cleared A6 1, A0 0, A0b 0, A0c 0; best sample 0, median sample 0; any baseline 0, every baseline 0
+    no: A6 vs A0: pairs 2; cleared 1 vs 0 (50.0 points); discordant 1/0; McNemar exact p 1.000
+    no: A6 vs A0b: pairs 2; cleared 1 vs 0 (50.0 points); discordant 1/0; McNemar exact p 1.000
+    no: A6 vs A0c: pairs 2; cleared 1 vs 0 (50.0 points); discordant 1/0; McNemar exact p 1.000
+    no: A6 vs any baseline: pairs 2; cleared 1 vs 0 (50.0 points); discordant 1/0; McNemar exact p 1.000
+    no: A6 vs every baseline: pairs 2; cleared 1 vs 0 (50.0 points); discordant 1/0; McNemar exact p 1.000
+  Fisher exact, A6 cleared: partial 4/22 vs yes 3/11, p 0.661
+  Fisher exact, A0c cleared: partial 3/22 vs yes 3/11, p 0.375
+  Fisher exact, A6 cleared and A0c did not: partial 4/22 vs yes 2/11, p 1.000
+  cleared by A6 and no baseline sample: ['g50t_p2_L4_F', 're86_p1_L6_F', 'sk48_p2_L1_F', 'su15_p2_L7_F', 'tu93_p0_L9_F']; by a baseline sample and not A6: ['ar25_p3_L7_F', 'g50t_p1_L1_F', 'ka59_p1_L6_F', 'lf52_p1_L2_F', 'r11l_p2_L6_F', 're86_p3_L6_F', 'sk48_p0_L3_F', 'su15_p1_L7_F', 'tn36_p0_L6_F', 'tr87_p0_L6_F', 'tu93_p3_L9_F']
+R1e decision: no promotion: A6 does not beat the baseline samples by the margin (all cases: A6 8 vs best sample 11 (needs +4): not met; partial cases: A6 4 vs best sample 3 (needs +3): not met; yes cases: A6 3 vs median sample 6: loss)
+reasoning effort (arms A8l; unchanged samples A0, A0b, A0c, A0d, A0e)
+  A0e: run 35, cleared 7; median requests 17, tokens 41765, turns 9, actions 64; median clear at 65 actions / 641.7 s; ends {'action_budget': 12, 'cleared': 7, 'wall_budget': 16}; by effort: default 630 requests, 1401632 tokens (2225/request), truncated 7 (0.011)
+  A8l: run 35, cleared 7; median requests 16, tokens 45734, turns 9, actions 58; median clear at 42 actions / 346.2 s; ends {'action_budget': 10, 'cleared': 7, 'wall_budget': 18}; by effort: low 613 requests, 1368012 tokens (2232/request), truncated 8 (0.013)
+  A8l (35 cases where it and every sample ran): cleared A8l 7, A0 9, A0b 11, A0c 6, A0d 5, A0e 7; best sample 11, median sample 7; any baseline 19, every baseline 0
+    all: A8l vs A0: pairs 35; cleared 7 vs 9 (-5.7 points); discordant 1/3; McNemar exact p 0.625
+    all: A8l vs A0b: pairs 35; cleared 7 vs 11 (-11.4 points); discordant 0/4; McNemar exact p 0.125
+    all: A8l vs A0c: pairs 35; cleared 7 vs 6 (2.9 points); discordant 2/1; McNemar exact p 1.000
+    all: A8l vs A0d: pairs 35; cleared 7 vs 5 (5.7 points); discordant 5/3; McNemar exact p 0.727
+    all: A8l vs A0e: pairs 35; cleared 7 vs 7 (0.0 points); discordant 4/4; McNemar exact p 1.000
+    all: A8l vs any baseline: pairs 35; cleared 7 vs 19 (-34.3 points); discordant 0/12; McNemar exact p 0.000
+    all: A8l vs every baseline: pairs 35; cleared 7 vs 0 (20.0 points); discordant 7/0; McNemar exact p 0.016
+    partial (22 cases): cleared A8l 2, A0 3, A0b 3, A0c 3, A0d 3, A0e 3; best sample 3, median sample 3; any baseline 9, every baseline 0
+      partial: A8l vs A0: pairs 22; cleared 2 vs 3 (-4.5 points); discordant 0/1; McNemar exact p 1.000
+      partial: A8l vs A0b: pairs 22; cleared 2 vs 3 (-4.5 points); discordant 0/1; McNemar exact p 1.000
+      partial: A8l vs A0c: pairs 22; cleared 2 vs 3 (-4.5 points); discordant 0/1; McNemar exact p 1.000
+      partial: A8l vs A0d: pairs 22; cleared 2 vs 3 (-4.5 points); discordant 2/3; McNemar exact p 1.000
+      partial: A8l vs A0e: pairs 22; cleared 2 vs 3 (-4.5 points); discordant 2/3; McNemar exact p 1.000
+      partial: A8l vs any baseline: pairs 22; cleared 2 vs 9 (-31.8 points); discordant 0/7; McNemar exact p 0.016
+      partial: A8l vs every baseline: pairs 22; cleared 2 vs 0 (9.1 points); discordant 2/0; McNemar exact p 0.500
+    yes (11 cases): cleared A8l 5, A0 6, A0b 8, A0c 3, A0d 2, A0e 4; best sample 8, median sample 4; any baseline 10, every baseline 0
+      yes: A8l vs A0: pairs 11; cleared 5 vs 6 (-9.1 points); discordant 1/2; McNemar exact p 1.000
+      yes: A8l vs A0b: pairs 11; cleared 5 vs 8 (-27.3 points); discordant 0/3; McNemar exact p 0.250
+      yes: A8l vs A0c: pairs 11; cleared 5 vs 3 (18.2 points); discordant 2/0; McNemar exact p 0.500
+      yes: A8l vs A0d: pairs 11; cleared 5 vs 2 (27.3 points); discordant 3/0; McNemar exact p 0.250
+      yes: A8l vs A0e: pairs 11; cleared 5 vs 4 (9.1 points); discordant 2/1; McNemar exact p 1.000
+      yes: A8l vs any baseline: pairs 11; cleared 5 vs 10 (-45.5 points); discordant 0/5; McNemar exact p 0.062
+      yes: A8l vs every baseline: pairs 11; cleared 5 vs 0 (45.5 points); discordant 5/0; McNemar exact p 0.062
+    no (2 cases): cleared A8l 0, A0 0, A0b 0, A0c 0, A0d 0, A0e 0; best sample 0, median sample 0; any baseline 0, every baseline 0
+      no: A8l vs A0: pairs 2; cleared 0 vs 0 (0.0 points); discordant 0/0; McNemar exact p n/a
+      no: A8l vs A0b: pairs 2; cleared 0 vs 0 (0.0 points); discordant 0/0; McNemar exact p n/a
+      no: A8l vs A0c: pairs 2; cleared 0 vs 0 (0.0 points); discordant 0/0; McNemar exact p n/a
+      no: A8l vs A0d: pairs 2; cleared 0 vs 0 (0.0 points); discordant 0/0; McNemar exact p n/a
+      no: A8l vs A0e: pairs 2; cleared 0 vs 0 (0.0 points); discordant 0/0; McNemar exact p n/a
+      no: A8l vs any baseline: pairs 2; cleared 0 vs 0 (0.0 points); discordant 0/0; McNemar exact p n/a
+      no: A8l vs every baseline: pairs 2; cleared 0 vs 0 (0.0 points); discordant 0/0; McNemar exact p n/a
+    vs A0e on the 3 cases both cleared: paired median clear actions difference 2.0, clear seconds 146.6; paired median generated tokens difference (all cases) 1555
+    cleared by A8l and no sample: []; by a sample and not A8l: ['g50t_p2_L4_F', 'ka59_p1_L6_F', 'm0r0_p3_L6_F', 're86_p1_L6_F', 're86_p3_L6_F', 'sc25_p0_L6_F', 'sk48_p2_L1_F', 'su15_p2_L7_F', 'tn36_p0_L6_F', 'tr87_p0_L6_F', 'tr87_p1_L6_F', 'tu93_p3_L9_F']
+    A8l not promoted (all cases: A8l 7 of 35 (needs >= 15): not met; partial cases: A8l 2 of 22 (needs >= 7): not met; yes cases: A8l 5 of 11 vs median sample 4: no loss)
+R1i decision: effort closed as a lever: no effort arm meets the rule
+
+exit 0

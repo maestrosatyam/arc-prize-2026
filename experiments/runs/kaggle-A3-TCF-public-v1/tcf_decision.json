@@ -1,0 +1,355 @@
+{
+ "rule": "TCF, frozen (16:3x IST Oct 29; ARC3_PRE_RESET_RULES_2026-10-29.md at 731383e, stamped in a13ca99; revision 2, 17:13 IST Oct 29): validity (twin passed; layout tcv-2663e102-on-intel-861536dd; server loads with no error; >= 48/50 game-passes end with a scorecard); D = TCF mean game score - P0's 48.96, game-paired permutation on per-game means as WM1: weaker on full games at D <= -5 and p <= 0.05, standing only if TCF's median generated tokens per game-pass >= 80% of P0's (else report (time-bound)); not weaker at D >= -2; otherwise report",
+ "run": "experiments/runs/kaggle-A3-TCF-public-v1",
+ "baseline": "experiments/runs/kaggle-P0-commit-v1",
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "same_layout": true,
+   "server_loaded_no_error": true,
+   "scorecards_48_of_50": true
+  },
+  "layout": "tcv-2663e102-on-intel-861536dd",
+  "server": {
+   "ok": true,
+   "ready_line": 220,
+   "errors_before_ready": [],
+   "tracebacks_after_ready": 0
+  },
+  "scorecards": {
+   "game_passes": 50,
+   "with_scorecard": 50,
+   "states": {
+    "gave_up": 45,
+    "won": 5
+   }
+  },
+  "left_out_no_score": []
+ },
+ "d": -23.25,
+ "p": 0.0,
+ "p0_mean_rows": 48.96,
+ "p0_mean_rule": 48.96,
+ "d_vs_rule_mean": -23.25,
+ "reading": "report (time-bound)",
+ "band_unguarded": "weaker on full games",
+ "compute": {
+  "tcf_median_tokens_per_game_pass": 113956.5,
+  "p0_median_tokens_per_game_pass": 171437.0,
+  "ratio": 0.665,
+  "guard": 0.8,
+  "guard_met": false
+ },
+ "recorded_baselines": {
+  "p0_wall_cut": {
+   "cut_s": 14509,
+   "mean": 27.06,
+   "d_against": -1.35
+  },
+  "p0_compute_matched": {
+   "budget": "TCF's median generated tokens for each game",
+   "game_passes": 100,
+   "mean": 32.08,
+   "d_against": -6.37
+  }
+ },
+ "baseline_side": {
+  "p0_game_passes": 100,
+  "p0_mean": 48.96,
+  "p0_median_tokens_per_game_pass": 171437.0,
+  "guard_floor_tokens": 137149.6,
+  "p0_wall_cut_s": 14509,
+  "p0_wall_cut_mean": 27.06,
+  "p0_rows_rescore_check": true
+ },
+ "decision": "report (time-bound)",
+ "tcf": {
+  "game_passes": 50,
+  "mean_score": 25.71,
+  "levels_per_pass": {
+   "0": 3.28,
+   "1": 2.8
+  },
+  "levels_mean": 3.04,
+  "won": 5,
+  "moves_per_clear": {
+   "levels": 152,
+   "median": 30.0,
+   "mean": 46.1
+  },
+  "tokens_per_action": 430.3,
+  "actions": 14424,
+  "tokens": 6206742,
+  "tokens_per_game_pass": {
+   "mean": 124135,
+   "median": 113956
+  },
+  "wall_s_per_game_pass_median": 14618
+ },
+ "p0": {
+  "game_passes": 100,
+  "mean_score": 48.96,
+  "levels_per_pass": {
+   "0": 4.6,
+   "1": 4.44,
+   "2": 4.04,
+   "3": 4.2
+  },
+  "levels_mean": 4.32,
+  "won": 29,
+  "moves_per_clear": {
+   "levels": 432,
+   "median": 29.0,
+   "mean": 36.6
+  },
+  "tokens_per_action": 836.4,
+  "actions": 20977,
+  "tokens": 17545849,
+  "tokens_per_game_pass": {
+   "mean": 175458,
+   "median": 171437
+  },
+  "wall_s_per_game_pass_median": 29141
+ },
+ "first_model_action_s": 2006,
+ "keepalive": {
+  "found": true,
+  "first_model_action_s": 2006,
+  "resets": 11,
+  "reset_games": {
+   "ka59-38d34dbb": 11
+  }
+ },
+ "per_game": [
+  {
+   "game": "r11l",
+   "tcf": 7.47,
+   "p0": 92.86,
+   "delta": -85.39,
+   "tcf_passes": 2,
+   "tcf_tokens": 140851,
+   "p0_tokens": 250541
+  },
+  {
+   "game": "tr87",
+   "tcf": 17.06,
+   "p0": 84.14,
+   "delta": -67.08,
+   "tcf_passes": 2,
+   "tcf_tokens": 122882,
+   "p0_tokens": 133888
+  },
+  {
+   "game": "vc33",
+   "tcf": 14.47,
+   "p0": 80.29,
+   "delta": -65.81,
+   "tcf_passes": 2,
+   "tcf_tokens": 119762,
+   "p0_tokens": 158340
+  },
+  {
+   "game": "tn36",
+   "tcf": 1.79,
+   "p0": 52.05,
+   "delta": -50.26,
+   "tcf_passes": 2,
+   "tcf_tokens": 72848,
+   "p0_tokens": 203225
+  },
+  {
+   "game": "cn04",
+   "tcf": 4.76,
+   "p0": 45.16,
+   "delta": -40.4,
+   "tcf_passes": 2,
+   "tcf_tokens": 90697,
+   "p0_tokens": 291724
+  },
+  {
+   "game": "cd82",
+   "tcf": 38.42,
+   "p0": 73.41,
+   "delta": -34.99,
+   "tcf_passes": 2,
+   "tcf_tokens": 113906,
+   "p0_tokens": 122838
+  },
+  {
+   "game": "tu93",
+   "tcf": 36.76,
+   "p0": 71.74,
+   "delta": -34.98,
+   "tcf_passes": 2,
+   "tcf_tokens": 225209,
+   "p0_tokens": 300237
+  },
+  {
+   "game": "s5i5",
+   "tcf": 8.12,
+   "p0": 41.26,
+   "delta": -33.14,
+   "tcf_passes": 2,
+   "tcf_tokens": 193834,
+   "p0_tokens": 315486
+  },
+  {
+   "game": "ka59",
+   "tcf": 12.93,
+   "p0": 41.12,
+   "delta": -28.19,
+   "tcf_passes": 2,
+   "tcf_tokens": 104520,
+   "p0_tokens": 193572
+  },
+  {
+   "game": "sc25",
+   "tcf": 27.6,
+   "p0": 54.13,
+   "delta": -26.54,
+   "tcf_passes": 2,
+   "tcf_tokens": 91546,
+   "p0_tokens": 136723
+  },
+  {
+   "game": "m0r0",
+   "tcf": 12.47,
+   "p0": 38.72,
+   "delta": -26.24,
+   "tcf_passes": 2,
+   "tcf_tokens": 138497,
+   "p0_tokens": 197336
+  },
+  {
+   "game": "sp80",
+   "tcf": 11.92,
+   "p0": 32.14,
+   "delta": -20.22,
+   "tcf_passes": 2,
+   "tcf_tokens": 191620,
+   "p0_tokens": 187666
+  },
+  {
+   "game": "sb26",
+   "tcf": 79.17,
+   "p0": 98.72,
+   "delta": -19.56,
+   "tcf_passes": 2,
+   "tcf_tokens": 87678,
+   "p0_tokens": 49018
+  },
+  {
+   "game": "su15",
+   "tcf": 14.99,
+   "p0": 29.83,
+   "delta": -14.84,
+   "tcf_passes": 2,
+   "tcf_tokens": 152799,
+   "p0_tokens": 211170
+  },
+  {
+   "game": "lp85",
+   "tcf": 88.89,
+   "p0": 100.0,
+   "delta": -11.11,
+   "tcf_passes": 2,
+   "tcf_tokens": 119771,
+   "p0_tokens": 137611
+  },
+  {
+   "game": "wa30",
+   "tcf": 2.22,
+   "p0": 13.27,
+   "delta": -11.05,
+   "tcf_passes": 2,
+   "tcf_tokens": 83605,
+   "p0_tokens": 209991
+  },
+  {
+   "game": "ft09",
+   "tcf": 78.22,
+   "p0": 86.9,
+   "delta": -8.69,
+   "tcf_passes": 2,
+   "tcf_tokens": 83493,
+   "p0_tokens": 104733
+  },
+  {
+   "game": "re86",
+   "tcf": 41.67,
+   "p0": 50.0,
+   "delta": -8.33,
+   "tcf_passes": 2,
+   "tcf_tokens": 130186,
+   "p0_tokens": 195403
+  },
+  {
+   "game": "ls20",
+   "tcf": 5.48,
+   "p0": 13.3,
+   "delta": -7.82,
+   "tcf_passes": 2,
+   "tcf_tokens": 130900,
+   "p0_tokens": 132949
+  },
+  {
+   "game": "g50t",
+   "tcf": 1.58,
+   "p0": 8.04,
+   "delta": -6.46,
+   "tcf_passes": 2,
+   "tcf_tokens": 98634,
+   "p0_tokens": 125482
+  },
+  {
+   "game": "lf52",
+   "tcf": 1.71,
+   "p0": 4.98,
+   "delta": -3.26,
+   "tcf_passes": 2,
+   "tcf_tokens": 106237,
+   "p0_tokens": 127171
+  },
+  {
+   "game": "sk48",
+   "tcf": 1.39,
+   "p0": 2.73,
+   "delta": -1.34,
+   "tcf_passes": 2,
+   "tcf_tokens": 90064,
+   "p0_tokens": 114656
+  },
+  {
+   "game": "bp35",
+   "tcf": 2.22,
+   "p0": 1.7,
+   "delta": 0.52,
+   "tcf_passes": 2,
+   "tcf_tokens": 113966,
+   "p0_tokens": 151151
+  },
+  {
+   "game": "ar25",
+   "tcf": 100.0,
+   "p0": 89.58,
+   "delta": 10.42,
+   "tcf_passes": 2,
+   "tcf_tokens": 160732,
+   "p0_tokens": 163543
+  },
+  {
+   "game": "dc22",
+   "tcf": 31.39,
+   "p0": 17.86,
+   "delta": 13.53,
+   "tcf_passes": 2,
+   "tcf_tokens": 139134,
+   "p0_tokens": 172008
+  }
+ ],
+ "wall": {
+  "start": "2026-10-29T12:00:42.748311",
+  "end": "2026-10-29T16:06:29.832240"
+ }
+}

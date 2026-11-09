@@ -1,0 +1,1072 @@
+{
+ "rule": "experiments/arc3-think-aloud/RULE.md section 1",
+ "games": {
+  "ar25": {
+   "dataset_levels": 8,
+   "c1_n_levels": 8,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P02__ar25",
+    "state": "WIN",
+    "engine_counts": [
+     21,
+     56,
+     71,
+     37,
+     45,
+     254,
+     573,
+     410
+    ],
+    "dataset_counts": [
+     21,
+     56,
+     71,
+     37,
+     45,
+     254,
+     573,
+     410
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "bp35": {
+   "dataset_levels": 9,
+   "c1_n_levels": 9,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P06__bp35",
+    "state": "WIN",
+    "engine_counts": [
+     45,
+     45,
+     38,
+     26,
+     66,
+     50,
+     73,
+     271,
+     316
+    ],
+    "dataset_counts": [
+     45,
+     45,
+     38,
+     26,
+     66,
+     50,
+     73,
+     271,
+     316
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "cd82": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P11__cd82",
+    "state": "WIN",
+    "engine_counts": [
+     64,
+     8,
+     46,
+     19,
+     26,
+     19
+    ],
+    "dataset_counts": [
+     64,
+     8,
+     46,
+     19,
+     26,
+     19
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "cn04": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P12__cn04",
+    "state": "WIN",
+    "engine_counts": [
+     115,
+     69,
+     59,
+     105,
+     628,
+     64
+    ],
+    "dataset_counts": [
+     115,
+     69,
+     59,
+     105,
+     628,
+     64
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "dc22": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P24__dc22",
+    "state": "WIN",
+    "engine_counts": [
+     56,
+     77,
+     83,
+     101,
+     677,
+     686
+    ],
+    "dataset_counts": [
+     56,
+     77,
+     83,
+     101,
+     677,
+     686
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "ft09": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P16__ft09",
+    "state": "WIN",
+    "engine_counts": [
+     274,
+     10,
+     14,
+     26,
+     42,
+     29
+    ],
+    "dataset_counts": [
+     274,
+     10,
+     14,
+     26,
+     42,
+     29
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "g50t": {
+   "dataset_levels": 7,
+   "c1_n_levels": 7,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P21__g50t",
+    "state": "WIN",
+    "engine_counts": [
+     41,
+     210,
+     319,
+     118,
+     223,
+     129,
+     162
+    ],
+    "dataset_counts": [
+     41,
+     210,
+     319,
+     118,
+     223,
+     129,
+     162
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "ka59": {
+   "dataset_levels": 7,
+   "c1_n_levels": 7,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P04__ka59",
+    "state": "WIN",
+    "engine_counts": [
+     48,
+     225,
+     85,
+     77,
+     82,
+     117,
+     147
+    ],
+    "dataset_counts": [
+     48,
+     225,
+     85,
+     77,
+     82,
+     117,
+     147
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "lf52": {
+   "dataset_levels": 10,
+   "c1_n_levels": 10,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P34__lf52",
+    "state": "WIN",
+    "engine_counts": [
+     23,
+     109,
+     63,
+     203,
+     265,
+     229,
+     588,
+     592,
+     248,
+     133
+    ],
+    "dataset_counts": [
+     23,
+     109,
+     63,
+     203,
+     265,
+     229,
+     588,
+     592,
+     248,
+     133
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "lp85": {
+   "dataset_levels": 8,
+   "c1_n_levels": 8,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P03__lp85",
+    "state": "WIN",
+    "engine_counts": [
+     70,
+     111,
+     203,
+     110,
+     343,
+     405,
+     313,
+     987
+    ],
+    "dataset_counts": [
+     70,
+     111,
+     203,
+     110,
+     343,
+     405,
+     313,
+     987
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "ls20": {
+   "dataset_levels": 7,
+   "c1_n_levels": 7,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P05__ls20",
+    "state": "WIN",
+    "engine_counts": [
+     66,
+     126,
+     157,
+     154,
+     350,
+     234,
+     157
+    ],
+    "dataset_counts": [
+     66,
+     126,
+     157,
+     154,
+     350,
+     234,
+     157
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "m0r0": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P24__m0r0",
+    "state": "WIN",
+    "engine_counts": [
+     23,
+     50,
+     284,
+     18,
+     122,
+     112
+    ],
+    "dataset_counts": [
+     23,
+     50,
+     284,
+     18,
+     122,
+     112
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "r11l": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P16__r11l",
+    "state": "WIN",
+    "engine_counts": [
+     69,
+     28,
+     43,
+     40,
+     47,
+     53
+    ],
+    "dataset_counts": [
+     69,
+     28,
+     43,
+     40,
+     47,
+     53
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "re86": {
+   "dataset_levels": 8,
+   "c1_n_levels": 8,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P01__re86",
+    "state": "WIN",
+    "engine_counts": [
+     24,
+     46,
+     67,
+     50,
+     164,
+     125,
+     455,
+     247
+    ],
+    "dataset_counts": [
+     24,
+     46,
+     67,
+     50,
+     164,
+     125,
+     455,
+     247
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "s5i5": {
+   "dataset_levels": 8,
+   "c1_n_levels": 8,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P02__s5i5",
+    "state": "GAME_OVER",
+    "engine_counts": [
+     22,
+     134,
+     90,
+     118
+    ],
+    "dataset_counts": [
+     22,
+     134,
+     90,
+     118,
+     249,
+     218,
+     105,
+     72
+    ],
+    "ok": false
+   },
+   "status": "excluded"
+  },
+  "sb26": {
+   "dataset_levels": 8,
+   "c1_n_levels": 8,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P01__sb26",
+    "state": "WIN",
+    "engine_counts": [
+     19,
+     23,
+     16,
+     17,
+     78,
+     22,
+     20,
+     52
+    ],
+    "dataset_counts": [
+     19,
+     23,
+     16,
+     17,
+     78,
+     22,
+     20,
+     52
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "sc25": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P11__sc25",
+    "state": "WIN",
+    "engine_counts": [
+     149,
+     11,
+     93,
+     437,
+     152,
+     61
+    ],
+    "dataset_counts": [
+     149,
+     11,
+     93,
+     437,
+     152,
+     61
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "sk48": {
+   "dataset_levels": 8,
+   "c1_n_levels": 8,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P01__sk48",
+    "state": "WIN",
+    "engine_counts": [
+     34,
+     359,
+     107,
+     117,
+     117,
+     730,
+     138,
+     194
+    ],
+    "dataset_counts": [
+     34,
+     359,
+     107,
+     117,
+     117,
+     730,
+     138,
+     194
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "sp80": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P15__sp80",
+    "state": "WIN",
+    "engine_counts": [
+     18,
+     22,
+     326,
+     725,
+     157,
+     484
+    ],
+    "dataset_counts": [
+     18,
+     22,
+     326,
+     725,
+     157,
+     484
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "su15": {
+   "dataset_levels": 9,
+   "c1_n_levels": 9,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P06__su15",
+    "state": "WIN",
+    "engine_counts": [
+     25,
+     24,
+     23,
+     95,
+     24,
+     21,
+     9,
+     52,
+     142
+    ],
+    "dataset_counts": [
+     25,
+     24,
+     23,
+     95,
+     24,
+     21,
+     9,
+     52,
+     142
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "tn36": {
+   "dataset_levels": 7,
+   "c1_n_levels": 7,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P14__tn36",
+    "state": "WIN",
+    "engine_counts": [
+     24,
+     13,
+     20,
+     19,
+     24,
+     39,
+     108
+    ],
+    "dataset_counts": [
+     24,
+     13,
+     20,
+     19,
+     24,
+     39,
+     108
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "tr87": {
+   "dataset_levels": 6,
+   "c1_n_levels": 6,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P18__tr87",
+    "state": "WIN",
+    "engine_counts": [
+     71,
+     35,
+     22,
+     76,
+     69,
+     151
+    ],
+    "dataset_counts": [
+     71,
+     35,
+     22,
+     76,
+     69,
+     151
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "tu93": {
+   "dataset_levels": 9,
+   "c1_n_levels": 9,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P21__tu93",
+    "state": "NOT_FINISHED",
+    "engine_counts": [
+     25,
+     25,
+     20
+    ],
+    "dataset_counts": [
+     25,
+     25,
+     20,
+     103,
+     113,
+     115,
+     14,
+     24,
+     62
+    ],
+    "ok": false
+   },
+   "status": "excluded"
+  },
+  "vc33": {
+   "dataset_levels": 7,
+   "c1_n_levels": 7,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P04__vc33",
+    "state": "WIN",
+    "engine_counts": [
+     64,
+     17,
+     59,
+     76,
+     165,
+     34,
+     168
+    ],
+    "dataset_counts": [
+     64,
+     17,
+     59,
+     76,
+     165,
+     34,
+     168
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  },
+  "wa30": {
+   "dataset_levels": 9,
+   "c1_n_levels": 9,
+   "I1": true,
+   "trajectories_bad_counts": [],
+   "I2": {
+    "trajectory": "P02__wa30",
+    "state": "WIN",
+    "engine_counts": [
+     66,
+     194,
+     179,
+     64,
+     116,
+     61,
+     143,
+     385,
+     315
+    ],
+    "dataset_counts": [
+     66,
+     194,
+     179,
+     64,
+     116,
+     61,
+     143,
+     385,
+     315
+    ],
+    "ok": true
+   },
+   "status": "matched"
+  }
+ },
+ "revision1": {
+  "rule": "RULE.md revision 1 (23:52 IST Oct 29): I2' per trajectory",
+  "matched": [
+   "ar25",
+   "bp35",
+   "cd82",
+   "cn04",
+   "dc22",
+   "ft09",
+   "g50t",
+   "ka59",
+   "lf52",
+   "lp85",
+   "ls20",
+   "m0r0",
+   "r11l",
+   "re86",
+   "s5i5",
+   "sb26",
+   "sc25",
+   "sk48",
+   "sp80",
+   "su15",
+   "tn36",
+   "tr87",
+   "tu93",
+   "vc33",
+   "wa30"
+  ],
+  "per_game": {
+   "ar25": {
+    "humans": 5,
+    "replay": 5
+   },
+   "bp35": {
+    "humans": 7,
+    "replay": 6
+   },
+   "cd82": {
+    "humans": 6,
+    "replay": 6
+   },
+   "cn04": {
+    "humans": 6,
+    "replay": 6
+   },
+   "dc22": {
+    "humans": 4,
+    "replay": 4
+   },
+   "ft09": {
+    "humans": 4,
+    "replay": 4
+   },
+   "g50t": {
+    "humans": 6,
+    "replay": 5
+   },
+   "ka59": {
+    "humans": 5,
+    "replay": 5
+   },
+   "lf52": {
+    "humans": 4,
+    "replay": 4
+   },
+   "lp85": {
+    "humans": 7,
+    "replay": 7
+   },
+   "ls20": {
+    "humans": 6,
+    "replay": 6
+   },
+   "m0r0": {
+    "humans": 5,
+    "replay": 5
+   },
+   "r11l": {
+    "humans": 7,
+    "replay": 6
+   },
+   "re86": {
+    "humans": 7,
+    "replay": 7
+   },
+   "s5i5": {
+    "humans": 5,
+    "replay": 2
+   },
+   "sb26": {
+    "humans": 7,
+    "replay": 7
+   },
+   "sc25": {
+    "humans": 6,
+    "replay": 5
+   },
+   "sk48": {
+    "humans": 7,
+    "replay": 6
+   },
+   "sp80": {
+    "humans": 5,
+    "replay": 5
+   },
+   "su15": {
+    "humans": 5,
+    "replay": 4
+   },
+   "tn36": {
+    "humans": 7,
+    "replay": 6
+   },
+   "tr87": {
+    "humans": 6,
+    "replay": 5
+   },
+   "tu93": {
+    "humans": 5,
+    "replay": 4
+   },
+   "vc33": {
+    "humans": 5,
+    "replay": 5
+   },
+   "wa30": {
+    "humans": 7,
+    "replay": 7
+   }
+  },
+  "trajectories_ok": [
+   "P01__re86",
+   "P01__sb26",
+   "P01__sk48",
+   "P02__ar25",
+   "P02__wa30",
+   "P03__lp85",
+   "P04__ar25",
+   "P04__ka59",
+   "P04__vc33",
+   "P05__ls20",
+   "P06__bp35",
+   "P06__su15",
+   "P06__vc33",
+   "P07__ka59",
+   "P07__lp85",
+   "P08__ka59",
+   "P08__ls20",
+   "P09__bp35",
+   "P09__lp85",
+   "P09__re86",
+   "P10__wa30",
+   "P11__cd82",
+   "P11__ls20",
+   "P11__sc25",
+   "P12__cn04",
+   "P12__sc25",
+   "P13__lp85",
+   "P14__tn36",
+   "P15__cd82",
+   "P15__sb26",
+   "P15__sp80",
+   "P16__ft09",
+   "P16__r11l",
+   "P16__re86",
+   "P17__ls20",
+   "P18__sc25",
+   "P18__sk48",
+   "P18__tr87",
+   "P19__cn04",
+   "P20__re86",
+   "P20__vc33",
+   "P21__cd82",
+   "P21__g50t",
+   "P22__sb26",
+   "P23__ka59",
+   "P24__dc22",
+   "P24__m0r0",
+   "P24__su15",
+   "P25__ar25",
+   "P25__tu93",
+   "P25__wa30",
+   "P26__sc25",
+   "P27__dc22",
+   "P27__ls20",
+   "P27__tu93",
+   "P28__ar25",
+   "P28__lp85",
+   "P28__ls20",
+   "P29__bp35",
+   "P29__m0r0",
+   "P30__dc22",
+   "P30__tr87",
+   "P31__tn36",
+   "P32__bp35",
+   "P32__re86",
+   "P33__g50t",
+   "P33__r11l",
+   "P33__tn36",
+   "P34__lf52",
+   "P34__r11l",
+   "P34__sb26",
+   "P36__lf52",
+   "P36__tr87",
+   "P37__tr87",
+   "P38__re86",
+   "P38__s5i5",
+   "P38__sp80",
+   "P39__cd82",
+   "P39__g50t",
+   "P39__lp85",
+   "P40__g50t",
+   "P41__ka59",
+   "P41__sb26",
+   "P42__cd82",
+   "P42__cn04",
+   "P42__tr87",
+   "P43__ft09",
+   "P43__r11l",
+   "P43__sp80",
+   "P43__su15",
+   "P43__vc33",
+   "P43__wa30",
+   "P44__cd82",
+   "P44__cn04",
+   "P44__wa30",
+   "P45__r11l",
+   "P45__sb26",
+   "P46__sk48",
+   "P47__vc33",
+   "P47__wa30",
+   "P48__m0r0",
+   "P49__lp85",
+   "P49__m0r0",
+   "P49__tu93",
+   "P50__r11l",
+   "P50__s5i5",
+   "P50__tu93",
+   "P51__sb26",
+   "P51__sp80",
+   "P51__tn36",
+   "P52__cn04",
+   "P52__tn36",
+   "P53__su15",
+   "P54__bp35",
+   "P55__ar25",
+   "P55__cn04",
+   "P55__sk48",
+   "P56__wa30",
+   "P57__sk48",
+   "P58__lf52",
+   "P58__m0r0",
+   "P58__sc25",
+   "P59__ft09",
+   "P59__sp80",
+   "P59__tn36",
+   "P60__bp35",
+   "P60__sk48",
+   "P61__lf52",
+   "P62__g50t",
+   "P64__dc22",
+   "P64__ft09",
+   "P64__re86"
+  ],
+  "trajectories_failed": [
+   "P02__s5i5",
+   "P10__s5i5",
+   "P14__sk48",
+   "P21__tu93",
+   "P29__sc25",
+   "P35__g50t",
+   "P36__r11l",
+   "P37__su15",
+   "P47__s5i5",
+   "P63__bp35",
+   "P63__tn36",
+   "P63__tr87"
+  ],
+  "trajectories_unreplayable": []
+ },
+ "matched": [
+  "ar25",
+  "bp35",
+  "cd82",
+  "cn04",
+  "dc22",
+  "ft09",
+  "g50t",
+  "ka59",
+  "lf52",
+  "lp85",
+  "ls20",
+  "m0r0",
+  "r11l",
+  "re86",
+  "sb26",
+  "sc25",
+  "sk48",
+  "sp80",
+  "su15",
+  "tn36",
+  "tr87",
+  "vc33",
+  "wa30"
+ ],
+ "count_matched": [],
+ "excluded": [
+  "s5i5",
+  "tu93"
+ ]
+}

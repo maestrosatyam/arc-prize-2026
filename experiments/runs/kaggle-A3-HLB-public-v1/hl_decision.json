@@ -1,0 +1,322 @@
+{
+ "rule": "HL, frozen (reports/research/ARC3_HINT_LIBRARY_RULE_2026-10-30.md at a561b9f; 19:27 IST Oct 30): validity (twin passed; server loads with no error; >= 96 of 100 game-passes scored; every level entered logs its lookups; picked hints in the system prompt at the level's last call on >= 95% of levels entered; HLA: >= 90% of its calls valid); D = arm mean game score - FPG's 44.21, game-paired permutation, two-sided, 20,000 draws, each arm at p <= 0.025: D >= +5 and p <= 0.025 entry candidate; D <= +1 no measurable gain; otherwise report",
+ "archive": "experiments/runs/kaggle-A3-HLB-public-v1",
+ "arm": "hlb",
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "server_loaded_no_error": true,
+   "scorecards_96": true,
+   "lookups_logged": true,
+   "in_prompt_95": true
+  },
+  "passes": 4,
+  "game_passes": 100,
+  "scored": 100,
+  "scored_needed": 96,
+  "server": {
+   "ok": true,
+   "ready_line": 208,
+   "errors_before_ready": []
+  },
+  "left_out_no_score": [],
+  "levels_entered": 447,
+  "levels_without_lookups": [],
+  "n_levels_without_lookups": 0,
+  "in_prompt_last_call": 447,
+  "in_prompt_share": 1.0,
+  "not_in_prompt": [],
+  "arm_errors": [],
+  "n_arm_errors": 0,
+  "hla_calls": 0,
+  "hla_valid": 0,
+  "hla_valid_share": null
+ },
+ "reading": {
+  "arm_mean": 41.27,
+  "FPG_mean": 44.21,
+  "FPG_rule_mean": 44.21,
+  "D": -2.94,
+  "p": 0.3756,
+  "band": "no measurable gain",
+  "game_passes": 100,
+  "FPG_game_passes": 100
+ },
+ "decision": "no measurable gain",
+ "arm_side": {
+  "game_passes": 100,
+  "mean_score": 41.27,
+  "levels_per_pass": {
+   "0": 3.92,
+   "1": 3.84,
+   "2": 3.8,
+   "3": 3.36
+  },
+  "levels_mean": 3.73,
+  "won": 26,
+  "moves_per_clear": {
+   "levels": 373,
+   "median": 26,
+   "mean": 33.9
+  },
+  "tokens_per_action": 880.7,
+  "tokens_per_game_pass": {
+   "mean": 151390,
+   "median": 138176
+  },
+  "wall_budget_endings": 74,
+  "first_model_action_s": {
+   "min": 2,
+   "median": 5566
+  }
+ },
+ "fpg_side": {
+  "game_passes": 100,
+  "mean_score": 44.21,
+  "levels_per_pass": {
+   "0": 4.04,
+   "1": 3.68,
+   "2": 3.88,
+   "3": 4.44
+  },
+  "levels_mean": 4.01,
+  "won": 25,
+  "moves_per_clear": {
+   "levels": 401,
+   "median": 29,
+   "mean": 37.3
+  },
+  "tokens_per_action": 875.1,
+  "tokens_per_game_pass": {
+   "mean": 176269,
+   "median": 158140
+  },
+  "wall_budget_endings": 75,
+  "first_model_action_s": {
+   "min": 1,
+   "median": 4485
+  }
+ },
+ "per_game": {
+  "ar25": {
+   "arm": 100.0,
+   "FPG": 100.0,
+   "delta": 0.0
+  },
+  "bp35": {
+   "arm": 2.92,
+   "FPG": 1.5,
+   "delta": 1.41
+  },
+  "cd82": {
+   "arm": 51.76,
+   "FPG": 45.04,
+   "delta": 6.72
+  },
+  "cn04": {
+   "arm": 30.95,
+   "FPG": 60.71,
+   "delta": -29.76
+  },
+  "dc22": {
+   "arm": 15.48,
+   "FPG": 47.62,
+   "delta": -32.14
+  },
+  "ft09": {
+   "arm": 100.0,
+   "FPG": 73.81,
+   "delta": 26.19
+  },
+  "g50t": {
+   "arm": 3.57,
+   "FPG": 13.39,
+   "delta": -9.82
+  },
+  "ka59": {
+   "arm": 24.15,
+   "FPG": 24.28,
+   "delta": -0.13
+  },
+  "lf52": {
+   "arm": 4.41,
+   "FPG": 2.61,
+   "delta": 1.8
+  },
+  "lp85": {
+   "arm": 89.07,
+   "FPG": 97.52,
+   "delta": -8.45
+  },
+  "ls20": {
+   "arm": 28.92,
+   "FPG": 23.2,
+   "delta": 5.73
+  },
+  "m0r0": {
+   "arm": 27.55,
+   "FPG": 54.76,
+   "delta": -27.21
+  },
+  "r11l": {
+   "arm": 76.19,
+   "FPG": 66.67,
+   "delta": 9.52
+  },
+  "re86": {
+   "arm": 46.53,
+   "FPG": 50.0,
+   "delta": -3.47
+  },
+  "s5i5": {
+   "arm": 19.5,
+   "FPG": 13.29,
+   "delta": 6.21
+  },
+  "sb26": {
+   "arm": 100.0,
+   "FPG": 77.07,
+   "delta": 22.93
+  },
+  "sc25": {
+   "arm": 65.74,
+   "FPG": 60.89,
+   "delta": 4.84
+  },
+  "sk48": {
+   "arm": 0.69,
+   "FPG": 0.69,
+   "delta": 0.0
+  },
+  "sp80": {
+   "arm": 21.05,
+   "FPG": 17.52,
+   "delta": 3.52
+  },
+  "su15": {
+   "arm": 16.33,
+   "FPG": 12.78,
+   "delta": 3.55
+  },
+  "tn36": {
+   "arm": 3.67,
+   "FPG": 16.98,
+   "delta": -13.3
+  },
+  "tr87": {
+   "arm": 69.53,
+   "FPG": 75.49,
+   "delta": -5.96
+  },
+  "tu93": {
+   "arm": 64.61,
+   "FPG": 78.29,
+   "delta": -13.67
+  },
+  "vc33": {
+   "arm": 66.79,
+   "FPG": 80.36,
+   "delta": -13.56
+  },
+  "wa30": {
+   "arm": 2.22,
+   "FPG": 10.72,
+   "delta": -8.5
+  }
+ },
+ "beside": {
+  "lookups": 927,
+  "lookups_per_level": {
+   "1": 188,
+   "2": 113,
+   "3": 71,
+   "4": 75
+  },
+  "lookups_per_level_mean": 2.07,
+  "triggers": {
+   "level_start": 447,
+   "stuck_time": 273,
+   "stuck_actions": 207
+  },
+  "stuck_share": 0.5178,
+  "pickers": {
+   "hlb": 927
+  },
+  "most_picked": [
+   {
+    "id": "r1j:split-the-goal",
+    "n": 431,
+    "source": "r1j",
+    "text": "One goal may need several objects together: split the target into parts and assign each part to an object."
+   },
+   {
+    "id": "team:faa008feee",
+    "n": 401,
+    "source": "team",
+    "text": "white vs background-coloured dots show selection"
+   },
+   {
+    "id": "r1j:match-reference",
+    "n": 396,
+    "source": "r1j",
+    "text": "A reference picture or sequence shown on the board is the goal; reproduce it exactly, in its order."
+   },
+   {
+    "id": "team:8077c351e9",
+    "n": 394,
+    "source": "team",
+    "text": "move the axis instead of the object"
+   },
+   {
+    "id": "team:b8bc9f050b",
+    "n": 362,
+    "source": "team",
+    "text": "read gravity from the first move before planning"
+   },
+   {
+    "id": "r1j:linked-controls",
+    "n": 359,
+    "source": "r1j",
+    "text": "One control may move several objects at once; check everything that moves and plan their joint positions."
+   },
+   {
+    "id": "team:1a582f3d1d",
+    "n": 358,
+    "source": "team",
+    "text": "count the gravity flips the route needs, then find that many switches"
+   },
+   {
+    "id": "r1j:all-at-once",
+    "n": 352,
+    "source": "r1j",
+    "text": "All sub-goals must hold at the same moment; a later move must not break an earlier one."
+   },
+   {
+    "id": "team:ab08cfa0a7",
+    "n": 339,
+    "source": "team",
+    "text": "avoid untested piece-piece overlaps by ordering moves"
+   },
+   {
+    "id": "r1j:learn-from-example",
+    "n": 322,
+    "source": "r1j",
+    "text": "Examples, a legend or a demonstration on the board show what each mark or code does; read them before acting."
+   }
+  ],
+  "picked_by_source": {
+   "r1j": 7416,
+   "team": 6489
+  },
+  "hla_fallbacks": 0,
+  "hla_seconds": 0,
+  "hla_time_share": null,
+  "vs_other_arm": {
+   "other": "hla",
+   "other_mean": 36.79,
+   "D": 4.48,
+   "p": 0.1913
+  }
+ }
+}

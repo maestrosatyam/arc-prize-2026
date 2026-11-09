@@ -1,0 +1,318 @@
+{
+ "rule": "HL, frozen (reports/research/ARC3_HINT_LIBRARY_RULE_2026-10-30.md at a561b9f; 19:27 IST Oct 30): validity (twin passed; server loads with no error; >= 96 of 100 game-passes scored; every level entered logs its lookups; picked hints in the system prompt at the level's last call on >= 95% of levels entered; HLA: >= 90% of its calls valid); D = arm mean game score - FPG's 44.21, game-paired permutation, two-sided, 20,000 draws, each arm at p <= 0.025: D >= +5 and p <= 0.025 entry candidate; D <= +1 no measurable gain; otherwise report",
+ "archive": "experiments/runs/kaggle-A3-HLA-public-v1",
+ "arm": "hla",
+ "validity": {
+  "valid": true,
+  "checks": {
+   "twin_passed": true,
+   "server_loaded_no_error": true,
+   "scorecards_96": true,
+   "lookups_logged": true,
+   "in_prompt_95": true,
+   "hla_valid_90": true
+  },
+  "passes": 4,
+  "game_passes": 100,
+  "scored": 100,
+  "scored_needed": 96,
+  "server": {
+   "ok": true,
+   "ready_line": 204,
+   "errors_before_ready": []
+  },
+  "left_out_no_score": [],
+  "levels_entered": 432,
+  "levels_without_lookups": [],
+  "n_levels_without_lookups": 0,
+  "in_prompt_last_call": 432,
+  "in_prompt_share": 1.0,
+  "not_in_prompt": [],
+  "arm_errors": [],
+  "n_arm_errors": 0,
+  "hla_calls": 910,
+  "hla_valid": 836,
+  "hla_valid_share": 0.9187
+ },
+ "reading": {
+  "arm_mean": 36.79,
+  "FPG_mean": 44.21,
+  "FPG_rule_mean": 44.21,
+  "D": -7.42,
+  "p": 0.0293,
+  "band": "no measurable gain",
+  "game_passes": 100,
+  "FPG_game_passes": 100
+ },
+ "decision": "no measurable gain",
+ "arm_side": {
+  "game_passes": 100,
+  "mean_score": 36.79,
+  "levels_per_pass": {
+   "0": 3.36,
+   "1": 3.4,
+   "2": 3.64,
+   "3": 3.8
+  },
+  "levels_mean": 3.55,
+  "won": 22,
+  "moves_per_clear": {
+   "levels": 355,
+   "median": 28,
+   "mean": 34.8
+  },
+  "tokens_per_action": 865.5,
+  "tokens_per_game_pass": {
+   "mean": 147941,
+   "median": 136006
+  },
+  "wall_budget_endings": 78,
+  "first_model_action_s": {
+   "min": 1,
+   "median": 5241
+  }
+ },
+ "fpg_side": {
+  "game_passes": 100,
+  "mean_score": 44.21,
+  "levels_per_pass": {
+   "0": 4.04,
+   "1": 3.68,
+   "2": 3.88,
+   "3": 4.44
+  },
+  "levels_mean": 4.01,
+  "won": 25,
+  "moves_per_clear": {
+   "levels": 401,
+   "median": 29,
+   "mean": 37.3
+  },
+  "tokens_per_action": 875.1,
+  "tokens_per_game_pass": {
+   "mean": 176269,
+   "median": 158140
+  },
+  "wall_budget_endings": 75,
+  "first_model_action_s": {
+   "min": 1,
+   "median": 4485
+  }
+ },
+ "per_game": {
+  "ar25": {
+   "arm": 100.0,
+   "FPG": 100.0,
+   "delta": 0.0
+  },
+  "bp35": {
+   "arm": 1.88,
+   "FPG": 1.5,
+   "delta": 0.38
+  },
+  "cd82": {
+   "arm": 36.31,
+   "FPG": 45.04,
+   "delta": -8.73
+  },
+  "cn04": {
+   "arm": 14.88,
+   "FPG": 60.71,
+   "delta": -45.83
+  },
+  "dc22": {
+   "arm": 26.92,
+   "FPG": 47.62,
+   "delta": -20.7
+  },
+  "ft09": {
+   "arm": 82.14,
+   "FPG": 73.81,
+   "delta": 8.33
+  },
+  "g50t": {
+   "arm": 8.04,
+   "FPG": 13.39,
+   "delta": -5.36
+  },
+  "ka59": {
+   "arm": 11.98,
+   "FPG": 24.28,
+   "delta": -12.3
+  },
+  "lf52": {
+   "arm": 7.21,
+   "FPG": 2.61,
+   "delta": 4.6
+  },
+  "lp85": {
+   "arm": 99.99,
+   "FPG": 97.52,
+   "delta": 2.47
+  },
+  "ls20": {
+   "arm": 7.05,
+   "FPG": 23.2,
+   "delta": -16.15
+  },
+  "m0r0": {
+   "arm": 41.42,
+   "FPG": 54.76,
+   "delta": -13.34
+  },
+  "r11l": {
+   "arm": 45.24,
+   "FPG": 66.67,
+   "delta": -21.43
+  },
+  "re86": {
+   "arm": 49.79,
+   "FPG": 50.0,
+   "delta": -0.21
+  },
+  "s5i5": {
+   "arm": 5.05,
+   "FPG": 13.29,
+   "delta": -8.24
+  },
+  "sb26": {
+   "arm": 97.77,
+   "FPG": 77.07,
+   "delta": 20.7
+  },
+  "sc25": {
+   "arm": 41.67,
+   "FPG": 60.89,
+   "delta": -19.23
+  },
+  "sk48": {
+   "arm": 0.69,
+   "FPG": 0.69,
+   "delta": 0.0
+  },
+  "sp80": {
+   "arm": 36.9,
+   "FPG": 17.52,
+   "delta": 19.38
+  },
+  "su15": {
+   "arm": 13.66,
+   "FPG": 12.78,
+   "delta": 0.88
+  },
+  "tn36": {
+   "arm": 27.94,
+   "FPG": 16.98,
+   "delta": 10.96
+  },
+  "tr87": {
+   "arm": 46.98,
+   "FPG": 75.49,
+   "delta": -28.51
+  },
+  "tu93": {
+   "arm": 60.43,
+   "FPG": 78.29,
+   "delta": -17.86
+  },
+  "vc33": {
+   "arm": 43.56,
+   "FPG": 80.36,
+   "delta": -36.79
+  },
+  "wa30": {
+   "arm": 12.22,
+   "FPG": 10.72,
+   "delta": 1.5
+  }
+ },
+ "beside": {
+  "lookups": 910,
+  "lookups_per_level": {
+   "1": 193,
+   "2": 91,
+   "3": 61,
+   "4": 88
+  },
+  "lookups_per_level_mean": 2.1,
+  "triggers": {
+   "level_start": 433,
+   "stuck_actions": 225,
+   "stuck_time": 252
+  },
+  "stuck_share": 0.5242,
+  "pickers": {
+   "hla": 836,
+   "hla_fallback": 74
+  },
+  "most_picked": [
+   {
+    "id": "r1j:match-reference",
+    "n": 409,
+    "source": "r1j",
+    "text": "A reference picture or sequence shown on the board is the goal; reproduce it exactly, in its order."
+   },
+   {
+    "id": "r1j:move-the-effector",
+    "n": 354,
+    "source": "r1j",
+    "text": "The thing that redirects or acts on your objects can itself be moved: place it first so its effect lands where needed."
+   },
+   {
+    "id": "r1j:park-and-restore",
+    "n": 274,
+    "source": "r1j",
+    "text": "A piece already in place may have to be moved away for a while to let others pass, then put back."
+   },
+   {
+    "id": "r1j:all-at-once",
+    "n": 271,
+    "source": "r1j",
+    "text": "All sub-goals must hold at the same moment; a later move must not break an earlier one."
+   },
+   {
+    "id": "r1j:learn-from-example",
+    "n": 248,
+    "source": "r1j",
+    "text": "Examples, a legend or a demonstration on the board show what each mark or code does; read them before acting."
+   },
+   {
+    "id": "r1j:build-the-floor",
+    "n": 243,
+    "source": "r1j",
+    "text": "The missing floor or bridge can be supplied: get a piece you can stand on into the gap."
+   },
+   {
+    "id": "r1j:push-with-object",
+    "n": 227,
+    "source": "r1j",
+    "text": "Use one movable object to push another that you cannot reach or move directly."
+   },
+   {
+    "id": "r1j:plan-backwards",
+    "n": 216,
+    "source": "r1j",
+    "text": "When later steps sit on top of earlier ones, plan backwards: what must end on top or nearest goes last."
+   },
+   {
+    "id": "r1j:legal-every-step",
+    "n": 211,
+    "source": "r1j",
+    "text": "Every intermediate state must be legal; order the moves so that no step lands on a hazard or a collision."
+   },
+   {
+    "id": "r1j:ride-a-carrier",
+    "n": 202,
+    "source": "r1j",
+    "text": "A moving platform or carrier can link separate areas: get onto it, move it, get off on the other side."
+   }
+  ],
+  "picked_by_source": {
+   "r1j": 5841,
+   "team": 5712
+  },
+  "hla_fallbacks": 74,
+  "hla_seconds": 3505.1,
+  "hla_time_share": 0.0013
+ }
+}

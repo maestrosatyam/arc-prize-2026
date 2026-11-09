@@ -1,0 +1,67 @@
+$ python3 -I arc3_r1m_analyze.py --results experiments/runs/kaggle-R1m-reset-v2/r1_results.jsonl; python3 -I arc3_r1m_pooled.py (a reader not included)   # a per-run reader, not included
+R1m: arm A11r (EXPOSE_RESET 'on', otherwise R1d A0L) vs unchanged 30-minute samples
+labels on the control cases: {'yes': 11, 'partial': 22, 'no': 2}
+
+arm                    all  mechanics-only    actions to clear (median, mean, n)
+A0L (R1d)            14/35            3/22        62.5, 78.2, 14
+A0Lb (R1g v1)        14/35            7/22        66.0, 83.6, 14
+A0Lb (R1g v2)        18/35            8/22        75.0, 77.7, 18
+A0Lc (R1j)           17/35            8/22        79, 73.6, 17
+A11r (R1m)           21/35           11/22        89, 75.2, 21   groups {'yes': [9, 11], 'partial': [11, 22], 'no': [1, 2]}
+case-arms in the archive 35, ran 35; ends {'action_budget': 5, 'cleared': 21, 'wall_budget': 9}
+
+A11r paired (exact McNemar, two-sided):
+  all      vs A0L (R1d)      A11r only 9, control only 2, both 12, neither 12 (pairs 35); p 0.065
+  all      vs A0Lb (R1g v1)  A11r only 9, control only 2, both 12, neither 12 (pairs 35); p 0.065
+  all      vs A0Lb (R1g v2)  A11r only 5, control only 2, both 16, neither 12 (pairs 35); p 0.453
+  all      vs A0Lc (R1j)     A11r only 6, control only 2, both 15, neither 12 (pairs 35); p 0.289
+  partial  vs A0L (R1d)      A11r only 8, control only 0, both 3, neither 11 (pairs 22); p 0.008
+  partial  vs A0Lb (R1g v1)  A11r only 5, control only 1, both 6, neither 10 (pairs 22); p 0.219
+  partial  vs A0Lb (R1g v2)  A11r only 4, control only 1, both 7, neither 10 (pairs 22); p 0.375
+  partial  vs A0Lc (R1j)     A11r only 4, control only 1, both 7, neither 10 (pairs 22); p 0.375
+
+RESET use (model-issued, executed, after the restore): 22 in 16 of 35 counted case-arms (max 4 in one); automatic RESETs 16; rows without counts 0
+  cleared with a RESET 10/16, without 11/19; clears reached after the first RESET 10
+  case             resets  auto  reset at           cleared    at  actions  end
+  ar25_p3_L7_F          0     0                           Y    45       45  cleared
+  bp35_p1_L2_F          0     3                           n     -       85  wall_budget
+  bp35_p3_L2_F          4     6  51,64,81,93              n     -      119  wall_budget
+  cn04_p0_L6_F          0     0                           n     -       56  wall_budget
+  g50t_p1_L1_F          0     1                           Y    42       42  cleared
+  g50t_p2_L4_F          0     0                           Y    56       56  cleared
+  ka59_p0_L6_F          0     1                           n     -      160  action_budget
+  ka59_p1_L6_F          1     0  26                       Y    89       89  cleared
+  ka59_p3_L6_F          1     0  83                       Y   153      153  cleared
+  lf52_p1_L2_F          0     0                           Y    44       44  cleared
+  lf52_p2_L4_F          1     0  1                        n     -       56  wall_budget
+  ls20_p1_L6_F          0     0                           n     -      160  action_budget
+  m0r0_p2_L6_F          1     0  98                       n     -       98  wall_budget
+  m0r0_p3_L6_F          1     0  76                       Y   131      131  cleared
+  r11l_p2_L6_F          1     0  1                        Y    24       24  cleared
+  re86_p0_L7_F          0     0                           n     -      160  action_budget
+  re86_p1_L6_F          0     0                           n     -       69  wall_budget
+  re86_p2_L7_F          0     0                           Y   143      143  cleared
+  re86_p3_L6_F          1     0  58                       Y   141      141  cleared
+  s5i5_p0_L8_F          0     0                           Y    53       53  cleared
+  s5i5_p2_L7_F          1     0  6                        n     -       35  wall_budget
+  sc25_p0_L6_F          2     0  1,59                     Y   105      105  cleared
+  sk48_p0_L3_F          0     0                           n     -       88  wall_budget
+  sk48_p2_L1_F          1     0  40                       Y    91       91  cleared
+  sp80_p1_L6_F          0     1                           n     -       28  wall_budget
+  su15_p1_L7_F          0     0                           Y     6        6  cleared
+  su15_p2_L7_F          1     0  1                        Y    22       22  cleared
+  tn36_p0_L6_F          1     0  48                       Y   100      100  cleared
+  tr87_p0_L6_F          1     0  1                        Y    95       95  cleared
+  tr87_p1_L6_F          0     0                           Y    91       91  cleared
+  tu93_p0_L9_F          0     0                           Y    24       24  cleared
+  tu93_p2_L8_F          0     1                           Y    29       29  cleared
+  tu93_p3_L9_F          0     3                           Y    96       96  cleared
+  wa30_p0_L5_F          2     0  21,142                   n     -      160  action_budget
+  wa30_p3_L5_F          2     0  15,86                    n     -      160  action_budget
+
+Rule: helpful if >= 21/35; harmful if <= 11/35; otherwise neutral.
+Decision: helpful (A11r 21/35 >= 21)
+R1m pooled: run 1 20/35, run 2 21/35, together 41/70
+Rule: helpful if the two runs together clear >= 41/70. Decision: helpful
+
+exit 0

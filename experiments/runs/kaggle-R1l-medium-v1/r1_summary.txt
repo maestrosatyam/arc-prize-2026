@@ -1,0 +1,40 @@
+case            A10m clr/act/tok/end          
+ar25_p3_L7_F    n/0/29706/wall_budget         
+bp35_p1_L2_F    n/3/29195/wall_budget         
+bp35_p3_L2_F    n/4/26532/wall_budget         
+cn04_p0_L6_F    n/0/29803/wall_budget         
+g50t_p1_L1_F    n/1/23851/wall_budget         
+g50t_p2_L4_F    n/0/27692/wall_budget         
+ka59_p0_L6_F    n/96/29314/wall_budget        
+ka59_p1_L6_F    n/58/27965/wall_budget        
+ka59_p3_L6_F    n/29/29008/wall_budget        
+lf52_p1_L2_F    n/3/30047/wall_budget         
+lf52_p2_L4_F    n/0/19215/wall_budget         
+ls20_p1_L6_F    n/0/24273/wall_budget         
+m0r0_p2_L6_F    n/2/25093/wall_budget         
+m0r0_p3_L6_F    n/7/20382/wall_budget         
+r11l_p2_L6_F    n/0/22899/wall_budget         
+re86_p0_L7_F    n/0/20256/wall_budget         
+re86_p1_L6_F    n/0/25179/wall_budget         
+re86_p2_L7_F    n/0/25546/wall_budget         
+re86_p3_L6_F    n/0/23813/wall_budget         
+s5i5_p0_L8_F    n/8/23550/wall_budget         
+s5i5_p2_L7_F    n/0/26869/wall_budget         
+sc25_p0_L6_F    n/1/31446/wall_budget         
+sk48_p0_L3_F    Y/75/4605/cleared             
+sk48_p2_L1_F    n/39/26775/wall_budget        
+sp80_p1_L6_F    n/0/25135/wall_budget         
+su15_p1_L7_F    n/29/29994/wall_budget        
+su15_p2_L7_F    n/2/25551/wall_budget         
+tn36_p0_L6_F    n/0/33052/wall_budget         
+tr87_p0_L6_F    n/1/30190/wall_budget         
+tr87_p1_L6_F    n/60/24620/wall_budget        
+tu93_p0_L9_F    n/0/32491/wall_budget         
+tu93_p2_L8_F    n/10/46545/wall_budget        
+tu93_p3_L9_F    n/1/51390/wall_budget         
+wa30_p0_L5_F    n/8/46940/wall_budget         
+wa30_p3_L5_F    n/1/47048/wall_budget         
+
+A10m: cleared 1/35; median actions to clear 75; timeouts 2; probes 40; errors 0
+
+R1l run: {"arm": "A10m", "arm_flags": {"ARC3_R1L_EFFORT": "medium"}, "twin": false, "server_option_set": 0, "server_args": ["--reasoning-config", "{\"reasoning_start_str\": \"<think>\", \"reasoning_end_str\": \"</think>\"}", "--speculative-config", "{\"method\": \"qwen3_5_mtp\", \"num_speculative_tokens\": 2}"], "server_ready_s": 477.5, "install_s": 57.8, "server_versions": {"vllm": "0.19.0", "torch": "2.10.0", "transformers": "5.8.0", "huggingface-hub": "1.5.0", "flashinfer-python": "0.6.6", "torchvision": "0.25.0", "triton": "3.6.0"}, "run_start_s": 480.7, "run_wall_s": 7233.7, "case_arms": 35, "cleared": 1, "generated_tokens_results": 995970, "generated_tokens_server": 1076703.0, "aggregate_tok_s": 148.8, "aggregate_tok_s_requests": 137.7, "requests": {"requests": 477, "errors": 31, "generated_tokens": 995970, "tokens_per_request": 2233.1, "truncated": 4, "truncated_share": 0.009, "budget_closed": 0, "median_latency_s": 88.06, "efforts": ["medium"], "budgets": []}, "server_alive_at_end": true}
